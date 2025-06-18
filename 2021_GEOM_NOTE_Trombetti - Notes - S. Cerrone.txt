@@ -1,0 +1,3316 @@
+Geometria
+Geometria
+A.A. 2020-2021
+A.A. 2020-2021
+Docente: M. Trombetti
+Docente: M. Trombetti
+Dispense tratte dal corso di Informatica a cura dello studente S. Cerrone
+Dispense tratte dal corso di Informatica
+cura dello studente S. Cerrone
+
+Sommario
+0. Operazioni su di un Insieme ............................................................................................................ 4
+Operazione interna a 𝑆 .................................................................................................................................. 4
+Operazione esterna a 𝑆 ................................................................................................................................. 4
+Prodotto scalare standard ............................................................................................................................. 4
+1. Operazioni su Matrici (su ℝ) ............................................................................................................ 4
+Somma di matrici e prodotto per uno scalare (reale) ................................................................................... 4
+Prodotto righe per colonne e proprietà ........................................................................................................ 4
+Matrice trasposta .......................................................................................................................................... 5
+Matrice a gradini ........................................................................................................................................... 5
+Operazioni elementari di Riga ....................................................................................................................... 6
+2. Sistemi Lineari ................................................................................................................................ 6
+Equazioni lineari su ℝ .................................................................................................................................... 6
+Sistemi equivalenti ........................................................................................................................................ 7
+Soluzioni di un sistema lineare ...................................................................................................................... 7
+Sistema omogeneo ........................................................................................................................................ 9
+Notazioni per i sistemi lineari ........................................................................................................................ 9
+3. Spazi Vettoriali ............................................................................................................................... 9
+Definizione ..................................................................................................................................................... 9
+Esempi di spazi vettoriali ............................................................................................................................... 9
+Proprietà degli spazi vettoriali ..................................................................................................................... 11
+Definizioni .................................................................................................................................................... 11
+Sottospazi vettoriali ..................................................................................................................................... 11
+Esempi di sottospazi vettoriali..................................................................................................................... 12
+Alcune proprietà e definizioni di sottospazi vettoriali (sottospazio generato) ........................................... 13
+Somma diretta di sottospazi vettoriali ........................................................................................................ 14
+Dipendenza ed indipendenza lineare .......................................................................................................... 14
+Sistemi di vettori equivalenti ....................................................................................................................... 15
+Relazione tra dipendenza e linearmente dipendenza ................................................................................. 16
+Vettori finitamente generabili ..................................................................................................................... 18
+Dimensione di uno spazio vettoriale ........................................................................................................... 19
+Relazione di Grassmann .............................................................................................................................. 21
+Forma canonica ........................................................................................................................................... 22
+Metodi per estrarre una base da un sottospazio generato ........................................................................ 22
+4. Matrici e Sistemi lineari ................................................................................................................ 23
+Determinante di una matrice quadrata ...................................................................................................... 23
+Minore di una matrice ................................................................................................................................. 24
+Criteri di compatibilità di sistemi di equazioni lineari ................................................................................. 26
+Risoluzione di sistemi lineari in situazioni particolari .................................................................................. 27
+Sistemi omogenei ........................................................................................................................................ 28
+Risoluzione sistema omogeneo con 𝑛 − 1 equazioni indipendenti ed 𝑛 incognite .................................... 29
+5. Applicazioni Lineari ....................................................................................................................... 30
+Definizione ................................................................................................................................................... 30
+Esempi ......................................................................................................................................................... 30
+Proposizioni ................................................................................................................................................. 31
+Concetto di Ker e sue proprietà .................................................................................................................. 32
+Isomorfismo coordinato .............................................................................................................................. 33
+Forma canonica delle applicazioni lineari e matrice di passaggio ............................................................... 34
+2
+
+6. Matrici simili e diagonalizzazione (spazi vettoriali) ......................................................................... 35
+Matrici simili ................................................................................................................................................ 35
+Diagonalizzazione di un endomorfismo ...................................................................................................... 36
+Diagonalizzazione di una matrice ................................................................................................................ 40
+Spazi Vettoriali: Prodotti diretti esterni ...................................................................................................... 40
+7. Geometria .................................................................................................................................... 41
+Spazio vettoriale dei vettori geometrici liberi dello spazio (e del piano) .................................................... 41
+Cambiamenti di riferimento ........................................................................................................................ 44
+Prodotto vettoriale ...................................................................................................................................... 44
+Rappresentazioni ......................................................................................................................................... 45
+Rappresentazione di un piano nello spazio ............................................................................................. 45
+Rappresentazione della retta nel piano .................................................................................................. 47
+Altre tipologie di espressione ...................................................................................................................... 48
+Espressione di una retta passante per due punti .................................................................................... 48
+Coseni direttori ........................................................................................................................................ 48
+Rette parallele ......................................................................................................................................... 48
+Distanza tra insiemi ................................................................................................................................. 49
+Punto medio di un segmento .................................................................................................................. 49
+Asse del segmento ................................................................................................................................... 49
+Rappresentazione ordinaria di una retta nello spazio ............................................................................ 49
+3
+
+0. Operazioni su di un Insieme
+Operazione interna a 𝑺
+Sia 𝑆 un insieme non vuoto, un’operazione ⊥: 𝑆 × 𝑆 → 𝑆 si dice interna a S. Tutte le operazioni interne
+possono essere impropriamente considerate esterne; un esempio di operazione interna è +:ℝ2 × ℝ2 → ℝ2
+Operazione esterna a 𝑺
+Siano 𝑆, 𝐴 ≠ ∅, un’operazione ⊥: 𝑆 × 𝐴 → 𝑆 si dice esterna a 𝑆 con dominio di operatori in 𝐴 perché gli
+oggetti di 𝐴 agiscono su 𝑆 portandoli in altri oggetti di 𝑆. Esempio è la moltiplicazione ⋅ ∶ ℝ2 × ℝ → ℝ2.
+Prodotto scalare standard
+⋅ ∶ ℝ𝑛 × ℝ𝑛 → ℝ, il quale prende in input due ennuple di numeri reali e restituisce un numero reale; non è
+né un’operazione interna ne esterna, infatti (𝑎1, … , 𝑎𝑛) ⋅ (𝑏1,… , 𝑏𝑛) = 𝑎1 ⋅ 𝑏1 +⋯+ 𝑎𝑛 ⋅ 𝑏𝑛. Un prodotto
+scalare standard ha la proprietà di essere una forma bilineare simmetrica definita positiva. Ovvero:
+1) Simmetria: 𝑎 ⋅ 𝑏 = 𝑏 ⋅ 𝑎 con 𝑎 = (𝑎1,… , 𝑎𝑛) e 𝑏 = (𝑏1,… , 𝑏𝑛)
+2) Bilineare: (ℎ ⋅ 𝑎 + 𝑘 ⋅ 𝑏) ⋅ 𝑐 = ℎ(𝑎 ⋅ 𝑐) + 𝑘(𝑏 ⋅ 𝑐) con ℎ, 𝑘 scalari
+Dimostrazione: Sia 𝑎 = (𝑎1, 𝑎2), 𝑏 = (𝑏1, 𝑏2) e 𝑐 = (𝑐1, 𝑐2) allora:
+(ℎ ⋅ 𝑎 + 𝑘 ⋅ 𝑏) ⋅ 𝑐 = (ℎ(𝑎1, 𝑎2) + 𝑘(𝑏1, 𝑏2))(𝑐1, 𝑐2) = (ℎ𝑎1𝑐1 + ℎ𝑎2𝑐2) + (𝑘𝑏1𝑐1 + 𝑘𝑏2𝑐2)
+= ℎ(𝑎1𝑐1 + 𝑎2𝑐2) + 𝑘(𝑏1, 𝑐1 + 𝑏2𝑐2) = ℎ(𝑎 ⋅ 𝑐) + 𝑘(𝑏 ⋅ 𝑐)
+3) Positiva: 𝑎 ⋅ 𝑎 ≥ 0 e 𝑎 ⋅ 𝑎 = 0 ⇔ 𝑎 = (0, … ,0)
+1. Operazioni su Matrici (su ℝ)
+Somma di matrici e prodotto per uno scalare (reale)
+Una matrice 𝐴 ad 𝑛 righe ed 𝑚 colonne si scrive nel modo seguente:
+𝐴 = ( ⋮ ⋱
+𝑎1,1 ⋯ 𝑎1,𝑚
+𝑎𝑛,1 ⋯ 𝑎𝑛,𝑚
+⋮ )
+A volte posso denotare la matrice in modo generico come 𝐴 = (𝑎𝑖𝑗)𝑖=1,…,𝑛 ;𝑗=1,…,𝑚 , o usare la definizione
+formale 𝐴 = {1,… , 𝑛} × {1,… , 𝑚} → ℝ. L’insieme delle matrici su ℝ con 𝑛 righe ed 𝑚 colonne viene
+rappresentato da 𝑀𝑛,𝑚(ℝ) o semplicemente ℝ𝑛,𝑚.
+Per le matrici possiamo definire un’operazione interna +: ℝ𝑛,𝑚 × ℝ𝑛,𝑚 → ℝ𝑛,𝑚 del tipo:
+(( ⋮ ⋱
+[/
+\\
+𝑎1,1 ⋯ 𝑎1,𝑚
+𝑎𝑛,1 ⋯ 𝑎𝑛,𝑚
+⋮ ) , ( ⋮ ⋱
+\
+/ \
+𝑏1,1 ⋯ 𝑏1,𝑚
+𝑏𝑛,1 ⋯ 𝑏𝑛,𝑚
+⋮ )) → (
+𝑎1,1 + 𝑏1,1 ⋯ 𝑎1,𝑚 + 𝑏1,𝑚
+⋮
+J)\𝑎𝑛,1 + 𝑏𝑛,1 ⋯ 𝑎𝑛,𝑚 + 𝑏𝑛,𝑚
+⋱
+⋮
+)
+Possiamo definire anche un’operazione esterna ⋅ ∶ ℝ𝑛,𝑚 × ℝ → ℝ𝑛,𝑚 del tipo ((𝑎𝑖𝑗), ℎ) → (ℎ ⋅ 𝑎𝑖𝑗)
+Prodotto righe per colonne e proprietà
+Il prodotto righe per colonne è un’operazione del tipo ⋅ ∶ ℝ𝑛,𝑚 × ℝ𝑚,𝑙 → ℝ𝑛,𝑙; infatti affinché
+quest’operazione sia possibile devo avere le colonne della matrice di sinistra uguale alle righe della matrice
+di destra, e come risultato avrò una matrice che ha il numero di righe della matrice a sinistra e il numero di
+colonne della matrice di destra.
+Si definisce prodotto righe per colonne di 𝐴 ∈ ℝ𝑚,𝑛 e 𝐵 ∈ ℝ𝑛,𝑞
+la matrice, che si denota con 𝐴 × 𝐵 o
+semplicemente con 𝐴𝐵, definita dalla posizione 𝐴𝐵 = (𝐴𝑖 · 𝐵𝑗) ∈ ℝ𝑚,𝑞
+Esercizio: Fare, ove possibile, il prodotto righe per colonne delle seguenti matrici:
+(
+5 −1
+0 2
+1 −3
+) ⋅ (2 0
+1 2
+)
+( 3 1
+−1 4
+) ⋅ (5 −2) (5 −1 2
+0 2 3
+) ⋅ (
+2 0 3 −1
+1 2
+0 2
+0 −1 0 0
+) (1 1
+2 2
+) ⋅ ( 1 −1
+−1 1
+)
+4
+
+Il prodotto righe per colonne fornisce le seguenti proprietà:
+1) Distributività a destra: ∀𝐴 ∈ ℝ𝑚,𝑛 e ∀𝐵, 𝐶 ∈ ℝ𝑛,𝑞, 𝐴(𝐵 + 𝐶) = 𝐴𝐵 + 𝐴𝐶
+Dim.: 𝐴(𝐵 + 𝐶) = (𝑎𝑖𝑗) (𝑏𝑘𝑙 + 𝑐𝑘𝑙
+2) Distributività a sinistra: (𝐴 + 𝐵)𝐶 = 𝐴𝐶 + 𝐵𝐶, ∀𝐴, 𝐵 ∈ ℝ𝑚,𝑛 𝑒 ∀𝐶 ∈ ℝ𝑛,𝑞
+La dimostrazione è analoga alla precedente
+YT)
+/
+3) 𝐴𝐵 ≠ 𝐵𝐴, ad esempio: (0 1Vac
+) (1 1
+iN0 17X0 0
+) = (0 0
+0 0
+) invece (1 1
+0 0
+) (0 1
+0 1
+) = (0 2
+0 0
+)
+4) Ha elemento neutro formato dalla matrice identica 𝐼𝑛 formata da tutti zeri eccetto per la diagonale
+principale con 1. La matrice identica deve essere quadrata: 𝐼𝑛 = (
+1
+⋱
+0
+1
+0
+). La diagonale secondaria
+sarà quella da destra a sinistra. La matrice identica ha la proprietà che 𝐼𝑛𝐴 = 𝐴𝐼𝑛 = 𝐴.
+ESERCIZIO: verifica che 𝐼𝑛𝐴 = 𝐴𝐼𝑛 = 𝐴. E che 𝐼𝑛 sia l’unico elemento neutro.
+5) Gode di proprietà commutativa nel caso di matrici scalari 𝑆 di ordine 𝑛 (che occupano solo la
+diagonale principale con una stessa costante, mentre il resto è 0), infatti qualunque sia la matrice 𝐴
+di ordine 𝑛 avremo 𝐴𝑆 = 𝑆𝐴. Possiamo definire 𝑆𝑛 = ℎ ⋅ 𝐼𝑛.
+Nota bene che in generale non commutano matrici diagonali (tutti 0 eccetto per la diagonale) che
+non hanno la stessa costante.
+6) ∀𝐴 ∈ ℝ𝑚,𝑛, ∀𝐵 ∈ ℝ𝑛,𝑞 e ∀ℎ ∈ ℝ 𝐴(ℎ𝐵) = ℎ(𝐴𝐵) = (ℎ𝐴)𝐵
+Dim.: (𝒂𝒊𝒋)[𝒉(𝒃𝒊𝒋)] = (𝑎𝑖𝑗)(ℎ𝑏𝑖𝑗) = (𝑎𝑖 ⋅ ℎ𝑏𝑗) = 𝒉(𝒂𝒊 ⋅ 𝒃𝒋) = (ℎ𝑎𝑖 ⋅ 𝑏𝑗) = (ℎ𝑎𝑖𝑗)(𝑏𝑖𝑗) = [𝒉(𝒂𝒊𝒋)](𝒃𝒊𝒋)
+𝐴(𝐵𝐶) = (𝐴𝐵)𝐶
+7) Associatività: ∀𝐴 ∈ ℝ𝑚,𝑛, ∀𝐵 ∈ ℝ𝑛,𝑞, ∀𝐶 ∈ ℝ𝑞,𝑗
+𝑛
+𝐴(𝐵𝐶) = 𝐴𝐷 = 𝑎𝑖 ⋅ 𝑑𝑗 =∑(𝑎𝑖𝑘𝑑𝑘𝑗)
+NW
+~ 7a
+𝑘=1
+=∑(𝑎𝑖𝑘 (∑(𝑏𝑘𝑙 𝑐𝑙𝑗)
+𝑞
+al (wa.
+𝑛
+𝑘=1
+𝑙=1
+))
+\\
+yy
+=∑(𝑎𝑖𝑘 𝑏𝑘𝑙𝑐𝑙𝑗)
+𝑘,𝑙
+= 𝐴𝐵𝐶 = (𝐴𝐵)𝐶
+Matrice trasposta
+L’operazione di trasposta è un’operazione unaria 𝑡: ℝ𝑛,𝑚 → ℝ𝑚,𝑛 dove semplicemente scambio le righe con
+le colonne: 𝐴 = (1 2 3
+4 5 6
+) → (
+1 4
+2 5
+3 6
+) = 𝐴𝑡 . Formalmente una i-riga diverrà una i-colonna: 𝑎𝑖 → (𝑎𝑡)
+𝑖
+⏟    
+𝑑𝑘𝑙
+) = (𝑎𝑖 ⋅ 𝑑𝑗) = (𝑎𝑖 ⋅ (𝑏𝑗 + 𝑐𝑗)) = (𝑎𝑖 ⋅ 𝑏𝑗) + (𝑎𝑖 ⋅ 𝑐𝑗) = 𝐴𝐵 + 𝐴𝐶
+Sia 𝐴 ∈ ℝ𝑚,𝑛, 𝐵 ∈ ℝ𝑛,𝑞. Allora la trasposta ha le seguenti proprietà:
+1) (𝐴𝐵)𝑡 = 𝐵𝑡𝐴𝑡
+Dimostrazione: consideriamo 𝐶 = 𝐴𝐵, 𝐷 = (𝐴𝐵)𝑡 = 𝐶𝑡 e 𝐸 = 𝐵𝑡𝐴𝑡 con 𝐴𝑡 = 𝐴′, 𝐵𝑡 = 𝐵′ allora:
+𝐷 = 𝑑𝑖𝑗 = 𝑐𝑗𝑖 = 𝑎𝑗 ⋅ 𝑏𝑖 =∑𝑎𝑗𝑘𝑏𝑘𝑖
+𝑘
+=∑𝑎𝑘𝑗
+XN
+′ 𝑏𝑖𝑘
+′
+Lad
+𝑘
+=∑𝑏𝑖𝑘
+′
+𝑘
+2) 𝐵𝑡𝐴𝑡 ≠ 𝐴𝑡𝐵𝑡 il che significa in particolare che (𝐴𝐵)𝑡 = 𝐵𝑡𝐴𝑡 ≠ 𝐴𝑡𝐵𝑡
+3) (𝐴𝐵𝐶)𝑡 = 𝐶𝑡𝐵𝑡𝐴𝑡
+4) (ℎ𝐴 + 𝑘𝐵)𝑡 = ℎ(𝐴𝑡) + 𝑘(𝐵𝑡) che si generalizza in (ℎ1𝐴1 +⋯+ ℎ𝑛𝐴𝑛)𝑡 = ℎ1(𝐴1
+𝑡 ) +⋯+ ℎ𝑛(𝐴𝑛
+𝑡 )
+5) (𝐴𝑡)𝑡 = 𝐴; ovviamente la trasposta della trasposta è la matrice originale.
+Matrice a gradini
+Il concetto della matrice a gradine è che il numero degli zeri che precedono il primo elemento diverso da zero
+in ogni riga aumenta di riga in riga fino ad eventuali righe costituite da soli zeri. Il primo elemento non nullo
+che si incontra da sinistra si chiama pivot. Una delle proprietà della matrice a gradini è che se una matrice a
+gradini è priva di righe nulle allora il numero di righe deve essere minore o uguale al numero di colonne.
+Di seguito esempi di matrici a gradini:
+(
+1 2 0 3
+0 1 2 3
+0 0 4 5
+) (1 0 0 0)
+(2 0 0
+0 1 0
+) (
+1 2 0 0
+0 2 0 3
+0
+0
+0
+0
+0
+0
+0
+0
+)
+5
+′
+𝑎𝑘𝑗
+= 𝑏𝑖 ⋅ 𝑎𝑗 = 𝑒𝑖𝑗 = 𝐸
+t 4
+t 14
+
+Operazioni elementari di Riga
+𝐴 = (
+𝑎1 1 ⋯ 𝑎1 𝑛
+⋮
+⋱
+𝑎𝑚 1 ⋯ 𝑎𝑚 𝑛
+⋮ ) ∈ ℝ𝑚,𝑛 che possiamo rappresentare con le notazioni 𝐴 = (
+Le operazioni elementari di riga sono:
+1) Definiamo la funzione 𝐸1
+𝑎1
+⋮
+𝑎𝑛
+) = (𝑎1 … 𝑎𝑛).
+𝑖,𝑗: ℝ𝑚,𝑛 → ℝ𝑚,𝑛 che prende la riga i-esima della matrice e la scambia con la
+riga j-esima della stessa matrice.
+2) 𝐸2
+ℎ,𝑖: ℝ𝑚,𝑛 → ℝ𝑚,𝑛 che non fa altro che moltiplicare la i-esima riga per una costante ℎ ≠ 0 e ℎ ∈ ℝ
+3) 𝐸3
+𝑖,𝑗: ℝ𝑚,𝑛 → ℝ𝑚,𝑛 che agisce sostituendo alla j-esima riga la somma tra la i-esima riga e la j-esima
+riga.
+𝐴 ⟼ 𝐸1
+𝑖,𝑗 =
+ 
+ 
+(
+ 
+𝑎1
+⋮
+   
+𝑎𝑗
+⋮
+𝑎𝑛)
+ 
+ 
+ 
+𝑎𝑖
+⋮
+𝐴 ⟼ 𝐸2
+ℎ,𝑖 =
+(
+ 
+ 
+𝑎𝑛 )
+ 
+𝑎1
+⋮
+ℎ𝑎𝑖
+⋮
+ 
+𝐴 ⟼ 𝐸3
+𝑖,𝑗 =
+ 
+ 
+(
+ 
+ 
+𝑎1
+⋮
+𝑎𝑖
+⋮
+𝑎𝑖 + 𝑎𝑗
+⋮
+𝑎𝑛
+ 
+ 
+)
+ 
+ 
+Queste 3 operazioni possono essere combinate tra di loro dando luce ad altre operazioni, utile è la seguente:
+4) 𝐸4
+ℎ,𝑖,𝑗 che combina 𝐸2 ed 𝐸3, quindi 𝑎𝑗 → ℎ𝑎𝑖 + 𝑎𝑗 (utile per annullare una riga)
+Se 𝐴′ è una matrice che si può ottenere da 𝐴 mediante un numero finito di operazioni elementari allora
+diciamo che 𝐴 e 𝐴′ sono equivalenti (per righe).
+Proposizione: Per ogni matrice esiste una matrice a gradini ad essa equivalente.
+Dimostrazione per induzione sul numero di righe: Sia 𝐴 ∈ ℝ𝑛,𝑚, per 𝑛 = 1 avremo una matrice già a gradini,
+𝐴 = (𝑎11 … 𝑎1𝑚), supposta vera per 𝑛 dimostriamo che sia vera per 𝑛 + 1: se 𝐴 è una matrice nulla allora
+è anche a gradini, ora se 𝐴 ≠ 0 possiamo supporre che ci sia almeno un elemento non nullo, per cui posso
+prendere la prima riga non nulla e scambiarla con un’eventuale riga nulla usando 𝐸1. Ora non ci resta che
+annullare l’elemento al di sotto, a tal scopo possiamo usare le operazioni 𝐸2, 𝐸3 o 𝐸4. Iterando questo
+processo potrò annullare, se necessario, tutte le righe successive.
+ESEMPIO: (
+1 −1 0 1
+1 2 0 0
+0 1 0 1
+) 𝐸4
+−1,1,2
+⟶
+(
+1 −1 0 1
+0 3 0 −1
+0 1
+0 1 ⟶ 0 3 0 −1
+) 𝐸1
+2,3
+(
+1 −1 0 1
+0 1
+0 1 ) 𝐸4
+−3,2,3
+⟶
+ESERCIZIO riduci a gradini, ove necessario, le seguenti matrici: (
+0 0 0 1
+0 1 1 1
+1
+1
+1
+1
+2. Sistemi Lineari
+Equazioni lineari su ℝ
+Diciamo equazione lineare sul campo ℝ nelle incognite 𝑥1,… , 𝑥𝑛 una equazione del tipo 𝒂𝟏𝒙𝟏 +⋯+
+𝒂𝒏𝒙𝒏 = 𝒃 con 𝑎1, … , 𝑎𝑛, 𝑏 ∈ ℝ, gli 𝑎𝑖 sono chiamati coefficienti delle rispettive incognite 𝑥𝑖 mentre 𝑏 è il
+termine noto. Nel caso 𝑏 = 0 allora l’equazione si dice lineare omogenea.
+Si definisce un sistema lineare 𝑚 equazioni ed 𝑛 incognite 𝑆 {
+𝑎1 1𝑥1 +⋯+ 𝑎1 𝑛𝑥𝑛 = 𝑏1
+⋮
+𝑎𝑚 1𝑥1 +⋯+ 𝑎𝑚 𝑛𝑥𝑛 = 𝑏𝑚
+soluzione del sistema si intende la n-upla (𝑦1, … , 𝑦𝑛) tale che ciascuna delle equazioni risulta verificata
+sostituendo ad 𝑥𝑖 𝑦𝑖. L’insieme delle soluzioni lo indico con 𝑆 = {(𝑦1, … , 𝑦𝑛)| 𝑠𝑖𝑎𝑛𝑜 𝑠𝑜𝑙𝑢𝑧𝑖𝑜𝑛𝑖 𝑑𝑖 𝑆}
+6
+, mentre con
+1
+1
+1
+1
+(
+1 −1 0 1
+0 1 0 1
+0 0 0 −4
+) , (
+1 1 1
+1 1 1
+1
+1
+1
+1
+1
+1
+) , (
+𝜋
+𝑒
+0 𝑒
+𝜋)
+𝜋
+)
+
+Un sistema si dice compatibile se ammette almeno una soluzione, incompatibile altrimenti. Nel caso il
+sistema sia compatibile allora esso può essere determinato nel caso abbia una sola soluzione e
+indeterminato se ammette infinite soluzioni (fondamentalmente in ℝ si hanno solo questi due casi per un
+sistema compatibile, quindi o una oppure infinite).
+Definisco la matrice dei coefficienti (o matrice incompleta) 𝐴 ∈ ℝ𝑚,𝑛 = ( ⋮ ⋱ ⋮ ) con 𝑛 numero
+𝑎11 ⋯ 𝑎1𝑛
+𝑎𝑚1 ⋯ 𝑎𝑚𝑛
+delle incognite ed 𝑚 delle equazioni, se a questa matrice aggiungo la colonna dei termini noti avrò la matrice
+completa(
+𝑎11 ⋯ 𝑎1𝑛
+⋮ ⋱ ⋮
+𝑎𝑚1 ⋯ 𝑎𝑚𝑛 𝑏𝑚
+|
+𝑏1
+⋮
+) (la linea divisoria delinea quale sia la matrice dei coefficienti).
+Se la matrice ha una particolare forma anche il sistema è detto avere quella forma.
+Sistemi equivalenti
+Un sistema 𝑆 è equivalente a 𝑆′ se ammettono le stesse soluzione ovvero 𝑆 = 𝑆′ (con la segnatura specifico
+che sto parlando delle soluzioni di quel sistema), per dimostrare che due sistemi sono equivalenti si può usare
+la doppia inclusione (ovvero verificare che 𝑆 è contenuto in 𝑆′ e che 𝑆′ è contenuto in 𝑆).
+Proposizione: Ogni sistema di equazioni lineari è equivalente ad un sistema a gradini.
+Dimostrazione: bisogna verificare che le operazioni 𝐸1, 𝐸2, 𝐸3, 𝐸4 non influiscono nell’insieme delle soluzioni
+del sistema lineare. Per 𝐸1 che scambia due righe è evidente che non influisce nel sistema poiché il sistema
+non dipende dall’ordine dell’equazioni. 𝐸2 moltiplica una riga per uno scalare ℎ ≠ 0, diciamo che se 𝑦 ∈ 𝑆
+avrò 𝑦1𝑎𝑖1 +⋯+ 𝑦𝑛𝑎𝑖𝑛 = 𝑏𝑖 che è equivalente a 𝑦1(ℎ𝑎𝑖1) +⋯+ 𝑦𝑛(ℎ𝑎𝑖𝑛) = ℎ(𝑦1𝑎𝑖1 +⋯+ 𝑦𝑛𝑎𝑖𝑛) = ℎ𝑏𝑖
+Ora resta da provare la 𝐸3 (essendo 𝐸4 combinazione di 𝐸2 e 𝐸3), questa operazione significa sostituire ad
+una riga 𝑎𝑗 = 𝑎𝑖 + 𝑎𝑗, quindi avrò una equazione di questo tipo: (𝑎𝑖1 + 𝑎𝑗1)𝑥1 +⋯+ (𝑎𝑖𝑛 + 𝑎𝑗𝑛) = 𝑏𝑖 + 𝑏𝑗
+quindi cambierà solo l’equazione j-esima che comunque è scritta come somma di due equazioni,
+praticamente sommo un equazione membro a membro, il che non mi cambia le soluzioni del sistema. Così
+abbiamo dimostrato che 𝑆 ⊆ 𝑆′, il viceversa 𝑆′ ⊆ 𝑆 è evidente poiché se partiamo dal nostro sistema
+possiamo invertire le operazioni 𝐸𝑖 tramite operazioni inverse per ritrovarci sempre il sistema 𝑆. Quindi
+verificato che le operazioni sulle righe non influiscono sulle equazioni abbiamo anche dimostrato che un
+sistema è equivalente ad un sistema a gradini poiché per ogni matrice esiste una matrice a gradini ad essa
+equivalente.
+La precedente preposizione ci aiuta a risolvere sistemi complessi poiché in un sistema a gradini le soluzioni
+sono dirette; quindi, dovrò solo trovarmi la matrice a gradini della nostra matrice completa.
+Soluzioni di un sistema lineare
+Sia 𝑚 il numero di equazioni ed 𝑛 il numero di incognite di un sistema 𝑆, si possono definire i seguenti casi:
+•
+𝑚 = 𝑛 = 1: 𝑎11𝑥1 = 𝑏1 {
+𝑎11 = 𝑏1 = 0: 𝑒𝑞𝑢𝑎𝑧𝑖𝑜𝑛𝑒 𝑖𝑑𝑒𝑛𝑡𝑖𝑐𝑎 ⇒ 𝑖𝑛𝑓𝑖𝑛𝑖𝑡𝑒 𝑠𝑜𝑙𝑢𝑧𝑖𝑜𝑛𝑖
+𝑎11 ≠ 0 ⇒ 𝑥1 = 𝑎11
+−1𝑏1
+𝑎11 = 0 𝑒 𝑏1 ≠ 0 𝑛𝑜𝑛 𝑒𝑠𝑖𝑠𝑡𝑜𝑛𝑜 𝑠𝑜𝑙𝑢𝑧𝑖𝑜𝑛𝑖
+• 𝑚 = 1 𝑒 𝑛 > 1: 𝑎11𝑥1 +⋯+ 𝑎1𝑛𝑥𝑛 = 𝑏1 {
+𝑎11 = ⋯ = 𝑎1𝑛 = 𝑏1 = 0 𝑒𝑞𝑢𝑎𝑧𝑖𝑜𝑛𝑖 𝑖𝑑𝑒𝑛𝑡𝑖𝑐𝑎
+𝑎11 = ⋯ = 𝑎1𝑛 = 0 𝑒 𝑏1 ≠ 0 𝑛𝑜𝑛 𝑒𝑠𝑖𝑠𝑡𝑜𝑛𝑜 𝑠𝑜𝑙𝑢𝑧𝑖𝑜𝑛𝑖
+in
+questo caso, se esiste un elemento diverso da zero, supponiamo 𝑎11 posso scrivere il mio sistema come
+𝑎11𝑥1 = 𝑏1 − 𝑎12𝑥2 −⋯− 𝑎1𝑛𝑥𝑛 dove poi mi è permesso scegliere un valore 𝑦𝑖 per ogni 𝑥2, … , 𝑥𝑛 con
+cui avrò che ∃! 𝑦1: (𝑦1, 𝑦2, … , 𝑦𝑛) 𝑠𝑖𝑎 𝑠𝑜𝑙𝑢𝑧𝑖𝑜𝑛𝑒 𝑑𝑖 𝑆, in questo frangente si dice che il sistema lineare
+ammetta ∞− 1 soluzioni (perché faccio 𝑛 − 1 scelte arbitrarie, l’altra dipende da queste).
+7
+
+• 𝑚, 𝑛 > 1: 𝑎𝑣𝑟ò 𝑢𝑛 𝑠𝑖𝑠𝑡𝑒𝑚𝑎 𝑆: {
+𝑎11𝑥1 +⋯+ 𝑎1𝑛𝑥𝑛 = 𝑏1
+⋮
+𝑎𝑚1𝑥1 +⋯+ 𝑎𝑚𝑛𝑥𝑛 = 𝑏𝑛
+Elimino da 𝑆′ le equazioni identiche 0 = 0, quindi ottengo 𝑝 equazioni non identiche dove 𝑝 coincide con
+il numero di pivot della matrice completa di 𝑆′. Così facendo otteniamo un sistema 𝑆′′ che supponiamo
+ancora avere 𝑚 equazioni ed 𝑛 incognite, così facendo potrò avere i seguenti casi (chiamiamo 𝑆′′
+semplicemente 𝑆 poiché hanno le stesse soluzioni):
+o 𝑆 contiene equazioni del tipo 0 = 𝑏𝐼(≠ 0) allora il nostro sistema è incompatibile (non ammette
+soluzioni); in questo caso la matrice incompleta ha l’ultima riga tutta nulla
+o La matrice incompleta non ha l’ultima riga nulla dove, sia # = 𝑛𝑢𝑚𝑒𝑟𝑜 𝑑𝑖, allora avrò #𝑝𝑖𝑣𝑜𝑡 =
+#𝑒𝑞𝑢𝑎𝑧𝑖𝑜𝑛𝑖 ≤ #𝑖𝑛𝑐𝑜𝑔𝑛𝑖𝑡𝑒(= #𝑐𝑜𝑙𝑜𝑛𝑛𝑒), questo quindi è il caso 𝑚 ≤ 𝑛 che si può
+ulteriormente suddividere in:
+▪ 𝑚 = 𝑛: qui la matrice ha un numero di righe uquale a quello della colonne, quindi l’unica
+possibilità di trovare delle soluzioni sia quello in cui non abbia zeri sulla diagonale
+principale, altrimenti per assurdo mi troverò con una riga di elementi tutti nulli. Avrò
+come soluzione: 𝑥𝑛 =
+𝑏𝑛
+𝑎𝑛𝑛
+= 𝑏𝑛𝑎𝑛𝑛
+−1 che sostituisco nell’equazione precedente, così
+potrò esplicitare il valore di 𝑎𝑛−1 ed avrò l’equazione 𝑎𝑛−1 ,𝑛−1 𝑥𝑛−1 + 𝑎𝑛−1𝑥𝑛 = 𝑏𝑛−1,
+iterando questo procedimento avrò tutte le soluzioni e quindi 𝑆 è determinato.
+▪ 𝑚 < 𝑛: significa che ci sono più incognite che equazioni, in questo caso si prende la prima
+riga e di questa andiamo a prendere il primo elemento da sinistra diverso da zero, che si
+trova nella posizione i-esima, dunque avrò: 𝑎1𝑖𝑥𝑖 +⋯𝑎1𝑛𝑥𝑛 = 𝑏1, questo procedimento
+lo iteriamo per tutte le righe restanti prendendo oltre al primo elemento non nullo anche
+il suo indice di colonna. Questi indici di colonna sono associati anche alle incognite
+corrispondenti. Le incognite che non sono state prese andranno a destra dell’equazione,
+con i termini noti (ad esempio: 𝑎11𝑥1 +⋯+ 𝑎1𝑝𝑥𝑝 = 𝑏1 − 𝑎1(𝑝+1)𝑥𝑝+1 +⋯− 𝑎1𝑛𝑥𝑛).
+In questo modo, per ogni scelta di (𝑥𝑝+1,… , 𝑥𝑛) avrò una sola soluzione e quindi mi
+troverò in un sistema dove il numero di equazioni è pari al numero di incognite e di
+conseguenza posso procedere con il metodo precedente dove 𝑚 = 𝑛. Quindi avrò un
+insieme di soluzioni dove alcune incognite sono funzioni delle altre (𝑆 è indeterminato).
+ESEMPI:
+• 𝑆: {
+𝑥1 − 𝑥2 + 3𝑥3 = 1
+𝑥1 + 𝑥2 = 4
+2𝑥1 + 2𝑥2 + 2𝑥3 = 9
+𝑆′: {
+• 𝑆: {
+𝑥1 − 𝑥2 + 3𝑥3 = 1
+2𝑥2 − 3𝑥3 = 3
+2𝑥3 = 1
+2𝑥1 + 𝑥2 = 1
+𝑥1 + 𝑥2 + 𝑥3 − 𝑥4 = 2
+𝑥1 − 𝑥3 + 𝑥4 = 1
+{
+𝑥1 + 𝑥2 + 𝑥3 − 𝑥4 = 2
+𝑥2 + 2𝑥3 − 2𝑥4 = 3
+0 = 2
+{
+⇒ 𝐴 = (
+1 −1 3
+1 1 0
+2 2 2
+𝑥1 = 7 4⁄
+𝑥2 = 9 4⁄
+𝑥3 = 1 2⁄
+⇒ 𝑆 = {(
+7
+4 ,
+→ (
+2 1 0
+1 1 1
+1 0 −1
+1
+4
+9
+) →     (
+𝐸4
+−2.2.3
+1 −1 3
+1 1 0
+0 0 2
+1
+4
+1
+)→    (
+𝐸4
+−1.1.2
+1 −1 3
+0 2 −3
+0 0
+2
+9
+4 ,
+1
+2)} ; 𝑆 è 𝑢𝑛 𝑠𝑖𝑠𝑡𝑒𝑚𝑎 𝑑𝑒𝑡𝑒𝑟𝑚𝑖𝑛𝑎𝑡𝑜
+0 1
+−1 2
+1 1
+) → (
+1 1 1
+0 1 2
+0 0 0
+⇒ 𝑆 è 𝑢𝑛 𝑠𝑖𝑠𝑡𝑒𝑚𝑎 𝑖𝑛𝑐𝑜𝑚𝑝𝑎𝑡𝑖𝑏𝑖𝑙𝑒 (0 = 2)
+• 𝑆: {
+2𝑥1 − 𝑥2 + 𝑥3 − 𝑥4 = 1
+𝑥3 + 𝑥4 = 1
+𝑥3 = −2
+{
+2𝒙𝟏 − 𝑥2 + 𝑥3 − 𝑥4 = 1
+𝒙𝟑 + 𝑥4 = 1
+𝒙𝟒 = −2
+→ (
+2 −1 1
+0 0 1
+0 0 1
+−1 1
+1
+0 −2
+1 ) → (
+2 −1 1
+0 0 1
+0 0 0
+{
+2𝒙𝟏 + 𝑥3 − 𝑥4 = 1 + 𝑥2
+𝒙𝟑 + 𝑥4 = 1
+𝒙𝟒 = −2
+→ 𝑆 = {(
+−1 1
+1 1
+1 3
+) →
+cs
+uN
+𝑦
+2 − 2, 𝑦, −2,3) |𝑦 ∈ ℝ}
+𝑆 è 𝑢𝑛 𝑠𝑖𝑠𝑡𝑒𝑚𝑎 𝑖𝑛𝑑𝑒𝑡𝑒𝑟𝑚𝑖𝑛𝑎𝑡𝑜 𝑐𝑜𝑛 ∞𝒊 𝒔𝒐𝒍𝒖𝒛𝒊𝒐𝒏𝒊 𝒄𝒐𝒏 𝒊 𝒏𝒖𝒎𝒆𝒓𝒐 𝒅𝒊 𝒊𝒏𝒄𝒐𝒈𝒏𝒊𝒕𝒆, 𝑞𝑢𝑖𝑛𝑑𝑖 ∞1 𝑠𝑜𝑙𝑢𝑧𝑖𝑜𝑛𝑖
+8
+−1 2
+−2 3
+0 2
+) →
+1
+3
+1
+) ⇒
+𝑒𝑞𝑢𝑖𝑣𝑎𝑙𝑒𝑛𝑡𝑒
+⇔         𝑆′𝑎 𝑔𝑟𝑎𝑑𝑖𝑛𝑖
+
+Sistema omogeneo
+Per sistema omogeneo si intende un sistema che ha come termini noti tutti zeri, questa tipologia di sistemi è
+sempre compatibile poiché ammette o la soluzione banale (0, … ,0), oppure infinite soluzioni (tra cui anche
+quella banale), quindi se ho una soluzione diversa da quella banale allora ne avrò infinite.
+Notazioni per i sistemi lineari
+Posso denotare un sistema lineare con la seguente rappresentazione compatta: 𝐴𝑋 = 𝐵, infatti
+( ⋮ ⋱ ⋮ )(
+𝑎11 ⋯ 𝑎1𝑛
+𝑎𝑚1 ⋯ 𝑎𝑚𝑛
+\f \ f
+/\ J
+𝑥1
+⋮
+𝑥𝑛
+) = (
+𝑎11𝑥1 +⋯+ 𝑎1𝑛𝑥𝑛
+⋮
+\𝑎𝑚1𝑥1 +⋯+ 𝑎𝑚𝑛𝑥𝑛
+) = (
+𝑏1
+⋮
+𝑏𝑛
+); di conseguenza 𝑌 = (
+𝑦1
+⋮
+𝑦𝑛
+) è soluzione del
+sistema se verifica l’uguaglianza 𝐴𝑌 = 𝐵. Ovviamente un sistema è omogeneo se 𝐴𝑋 = 𝐵 = 0.
+3. Spazi Vettoriali
+Definizione
+Sia 𝑉 un insieme non vuoto, +: 𝑉 × 𝑉 → 𝑉 un operazione interna (se indico un operazione interna con + è
+perché ho la commutatività) e ⋅ ∶ ℝ × 𝑉 → 𝑉 un operazione esterna; la terna (𝑽,+, ⋅
+) è detta spazio
+vettoriale sul campo ℝ se:
+1) (𝑉, +) è un gruppo abeliano, ovvero gode di
+i.
+Proprietà associativa ((𝑎 + 𝑏) + 𝑐 = 𝑎 + (𝑏 + 𝑐))
+ii.
+iii.
+Proprietà commutativa (𝑎 + 𝑏 = 𝑏 + 𝑎)
+Elemento neutro(∃𝜀 ∈ 𝑉(∀𝑎 ∈ 𝑉, 𝜀 + 𝑎 = 𝑎 = 𝑎 + 𝜀))
+iv. Opposto (∀𝑎 ∈ 𝑉, ∃! 𝑏(𝑎 + 𝑏 = 𝜀))
+2) ∀ℎ, 𝑘 ∈ ℝ, ∀𝑣 ∈ 𝑉 risulta (ℎ𝑘) ⋅ 𝑣 = ℎ ⋅ (𝑘𝑣) (da non confondere con la proprietà associativa,
+poiché anche se simile ⋅ è un operazione esterna).
+3) ∀𝑣 ∈ 𝑉 risulta 1 ⋅ 𝑣 = 𝑣
+4) Distributività di ⋅ rispetto a + in ℝ: ∀ℎ, 𝑘 ∈ ℝ, ∀𝑣 ∈ 𝑉 risulta (ℎ + 𝑘)𝑣 = ℎ𝑣 + 𝑘𝑣
+5) Distributività di ⋅ rispetto a + in 𝑉: ∀ℎ ∈ ℝ, ∀𝑣, 𝑤 ∈ 𝑉 risulta ℎ(𝑣 + 𝑤) = ℎ𝑣 + ℎ𝑤
+Nello spazio vettoriale così definito si hanno le seguenti notazioni:
+• Gli elementi di 𝑉 si dicono vettori
+• Gli elementi di ℝ si dicono scalari
+• + è detta addizione tra vettori
+• ⋅ è detta moltiplicazione di uno scalare per un vettore
+Proposizione: Sia (𝑉, +,⋅) uno spazio vettoriale sul campo ℝ allora:
+1) ∃! Elemento neutro rispetto a + (lo indicheremo con il simbolo 0)
+Dim.: siano 𝑣0 e 𝑤0 elementi neutri allora avrei 𝑣0 = 𝑣0 + 𝑤0 = 𝑤0
+2) ∀𝑣 ∈ 𝑉, ∃! opposto per 𝑣 (che indicheremo con −𝑣)
+Dim.: Siano 𝑣′ e 𝑣′′ opposti di 𝑣 ho: 𝑣′ = 𝑣′ + 0 = 𝑣′ + (𝑣 + 𝑣′′) = (𝑣′ + 𝑣) + 𝑣′′ = 0 + 𝑣′′ = 𝑣′′
+Possiamo definire ora le seguenti notazioni:
+• La scrittura 𝑣 − 𝑤 è un’abbreviazione di 𝑣 + (−𝑤)
+• Vettore nullo: 0
+• L’opposto del vettore nullo −0 non è altro che 0
+Esempi di spazi vettoriali
+1) Spazio vettoriale numerico di ordine 𝑛: (ℝ𝑛,+,⋅)
+• ⋅ ∶ ℝ × ℝ𝑛 → ℝ𝑛 (ℎ, 𝑣 = (𝑣1, … , 𝑣𝑛)) ↦ (ℎ𝑣1,… , ℎ𝑣𝑛)
+• +: ℝ𝑛 × ℝ𝑛 → ℝ𝑛 ((𝑣𝑖), (𝑤𝑖)) ↦ (𝑣𝑖 + 𝑤𝑖)
+9
+
+2) Spazio vettoriale di una matrice di ordine 𝑚, 𝑛: (ℝ𝑚,𝑛,+,⋅)
+• ⋅ ∶ ℝ × ℝ𝑚,𝑛 → ℝ𝑚,𝑛
+(ℎ, (𝑎𝑖𝑗)) ↦ (ℎ𝑎𝑖𝑗)
+• +: ℝ𝑚,𝑛 × ℝ𝑚,𝑛 → ℝ𝑚,𝑛 ((𝑎𝑖𝑗), (𝑏𝑖𝑗)) ↦ (𝑎𝑖𝑗 + 𝑏𝑖𝑗)
+3) Spazio vettoriale dei polinomi ad una indeterminante 𝑥 sul campo reale: (ℝ[𝒙], +,⋅) dove:
+• ℝ[𝑥] = {𝑎0 + 𝑎1𝑥 + 𝑎2𝑥2 +⋯+ 𝑎𝑛𝑥𝑛|𝑎𝑖 ∈ ℝ, 𝑛 ∈ ℕ}
+• ⋅ ∶ ℝ × ℝ[𝑥] → ℝ[𝑥]
+(ℎ, 𝑎0 + 𝑎1𝑥 +⋯+ 𝑎𝑛𝑥𝑛) ↦ ℎ𝑎0 +⋯+ (ℎ𝑎𝑛)𝑥𝑛
+• + ∶ ℝ[𝑥] × ℝ[𝑥] → ℝ[𝑥]
+( 𝑎0 +⋯+ 𝑎𝑛𝑥𝑛, 𝑏0 +⋯+ 𝑏𝑚𝑥𝑚 ) ↦ (𝑎0 + 𝑏0) + (𝑎1 +
+𝑏1)𝑥 +⋯+ (𝑎𝑛 + 𝑏𝑛)𝑥𝑛 + 𝑏𝑛+1𝑥𝑛+1 +⋯+ 𝑏𝑚𝑥𝑚
+assumendo che 𝑛 ≤ 𝑚
+Principio di identità dei polinomi:
+𝑎0 + 𝑎1𝑥 + 𝑎2𝑥2 +⋯+ 𝑎𝑛𝑥𝑛 = 𝑏0 + 𝑏1𝑥 +⋯+ 𝑏𝑚𝑥𝑚 ⇔ 𝑛 = 𝑚 𝑒 𝑎0 = 𝑏0,… , 𝑎𝑛 = 𝑏𝑛
+Osservazione:
+• 𝑝(𝑥), 𝑞(𝑥) polinomi di gradi ≤ 𝑛 allora 𝑝(𝑥) + 𝑞(𝑥) ha grado al più 𝑛
+(Esempio: (3𝑥 + 1) + (4𝑥2 + 1) ≤ 2)
+• ℎ ∈ ℝ, ℎ𝑝(𝑥) ha grado ≤ 𝑛 più precisamente ha lo stesso grado di 𝑝(𝑥) eccetto se moltiplicato
+per il polinomio nullo. (Esempio: ℎ(3𝑥 + 1) = (3ℎ)𝑥 + ℎ)
+Queste descritte sopra sono sottostrutture di ℝ[𝑥], quindi possiamo definire ora un insieme ℝ𝑛[𝑥] =
+{𝑝(𝑥) ∈ ℝ[𝑥]|𝑔𝑟𝑎𝑑𝑜(𝑝(𝑥)) ≤ 𝑛} dove + e ⋅ sono operazioni ben definite una volta ristretto dominio e
+codominio (in questo caso tutte le proprietà descritte per ℝ[𝑥] si mantengono anche per le sue
+sottostrutture).
+Avremo dunque un nuovo spazio vettoriale: (ℝ𝒏[𝒙], +,⋅):
+• ⋅ ∶ ℝ × ℝ𝑛[𝑥] → ℝ𝑛[𝑥]
+• +: ℝ𝑛[𝑥] ×ℝ𝑛[𝑥] → ℝ𝑛[𝑥]
+ESERCIZI: verificare per tutti gli esempi sopracitati che valgano le proprietà di definizione di spazio vettoriale
+Spazio della geometria euclidea 𝑆 (nel caso si parli di un piano si usa 𝑆𝜋): Sia 𝑂 un punto di tale spazio
+definiamo i seguenti oggetti:
+• 𝑂𝐴⃗⃗⃗⃗⃗  segmento orientato di primo estremo 𝑂 e secondo 𝐴
+• L’insieme di tutti i segmenti orientati che partono da O e
+si dirigono in punti arbitrari dello spazio S è 𝑆0 = {𝑂𝐴|𝐴 ∈ 𝑆}
+A
+O
+• Sia 𝑂𝐴⃗⃗⃗⃗⃗ , 𝑂𝐵⃗⃗⃗⃗⃗  ∈ 𝑆𝑂 definisco 𝑂𝐴⃗⃗⃗⃗⃗  + 𝑂𝐵⃗⃗⃗⃗⃗  = 𝑂𝐶⃗⃗⃗⃗⃗  con la regola del parallelogrammo:
+• Definisco 𝐵𝐶⃗⃗⃗⃗⃗  vettore equipollente di 𝑂𝐴⃗⃗⃗⃗⃗  se e solo se hanno direzione, modulo e verso equivalenti
+4) Spazio vettoriale dei vettori geometrici applicati in un punto: (𝑆0,+,⋅):
+• +: 𝑆𝑂 × 𝑆𝑂 → 𝑆𝑂
+(regola del parallelogrammo)
+• ⋅ ∶ ℝ × 𝑆𝑂 → 𝑆𝑂
+(ℎ, 𝑂𝐴⃗⃗⃗⃗⃗ ) ↦ ℎ𝑂𝐴⃗⃗⃗⃗⃗ 
+Esempio:
+• Elemento neutro 𝑂𝑂⃗⃗⃗⃗⃗⃗ 
+• Elemento opposto fornito dal vettore con stessa direzione e modulo ma verso opposto
+Spazio vettoriale dei vettori geometrici liberi (ordinari) 𝑆: diamo le seguenti definizioni:
+• definisco vettore geometrico libero l’insieme [𝐴𝐵⃗⃗⃗⃗⃗ ] = {𝐶𝐷⃗⃗⃗⃗⃗ |𝐶𝐷⃗⃗⃗⃗⃗  𝑒𝑞𝑢𝑖𝑝𝑜𝑙𝑙𝑒𝑛𝑡𝑒 𝑎𝑑 𝐴𝐵⃗⃗⃗⃗⃗ }
+• prenderà il nome di insieme quoziente 𝒱 = {[𝐴𝐵⃗⃗⃗⃗⃗ ]|𝐴, 𝐵 ∈ 𝑆} (al variare di 𝐴, 𝐵 in 𝑆)
+• [𝐴𝐵⃗⃗⃗⃗⃗ ] = 𝐴𝐵, quindi l’elemento neutro sarà il vettore nullo 𝑂 mentre l’opposto −𝐴𝐵 = [−𝐴𝐵⃗⃗⃗⃗⃗ ]
+5) Spazio vettoriale dell’insieme (𝒱, +,⋅)
+• +: 𝒱 × 𝒱 → 𝒱
+𝐴𝐵 + 𝐶𝐷 = 𝑂𝐸
+• ⋅ ∶ ℝ × 𝒱 → 𝒱
+ℎ ⋅ 𝐴𝐵 = ℎ𝐴𝐵
+10
+fr NZ N
+‘
+‘
+
+Proprietà degli spazi vettoriali
+Sia 𝑉 uno spazio vettoriale su ℝ: allora ∀𝒗, 𝒘, 𝒛 ∈ 𝑽 e ∀𝒉, 𝒌 ∈ ℝ avremo
+1) 𝑣 + 𝑤 = 𝑧 ⇒ 𝑣 = 𝑧 − 𝑤
+Si dimostra semplicemente sommando ambo i membri per l’opposto di 𝑤
+2) 𝑣 + 𝑤 = 𝑤 ⇒ 𝑣 = 𝑤 − 𝑤 = 0
+3) 0 ⋅ 𝑣 = 0 = ℎ0
+0𝑣 = (0 + 0)𝑣 = 0 ⋅ 𝑣 + 0 ⋅ 𝑣 ⇒ 0𝑣 = 0 in simil modo ℎ ⋅ 0 = ℎ ⋅ (0 + 0) = ℎ0 + ℎ0 ⇒ ℎ0 = 0
+4) ℎ𝑣 = 0 ⇔ ℎ = 0 𝑜 𝑣 = 0
+Dim.⇐ valida per la proprietà 3; ⇒: supponiamo ℎ ≠ 0 quindi ℎ𝑣 = 0 ⇒ ℎ−1(ℎ𝑣) = ℎ−10 ⇒
+(ℎ−1ℎ)𝑣 = 0 sempre per la proprietà 3, se ℎ = 0 la dimostrazione è banale.
+5) ℎ(−𝑣) = −(ℎ𝑣) = (−ℎ)𝑣
+Dimostriamo che ℎ(−𝑣) è l’opposto di ℎ𝑣 quindi bisogna dimostrare che ℎ𝑣 + ℎ(−𝑣) = 0, dunque
+mettendo ℎ in evidenzia ℎ (𝑣 + (−𝑣)) = ℎ(𝑣 − 𝑣) = ℎ ⋅ 0 = 0; quindi abbiamo dimostrato la prima
+uguaglianza, similmente per la seconda dobbiamo dimostrare che (−ℎ)𝑣 sia l’opposto di ℎ𝑣, per
+uno degli assiomi dello spazio vettoriale posso scrivere (−ℎ)𝑣 + ℎ𝑣 = (−ℎ + ℎ)𝑣 = 0𝑣 = 0
+6) (−1)𝑣 = −(1𝑣) = −𝑣
+Applicando più volte la proprietà 5: (−ℎ)(−𝑣) = −[ℎ(−𝑣)] = −[−ℎ𝑣] = ℎ𝑣
+L’opposto dell’opposto è il vettore di partenza −(−𝑣) = 𝑣
+𝑣 + (−𝑣) = 0
+7) Proprietà associativa generalizzata 𝑣1, … , 𝑣𝑛: essendo le somme sempre suddivise in agglomerati di
+tre oggetti posso estendere la proprietà associativa (𝑣1 + 𝑣2) + 𝑣3 = 𝑣1 + (𝑣2 + 𝑣3) per 𝑛 elementi
+poiché il posizionamento delle parentesi non conta: 𝑣1 + 𝑣2 +⋯+ 𝑣𝑛 (quindi posso ometterle)
+8) Proprietà commutativa generalizzata: come in precedenza essendo 𝑣 + 𝑤 = 𝑤 + 𝑣 possiamo
+generalizzarla per 𝑛 elementi poiché l’ordine degli addendi non conta.
+9) Proprietà distributiva generalizzata: (ℎ1 + ℎ2 +⋯+ ℎ𝑛)𝑣 = ℎ1𝑣 + ℎ2𝑣 +⋯+ ℎ𝑛𝑣
+Essendo vera per 𝑛 = 2 (è assioma), supponiamola vera per 𝑛(≥ 2) e dimostriamola vera per 𝑛 + 1:
+(ℎ1 + ℎ2 +⋯+ ℎ𝑛 + ℎ𝑛+1)𝑣 = (ℎ1 +⋯+ ℎ𝑛)𝑣 + ℎ𝑛+1𝑣 = ℎ1𝑣 +⋯+ ℎ𝑛𝑣 + ℎ𝑛+1𝑣 stessa cosa
+(dimostrare come esercizio) per:
+ℎ(𝑣1 + 𝑣2 +⋯+ 𝑣𝑛) = ℎ𝑣1 + ℎ𝑣2 +⋯+ ℎ𝑣𝑛
+Definizioni
+Combinazione lineare: Presi ℎ1, . . , ℎ𝑛 ∈ ℝ , 𝑣1,… , 𝑣𝑛, 𝑣 ∈ 𝑉 e se è possibile scrivere 𝑣 = ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛
+allora 𝑣 sarà detto combinazione lineare dei vettori 𝑣𝑖 mediante gli scalari ℎ𝑖.
+Esempio in ℝ3: (3,0,1) = 3(1,0,0) + 1(0,0,1), combinazione lineare di (1,0,0) e (0,0,1) mediante 3 e 1
+Proporzionalità: Siano 𝑣, 𝑤 ∈ 𝑉 si dicono proporzionali se ∃ℎ ≠ 0 ∈ ℝ tale che 𝑣 = ℎ𝑤
+La proporzionalità è una relazione d’equivalenza essendo:
+1) riflessiva: 𝑣 = 1 ⋅ 𝑣
+2) simmetrica: 𝑣 = ℎ𝑤 con ℎ ≠ 0 ⇒ 𝑤 = ℎ−1𝑣
+3) transitiva: sia ℎ, 𝑘 ≠ 0 se 𝑣 = ℎ𝑤 e 𝑤 = 𝑘𝑢 allora 𝑣 = (ℎ𝑘)𝑢
+Sottospazi vettoriali
+Sia (𝑉, +,⋅) spazio vettoriale e sia 𝐻 ⊆ 𝑉 diverso dal vuoto, 𝐻 è detto stabile (o chiuso) rispetto all’addizione
+se ∀𝑣, 𝑤 ∈ 𝐻 ⇒ 𝑣 + 𝑤 ∈ 𝐻 (la loro somma è ancora in 𝐻) mentre 𝐻 è detto stabile (o chiuso) rispetto alla
+moltiplicazione per uno scalare se ∀ℎ ∈ ℝ, ∀𝑣 ∈ 𝐻 ⇒ ℎ𝑣 ∈ 𝐻. Se 𝐻 è stabile rispetto alla moltiplicazione e
+all’addizione significa che le operazioni + ∶ 𝐻 × 𝐻 → 𝐻 e ⋅ ∶ ℝ× 𝐻 → 𝐻 sono ben definite.
+Definizione: Se 𝐻 è chiuso (o stabile)rispetto a somma e prodotto allora è detto sottospazio vettoriale
+Se 𝐻 è sottospazio di 𝑉 allora valgono per 𝐻 tutte le proprietà dello spazio vettoriale 𝑉. Si indica con 𝐻 ≤ 𝑉.
+Tutti i sottospazi sono anche sottoinsieme, ma il viceversa non è vero (ad esempio ∅ ≰ 𝑉).
+11
+
+Teorema: Se ho un sottospazio vettoriale con le operazioni ristrette allora esso è anche uno spazio vettoriale.
+Sia 𝐻 ≤ 𝑉 ⟹ (𝐻, +𝐼𝐻 ,⋅𝐼𝐻) è spazio vettoriale.
+Dimostrazione: (𝐻; +𝐼𝐻) è sia associativa che commutativa (praticamente tutte le proprietà che non sono
+esistenziali sono automaticamente soddisfatte per la stabilità dell’operazione); ha lo stesso elemento neutro
+di 𝑉 e contiene anche gli opposti (𝑣 ∈ 𝐻 ≠ ∅ ⇒ (−1)𝑣 = −𝑣𝐼𝑉 ) che appartengono ad 𝐻 poiché ho lo stesso
+elemento neutro 0. 1 ⋅𝐼𝐻
+𝑣 = 1 ⋅ 𝑣 = 𝑣 e così via sono automaticamente verificate anche le altre proprietà.
+Esempi di sottospazi vettoriali
+1) Sia 𝑉 spazio vettoriale ha sempre i sottospazi banali: {0} e 𝑉
+2) Spazio vettoriale ℝ3: sono sottospazi {(0,0,0)} e ℝ3
+3) Spazio vettoriale ℝ2: sottospazio 𝐻 = {(𝑥, 𝑦)|𝑥 = 𝑦}, infatti non è vuoto, è stabile rispetto alla somma
+poiché ∀𝑣, 𝑤 ∈ 𝐻 posto 𝑣 = (𝑥, 𝑦) ∈ 𝐻, 𝑤 = (𝑧, 𝑡) ∈ 𝐻 ⇒ (𝑥, 𝑦) + (𝑧, 𝑡) = (𝑥 + 𝑧, 𝑦 + 𝑡) ∈ 𝐻 essendo
+infatti 𝑥 + 𝑧 = 𝑦 + 𝑧 = 𝑦 + 𝑡; inoltre 𝐻 è stabile anche rispetto al prodotto essendo ∀ℎ ∈ ℝ, ∀𝑣 ∈ 𝐻 ⇒
+𝑣 = (𝑥, 𝑦) ∈ 𝐻 ⇒ ℎ(𝑥, 𝑦) = (ℎ𝑥, ℎ𝑦) ∈ 𝐻 essendo ℎ𝑥 = ℎ𝑦 poiché 𝑥 = 𝑦.
+4) 𝐻 = {3𝑥 + 1,0} ≰ ℝ[𝑥] infatti: (3𝑥 + 1) + (3𝑥 + 1) = 6𝑥 + 2 ∉ 𝐻
+5) 𝐻 = {(𝑥, 𝑦, 0,0) ∈ ℝ4|𝑥 = 𝑦2} ≰ ℝ4 poiché (1,1,0,0) ∈ 𝐻 + (1,1,0,0) ∈ 𝐻 = (2,2,0,0) ∉ 𝐻 per 2 ≠ 22
+f
+Esercizio: determinare se 𝐻 = {(𝑎
+𝑐
+𝑏
+𝑑
+) ∈ ℝ2| (𝑎
+𝑐
+𝑏
+𝑑
+) (1 1\
+0 1J) = (1 1\7s
+\0 17X
+) (𝑎
+𝑐
+Soluzione: sviluppiamo il prodotto righe per colonne in ambo i due membri: (𝑎
+‘
+\
+𝑐
+da cui possiamo ricavare le seguenti informazioni: { 𝑐 + 𝑑 = 𝑑 ⇒ 𝑐 = 0
+&
+𝑎 + 𝑏 = 𝑏 + 𝑑 ⇒ 𝑎 = 𝑑
+come 𝐻 = {(𝑎
+Cs
+𝑏
+uN
+0 𝑎
+𝑏
+Ny
+𝑑yd
+)} è sottospazio vettoriale.
+𝑎 + 𝑏
+𝑐 + 𝑑
+) = (𝑎 + 𝑐
+𝑐
+𝑏 + 𝑑
+𝑑
+)
+e quindi riscrivere l’insieme 𝐻
+) |𝑎. 𝑏 ∈ ℝ}; ora resta da verificare che non sia vuoto (quindi si controlla che esista
+NOI
+a |
+Y
+J
+l’elemento neutro rispetto la somma), ed in questo caso è la matrice (0 0\
+‘
+\0 0J) ∈ 𝐻, e che 𝐻 sia stabile rispetto
+/
+alla somma ed al prodotto, risulta infatti: (
+\
+𝑎1 𝑏1
+0 𝑎1
+ℎ (𝑎
+f
+𝑏
+XN
+0 𝑎
+) = (ℎ𝑎 ℎ𝑏
+N
+7
+f
+XN
+0 ℎ𝑎
+\
+/
+) + (
+/
+\
+𝑎2 𝑏2
+0 𝑎2
+\
+/
+) = (
+J
+\
+𝑎1 + 𝑎2 𝑏1 + 𝑏2
+0
+𝑎1 + 𝑎2
+) ∈ 𝐻, ed anche
+) ∈ 𝐻. Di conseguenza abbiamo dimostrato che 𝐻 è sottospazio vettoriale.
+\
+7
+Esempio: Spazio vettoriale dei vettori geometrici applicati in 𝑂→
+Supponendo di trovarci nel sottospazio vettoriale formato
+dai vettori di 𝑂𝐴⃗⃗⃗⃗⃗ , possiamo affermare che esso contiene
+tutti i vettori situati nella retta passante per i punti 𝑂 ed 𝐴
+(vedi figura a destra).
+Lo stesso ragionamento si può fare per un piano 𝜋:
+supponendo di trovarci nel sottospazio formato dai vettori
+⃗ 𝑂𝐶⃗⃗⃗⃗  e 𝑂𝐴⃗⃗⃗⃗⃗ 
+allora ad esso appartengono tutti quei vettori
+contenuti nello stesso piano (figura in basso).
+, { ‘s. oR
+Esune
+‘
+/
+/
+\y
+“Oo.
+‘\
+‘
+\
+$
+MGAIY am
+HoH,ZI
+ly
+Esempio 1
+—_—_—_
+t
+a
+hyo ely
+Hy=4Coy) /yeR
+Osservazione:
+l’unione di
+sottospazi vettoriali non è in
+genere un sottospazio.
+L’esempio uno ci mostra,
+geometricamente parlando, che
+l’unione delle due rette non è
+sottospazio vettoriale, l’esempio
+due è un esempio più concreto.
+12
+
+Alcune proprietà e definizioni di sottospazi vettoriali (sottospazio generato)
+1) 𝑊 ≤ 𝑉 è stabile rispetto alla somma di n oggetti:
+Siano 𝑤1,… , 𝑤𝑛 ∈ 𝑊 si ha 𝑤1 + 𝑤2 ∈ 𝑊 ⇒ (𝑤1 + 𝑤2) + 𝑤3 ∈ 𝑊 iterando questo ragionamento
+avremo che 𝑤1 +⋯+ 𝑤𝑛 ∈ 𝑊. Da questa proprietà possiamo osservare che presi 𝑛 scalari, ℎ1,… , ℎ𝑛,
+qualunque combinazione lineare 𝑊 contiene ogni combinazione lineare dei suoi elementi:
+ℎ1𝑤1,… , ℎ𝑛𝑤𝑛 ∈ 𝑊 ⇒ ℎ1𝑤1 +⋯+ ℎ𝑛𝑤𝑛 ∈ 𝑊
+2) sia ℒ una famiglia di sottospazi di 𝑉, l’intersezione dei sottospazi della famiglia “elle tondo”: ⋂ 𝐿
+𝐿∈ℒ è un
+sottospazio, più precisamente l’intersezione di una qualunque famiglia di sottospazi è un sottospazio ( a
+differenza dell’unione). Esempio: {(0, 𝑦)|𝑦 ∈ ℝ} ∩ {(𝑥, 0)|𝑥 ∈ ℝ} = {(0,0)} ≤ ℝ2
+Dimostrazione: l’elemento neutro (l’insieme nullo) è sempre contenuto in ogni intersezione, la somma è
+stabile; infatti, siano 𝑣, 𝑤 ∈ ⋂ 𝐿
+𝐿∈ℒ ⇒ 𝑣, 𝑤 ∈ 𝐿 ∀𝐿 ∈ ℒ ⇒ 𝑣 + 𝑤 ∈ 𝐿 ∀𝐿 ∈ ℒ ⇒ 𝑣 + 𝑤 ∈ ⋂ 𝐿
+𝐿∈ℒ , sia
+invece, per il prodotto, 𝑣 ∈ ⋂ 𝐿
+𝐿∈ℒ , ℎ ∈ ℝ ⇒ 𝑣 ∈ 𝐿 ∀𝐿 ∈ ℒ ⇒ ℎ𝑣 ∈ 𝐿 ∀𝐿 ∈ ℒ ⇒ ℎ𝑣 ∈ ⋂ 𝐿
+𝐿∈ℒ
+Problema: Siano 𝐻, 𝐾 ≤ 𝑉. Qual è il più piccolo sottospazio che contiene sia 𝐻 che 𝐾? (i.c., 𝐻 ∪ 𝐾). Cerco
+quindi un sottoinsieme contenete sia 𝐻 che 𝐾, ovvero 𝑉 ⊇ 𝐻 ∪ 𝐾, prendo poi l’intersezione di tutti i
+sottospazi 𝐿 di 𝑉 che contengono 𝐻 ∪ 𝐾, è questo insieme, chiamato sottospazio generato da 𝐻 e 𝐾, oltre
+ad essere la risposta del problema è anche il più piccolo sottospazio che contiene sia 𝐻 che 𝐾.
+In simboli: 〈𝐻, 𝐾〉 = 〈𝐻 ∪ 𝐾〉 = 𝐻 + 𝐾 = {ℎ + 𝑘|ℎ ∈ 𝐻, 𝑘 ∈ 𝐾}; ed è il più piccolo sottoinsieme, infatti:
+1) 0 = 0 ∈ 𝐻 + 0 ∈ 𝐾; quini ha elemento neutro.
+2) La somma è chiusa poiché presi 𝑤, 𝑤1 ∈ 𝐻 + 𝐾 posso scrivere che ∃ℎ, ℎ1 ∈ 𝐻, ∃𝑘, 𝑘1 ∈ 𝐾 tale che
+𝑤 = ℎ + 𝑘 e 𝑤1 = ℎ1 + 𝑘1 allora 𝑤 + 𝑤1 = (ℎ + 𝑘) + (ℎ1 + 𝑘1) = (ℎ + ℎ1)
++ (𝑘 + 𝑘1) ∈ 𝐻 + 𝐾
+⏟    
+∈ 𝐻
+3) Il prodotto è anch’esso chiuso, e si dimostra allo stesso modo: ∀𝑥 ∈ ℝ
+• 𝑥ℎ ∈ 𝐻 ⇒ 𝑥ℎ
+∈ 𝐻
++ 0
+∈ 𝐾
+• 𝑘 ∈ 𝐻 ⇒ 0
+∈ 𝐻
++ 𝑥𝑘
+∈ 𝐾
+∈ 𝐻 + 𝐾 ⇒ 𝐻 ⊆ 𝐻 + 𝐾
+∈ 𝐻 + 𝐾 ⇒ 𝐾 ⊆ 𝐻 + 𝐾
+4) resta da dimostrare che sia il più piccolo (affinché sia sottospazio generato)
+• 𝐿 ≤ 𝑉 ∶ 𝐻 ∪ 𝐾 ⊆ 𝐿
+∀ℎ ∈ 𝐻, 𝑘 ∈ 𝐾 ⇒ ℎ, 𝑘 ∈ 𝐿 ⇒ ℎ + 𝑘 ∈ 𝐿 ⇒ 𝐻 + 𝐾 ⊆ 𝐿 ed è quindi contenuto in tutti i
+sottospazi che contengono l’unione di 𝐻 e 𝐾; verificando così l’uguaglianza 〈𝐻, 𝐾〉 = 〈𝐻 ∪ 𝐾〉
+Esempio
+Hye }ee) [xeAS H,=4ley)/yeRY
+Hat, =) Colt Con)/ xR, yerR§
+nets 2 Gye li
+(m=(0)+ (2,9) € Nyt Hy
+€ My é H,
+Generalizzazione: Siano 𝐻1,… , 𝐻𝑛 sottospiazi, il sottospazio generato degli 𝑛 sottospazi non è altro che la
+somma dei sottospazi, in simboli: 〈𝐻1,… , 𝐻𝑛〉 = 𝐻1 +⋯+ 𝐻𝑛 = {ℎ1 + ℎ2 +⋯+ ℎ𝑛|ℎ𝑖 ∈ 𝐻𝑖}
+Osservazione: 𝐻 ≤ 𝑉 ⇒ 〈𝐻〉 = 𝐻, il più piccolo sottospazio generato da 𝐻 è 𝐻 stesso, allo stesso modo se
+ho 𝑣1, … , 𝑣𝑛 ∈ 𝑉 il sottospazio generato 〈𝑣1,… , 𝑣𝑛〉 = {ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛|ℎ𝑖 ∈ ℝ} non è altro che l’insieme
+di tutte le possibili combinazioni lineari dei vettori 𝑣1,… , 𝑣𝑛 con gli scalari che variano in maniera arbitraria.
+13
+⏟    
+∈ 𝐾
+
+Somma diretta di sottospazi vettoriali
+Sia 𝑉 spazio vettoriale e 𝐻1, 𝐻2 ≤ 𝑉 due sottospazi, 𝐻1 + 𝐻2 è detta somma di 𝐻1 e 𝐻2 (generalizzabile per
+𝑛 elementi 𝐻1 +⋯𝐻𝑛), la somma di due sottospazi si dice somma diretta se la loro intersezione (non vuota)
+è la più piccola possibile, ovvero il singleton dell’elemento neutro, quindi è somma diretta e si denota con
+𝐻1⨁𝐻2 se 𝐻1 ∩ 𝐻2 = {0}. Ad esempio sia 𝐻1 = {(𝑥, 0)|𝑥 ∈ ℝ} e 𝐻2 = {(0, 𝑥)|𝑥 ∈ ℝ}, l’insieme ℝ2 = 𝐻1 +
+𝐻2 è somma diretta, infatti 𝐻1 ∩ 𝐻2 = {(0,0)}, quindi si scriverà ℝ2 = 𝐻1⨁𝐻2.
+𝐻1 e 𝐻2 sono detti supplementari se 𝑉 = 𝐻1 + 𝐻2, mentre saranno complementari se 𝑉 = 𝐻1⨁𝐻2
+Somma diretta di più sottospazi: supponiamo di avere 𝑛 spazi vettoriali, allora 𝐻1,… , 𝐻𝑛 sono in somma
+diretta se l’intersezione di un qualunque 𝐻𝑖 con il sottospazio generato da tutti gli altri sia singleton
+dell’elemento neutro, dunque se 𝐻𝑖 ∩ ⟨𝐻𝑗|𝑗 ≠ 𝑖⟩ = {0}, più precisamente se 𝐻1 ∩ 〈𝐻2, 𝐻3,… , 𝐻𝑛〉 = {0};
+𝐻2 ∩ 〈𝐻1, 𝐻3,… , 𝐻𝑛〉 = {0} e così via per tutti gli 𝐻𝑖.
+Esempio 1: 𝐻1 = {(𝑥, 0)|𝑥 ∈ ℝ}, 𝐻2 = {(0, 𝑥)|𝑥 ∈ ℝ} e 𝐻3 = {(𝑥, 𝑥)|𝑥 ∈ ℝ} non sono in somma diretta
+anche se presi a due a due generano l’elemento neutro, infatti 𝐻3 ∩ 〈𝐻1, 𝐻2〉 = 𝐻3 ∩ℝ2 = 𝐻3 ≠ {(0,0)}
+Esempio 2: 𝐻1 = {(𝑥, 0,0)|𝑥 ∈ ℝ}, 𝐻2 = {(0, 𝑥, 0)|𝑥 ∈ ℝ} e 𝐻3 = {(0,0, 𝑥)|𝑥 ∈ ℝ} avremo che l’insieme
+𝐻1 ∩ 〈𝐻2, 𝐻3〉 = {(0,0,0)} dato che 〈𝐻2, 𝐻3〉 = 𝐻2 + 𝐻3 = {(0, 𝑥, 𝑦)|𝑥, 𝑦 ∈ ℝ} in modo analogo si procede
+con gli altri insiemi e dunque possiamo scrivere 𝐻1⨁𝐻2⨁𝐻3.
+Esempio 3: 〈𝑟, 𝑠〉 = 𝑟 + 𝑠 è tutto il piano, inoltre sapendo che ogni vettore
+geometrico si può scrivere come somma di un elemento che sta in 𝑠 ed uno che sta
+in 𝑟, (i sottospazi 𝑠 e 𝑟 sono supplementari; la loro somma fa tutto lo spazio) e che la
+loro intersezione è intuitivamente il vettore degenere 𝑂𝑂⃗⃗⃗⃗⃗⃗ , risulterà 𝑅 ∩ 𝑆 = {𝑂𝑂⃗⃗⃗⃗⃗⃗ }.
+Di conseguenza è anche complementare (l’intersezione è insieme banale): 𝑟⨁𝑠.
+Dipendenza ed indipendenza lineare
+Sia 𝑉 spazio vettoriale e siano 𝑣1, 𝑣2,… , 𝑣𝑛 ∈ 𝑉, essi sono detti linearmente dipendenti (o legati) se e solo se
+esistono 𝑛 scalari non tutti nulli tali che la loro combinazione lineare sia il vettore nullo: ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛 = 0.
+Se tali scalari non esistono allora tali vettori sono detti linearmente indipendenti ( o liberi), quest’ultimo caso
+implica come unica soluzione 0𝑣1 +⋯+ 0𝑣𝑛 = 0, quindi che ℎ1 = ℎ2 = ⋯ = ℎ𝑛 = 0 ∀ℎ𝑖 ∈ ℝ
+Esempi: (1,0), (0,1) ∈ ℝ2 sono linearmente indipendenti infatti ℎ1(1,0) + ℎ2(0,1) = (0,0) ⇒ ℎ1 = ℎ2 = 0;
+(0,0), (1,0) sono linearmente dipendenti : 3(0,0) + 0(1,0) = (0,0), l’elemento neutro implica la dipendenza
+(1,0), (2,0): − 2(1,0) + 1(2,0) = (0,0), se ci sono due elementi proporzionali implica la dipendenza.
+Osservazione: se un sistema di vettori contiene in sé un sistema di vettori linearmente dipendenti allora
+anche il sistema totale più grande sarà linearmente dipendente (metto lo scalare a 0 per i vettori non
+contenuti nel sistema dipendente).
+Diremo che un vettore 𝑣 dipende da 𝑣1, 𝑣2, … , 𝑣𝑛 per definizione, se 𝑣 è combinazione lineare dei 𝑣𝑖 ovvero
+se ∃𝒉𝟏, … , 𝒉𝒏 ∈ ℝ ∶ 𝒗 = 𝒉𝟏𝒗𝟏 + 𝒉𝒏𝒗𝒏. Di seguito alcune proprietà:
+• 0 dipende sempre da qualunque sistema 𝑣1,… , 𝑣𝑛
+0 = 0𝑣1 +⋯+ 0𝑣𝑛
+• 𝑣𝑖 dipende sempre da 𝑣1,… , 𝑣𝑛
+𝑣𝑖 = 0𝑣1 +⋯+ 0𝑣𝑖−1 + 1𝑣𝑖 + 0𝑣𝑖+1 +⋯+ 0𝑣𝑛
+• Sia 𝑣 dipendente da 𝑣1,… , 𝑣𝑛 e ciascun 𝑣𝑖 dipendente da 𝑤1,… , 𝑤𝑚, allora (una sorta di proprietà
+transitiva) 𝑣 dipende da 𝑤1,… , 𝑤𝑚
+Dimostrazione: per ipotesi ∃ℎ𝑖 ∈ ℝ ∶ 𝑣 = ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛 e, sempre per definizione, ∃𝑘𝑖𝑗 ∈ ℝ ∶
+𝑣𝑖 = 𝑘𝑖1𝑤1 +⋯+ 𝑘𝑖𝑚𝑤𝑚 dove 𝑣𝑖 = 𝑣1, … , 𝑣𝑛, di conseguenza posso scrivere il mio vettore 𝑣 come
+segue 𝑣 = ℎ1(𝑘11𝑤1 +⋯+ 𝑘1𝑚𝑤𝑚) +⋯+ ℎ𝑛(𝑘𝑛1𝑤1 +⋯+ 𝑘𝑛𝑚𝑤𝑚); utilizzando poi la proprietà
+distributiva generalizzata (mettendo in evidenza i 𝑤𝑖) avrò 𝑣 = 𝑐1𝑤1 +⋯+ 𝑐𝑚𝑤𝑚
+14
+
+• Se 𝑣, 𝑤 dipendono da 𝑣1,… , 𝑣𝑛 allora 𝑣 + 𝑤 dipende da 𝑣1,… , 𝑣𝑛
+Dimostrazione:
+𝑣 = ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛
+𝑤 = 𝑘1𝑣1 +⋯+ 𝑘𝑛𝑣𝑛
+⇒ 𝑣 + 𝑤 = (ℎ1 + 𝑘1)𝑣1 +⋯+ (ℎ𝑛 + 𝑘𝑛)𝑣𝑛
+• 𝑣 dipende da 𝑣1,… , 𝑣𝑛 ⇔ 𝑣 ∈ 〈𝑣1, … , 𝑣𝑛〉
+Per dimostrare la precedente equivalenza bisogna verificare che (come precedentemente osservato)
+〈𝑣1,… , 𝑣𝑛〉 = {ℎ1 𝑣1 +⋯+ ℎ𝑛 𝑣𝑛|ℎ𝑖 ∈ ℝ}, a tal scopo dimostriamo che l’insieme delle combinazioni
+lineari 𝐻 = {ℎ1 𝑣1 +⋯+ ℎ𝑛 𝑣𝑛|ℎ𝑖 ∈ ℝ} sia effettivamente un sottospazio: è evidente che contenga
+l’elemento neutro poiché esso è sempre dipendente da qualunque sistema, anche la stabilità della
+somma è evidente per la proprietà precedente, in maniera simile si dimostra la stabilità rispetto al
+prodotto, infatti se 𝑣 dipende da 𝑣1, … , 𝑣𝑛 allora anche ℎ𝑣 = (ℎℎ1)𝑣1 +⋯+ (ℎℎ𝑛)𝑣𝑛 dipenderà da
+𝑣1,… , 𝑣𝑛. Inoltre, 𝐻 contiene i vettori 𝑣1,… , 𝑣𝑛
+infatti 𝑣𝑖 dipende da 𝑣1,… , 𝑣𝑛; dunque abbiamo
+dimostrato che 𝐻 oltre ad essere un sottospazio, contiene 𝑣1,… , 𝑣𝑛. Prendiamo ora un sottospazio
+𝑊 che contiene 〈𝑣1,… , 𝑣𝑛〉, se 𝑊 contiene i vettori 𝑣1, … , 𝑣𝑛 allora esso deve contenere anche tutte
+le sue combinazioni lineari e quindi 𝐻 ⊆ 𝑊; abbiamo così dimostrato che 𝐻 è il più piccolo
+sottospazio che rispetto all’inclusione le contiene, ovvero che 𝐻 = 〈𝑣1, … , 𝑣𝑛〉.
+Osservazioni:
+•
+𝑊1 = 〈𝑣1,… , 𝑣𝑛〉
+𝑊2 = 〈𝑤1,… , 𝑤𝑚〉
+⇒ 𝑊1 + 𝑊2 = 〈𝑣1, … , 𝑣𝑛, 𝑤1,… , 𝑤𝑚〉
+Dimostrazione: 𝑊1 + 𝑊2 = {𝑎 + 𝑏 | 𝑎 ∈ 𝑊1 𝑒 𝑏 ∈ 𝑊2} e sappiamo che 𝑊1 + 𝑊2 ⊇ 𝑊1 ∪ 𝑊2 =
+〈𝑣1,… , 𝑣𝑛〉 ∪ 〈𝑤1,… , 𝑤𝑚〉; l’unione dei due sottospazi generati sono contenuti dunque in 𝑊1 + 𝑊2
+e quindi l’insieme 𝑊1 + 𝑊2 contiene tutte le sue combinazioni lineari, ciò vuol dire che contiene tutte
+le combinazioni lineari di 𝑣1,… , 𝑣𝑛, 𝑤1,… , 𝑤𝑚 ovvero il sottospazio generato 〈𝑣1, … , 𝑣𝑛, 𝑤1,… , 𝑤𝑚〉,
+abbiamo così dimostrato che 𝑊1 + 𝑊2 ⊇ 〈𝑣1, … , 𝑣𝑛, 𝑤1,… , 𝑤𝑚〉, rimane da verificare l’altra
+inclusione (al fine di dimostrare la tesi per doppia inclusione): prendiamo un oggetto 𝑣 ∈ 𝑊1 + 𝑊2
+quindi 𝑣 = 𝑎 + 𝑏 = (ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛) + (𝑘1𝑤1 +⋯𝑘𝑚𝑤𝑚) ∈ 〈𝑣1,… , 𝑣𝑛, 𝑤1,… , 𝑤𝑚〉, allora se
+ogni elemento 𝑣 = 𝑎 + 𝑏 ∈ 𝑊1 + 𝑊2 allora 𝑊1 + 𝑊2 ⊆ 〈𝑣1,… , 𝑣𝑛, 𝑤1,… , 𝑤𝑚〉.
+• Il sottospazio generato da sottospazi generati non è altro che il sottospazio generato dai singoli
+elementi, ovvero 𝑊 = 〈〈𝑣1, … , 𝑣𝑛〉, 〈𝑤1,… , 𝑤𝑚〉〉 = 〈𝑣1, … , 𝑣𝑛, 𝑤1,… , 𝑤𝑚〉.
+La dimostrazione è banale ricordando che 𝑊1 + 𝑊2 = 〈𝑊1, 𝑊2〉.
+• 〈𝑣, 𝑣, 0, 𝑤〉 = 〈𝑣, 𝑤〉 (praticamente posso eliminare gli elementi nulli o ripetuti)
+La dimostrazione è evidente per la definizione successiva
+Sistemi di vettori equivalenti
+Sistemi di vettori che dipendono gli uni dagli altri (e viceversa) sono detti equivalenti. Più formalmente posso
+dire che il sistema 𝑣1, … , 𝑣𝑛 è equivalente a 𝑤1,… , 𝑤𝑚 se ogni 𝑣𝑖 dipendono da 𝑤1,… , 𝑤𝑚 e ogni 𝑤𝑗
+dipendono da 𝑣1,… , 𝑣𝑛.
+Esempi: ℝ2〈(0,1), (0,2), (0,0)〉; posso ridurlo, essendo uno nullo e l’altro proporzionale, alla coppia (0,1),
+quindi 〈(0,1), (0,2), (0,0)〉 = 〈(0,1)〉 = {(0, 𝑥)|𝑥 ∈ ℝ}. I seguenti sottospazi sono equivalenti: 〈(0,1), (1,0)〉
+e 〈(1,1), (1,0)〉, essendo (0,1) ⟷ (0,1) + (1,0) = (1,1), quindi anche (1,1) dipende da (0,1) e (1,0).
+Sia 𝑆 ⊆ 𝑉 il più piccolo sottospazio a contenere 𝑆, posso definire il sottospazio generato 〈𝑆〉 = ⋃ 𝐿
+𝐿∈ℒ
+ricordando che ℒ = {𝐿 ≤ 𝑉|𝑆 ⊆ 𝐿}.
+Esercizio: Sia 〈{𝑣 ∈ ℝ|𝑣 𝑖𝑛𝑡𝑒𝑟𝑜 𝑝𝑎𝑟𝑖}〉 = 𝐻, come si caratterizza questo sottospazio?
+Soluzione: Essendo 1 contenuto nel sottospazio generato (posso scrivere ad esempio
+1
+2 ⋅ 2) allora 𝐻 è tutto
+ℝ potendo scrivere qualunque 𝑟 come 1𝑟. Quindi il sottospazio generato da oggetti pari (in realtà qualsiasi
+oggetto diverso da 0), formano tutto ℝ.
+15
+
+Relazione tra dipendenza e linearmente dipendenza
+Sia 𝑣1,… , 𝑣𝑛 ∈ 𝑉 (con 𝑛 ≥ 2, poiché se 𝑛 = 1 allora per essere linearmente dipendente deve essere
+l’elemento nullo) allora:
+I.
+𝑣1,… , 𝑣𝑛 sono linearmente dipendenti ⟺ ∃𝑖 ∶ 𝑣𝑖 dipende dai rimanenti.
+Dimostriamo prima l’implicazione ⇒: per ipotesi, essendo i vettori linearmente dipendenti, esiste
+ℎ1,… , ℎ𝑛 ∈ ℝ non tutti nulli, tale che ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛 = 0, supponiamo che ℎ1 ≠ 0 allora posso
+scrivere ℎ1𝑣1 = −ℎ2𝑣2 +⋯− ℎ𝑛𝑣𝑛, moltiplicando ambo i membri per il reciproco ℎ1
+−1 risulterà
+𝑣1 = (−ℎ1
+−1ℎ2)𝑣2 +⋯+ (−ℎ1
+−1ℎ𝑛)𝑣𝑛, ovvero che 𝑣1 è combinazione lineare di 𝑣2, … , 𝑣𝑛, ovvero
+che 𝑣1 dipende dai rimanenti. Resta ora da provare l’implicazione ⇐: Supponiamo che esista almeno
+un vettore dipendente dai rimanenti, quindi che ⟺ ∃𝑖 ∶ 𝑣𝑖 dipendente da 𝑣1, … , 𝑣𝑖−1, 𝑣𝑖+1,… , 𝑣𝑛,
+supponiamo che sia 𝑖 = 1, allora: ∃ℎ2,… , ℎ𝑛 ∈ ℝ ∶ 𝑣1 = ℎ2𝑣2 +⋯+ ℎ𝑛𝑣𝑛, portando tutti i membri
+a sinistra avremo: 1𝑣1 − ℎ2𝑣2 +⋯− ℎ𝑛𝑣𝑛 = 0 ovvero che 𝑣1,… , 𝑣𝑛 sono linearmente dipendenti.
+II.
+𝑣1,… , 𝑣𝑛 è indipendente ⟺ nessun 𝑣𝑖 dipende dai rimanenti.
+Si dimostra sostanzialmente negando la precedente.
+Esempi (tipologie di svolgimento degli esercizi):
+1) (1,0,0), (1,2,3), (0,0,1) sono linearmente indipendenti; infatti scrivendo una generica combinazione
+lineare ℎ1(1,0,0) + ℎ2(1,2,3) + ℎ3(0,0,1) = (0,0,0) avrò (ℎ1 + ℎ2, 2ℎ2, 3ℎ2 + ℎ3) = (0,0,0) da cui
+troverò il seguente sistema di equazioni: {
+ℎ1 + ℎ2 = 0
+2ℎ2 = 0
+3ℎ2 + ℎ3 = 0
+2) (4,1,4), (4,1,3) sono indipendenti poiché non sono proporzionali e tutti diversi da zero.
+3) (1,0,0), (1,3,0), (3,4,4) sono linearmente indipendenti; infatti (1,0,0) = ℎ(1,3,0) + 𝑘(3,4,4) è valida
+solo se ℎ = 𝑘 = 0 e quindi ho un assurdo, di conseguenza (1,0,0) non dipende dagli altri tue, il
+ragionamento è valido anche per gli altri due elementi, quindi è un sistema indipendente.
+4) (1, −
+1
+2 , 0), (4,3,1), (1,2,
+1
+2) + linearmente dipendente potendo scrivere il terzo come combinazione
+lineare degli altri due; infatti: (4,3,1) = 2 (1, −
+1
+2 , 0) + 2(1,2,
+1
+2)
+5) Spazio vettori geometrici applicati in 𝑂: due vettori sono dipendenti se e
+solamente se sono proporzionali (giacciono sulla stessa retta) quindi tre vettori
+⃗ 𝑂𝑃⃗⃗⃗⃗ , 𝑂𝑄
+⃗⃗⃗⃗⃗⃗ , 𝑂𝑅⃗⃗⃗⃗⃗  sono dipendenti se e solo se giacciono su di uno stesso piano:
+⃗ 𝑂𝑃⃗⃗⃗⃗  = 𝛼𝑂𝑄⃗⃗⃗⃗⃗⃗  + 𝛽𝑂𝑅⃗⃗⃗⃗⃗  (vedi figura).
+Relazione tra un sistema più piccolo ed uno più grande:
+“yvMy W yew, —
+“Arwdi
+Vv
+Vv
+=a
+↦ ℎ1 = ℎ2 = ℎ3 = 0.
+af
+Se il vettore più piccolo è linearmente dipendente (quindi posso scriverlo come combinazione lineare di
+vettori non tutti nulli) allora posso scrivere il sistema più grande: ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛 + 0𝑤1 +⋯+ 0𝑤𝑛 = 0;
+mentre, se il sistema più grande è indipendente allora anche il sistema più piccolo è indipendente.
+Proposizione: siano 𝑣1,… , 𝑣𝑛 vettori linearmente indipendenti allora ogni vettore 𝑣 che dipende da 𝑣1,… , 𝑣𝑛
+vi dipende in maniera univoca. Ovvero posso ottenere ogni combinazione lineare in un singolo modo.
+Dimostrazione: Bisogna verificare che ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛 = 𝑘1𝑣1 +⋯+ 𝑘𝑛𝑣𝑛, e che ℎ𝑖 = 𝑘𝑖, posso scrivere:
+(ℎ1 − 𝑘1)𝑣1 +⋯+ (ℎ𝑛 − 𝑘𝑛)𝑣𝑛 = 0, essendo linearmente indipendenti, l’unica combinazione lineare è
+quella di scalari tutti nulli, ne segue ℎ𝑖 − 𝑘𝑖 = 0 e dunque ℎ𝑖 = 𝑘𝑖.
+16
+3
+
+Proposizione: Siano 𝐻, 𝐾 ≤ 𝑉 non triviali (0 ≠ ℎ ∈ 𝐻 e 0 ≠ 𝑘 ∈ 𝐾), 𝐻 ∩ 𝐾 = {0}, allora i vettori ℎ e 𝑘 sono
+indipendenti.
+Dimostrazione: supponiamo per assurdo che ℎ e 𝑘 siano dipendenti, quindi 𝛼ℎ + 𝛽𝑘 = 0 con 𝛼, 𝛽 ∈ ℝ non
+entrambi nulli, supponiamo 𝛼 diverso da zero (uno dei due deve esserlo al fine della dipendenza) quindi
+posso scrivere ℎ = (−𝛼−1𝛽 )𝑘 ∈ 𝐻 ∩ 𝐾, ora, poiché ℎ deve essere diverso dal vettore nullo per ipotesi, ed
+essendo che 𝐻 ∩ 𝐾 contiene solo il vettore nullo (sempre per ipotesi) abbiamo trovato un assurdo.
+Proposizione: Siano 𝐻1,… , 𝐻𝑛 sottospazi non banali di 𝑉, 0 ≠ 𝑣1 ∈ 𝐻1,… , 0 ≠ 𝑣𝑛 ∈ 𝐻𝑛, il sistema costituito
+da 𝑣1,… , 𝑣𝑛 è indipendente. (i sottospazi sono in somma diretta)
+Dimostriamo per assurdo che i vettori siano linearmente dipendenti:
+ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛 = 0
+(ℎ1,… , ℎ𝑛) ≠ (0,… ,0)
+]
+ℎ1≠0
+⇒    𝑣1 =
+(−ℎ1
+−1ℎ2)𝑣2 +⋯+ (−ℎ1
+−1ℎ𝑛)𝑣𝑛 ∈ 𝐻1 ∩ (𝐻2 +⋯+ 𝐻𝑛) = {0} e questo significa che i sottospazi sono in
+somma diretta che per definizione è il singleton dell’elemento neutro, ciò denota un assurdo che contraddice
+il fatto che qeusti oggetti siano linearmente dipendenti.
+Prendiamo ad esempio i seguenti insiemi: 𝐻1 = {(0, 𝑥)|𝑥 ∈ ℝ}, 𝐻2 = {(𝑥, 0)|𝑥 ∈ ℝ}, 𝐻3 = 〈(1,1)〉;
+sappiamo che 𝐻1 e 𝐻2sono in somma diretta quindi formano un sistema indipendente, supponiamo (0,1) e
+(1,0) allora (0,1) (1,0) (1,1) sono dipendenti per gli scalari 1,1, −1 rispettivamente.
+Proposizione: Siano 𝐻1 e 𝐻2 sottospazi di 𝑉 in somma diretta, sia 𝑣 ∈ 𝐻1⨁𝐻2 allora ∃! 𝑣1 ∈ 𝐻1, 𝑣2 ∈ 𝐻2 ∶
+𝑣 = 𝑣1 + 𝑣2
+Dimostrazione: supponiamo di poter scrivere 𝑣 in due modi: 𝑣 = 𝑣1 + 𝑣2 = 𝑣1
+′ + 𝑣2
+′ ⇒ (𝑣1 − 𝑣1
+′ ) +
+(𝑣2 − 𝑣2
+′ ) = 0; essendo il primo oggetto una differenza di due oggetti in 𝐻1 quell’oggetto appartiene ad 𝐻1,
+allo stesso modo 𝑣2 − 𝑣2
+′ ∈ 𝐻2. Supponendo i due oggetti entrambi diversi da zero avremo un assurdo poiché
+per ipotesi i vettori sono in somma diretta (la loro somma è pari al singleton del vettore nullo); di conseguenza
+l’unica soluzione è che 𝑣1 = 𝑣1
+′ e 𝑣2 = 𝑣2
+′ , come volevasi dimostrare.
+Osservazione: la precedente proposizione ci fa capire che la somma diretta implica l’unicità di scrittura (posso
+scrivere ogni vettore appartenente alla somma diretta in un unico modo). Viceversa: ∀𝑔 ∈ 𝐻1 + 𝐻2 e ∃! 𝑣1 ∈
+𝐻1, 𝑣2 ∈ 𝐻2 ∶ 𝑔 = 𝑣1 + 𝑣2 ⇒ 𝐻1 ∩ 𝐻2 = {0} (quindi la mia somma è somma diretta)
+Dim.: 𝑣 ∈ 𝐻1 ∩ 𝐻2 ⇒ 𝑣 = 𝑣⏟
+∈𝐻1
++ 0⏟
+∈𝐻2
+= 0⏟
+∈𝐻1
++ 𝑣⏟
+∈𝐻2
+; ovvero l’unicità di scrittura 𝑣 = 0 e 0 = 𝑣
+Mettendo insieme le precedenti proposizioni posso scrivere la seguente proposizione: siano 𝐻1, 𝐻2 ≤ 𝑉, se
+𝐻1 ∩ 𝐻2 = {0} ⇔ ∀𝑣 ∈ 𝐻1 + 𝐻2, ∃! ℎ1 ∈ 𝐻1, ℎ2 ∈ 𝐻2 ∶ 𝑣 = ℎ1 + ℎ2. La quale posso generalizzarla in:
+𝑯𝟏,… , 𝑯𝒏 𝒔𝒐𝒏𝒐 𝒊𝒏 𝒔𝒐𝒎𝒎𝒂 𝒅𝒊𝒓𝒆𝒕𝒕𝒂 ⟺ ∀𝒗 ∈ 𝑯𝟏 +⋯+ 𝑯𝒏, ∃! 𝒉𝒊 ∈ 𝑯𝒊 ∶ 𝒗 = 𝒉𝟏 +⋯+ 𝒉𝒏
+Dimostrazione: l’implicazione ⇒ è già stata dimostrata, rimane da dimostrare quindi l’implicazione ⇐.
+Prendiamo un elemento 𝑣 ∈ 𝐻1 ∩ (𝐻2 +⋯+ 𝐻𝑛) e dimostriamo che sia uguale all’elemento neutro (non
+consideriamo gli altri sottospazi generati poiché si procede in modo analogo). Ricordando che ∃ℎ2 ∈ 𝐻2,
+… , ℎ𝑛 ∈ 𝐻𝑛
+∶ 𝑣 = ℎ2 +⋯+ ℎ𝑛 posso scrivere 𝑣 = 𝑣⏟
+∈𝐻1
+e quindi per l’unicità di scrittura comporta che 𝑣 = 0
+Proposizione: Supponiamo di avere 𝑣1, 𝑣2, … , 𝑣𝑡 indipendente e 𝑣 ∈ 𝑉 che non dipende dai 𝑣𝑖 allora se
+aggiungo il vettore 𝑣 al precedente sistema ottengo un sistema indipendente, quindi 𝑣1,… , 𝑣𝑡, 𝑣 indipendete
+Dimostrazione: prendiamo una combinazione lineare e poniamola uguale al vettore nullo: ℎ1𝑣1 + ℎ2𝑣2 +
+⋯+ ℎ𝑡𝑣𝑡 + ℎ𝑣 = 0, in questo modo avremo due possibili casi. Caso ℎ ≠ 0: 𝑣 = (−ℎ−1ℎ1)𝑣1 +⋯+
+(−ℎ−1ℎ𝑡)𝑣𝑡 il che è assurdo essendo che 𝑣 non dipende dagli altri vettori. Mentre per il caso ℎ = 0: ℎ1𝑣1 +
+ℎ2𝑣2 +⋯+ ℎ𝑡𝑣𝑡 + ℎ𝑣 = 0 ⇒ ℎ1 = ℎ2 = ⋯ = ℎ𝑡 = 0 (per definizione).
+17
++ 0⏟
+∈𝐻2
++⋯+ 0⏟
+∈𝐻𝑛
+= 0 + 𝑣 = 0⏟
+∈𝐻1
++ ℎ2⏟
+∈𝐻2
++⋯+ ℎ𝑛⏟
+∈𝐻𝑛
+
+Corollario: Sia 𝑣1,… , 𝑣𝑡 indipendente, 𝑣 ∈ 𝑉, se 𝑣1,… , 𝑣𝑡, 𝑣 è dipendente allora 𝑣 dipende da 𝑣1,… , 𝑣𝑡.
+La dimostrazione è una sorta di negazione della proposizione precedente ((𝑝 ⇒ 𝑞) ⇔ (¬𝑞 ⇒ ¬𝑝)).
+Esempio: Partiamo da (1,2,0) che è indipendente ⇒
+(1,2,0), (3,2,0) ancora indipendente poiché (3,2,0)
+non dipende da (1,2,0). Allora, per lo stesso motivo,
+si ha che (1,2,0), (3,2,0), (0,0,1) è indipendente.
+(42,9) , (3)49)
+L pmolig. (mm prep)
+Anhp,
+Vettori finitamente generabili
+Uno spazio vettoriale 𝑉 è detto finitamente generabile se esistono 𝑣1, … , 𝑣𝑛
+∶ 𝑉 = 〈𝑣1,… , 𝑣𝑛 〉, dove
+〈𝑣1,… , 𝑣𝑛 〉 è detto sistema di generatori. Quindi uno spazio vettoriale è finitamente generabile se ogni
+elemento di V può essere scritto come combinazione lineare di elementi di 𝑣1, … , 𝑣𝑛.
+Altre definizioni associate:
+• Un sistema di generatori indipendente è detto base.
+• Un riferimento è una base ordinata
+𝑒1,… , 𝑒𝑛 𝑏𝑎𝑠𝑒 ⇒ (𝑒1, … , 𝑒𝑛) 𝑟𝑖𝑓𝑒𝑟𝑖𝑚𝑒𝑛𝑡𝑜
+Esempi:
+1) ℝ2 (1,0) (0,1)
+I.
+(𝑥, 𝑦) = 𝑥(1,0) + 𝑦(0,1) formano un sistema di generatori indipendenti e dunque (1,0) e (0,1)
+sono una base per ℝ2.
+II.
+III.
+(1,0), (2,0) non è un sistema di generatori poiché (𝑥, 𝑦) = ℎ1(1,0) + ℎ2(2,0) = (ℎ1 + 2ℎ2, 0)
+dunque (0,1) ∉ 〈(1,0), (2,0)〉
+(
+u
+(1,0), (1,1) è un sistema di generatori perché (𝑥, 𝑦) = ℎ(1,0) + 𝑘(1,1) ⇒ {
+ℎ + 𝑘 = 𝑥
+𝑘 = 𝑦
+(1 1
+0 1
+|
+𝑥
+𝑦) ⇒ ∃! 𝑠𝑜𝑙𝑢𝑧𝑖𝑜𝑛𝑒 ∀(𝑥, 𝑦) ∈ ℝ2 (sono anche indipendenti)
+2) I vettori (1,0,0), (0,2,0), (0,0, −1), (0,0,0) sono un sistema di generatori per ℝ3? Prendiamo un generico
+sistema (𝑥, 𝑦, 𝑧) = ℎ1(1,0,0) + ℎ2(0,2,0) + ℎ3(0,0,−1) + ℎ4(0,0,0) dunque avrò un sistema {
+(
+(
+ℎ1 = 𝑥
+2ℎ2 = 𝑦
+−ℎ3 = 𝑧
+con soluzione unica e questo vorrebbe dire che il sistema (avendo unicità) è un sistema indipendente di
+generatori. È dunque una possibile base di ℝ3 è (1,0,0), (0,2,0), (0,0,−1)
+3) Spazio vettoriale dei vettori geometrici applicati in 𝑂 è finitamente generabile
+poiché supponendo di prendere un vettore 𝑂𝑅⃗⃗⃗⃗⃗  in qualunque parte del piano
+(vedi figura), essa può essere ottenuta come combinazione lineare di 𝑂𝑃⃗⃗⃗⃗⃗  e 𝑂𝑄⃗⃗⃗⃗⃗⃗ .
+a
+amis os >
+Vig
+a
+vy
+P
+“LOB,
+4) Lo spazio di polinomi ℝ𝑛[𝑥] è finitamente generabile? Supponiamo di avere gli 𝑛 + 1 polinomi
+1, 𝑥, 𝑥2, … , 𝑥𝑛, dunque ogni polinomio di grado al più 𝑛 posso scriverlo come combinazione lineare
+𝑎𝑛𝑥𝑛 + 𝑎𝑛−1𝑥𝑛−1 +⋯+ 𝑎0 = 𝑎𝑛𝑥𝑛 +⋯+ 𝑎01; di conseguenza è finitamente generabile.
+5) Lo spazio dei polinomi ℝ[𝑥] non è finitamente generabile poiché se lo fosse esisterebbero
+𝑝1(𝑥),… , 𝑝𝑛(𝑥) ∶ ℝ[𝑥] = 〈𝑝𝑖(𝑥)〉 ciò vuol dire che 𝑅[𝑥] = {𝛼1𝑝1(𝑥) +⋯+ 𝛼𝑛𝑝𝑛(𝑥)|𝛼𝑖 ∈ ℝ} ma ciò
+significherebbe che se prendo il grado massimo dei polinomi, la combinazione lineare associata non
+supererebbe mai il suo grado, ciò significa che un grado superiore al suddetto non apparterrebbe a : ℝ[𝑥]
+6) (1,0) è indipendente ma non è una base poiché non posso generare altro elemento oltre allo zero nel
+secondo elemento.
+18
+dunque
+(00,4)
+am olf.
+
+Teorema di esistenza delle basi: Sia 𝑉 uno spazio vettoriale non nullo, se è finitamente generabile allora 𝑉
+ammette basi.
+Dimostrazione: sia 𝑣1,… , 𝑣𝑛 un sistema di generatori, se 𝑣1,… , 𝑣𝑛 è indipendete allora è base. Se invece il
+sistema è dipendente allora ∃𝑖 ∶ 𝑣𝑖 dipenda dai rimanenti, supponiamo che sia 𝑣1, allora esso può essere
+rimosso dal sistema, dunque avrò 𝑣2, … , 𝑣𝑛
+che sarà ancora un sistema di generatori poiché 𝑉 =
+〈𝑣1,… , 𝑣𝑛〉 ≤ 〈𝑣2,… , 𝑣𝑛〉 ∋ 𝑣2, … , 𝑣𝑛 ⇒ 〈𝑣2,… , 𝑣𝑛〉 = 𝑉. Iterando questo procedimento troverò sempre
+almeno un sistema indipendente e quindi una base.
+Osservazione: Da ogni sistema di generatori si può estrarre una base
+Ad esempio: (1,0), (2,0), (3,4), (5,6), (1,1) è un sistema di generatori per ℝ2, essendo (𝑥, 𝑦) = 𝑦(1,1) +
+(𝑥 − 𝑦)(1,0) + 0(2,0) + 0(3,4) + 0(5,6); da questo sistema di generatori si può estrarre una base, (2,0) è
+proporzionale a (1,0) e si può rimuovere, allo stesso modo (3,4), (5,6) essendo entrambi scrivibili come
+ℎ(1,1) − 1(1,0), di conseguenza rimarrò con i vettori (1,0)(1,1), che formano una base.
+Dimensione di uno spazio vettoriale
+Lemma di Steinitz: Se ho 𝑚 vettori linearmente indipendenti contenuti in un sottospazio generato da 𝑛
+vettori allora il numero di generatori è maggiore o uguale del numero di vettori indipendenti.
+𝑣1, … , 𝑣𝑚 ∈ 〈𝑤1,… , 𝑤𝑛〉 ⇒ 𝑚 ≤ 𝑛
+Corollario (diretta conseguenza del lemma di Steinitz): Sia 𝑉 ≠ {0} spazio vettoriale, tutte le basi hanno lo
+stesso ordine detto dimensione di 𝑉. (la dimensione è un concetto ben definito per il lemma di Steinitz)
+Dimostrazione: Siano 𝑣1, … , 𝑣𝑛 e 𝑤1,… , 𝑤𝑚 due basi, essendo 𝑣1, … , 𝑣𝑛 una base allora 𝑣1,… , 𝑣𝑛 è un sistema
+di vettori linearmente indipendente ed è contenuto in 𝑉 = 〈𝑤1,… , 𝑤𝑚〉 essendo 𝑤1,… , 𝑤𝑚 base e quindi
+anche un sistema di generatori. Per il lemma di Steinitz avrò che 𝑛 ≤ 𝑚, ovviamente posso scrivere anche il
+contrario, ovvero 𝑤1, … , 𝑤𝑚 ∈ 𝑉 = 〈𝑣1,… , 𝑣𝑛〉, di conseguenza avrò anche 𝑚 ≤ 𝑛, ovvero 𝑚 = 𝑛.
+dim (𝑉) è la cardinalità di una base, se 𝑉 = {0} ⟹ dim(𝑉) = 0 (poiché l’insieme vuoto si può vedere come
+un sistema indipendente di vettori costituito dal solo elemento neutro) mentre se 𝑉 non è finitamente
+generabile ⇒ dim(𝑉) = ∞.
+Proposizioni della dimensione (𝑽 ≠ {𝟎} 𝒇𝒊𝒏𝒊𝒕𝒂𝒎𝒆𝒏𝒕𝒆 𝒈𝒆𝒏𝒆𝒓𝒂𝒃𝒊𝒍𝒆, 𝐝𝐢𝐦 𝑽 = 𝒏):
+• 𝑣1,… , 𝑣𝑚 indipendente ⇒ 𝑚 ≤ 𝑛 (il numero di oggetti non può superare la dimensione di 𝑉)
+Dim.: Sia 𝑒1,… , 𝑒𝑛 una base di 𝑉𝑛 allora essendo 𝑣1,… , 𝑣𝑚 un sistema di vettori linearmente indipendente
+𝑣1,… , 𝑣𝑚 ∈ 〈𝑒1,… , 𝑒𝑛〉 = 𝑉𝑛 ⇒ 𝑚 ≤ 𝑛 per il lemma di Steinitz
+• 𝑣1,… , 𝑣𝑛 indipendente ⇒ 𝑣1,… , 𝑣𝑛 formano una base (quindi anche un sistema di generatori)
+Basta dimostrare che 𝑣1,… , 𝑣𝑛 sia anche un sistema di generatori, per farlo supponiamo per assurdo che
+𝑣1,… , 𝑣𝑛 non siano un sistema di generatori quindi 〈𝑣1,… , 𝑣𝑛〉 < 𝑉 ma allora ∃𝑣 ∈ 𝑉 ∖ 〈𝑣1,… , 𝑣𝑛〉 e
+quindi 𝑣 non dipende da 𝑣1,… , 𝑣𝑛 e quindi 𝑣, 𝑣1,… , 𝑣𝑛 è un sistema indipendente di cardinalità 𝑛 + 1
+che è assurdo poiché contraddice la proposizione precedente.
+• 𝑣1,… , 𝑣𝑛 sistema di generatori ⇒ 𝑣1,… , 𝑣𝑛 formano una base (quindi è anche indipendente)
+Si dimostra per assurdo poiché se non fossero indipendenti potremmo estrarre una base di cardinalità
+minore di 𝑛 (in modo analogo alla dimostrazione precedente)
+• 𝑣1,… , 𝑣𝑚 indipendenti ⇒ ∃𝑤𝑚+1, … , 𝑤𝑛: 𝑣1, … , 𝑣𝑚, 𝑤𝑚+1,… , 𝑤𝑛 formano una base (Ogni sistema di
+vettori linearmente indipendenti si può completare in una base)
+Dim.: se 𝑚 = 𝑛 allora è base per la seconda preposizione. Se 𝑚 < 𝑛 ⇒ 〈𝑣1, … , 𝑣𝑚〉 < 𝑉, ma allora
+∃𝑤𝑚+1 ∈ 𝑉 ∖ 〈𝑣1,… , 𝑣𝑚〉 ⇒ 𝑣1, … , 𝑣𝑚, 𝑤𝑚+1 è indipendente; se è base ho concluso, altrimenti continuo
+sino a trovare la base 𝑣1, … , 𝑣𝑚, 𝑤𝑚+1,… , 𝑤𝑛 (finirò poiché per la prima proposizione ho un numero finito
+di vettori linearmente indipendenti, ovvero 𝑛).
+19
+
+Proposizione: Sia 𝑉 spazio vettoriale, i seguenti enunciati sono tra loro equivalenti per 𝑣1,… , 𝑣𝑛:
+1) Base
+2) Massimale rispetto all’indipendenza (se preso un sistema più grande allora perde la proprietà di
+indipendenza)
+3) Minimale rispetto all’essere un sistema di generatori (se preso un sistema più piccolo allora perde la
+proprietà di essere un sistema di generatori)
+4) Sistema indipendente di cardinalità massima (tutti gli altri sistemi indipendenti hanno cardinalità
+minore o uguale di n)
+5) Sistema di generatori di cardinalità minima (tutti gli altri sistemi di generatori hanno cardinalità
+maggiore o uguale di n)
+Dimostrazione: 1 ⇒ 2: supponiamo ci sia un sistema di vettore contenente 𝑣1,… , 𝑣𝑛, che essendo base
+implica 𝑣1,… , 𝑣𝑛, 𝑤1,… , 𝑤𝑚
+dipendente. 2 ⇒ 1:
+𝑣1,… , 𝑣𝑛 massimale indipendente, usando il
+completamento ad una base perderei il concettò di massimale se esistesse una base con cardinalità > 𝑛.
+Segue da quest’ultima preposizione anche che 4 ⇒ 1, mentre la 1 ⇒ 4 è analoga alla 1 ⇒ 2. 1 ⇒ 3: essendo
+𝑣1,… , 𝑣𝑛 base, se non sarà minimale rispetto alla generazione ci sarà un sottosistema proprio di 𝑣1,… , 𝑣𝑛
+che è ancora un sistema di generatori, da cui possiamo allora estrarre una base e trarne dimensioni diverse.
+3 ⇒ 1: 𝑣1,… , 𝑣𝑛 minimale rispetto alla generazione allora estraiamo una base che deve coincidere con
+𝑣1,… , 𝑣𝑛. 1 ⇒ 5: essendo 𝑣1,… , 𝑣𝑛 base se per assurdo esistesse un sistema di generatori 𝑤1,… , 𝑤𝑚 con
+𝑚 < 𝑛 allora è possibile estrarre da 𝑤1,… , 𝑤𝑚 una base che avrà perciò cardinalità < 𝑛 (assurdo). La 5 ⇒ 1
+si dimostra banalmente dalla 3 ⇒ 1. Per doppia implicazione abbiamo dimostrato che: 1 ⇔ 2 ⇔ 3 ⇔ 4 ⇔ 5
+Proposizione: Sia 𝑊 ≤ 𝑉𝑛 allora:
+1) 𝑊 è finitamente generabile e dim𝑊 ≤ 𝑛
+Dim.: Se per assurdo 𝑊 non fosse finitamente generabile allora se 𝑤1 ∈ 𝑊, 𝑊 ≠ 〈𝑤1〉 e quindi
+esisterebbe un 𝑤2 ∈ 𝑊 ∖ 〈𝑤1〉 ⇒ 𝑤1, 𝑤2 indipendenti. Segue sempre che 𝑊 ≠ 〈𝑤1, 𝑤2〉, di
+conseguenza possiamo iterare questo processo fino all’assurdo di trovare 𝑛 + 1 vettori indipendenti.
+Presa una base di 𝑊(≠ {0}) 𝑤1,… , 𝑤𝑡 allora 𝑤1, … , 𝑤𝑡 sono indipendenti anche in 𝑉, quindi 𝑡 ≤ 𝑛
+2) dim𝑊 = 𝑛 ⇔ 𝑊 = 𝑉𝑛
+La ⇐ è ovvia poiché se 𝑉𝑛 = 𝑊 allora dim𝑊 = dim𝑉 = 𝑛. L’implicazione ⇒ si dimostra prendendo
+una base di 𝑊, sia 𝑤1,… , 𝑤𝑛 che essendo base è anche un sistema indipendente di cardinalità 𝑛 in
+𝑉 e quindi base per 𝑉
+Corollario: Siano 𝑊, 𝑍 ≤ 𝑉𝑛 allora se
+1) 𝑊 ≤ 𝑍 ⇒ dim𝑊 ≤ dim𝑍
+2) 𝑊 ≤ 𝑍 e dim𝑊 = dim𝑍 ⇒ 𝑊 = 𝑍
+Le dimostrazioni sono analoghe a quelle precedenti. Basti considerare 𝑍 come 𝑉
+Esempio: <(1,0,0),(0,1,0)> e <(0,1,0),(0,0,1)> sono due sottospazi che hanno la stessa dimensione ma non
+sono contenuti uno nell’altro; eccetto per la dimensione R^1 sono infiniti gli esempi di questo tipo. Si prenda
+ad esempio ℝ2 avremo 〈(1,0)〉 〈(1,1)〉 〈(1,2)〉 … ∞ sottospazi della stessa dimensione.
+Si prendano 𝐻1,… , 𝐻𝑛 ≤ 𝑉 sottospazi in somma diretta allora dim(𝐻1⨁…⨁𝐻𝑛) = dim𝐻1 +⋯+ dim𝐻𝑛.
+Dimostrazione: Siano 𝑒11,… , 𝑒1𝑚1 base di 𝐻1, 𝑒21,… , 𝑒2𝑚2 base di 𝐻2, … , 𝑒𝑛1,… , 𝑒𝑛𝑚𝑛 base di 𝐻𝑛 (il primo
+pedice identifica lo spazio vettoriale, il secondo il numero dell’elemento). Dimostriamo che l’unione delle
+basi 𝑒11,… , 𝑒1𝑚1, 𝑒21,… , 𝑒2𝑚2,… , 𝑒𝑛1,… , 𝑒𝑛𝑚𝑛
+sia essa stessa una base: che sia un sistema di generatori è
+scontato perché comunque si prendano un vettore del sottospazio somma esso si può ottenere mediante il
+sistema 𝑒11,… , 𝑒1𝑚1,… , 𝑒𝑛1,… , 𝑒𝑛𝑚𝑛. Ora ci resta da dimostrare che formi anche un sistema indipendente
+per 𝐻1⨁…⨁𝐻𝑛, ovvero che ℎ11𝑒11 +⋯+ ℎ1𝑚1𝑒1𝑚1 +⋯+ ℎ𝑛1𝑒𝑛1 +⋯+ ℎ𝑛𝑚𝑛 𝑒𝑛𝑚𝑛 = 0, isolando i
+vettori nel seguente modo ℎ11𝑒11 +⋯+ ℎ1𝑚1𝑒1𝑚1 + (…+ ℎ𝑛1𝑒𝑛1 +⋯+ ℎ𝑛𝑚𝑛𝑒𝑛𝑚𝑛)
+posso scrivere
+⏟                    
+∈𝐻2+⋯+𝐻𝑛
+20
+
+ℎ11𝑒11 +⋯+ ℎ1𝑚1𝑒1𝑚1 = ⋯− ℎ𝑛1𝑒𝑛1 +⋯− ℎ𝑛𝑚𝑛𝑒𝑛𝑚𝑛 ed in questa forma è evidente che quest’oggetto
+scrivibile in due modi (come se stesso e come la combinazione lineare soprascritta) appartiene all’ insieme
+𝐻1 ∩ (𝐻2 +⋯+ 𝐻𝑛) = {0} (per definizione fa il singleton dell’elemento neutro). Ciò significa che l’oggetto
+a sinistra è l’elemento neutro e dunque ℎ11𝑒11 +⋯+ ℎ𝑛𝑚𝑛𝑒𝑛𝑚𝑛 = 0 ⇒ ℎ11 = ⋯ = ℎ1𝑛1 = 0. Isolando ora
+gli altri insiemi seguendo lo stesso ragionamento avrò come da tesi ℎ11 = ⋯ = ℎ1𝑛1 = ⋯ = ℎ𝑛𝑚𝑛 = 0.
+Relazione di Grassmann
+Essa ci dice praticamente la dimensione del sottospazio somma quando i due sottospazi non sono
+necessariamente in somma diretta (vale anche per 𝑛 sottospazi).
+𝑯, 𝑲 ≤ 𝑽𝒏
+𝐝𝐢𝐦 𝑯 + 𝐝𝐢𝐦 𝑲 = 𝐝𝐢𝐦(𝑯 ∩ 𝑲) + 𝐝𝐢𝐦(𝑯 + 𝑲)
+Dimostrazione: se 𝐻 ∩ 𝐾 = {0} ⇒ 𝐻⨁𝐾 ed è dimostrata banalmente per la proposizione precedente.
+Supponiamo dunque 𝐻 ∩ 𝐾 ≠ {0} ⇒ dim𝐻 ∩ 𝐾 = 𝑡, prendiamo una base di 𝐻 ∩ 𝐾 ed andiamo a
+completarla sia come base di 𝐻 che di 𝐾, avremo dunque che esistono 𝑒1,… , 𝑒𝑡 base di 𝐻 ∩ 𝐾,
+𝑒1,… , 𝑒𝑡, ℎ𝑡+1,… , ℎ𝑟 base di 𝐻 e 𝑒1,… , 𝑒𝑡, 𝑘𝑡+1,… , 𝑘𝑠 base di 𝐾 (ovviamente può anche succedere che i 𝑡
+vettori siano una base anche di 𝐻 e/o di 𝐾). Mettendo insieme i precedenti oggetti e considerandolo un
+singolo insieme avrò 𝑒1,… , 𝑒𝑡, ℎ𝑡+1,… , ℎ𝑟, 𝑘𝑡+1, … , 𝑘𝑠 sono 𝑟 + 𝑠 − 𝑡 elementi (vedi figura) ora dobbiamo
+dimostrare che 𝑟 + 𝑠 − 𝑡 = dim𝐻 + dim𝐾 − dim𝐻 ∩ 𝐾 sia
+effettivamente dim(𝐻 + 𝐾). Dobbiamo dimostrare dunque che
+sia una base, quindi che sia un sistema di generatori e linearmente
+indipendente. 1) sistema di generatori: per definizione esiste 𝑣 ∈
+𝐻 + 𝐾 ⇒ ∃ℎ ∈ 𝐻, 𝑘 ∈ 𝐾 ∶ 𝑣 = ℎ + 𝑘 dove ℎ è combinazione
+lineare di 𝑒1,… , 𝑒𝑡, ℎ𝑡+1,… , ℎ𝑟 e 𝑘 combinazione lineare di
+𝑒1,… , 𝑒𝑡, 𝑘𝑡+1,… , 𝑘𝑠 e dunque avrò che 𝑣 è combinazione lineare
+di 𝑒1,… , 𝑒𝑡, ℎ𝑡+1,… , ℎ𝑟, 𝑘𝑡+1,… , 𝑘𝑠. 2) sistema linearmente indipendente: prendiamo una combinazione
+lineare generica 𝑎1𝑒1 +⋯+ 𝑎𝑡𝑒𝑡 + 𝑎𝑡+1ℎ𝑡+1 +⋯+ 𝑎𝑟ℎ𝑟 + 𝑏𝑡+1𝑘𝑡+1 +⋯+ 𝑏𝑠𝑘𝑠 = 0 e scriviamo (come
+con la dimostrazione precedente) , 𝑥 = 𝑎1𝑒1 +⋯+ 𝑎𝑡𝑒𝑡 + 𝑎𝑡+1ℎ𝑡+1 +⋯+ 𝑎𝑟ℎ𝑟
+= −𝑏𝑡+1𝑘𝑡+1 +⋯− 𝑏𝑠𝑘𝑠
+⏟                          
+𝐻
+dunque 𝑥 ∈ 𝐻 ∩ 𝐾 = 〈𝑒1,… , 𝑒𝑡〉 e in particolare 𝑥
+= 𝑐1𝑒1 +⋯+ 𝑐𝑡𝑒𝑡
+= −𝑏𝑡+1𝑘𝑡+1 +⋯− 𝑏𝑠𝑘𝑠
+⏟              
+𝐾
+ottenendo così che 𝑐1𝑒1 +
+⋯+ 𝑐𝑡𝑒𝑡 + 𝑏𝑡+1𝑘𝑡+1 +⋯+ 𝑏𝑠𝑘𝑠 = 0 da cui (essendo una base) posso dedurre 𝑐1 = ⋯ = 𝑐𝑡 = 𝑏𝑡+1 = ⋯ =
+𝑏𝑠 = 0 ma allora 𝑎1𝑒1 +⋯+ 𝑎𝑡𝑒𝑡 + 𝑎𝑡+1ℎ𝑡+1 +⋯+ 𝑎𝑟ℎ𝑟 = 0 ⇒ 𝑎1 = ⋯ = 𝑎𝑡 = 𝑎𝑡+1 = ⋯ = 𝑎𝑟 = 0.
+Osservazione: Grassmann si usa usualmente per calcolare la dimensione dell’intersezione poiché nella
+maggior parte dei casi la dimensione della somma è “visivamente” calcolabile.
+Proposizione: Sia 𝑉𝑛 uno spazio vettoriale di dimensione 𝑛 e ℛ = (𝑒1,… , 𝑒𝑛) un riferimento (base ordinata,
+quindi ho l’unicità di scrittura), avrò: ∀𝑣 ∈ 𝑉𝑛 ∃! ℎ1,… , ℎ𝑛 ∈ ℝ ∶ 𝑣 = ℎ1𝑒1 +⋯+ ℎ𝑛𝑒𝑛 (considero un
+riferimento così posso definire una n-upla nell’ordine assegnato), e questa n-upla (ℎ1,… , ℎ𝑛) si chiamerà
+n-upla dei componenti nel riferimento ℛ.
+21
+
+Per passare da componenti in un riferimento ℛ a componenti di un altro riferimento ℛ′ si eseguono
+(meccanicamente) i seguenti passi:
+DCm) > Neh)2) wf ot Vu
+'
+24, Obed 6,16)
+veVv
+Ey7 @2c)4 48Wc! CryXn) ae O
+:
+'
+.
+:
+'
+CaF O C4 than2)
+YER Gas Xan =(matt
+Wo
+Cy ky eta) ia
+'
+heOia)Si HOpthem ) S,
+2
+FX,+ TR
+ylel
+1
+le
+Le,
+1 ;
+Sa My rate XaBam pany RPXp Bit
+Az(s;,) X> (!
+\/%
+‘) x(\ XS AX
+x
+Ni molto ol: foray
+Forma canonica
+Sia ℝ𝑛, si definisce base canonica o riferimento canonico di uno spazio vettoriale l’insieme delle seguenti
+basi: 𝑒1 = (1,0,… ,0), 𝑒2 = (0,1,… ,0), … , 𝑒𝑛 = (0,0,… ,1); (per la base canonica non è rilevante l’ordine) di
+conseguenza ogni vettore appartenente allo spazio vettoriale si può scrivere come combinazione lineare della
+base canonica. Altri esempi:
+• Base canonica di ℝ𝑛[𝑥]: 1, 𝑥, 𝑥2,… , 𝑥𝑛
+• Base dello spazio delle matrici ℝ2,3: (1 0 0
+0 0 0
+(0 0 0
+0 0 1
+) , (0 1 0
+0 0 0
+) , (0 0 1
+0 0 0
+) (concetto analogo per quanto riguarda matrici ℝ𝑛,𝑚
+Metodi per estrarre una base da un sottospazio generato
+Sia, ad esempio, il seguente sottospazio 𝐻 = 〈(1,0,1,2), (−1,2,3,0), (3, −2,−1,4), (−2,4,6,0)〉 ≤ ℝ4, tra i
+generatori di questo sottospazio generato è evidente la proporzionalità tra il secondo e il quarto vettore,
+dunque 𝐻 = 〈(1,0,1,2), (−1,2,3,0), (3,−2, −1,4)〉, mentre il terzo è dipendente dai primi due essendo
+(3, −2,−1,4) = 2(1,0,1,2) − 1(−1,2,3,0), quindi rimarrà 𝐻 = 〈(1,0,1,2), (−1,2,3,0)〉, di conseguenza
+essendo dim𝐻 = 2 qualunque coppia non proporzionale dei quattro vettore definiti all’inizio sono una base
+per 𝐻. Più precisamente: tutti i sistemi indipendenti di ordine 2 sono una base per 𝐻.
+22
+) , (0 0 0
+1 0 0
+) , (0 0 0
+0 1 0
+),
+one forenele gli
+hed
+tossegye
+
+Un altro metodo è quello di posizionare i vettori in una matrice e trasformarla in una matrice equivalente a
+gradini: (
+1
+−1
+3
+−2
+0
+2
+−2
+4
+1
+3
+−1
+6
+2
+0
+4
+0
+)~(
+1
+0
+0
+0
+0
+2
+0
+0
+1
+4
+0
+0
+2
+2
+0
+0
+) in tal modo non ho alterato il sottospazio generato dalle righe e ciò
+significa che il sottospazio generato dalle righe della matrice a gradini è lo stesso di quello generato dalla
+matrice iniziale, ed è evidente che la dimensione di 𝐻 sia 2 (le righe nulle sono ininfluenti ed è evidente la
+non proporzionalità tra la prima e la seconda riga), più precisamente dim𝐻 = numero di pivot di un sistema
+a gradini equivalente.
+Corollario: Due matrici a gradini equivalenti hanno lo stesso numero di pivot.
+4. Matrici e Sistemi lineari
+Determinante di una matrice quadrata
+Il determinante esiste solo e solamente per matrici quadrate; il determinante si definisce per ricorsione
+sull’ordine della matrice in questione: per 𝑛 = 1 la matrice 𝐴 = (𝑎) ha determinante det 𝐴 = 𝑎; supposto di
+averlo definito per matrici di ordine 𝑛 − 1 definiamolo per matrici di ordine 𝑛, al fine di poterlo fare si
+definiscono i seguenti concetti:
+• ∀𝑎𝑖𝑗 di 𝐴 la matrice complementare di 𝑎𝑖𝑗 è 𝐴(𝑖, 𝑗) e si definisce nel seguente modo:
+(praticamente si cancella la riga 𝑖 e la colonna 𝑗 dalla matrice 𝐴)
+• Complemento algebrico di 𝑎𝑖𝑗: 𝐴𝑖𝑗 = (−1)𝑖+𝑗 det 𝐴(𝑖, 𝑗);
+È possibile usare il determinante nella definizione di complemento algebrico poiché essendo 𝐴(𝑖, 𝑗)
+una matrice complementare ha ordine minore di 𝐴 (abbiamo supposto di aver dato la definizione di
+determinante per matrici di ordine 𝑛 − 1)
+𝑎11𝐴11 + 𝑎12𝐴12 +⋯+ 𝑎1𝑛𝐴1𝑛 = 𝑎21𝐴21 + 𝑎22𝐴22 +⋯+ 𝑎2𝑛𝐴2𝑛 = ⋯ = 𝑎𝑛1𝐴𝑛1 + 𝑎𝑛2𝐴𝑛2 +⋯+
+𝑎𝑛𝑛𝐴𝑛𝑛 = 𝐝𝐞𝐭 𝑨 = 𝑎1𝑛𝐴1𝑛 +⋯+ 𝑎𝑛𝑛𝐴𝑛𝑛 = ⋯ = 𝑎12𝐴12 +⋯+ 𝑎𝑛2𝐴𝑛2 = 𝑎11𝐴11 +⋯+ 𝑎𝑛1𝐴𝑛1
+Esempio: det (𝑎
+𝑏
+𝑐
+𝑑
+) = 𝑎𝐴11 + 𝑏𝐴12 = 𝑎𝑑 − 𝑏𝑐 infatti se 𝐴 = (1 2
+3 4
+) ⇒ det 𝐴 = 4 − 6 = −2
+Matrici 3x3: regola di Sorrus: Prendiamo il determinante di una generica matrice 3x3 |(
+𝑎11 𝑎12 𝑎13
+𝑎21 𝑎22 𝑎23
+𝑎31 𝑎32 𝑎33
+ad essa si duplica prima e seconda colonna e li posizioniamo dopo la seconda colonna:
+(
+𝑎11 𝑎12 𝑎13
+𝑎21 𝑎22 𝑎23
+𝑎31 𝑎32 𝑎33
+|
+𝑎11 𝑎12
+𝑎21 𝑎22
+𝑎31 𝑎32
+) dopodiché il determinante della mia matrice di partenza sarà uguale al
+prodotto tra le diagonali (quelle in verde) meno il prodotto tra le antidiagonali (quelle in nero), ovvero:
+Art
+"
+64810,
+Q),0,4 QO.
+—
+%
+a ata &.0
+4u%’4
+Sp Ub 44
+23
+\|
+/|
+)|,
+nN
+_»es_
+a ONS
+
+Osservazione: Se una matrice ha una riga o colonna tutta nulla allora il suo determinante è zero
+Proprietà del determinante:
+1) det 𝐴 = det 𝐴𝑡
+2) Se una riga dipende dalle rimanenti allora il determinante è zero
+(Corollario: se il determinante è diverso da zero allora le righe sono indipendenti)
+3) Teorema di Cauchy-Binet: 𝐴, 𝐵 ∈ ℝ𝑛
+det(𝐴𝐵) = det(𝐴) ⋅ det(𝐵)
+4) Se moltiplico una singola riga (o colonna) per uno scalare ℎ allora il determinante della matrice risultante
+è ℎ ⋅ det 𝐴 (con ℎ ∈ ℝ e 𝐴 ∈ ℝ𝑛)
+5) Se scambiamo due righe o due colonne il determinante cambia segno
+6) Se aggiungo ad una riga (o colonna) un multiplo di un’altra riga (o colonna) il determinante non cambia
+7) Sia 𝐴 una matrice quadrata e sia 𝐷 una matrice a gradini equivalente ad 𝐴 allora |𝐴| ≠ 0 ⇔ |𝐷| ≠ 0
+Definizione: 𝐴 ∈ ℝ𝑛 è detta invertibile se e solo se ∃𝐵 ∈ ℝ𝑛: 𝐴𝐵 = 𝐼𝑛 = 𝐵𝐴
+Proposizione: Una matrice 𝐴 è invertibile se e solamente se ha determinante diverso da zero e la sua
+inversa è 𝐴−1 =
+|𝐴| ( ⋮ ⋱ ⋮ ) (matrice trasposta dei complementi algebrici)
+1
+𝐴11 ⋯ 𝐴𝑛1
+𝐴1𝑛 ⋯ 𝐴𝑛𝑛
+Corollario: Siano 𝐴, 𝐵 ∈ ℝ𝑛 se 𝐴𝐵 = 𝐼𝑛 allora sia 𝐴 che 𝐵 sono invertibili e 𝐵 = 𝐴−1 (inversa di 𝐴)
+Dimostrazione: Applicando Cauchy-Binet: det(𝐴) det(𝐵) = det(𝐴𝐵) = det(𝐼𝑛) = 1 ne segue det 𝐴 ≠ 0 e
+anche det 𝐵 ≠ 0 e dunque 𝐴 e 𝐵 sono invertibili, ma allora 𝐴𝐵 = 𝐼𝑛 ⇒ (𝐴𝐵)𝐵−1 = 𝐼𝑛𝐵−1 ⇒ 𝐴 = 𝐵−1,
+ovviamente anche 𝐵 = 𝐴−1 essendo l’inversa dell’inversa la matrice stessa.
+Definizione: Sia 𝐴 ∈ ℝ𝑛,𝑚 (si noti la generalità della matrice, non è valido solo per una matrice quadrata)
+definisco rango di riga la dimensione del sottospazio generato dalle righe, e rango di colonna la dimensione
+del sottospazio generato dalle colonne.
+A> (°-2) ) (A)eo>", (A)
+On, 2, Q,, vee
+Qig Gir Say
+he Qe
+ae
+em|@ [
+Qs an
+Mm, an
+am
+Minore di una matrice
+Sia 0 < ℎ ≤ min{𝑚, 𝑛}, fissato ℎ allora prenderò le ℎ-righe e le ℎ-colonne e cancello tutte le altre, la
+sottomatrice quadrata rimanente è definita come la matrice minore di ordine ℎ. Ad esempio:
+24
+
+Sia 𝐴 ∈ ℝ𝑛,𝑚 una matrice rettangolare:
+𝑎𝑖1, … , 𝑎𝑖ℎ 𝑟𝑖𝑔ℎ𝑒
+𝑎𝑗1, … , 𝑎𝑗ℎ 𝑐𝑜𝑙𝑜𝑛𝑛𝑒
+] ⇒ 𝐴(𝑖1, … , 𝑖ℎ; 𝑗1,… , 𝑗ℎ), così facendo (poiché
+il determinante è possibile solo per matrici quadrate) posso definire il determinante del minore, e lo indico
+con |𝐴|(𝑖1,… , 𝑖ℎ; 𝑗1,… , 𝑗ℎ).
+Un minore si dice di ordine massimo se il suo ordine coincide con il minimo del numero di righe e colonne di
+quella matrice rettangolare (min{𝑛, 𝑚}); una matrice non quadrata ha sempre più di un minore di ordine
+massimo, mentre una matrice quadrata ha un solo minore di ordine massimo ed è la matrice stessa.
+Supponiamo che 𝐴(𝑖1,… , 𝑖ℎ; 𝑗1,… , 𝑗ℎ) non sia di ordine massimo, allora esisterà un
+indice di riga 𝑖 ≠ 𝑖1,… , 𝑖ℎ ed un indice di colonna 𝑗 ≠ 𝑗1,… , 𝑗ℎ così da poter comporre
+un minore 𝐴(𝑖, 𝑖1, … , 𝑖ℎ; 𝑗, 𝑗1,… , 𝑗ℎ); un minore così composto si definisce orlato del
+minore. È ovviamente possibile orlare un orlato.
+Definizione: Un minore si dice fondamentale se il suo determinante è diverso da 0 e se il determinante di
+ogni suo orlato è uguale a 0.
+Non ci sono sempre minori fondamentali, ad esempio la matrice nulla non ha minori fondamentali, ma, se la
+matrice non è nulla allora esiste sempre almeno un minore fondamentale. Il minore fondamentale non è
+necessariamente unico.
+Se un minore di ordine massimo ha determinante diverso da zero allora esso è un minore fondamentale
+(banalmente: l’implicazione è vera se non posso fare un orlato, e dunque sarà un minore fondamentale).
+Teorema degli orlati: Sia 𝐴 ∈ ℝ𝑛𝑚 una matrice rettangolare e 𝐴(𝑖1,… , 𝑖ℎ; 𝑗1,… , 𝑗ℎ) è un minore
+fondamentale allora le righe 𝑖1, … , 𝑖ℎ, 𝑗1,… , 𝑗ℎ sono un base del sottospazio generato da tutte le righe
+(formano un sistema di vettori indipendenti).
+Osservazioni: il teorema degli orlati ci dice che trovato un minore fondamentale (ed esiste sempre) non solo
+le righe (o colonne) formano un sistema di vettori indipendenti ma essi sono anche una base di tutte le righe
+(o colonne) della matrice. Un’altra conseguenza che tutti i minori fondamentali hanno lo stesso ordine.
+Corollari derivanti dal teorema degli orlati:
+• 𝑟(𝐴) si chiama semplicemente rango della matrice poiché il rango di riga è sempre uguale al rango
+di colonna, inoltre il rango di 𝐴 è uguale al numero di pivot di una matrice a gradini equivalente per
+righe.
+• Tutti i minori fondamentali hanno lo stesso ordine
+• Il determinante di una matrice quadrata è diversa da zero se e solo se le righe (o colonne) sono
+indipendenti. 𝐴 ∈ ℝ𝑛
+|𝐴| ≠ 0 ⇔ righe (o colonne) sono indipendenti
+• 𝐴 ∈ ℝ𝑛
+Non è necessario dimostrare che |𝐴| ≠ 0 ⇒ righe indipendenti. Per l’implicazione ⇐ supponiamo
+che le righe siano indipendenti, allora 𝑟𝑟(𝐴) = 𝑛, e prendiamo un minore fondamentale di 𝐴,
+quest’ultima essendo una matrice quadrata ha un unico minore fondamentale di ordine 𝑛, questo
+minore fondamentale è 𝐴 stesso e dunque per definizione |𝐴| ≠ 0
+det 𝐴 = 0 ⇔ righe (o colonne) dipendenti
+25
+v
+4:
+co
+aune
+omYe
+
+Criteri di compatibilità di sistemi di equazioni lineari
+𝑆: {
+𝑎11𝑥1 + 𝑎12𝑥2 +⋯+ 𝑎1𝑚𝑥𝑚 = 𝑐1
+𝑎21𝑥1 + 𝑎22𝑥2 +⋯+ 𝑎2𝑚𝑥𝑚 = 𝑐2
+⋮
+𝑎𝑛1𝑥1 + 𝑎𝑛2𝑥2 +⋯+ 𝑎𝑛𝑚𝑥𝑚 = 𝑐𝑛
+essere scritta come 𝐶 = (
+𝑎11
+⋮
+𝑎𝑛1
+) 𝑥1 +⋯+ (
+𝑎1𝑚
+⋮
+𝑎𝑛𝑚
+) 𝑥𝑚; quindi se c’è una soluzione la colonna dei termini noti
+è combinazione dei sistemi lineari delle colonne della matrice incompleta.
+Primo criterio di compatibilità (utile per dimostrare il teorema di Rouché-Capelli): 𝑆 è compatibile se e
+soltanto se la colonna dei termini noti è combinazione lineare delle colonne della matrice incompleta.
+Teorema di Rouché-Capelli: 𝑆 è compatibile ⇔ matrice completa ed incompleta hanno lo stesso rango. (il
+sistema ammette soluzione se e solamente se il rango della matrice completa è uguale al rango della matrice
+incompleta).
+Dimostrazione: ⇐ ∶ 𝑟(𝐴) = 𝑟(𝐴′) = ℎ; avendo lo stesso rango dimostriamo che il sistema sia compatibile.
+Prendiamo ℎ colonne indipendenti di 𝐴, che sono indipendenti anche come colonne di 𝐴’ e quindi queste ℎ
+colonne di 𝐴 sono una base anche per la matrice completa. Di conseguenza la colonna dei termini noti 𝐶 si
+scrive come combinazione lineare delle colonne di 𝐴 ed ho dimostrato l’implicazione per il primo criterio di
+compatibilità. Dimostriamo ora la ⇒ ∶ Supponiamo che 𝑆 sia compatibile quindi bisogna mostrare che i ranghi
+siano uguali, Prendiamo ℎ colonne indipendenti di 𝐴 e prendiamo il sottospazio generato da tutte le colonne
+della matrice incompleta: 𝑉 = 〈𝑎1,… , 𝑎𝑛〉 = 〈𝑎𝑖1, … , 𝑎𝑖ℎ〉, 𝐶 ∈ 𝑉, il sottospazio generato da tutte le colonne
+della matrice completa è uguale al sottospazio di tutte le colonne della matrice incompleta poiché l’unica
+colonna che potrebbe aggiungere un elemento al sottospazio generato da tutte le colonne sono le incognite
+𝑥, che possiamo rimuovere poiché dipendente dalle altre colonne essendo S compatibile. Ma allora ℎ =
+𝑟(𝐴) = 𝑟(𝐴’) come volevasi dimostrare.
+Esercizio: Sistema a tre equazioni e tre incognite: {
+matriciale (
+2 1 1
+1 −2 2
+3 1 1
+| ) e determiniamo un minore fondamentale per la matrice incompleta: 2
+4
+1
+5
+𝑠𝑖 𝑣𝑎 𝑎𝑑
+→     
+𝑜𝑟𝑙𝑎𝑟𝑒
+(2 1
+1 −2
+⏟      
+det(−4−1)=−5
+) → (
+2 1 1
+1 −2 2
+3 1 1
+)
+⏟        
+−4+6+1−(−6+1+4)=4
+è essa stessa ed ha rango 3, il rango della matrice completa è anche 3 (min{3,4}) di conseguenza per il
+teorema di Rouché-Capelli questo sistema è compatibile.
+N.B.: Il teorema di Rouché-Capelli si comporta molto bene anche per la determinazione dei valori di un
+parametro ℎ per cui il sistema 𝑆 sia compatibile o meno, prendiamo ad esempio il seguente sistema: 𝑆 =
+{
+2𝑥 + 𝑦 + ℎ𝑧 = 4
+𝑥 − 2𝑦 + 2𝑧 = 1
+3𝑥 + 𝑦 + 𝑧 = 5
+(
+2 1 ℎ
+1 −2 2
+3 1 1
+4
+1
+5
+e prendiamo la matrice incompleta 𝐴 = (
+2 1 ℎ
+1 −2 2
+3 1 1
+) e la matrice completa 𝐴′ =
+); determiniamone ora i determinanti in funzione del parametro ℎ: 2 → (2 1
+1 −2
+) ⟶ 𝐴 ∶
+|𝐴| = −4 + 6 + ℎ − (−6ℎ + 1 + 4) = 7ℎ − 3, quindi |𝐴| = 0 ⇔ ℎ =
+3
+7 (nel caso ci fossero più orlati si deve
+prendere il valore comune di ℎ per cui tutti gli orlati abbiano determinante nullo) . Per ℎ =
+3
+7 si ha 𝑟(𝐴) = 2
+di conseguenza il minore fondamentale della matrice incompleta
+2𝑥 + 𝑦 + 𝑧 = 4
+𝑥 − 2𝑦 + 2𝑥 = 1
+3𝑥 + 𝑦 + 𝑧 = 5
+, scriviamo questo sistema nella forma
+𝐴𝑋 = 𝐶, osserviamo che la colonna dei termini noti 𝐶 può
+26
+ma No
+
+ma 𝑟(𝐴′) = 3 poiché |(
+2 1 4
+1 −2 1
+3 1 5
+\l
+/|
+)| ≠ 0 e quindi il sistema è incompatibile per ℎ =
+sistema sarà compatibile essendo 𝑟(𝐴) = 𝑟(𝐴′) = 3.
+Risoluzione di sistemi lineari in situazioni particolari
+Metodo migliore ed alternativo rispetto a quello visto per quanto riguarda la riduzione a gradini di un sistema.
+Prendiamo un sistema di 𝑛 equazioni ed 𝑚 incognite 𝑆 ∶
+{
+𝑎11𝑥1 +⋯+ 𝑎1𝑚𝑥𝑚 = 𝑐1
+⋮
+𝑎𝑛1𝑥1 +⋯+ 𝑎𝑛𝑚𝑥𝑚 = 𝑐𝑛
+questo sistema sia compatibile (che si può capire con Rouché-Capelli) e calcoliamone le soluzioni. Prima di
+tutto calcoliamo un minore fondamentale della matrice incompleta 𝐴 che sarà anche un minore
+fondamentale della matrice completa 𝐴′ (essendo il sistema compatibile) ed eliminiamone le righe al di fuori
+del minore fondamentale (che possiamo trascurare perché tutte le righe al difuori del minore fondamentale
+sono dipendenti dalle altre). Quelle che restano sono equazioni indipendenti e di conseguenza avremo il
+numero di equazioni minore o uguale al numero di incognite. Vediamo i vari casi vari casi:
+1) 𝒏 equazioni ed 𝒏 incognite: sappiamo già che esiste un’unica soluzione per la riduzione a gradini, però
+calcoliamola in maniera più veloce; se ci sono 𝑛 equazioni ed 𝑛 incognite sappiamo che la matrice
+incompleta è una matrice quadrata, e poiché le righe della matrice quadrata sono indipendenti poiché
+fanno sempre parte del minore fondamentale di partenze, la matrice 𝐴 ha determinante diverso da zero,
+per cui 𝐴𝑋 = 𝐶 ⇔ 𝑋 = 𝐴−1𝐶 (possiamo prendere l’inverso di 𝐴 perché sappiamo che è diverso da 0),
+date queste caratteristiche il sistema di incognite 𝑋 è un sistema ben determinato; vado a sviluppare
+𝐴11 ⋯ 𝐴𝑛1
+l’uguaglianza precedente: (
+𝑥1
+⋮
+𝑥𝑛
+𝑐1𝐴11+⋯+𝑐𝑛𝐴𝑛1
+|𝐴|
+) = |𝐴| ( ⋮ ⋱ ⋮ )(
+1
+𝐴1𝑛 ⋯ 𝐴𝑛𝑛
+, … , 𝑥𝑛 =
+𝑐1𝐴1𝑛+⋯+𝑐𝑛𝐴𝑛𝑛
+|𝐴|
+ausiliaria 𝐵1 = (
+𝑐1
+⋮
+𝑐𝑛
+𝑎12 ⋯ 𝑎1𝑛
+\/\
+J\ /
+𝑐1
+⋮
+𝑐𝑛
+), più precisamente avremo che 𝑥1 =
+, per capire cosa rappresentino questi 𝑥𝑖 prendiamo la matrice
+𝑎𝑛2 ⋯ 𝑎𝑛𝑛
+⋮ ⋱ ⋮ ) che differisce da 𝐴 per la prima colonna (dove al posto della prima
+colonna di 𝐴 ha i termini noti), sviluppando il determinante rispetto la prima colonna avremo |𝐵1| =
+𝑐1𝐴11 + 𝑐2𝐴21 +⋯+ 𝑐𝑛𝐴𝑛1 (che per definizione di complemento algebrico sono uguali sia per la
+matrice 𝐵1 che per 𝐴), analogamente si trovano i casi 𝑥2,… , 𝑥𝑛 con le matrici 𝐵2, … , 𝐵𝑛, di conseguenza
+posso applicare direttamente il procedimento 𝑥1 =
+|𝐵1|
+|𝐴| , … , 𝑥𝑛 =
+sistema, le precedenti formule sono note come Regola di Cramer.
+2) 𝒏 equazioni < 𝒎 incognite: Sia il sistema 𝑆 ∶ {
+𝑎11𝑥1 +⋯+ 𝑎1𝑚𝑥𝑚 = 𝑐1
+⋮
+𝑎𝑛1𝑥1 +⋯+ 𝑎𝑛𝑚𝑥𝑚 = 𝑐𝑛
+riferimento da esempio 𝑆 = {
+2𝑥 + 𝑦 + 𝑧 + 2𝑡 = 0
+𝑥 + 𝑦 + 𝑧 + 𝑡 = 0
+e prendiamo (come nel caso precedente) un minore
+fondamentale e portiamo a destra le incognite fuori dalle colonne del minore fondamentale, dunque
+avremo ([2 1
+1 1 1 1 0
+] 1 2
+| 0
+) ovvero {
+2𝑥 + 𝑦 = −𝑧 − 2𝑡
+𝑥 + 𝑦 = −𝑧 − 𝑡
+. Consideriamo fissate le incognite esterne, quindi
+avremo un sistema di due equazioni e due incognite {
+2𝑥 + 𝑦 = 𝑐1
+𝑥 + 𝑦 = 𝑐2
+in cui le due equazioni in questione
+sono indipendenti poiché appartenenti alle righe di un minore fondamentale, di conseguenza ci troviamo
+nel caso precedente di 𝑛 equazioni ed 𝑛 incognite; applichiamo Cramer: 𝑥 = 𝑐1 − 𝑐2 e 𝑦 = 2𝑐2 − 𝑐1; ora
+sostituendo avremo 𝑥 = 𝑐1 − 𝑐2 = −𝑧 − 2𝑡 + 𝑧 + 𝑡 = −𝑡 e 𝑦 = 2𝑐2 − 𝑐1 = 2(−𝑧 − 𝑡) + 𝑧 + 2𝑡 = −𝑧
+dunque l’insieme delle soluzioni sarà 𝑆 = {(−𝑡, −𝑧, 𝑧, 𝑡)|𝑧, 𝑡 ∈ ℝ} e sostanzialmente 𝑆 è indeterminato
+e ha ∞2 soluzioni.
+27
+, usiamo come sistema di
+|𝐵𝑛|
+|𝐴|
+per trovarmi le soluzioni del
+e supponiamo che
+3
+7, mentre per ℎ ≠
+3
+7 il
+
+Sistemi omogenei
+Come già visto in precedenza un sistema omogeno è un sistema che ha per incognite tutti zeri, ovvero un
+sistema del tipo 𝑆 ∶ 𝐴𝑋 = 0. Più precisamente 𝑆 ∶ {
+𝑎11𝑥1 +⋯+ 𝑎1𝑚𝑥𝑚 = 0
+⋮
+𝑎𝑛1𝑥1 +⋯+ 𝑎𝑛𝑚𝑥𝑚 = 0
+Proposizione: l’insieme delle soluzioni rappresenta un sottospazio vettoriale di ℝ𝑚, ovvero 𝑆 ≤ ℝ𝑚
+Dimostrazione: Per determinare che sia un sottospazio vettoriale bisogna dimostrare che 𝑆 ≠ ∅, che è stabile
+rispetto alla somma e che è stabile rispetto al prodotto. Ogni sistema omogeneo ammette almeno la
+soluzione banale (0, … ,0) ∈ 𝑆 e quindi 𝑆 non è vuoto. Per verificare che sia stabile rispetto alla somma
+prendiamo due soluzioni 𝑌1, 𝑌2 ∈ 𝑆 (sono n-uple) che essendo soluzioni del sistema omogeneo possiamo
+scrivere 𝐴𝑌1 = 0 ed 𝐴𝑌2 = 0 ⇒ 𝐴(𝑌1 + 𝑌2) = 𝐴𝑌1 + 𝐴𝑌2 = 0 + 0 = 0 (stabile rispetto alla somma). La
+stabilità rispetto il prodotto si dimostra prendendo un 𝜆 ∈ ℝ; allora si ha che 𝐴(𝜆𝑌1) = 𝜆(𝐴𝑌1) = 𝜆0 = 0.
+Trovare una base per il sottospazio delle soluzioni di un sistema omogeneo: sia 𝑆 = {
+2𝑥 + 𝑦 + 𝑧 + 2𝑡 = 0
+𝑥 + 𝑦 + 𝑧 + 𝑡 = 0
+il
+nostro sistema omogeneo, allora (come fatto precedentemente) posso scrivere il mio sistema nel seguente
+modo: {
+2𝑥 + 𝑦 = −𝑧 − 2𝑡
+𝑥 + 𝑦 = −𝑧 − 𝑡 , avrò quindi il sistema di soluzioni generico 𝑆 = {(𝛼(𝑧, 𝑡), 𝛽(𝑧, 𝑡), 𝑧, 𝑡)|𝑧, 𝑡 ∈ ℝ},
+allora potendo scegliere 𝑧 e 𝑡 in maniera arbitraria scegliamo i valori che rendano i vettori indipendenti,
+dunque
+𝑧 = 1, 𝑡 = 0 → (𝛼(1,0), 𝛽(1,0), 1,0)
+𝑧 = 0, 𝑡 = 1 → (𝛼(0,1), 𝛽(0,1), 0,1)
+(usualmente si pone a 1 una variabile e 0 sulle altre prendendo
+tutte le possibilità, in questo caso ho solo due scelte). In questo modo i precedenti vettori sono anche un
+sistema di generatori, prendiamo infatti una generica soluzione (𝑥, 𝑦, 𝑧, 𝑡⏟) ∈ 𝑆, avrò (𝛼(𝑧, 𝑡), 𝛽(𝑧, 𝑡), 𝑧, 𝑡⏟)
+che sono dunque due soluzioni del sistema, ma (come visto precedentemente) per Cramer esiste un’unica
+soluzione per il sistema {
+2𝑥 + 𝑦 = −𝑧 − 2𝑡
+𝑥 + 𝑦 = −𝑧 − 𝑡 , questo vuol dire che le quadruple coincidono in tutto per tutto
+(ogni volta che le quadruple di soluzioni coincidono sui valori al di fuori del minore fondamentale devono
+coincidere su tutte le incognite) quindi esiste un'unica soluzione e allora 𝛼(𝑧, 𝑡) = 𝑥 e 𝛽(𝑧, 𝑡) = 𝑦. Abbiamo
+così dimostrato che 𝑆 è un sottospazio vettoriale, per dimostrare che sia un sistema di generatori prendiamo
+𝑧(𝛼(1,0), 𝛽(1,0), 1,0) + 𝑡(𝛼(0,1), 𝛽(0,1), 0,1) = (∗,∗, 𝑧, 𝑡) ∈ 𝑆 ed ha gli stessi identici valori della soluzione
+(𝑥, 𝑦, 𝑧, 𝑡) allora per Cramer (∗,∗, 𝑧, 𝑡) = (𝑥, 𝑦, 𝑧, 𝑡) e quindi questa quadrupla è combinazione lineare dei
+due vettori (𝛼(1,0), 𝛽(1,0), 1,0) e (𝛼(0,1), 𝛽(0,1), 0,1).
+Relazione tra sistema generale ed omogeneo associato: in termini matriciali 𝑆 ∶ 𝐴𝑋 = 𝐶 e 𝑆0 ∶ 𝐴𝑋 = 0 esiste
+una relazione tra il sistema generale 𝑆 ed il sistema omogeneo 𝑆0 per il teorema seguente:
+Teorema: Fissato 𝑌 ∈ 𝑆 come soluzione del mio sistema completo 𝑆 allora:
+1) ∀𝑍 ∈ 𝑆 ∃𝑍0 ∈ 𝑆0 ∶ 𝑍 = 𝑌 + 𝑍0 (posso ottenere la soluzione 𝑍 a partire da 𝑌 e da una soluzione 𝑍0
+del mio sistema omogeneo)
+2) ∀𝑍0 ∈ 𝑆0 ∶ 𝑌 + 𝑍0 ∈ 𝑆 (soluzione particolare del sistema 𝑆, il punto 1 e 2 sono uno il viceversa
+dell’altro)
+Dimostrazione: Punto 2: 𝐴(𝑌 + 𝑍0) = 𝐴𝑌 + 𝐴𝑍0 = 𝐶 + 0 = 𝐶 quindi soddisfa il sistema generale 𝑆 ed allora
+𝑌 + 𝑍0 appartiene ad 𝑆. Per dimostrare il punto 1 prendiamo una qualunque soluzione 𝑍 di 𝑆 e sapendo che
+anche 𝑌 ∈ 𝑆 scriviamo 𝐴(𝑍 − 𝑌) = 𝐴𝑍 − 𝐴𝑌 = 𝐶 − 𝐶 = 0 ⇒ 𝑍 − 𝑌 ∈ 𝑆0 e dunque 𝑍 = 𝑌 + (𝑍 − 𝑌⏟  
+𝑍0
+).
+Questo teorema ci dice che se voglio descrivere l’insieme delle soluzioni del mio sistema generale S quello
+che io devo andare a fare è trovarmi una singola soluzione per S dopodiché vado a considerare il sistema
+omogeneo associato, di quest’ultimo vado a trovare l’insieme delle soluzioni; e tutte le altre soluzioni si
+28
+
+possono descrivere come somma dell’unica soluzione che mi sono trovato più una qualunque combinazione
+lineare degli elementi della base dello spazio delle soluzioni del sistema omogeneo.
+Esempio: Sia 𝑆 = {
+2𝑥 + 𝑦 + 𝑧 + 2𝑡 = 1
+𝑥 + 𝑦 + 𝑧 + 𝑡 = 1
+il sistema generico e 𝑆0 = {
+2𝑥 + 𝑦 + 𝑧 + 2𝑡 = 0
+𝑥 + 𝑦 + 𝑧 + 𝑡 = 0
+il sistema
+omogeneo associato, che abbiamo già precedentemente calcolato e quindi sappiamo che l’insieme di
+soluzioni di 𝑆0 è 𝑆0 = 〈(0, −1,1,0), (−1,0,0,1)〉, cerchiamo ora una soluzione per 𝑆 (poniamo 𝑧 = 𝑡 = 0):
+𝑌 ∈ 𝑆 ∶
+{
+2𝑥 + 𝑦 = 1
+𝑥 + 𝑦 = 1 ⇒ 𝑥 = 0, 𝑦 = 1 e allora abbiamo trovato che la quadrupla 𝑌 = (0,1,0,0) ∈ 𝑆 è
+soluzione del sistema generale 𝑆; dunque possiamo descrivere l’insieme delle soluzioni 𝑆 = 𝑌 + 𝑆0 ovvero
+come somma di 𝑌 ed una soluzione di 𝑆0 (così abbiamo descritto tutte le soluzioni di 𝑆).
+Risoluzione sistema omogeneo con 𝒏 − 𝟏 equazioni indipendenti ed 𝒏 incognite
+Sia il seguente sistema omogeneo generico: 𝑆 ∶
+{
+𝑎11𝑥1 + 𝑎12𝑥2 +⋯+ 𝑎1𝑛𝑥𝑛 = 0
+⋮
+, il fatto che
+𝑎(𝑛−1),1𝑥1 + 𝑎(𝑛−1),2𝑥2 +⋯+ 𝑎(𝑛−1),𝑛𝑥𝑛 = 0
+si abbia 𝑛 − 1 equazioni indipendenti vuol dire sostanzialmente che la matrice incompleta (anche quella
+completa poiché l’aggiunta della colonna di zeri è ininfluente) ha tutte le righe che sono indipendenti, di
+conseguenza avremo per la matrice 𝐴 = (
+𝑎11
+⋮
+⋯ 𝑎1𝑛
+⋮
+⋱
+𝑎(𝑛−1),1 ⋯ 𝑎(𝑛−1),𝑛
+) il rango massimo: 𝑟(𝐴) = 𝑛 − 1. Inoltre,
+grazie alla teoria sino ad ora studiata quello che si trova è che la dimensione delle soluzioni del sistema
+dim𝑆 = 1 (essendo un sistema omogeneo la dimensione del sottospazio generato è sostanzialmente il
+numero di incognite meno il rango di un minore fondamentale della matrice incompleta), di conseguenza per
+poter descrivere 𝑆 ci basta trovare una soluzione non nulla e tutti i vettori ad esso proporzionali saranno
+tutti e soli vettori soluzioni di questo sistema.
+In questo caso particolare, per trovare una soluzione del sistema si usa una formula che si ricava nel modo
+seguente: prendiamo tutti i minori di ordine 𝑛 − 1 di 𝐴 (le sottomatrici quadrate di ordine 𝑛 − 1):
+𝐴1, 𝐴2, … , 𝐴𝑛 e lasciamo fuori una singola colonna per avere 𝑛 − 1 righe (dunque ho 𝑛 possibilità), di queste
+colonne abbiamo la certezza che ce ne sia almeno una con determinante non nullo (poiché il minore
+fondamentale è 𝐴 stesso, essendo le righe indipendenti) quindi avrò per 𝜆1 = det 𝐴1 , … , 𝜆𝑛 = det 𝐴𝑛
+almeno un 𝜆𝑖 ≠ 0; allora la n-upla dei determinanti dei minori presi a segni alterni è effettivamente una
+soluzione del mio sistema, quindi (𝜆1,−𝜆2,… , (−1)𝑛−1𝜆𝑛) ∈ 𝑆. Inoltre, poiché quest’ultima è una n-upla
+non tutta nulla, l’oggetto (𝜆1,−𝜆2,… , (−1)𝑛−1𝜆𝑛) costituirà una base per le soluzioni di 𝑆 e questo significa
+che tutte le altre soluzioni le posso ottenere moltiplicando uno scalare per quella n-upla. Ora ci resta da
+dimostrare che (𝜆1, −𝜆2,… , (−1)𝑛−1𝜆𝑛) sia effettivamente soluzione per 𝑆, a tal scopo utilizziamo la
+seguente matrice ausiliaria 𝐶1 = (
+𝑎11 … 𝑎1𝑛
+𝑎11
+⋯ 𝑎1𝑛
+⋮
+⋱
+⋮
+𝑎(𝑛−1),1 ⋯ 𝑎(𝑛−1),𝑛
+), che differisce dalla matrice 𝐴 per la prima riga
+duplicata, e questo significa che det 𝐶1 = 0 per il teorema degli orlati. Ora possiamo sviluppare il
+determinante della matrice rispetto al prima riga, avremo quindi 𝜆1𝑎11 − 𝜆2𝑎12 +⋯+ (−1)𝑛−1𝜆𝑛𝑎1𝑛 = 0,
+ma questa equazione rappresenta nient’altro che la prima equazione del sistema 𝑆 (basta sostituire i 𝜆𝑖 con
+gli 𝑥𝑖), quindi non solo ho soddisfatto la prima equazioni del sistema ma questi oggetti rappresentano anche
+la n-upla che volevamo dimostrare appartenente alle soluzioni di 𝑆, e quindi ho dimostrato che la n-upla
+(𝜆1,−𝜆2,… , (−1)𝑛−1𝜆𝑛) è quantomeno soluzione della prima equazione di 𝑆, questo processo si può iterare
+con altre matrici ausiliari e risulterà che (𝜆1,−𝜆2,… , (−1)𝑛−1𝜆𝑛) è effettivamente soluzione per 𝑆.
+Esempio: 𝑆 ∶
+{
+2𝑥 + 2𝑦 + 3𝑧 = 0
+2𝑥 + 𝑦 + 4𝑧 = 0
+𝐴 = (2 2 3
+2 1 4
+) si ha che 𝑆 = 〈 ( |2 3
+1 4
+| , − |2 3
+2 4
+| , |2 2
+2 1
+| ) 〉
+29
+
+5. Applicazioni Lineari
+Definizione
+Un’applicazione lineare non è nient’altro che un’applicazione che soddisfa delle proprietà, dunque siano
+𝑉, 𝑉′ spazi vettoriali, 𝑓 ∶ 𝑉 → 𝑉′ viene detta lineare se soddisfa le seguenti proprietà:
+1) Linearità rispetto la somma: ∀𝑣, 𝑤 ∈ 𝑉, 𝑓(𝑣 + 𝑤) = 𝑓(𝑣) + 𝑓(𝑤)
+l’immagine della somma è uguale alla somma delle immagini
+2) Linearità rispetto al prodotto: ∀𝜆 ∈ ℝ e ∀𝑣 ∈ 𝑉, 𝑓(𝜆𝑣) = 𝜆𝑓(𝑣)
+analogo del concetto di omomorfismo in algebra
+Le applicazioni lineari sono conosciute anche con la nomenclatura di omomorfismi (lineari), altre
+nomenclature sono:
+• Se 𝑉 = 𝑉′ si parla di endomorfismo
+• Se 𝑓 è iniettiva di monomorfismo
+• Se 𝑓 è suriettiva di epimorfismo
+• Se 𝑓 è biettiva di isomorfismo
+• L’endomorfismo biettivo si dice automorfismo
+Esempi
+1) 𝑓: 𝑉 → 𝑉, l’applicazione che porta ogni vettore nel vettore nullo (𝑣 ↦ 0), è un endomorfismo detto
+endomorfismo nullo (applicazione nulla). È un applicazione lineare poiché le due proprietà sono
+banalmente verificate (analogo ragionamento per la funzione identica (𝑣 ↦ 𝑣))
+2) 𝑓: (𝑥, 𝑦) ∈ ℝ2 → (𝑥, 𝑥 + 𝑦, 𝑦) ∈ ℝ3 è un applicazione lineare poiché per (𝑥, 𝑦), (𝑥′, 𝑦′) ∈ ℝ2 risulta
+𝑓((𝑥, 𝑦) + (𝑥′, 𝑦′)) = 𝑓(𝑥 + 𝑥′, 𝑦 + 𝑦′) = (𝑥 + 𝑥′, 𝑥 + 𝑥′ + 𝑦 + 𝑦′, 𝑦 + 𝑦′) = (𝑥, 𝑥 + 𝑦, 𝑦) +
+(𝑥′, 𝑥′ + 𝑦′, 𝑦′) = 𝑓(𝑥, 𝑦) + 𝑓(𝑥′, 𝑦′) (lineare rispetto la somma) mentre per (𝑥, 𝑦) ∈ ℝ2 e ℎ ∈ ℝ si ha
+𝑓(ℎ(𝑥, 𝑦)) = 𝑓(ℎ𝑥, ℎ𝑦) = (ℎ𝑥, ℎ𝑥 + ℎ𝑦, ℎ𝑦) = ℎ(𝑥, 𝑥 + 𝑦, 𝑦) = ℎ ⋅ 𝑓(𝑥, 𝑦) (lineare rispetto il prodotto)
+3) 𝑓: ℝ2 → ℝ, l’applicazione è la proiezione della prima coordinata ((𝑥, 𝑦) ↦ 𝑥), è un applicazione lineare,
+e le proprietà sono banalmente verificate. L’applicazione non è iniettiva poiché ad esempio (1,2) e (1,3)
+hanno la stessa immagine, ma è suriettiva poiché ∀𝑦 ∈ ℝ , ∃𝑥 ∈ ℝ ∶ (𝑥, 𝑦) → 𝑥; di conseguenza si tratta
+di un epimorfismo (non monomorfismo).
+4) 𝑓: ℝ2[𝑥] → ℝ3, questa applicazione va dallo spazio dei polinomi di grado al più due in ℝ3, ed associa
+𝑎𝑥2 + 𝑏𝑥 + 𝑐 ⟼ (𝑎, 𝑏, 𝑐). Questa applicazione è lineare: 𝑓((𝑎𝑥2 + 𝑏𝑥 + 𝑐) + (𝑎′𝑥2 + 𝑏′𝑥 + 𝑐′)) =
+𝑓((𝑎 + 𝑎′)𝑥2 + (𝑏 + 𝑏′)𝑥 + (𝑐 + 𝑐′)) = (𝑎 + 𝑎′, 𝑏 + 𝑏′, 𝑐 + 𝑐′) = (𝑎, 𝑏, 𝑐) + (𝑎′, 𝑏′, 𝑐′) = 𝑓(𝑎𝑥2 +
+𝑏𝑥 + 𝑐) + 𝑓(𝑎′𝑥2 + 𝑏′𝑥 + 𝑐′), ed anche 𝑓(𝑢(𝑎𝑥2 + 𝑏𝑥 + 𝑐)) = 𝑓((𝑢𝑎)𝑥2 + (𝑢𝑏)𝑥 + (𝑢𝑐)) =
+(𝑢𝑎, 𝑢𝑏, 𝑢𝑐) = 𝑢(𝑎, 𝑏, 𝑐) = 𝑢 ⋅ 𝑓(𝑎𝑥2 + 𝑏𝑥 + 𝑐). È inoltre sia iniettiva che suriettiva, di conseguenza
+quest’applicazione è un isomorfismo (la proprietà di isomorfismo ci sarà utile in seguito)
+5) 𝑓: ℝ → ℝ con 𝑥 ↦ 𝑥2 non è un applicazione lineare, infatti 𝑓(1 + 2) = 𝑓(3) = 9 ≠ 𝑓(1) + 𝑓(2) = 5
+6) Sia una matrice 𝐴 ∈ ℝ𝑚𝑛 di dimensioni arbitrarie definiamo la seguente applicazione lineare (ci sarà
+molto utile) 𝑓: 𝑋 ∈ ℝ𝑛 → 𝐴𝑋 ∈ ℝ𝑚, è sicuramente lineare poiché 𝑓(𝑋1 + 𝑋2) = 𝐴(𝑋1 + 𝑋2) = 𝐴𝑋1 +
+𝐴𝑋2 = 𝑓(𝑋1) + 𝑓(𝑋2) e 𝑓(ℎ𝑋) = 𝐴(ℎ𝑋) = ℎ(𝐴𝑋) = ℎ ⋅ 𝑓(𝑋)
+Esempio con matrice concreta: 𝑓: (𝑥, 𝑦, 𝑧) ∈ ℝ3 ⟼ (3 1 2
+/
+XN
+2 0 1
+\f \
+) ( ) = (
+𝑥
+7\ J
+𝑦
+𝑧
+3𝑥 + 𝑦 + 2𝑧
+2𝑥 + 𝑧
+) ∈ ℝ2
+7) L’applicazione (𝑎
+𝑐
+2𝑓 ((0 0
+\*
+0 0
+𝑏
+𝑑
+) ∈ ℝ22 ⟼ (1 1
+𝑎
+)) = 2 (1 1
+7]
+XN
+0 0
+) = (2 2
+7
+XN
+0 0
+)
+7
+30
+𝑏
+) ∈ ℝ2 non è lineare perché 𝑓 (2 (0 0
+0 0
+)) = (1 1
+0 0
+) ≠
+
+Proposizioni
+• Sia 𝑓: 𝑉 → 𝑉′ un applicazione lineare, allora valgono le seguenti proposizioni:
+I. ∀ℎ, 𝑘 ∈ ℝ, ∀𝑣, 𝑤 ∈ 𝑉, 𝑓(ℎ𝑣 + 𝑘𝑤) = ℎ ⋅ 𝑓(𝑣) + 𝑘 ⋅ 𝑓(𝑤)
+𝑓(0𝑉) = 0𝑉′
+II.
+III.
+IV.
+𝑓(ℎ1𝑣1 + ℎ2𝑣2 +⋯+ ℎ𝑛𝑣𝑛) = ℎ1 ⋅ 𝑓(𝑣1) +⋯+ ℎ𝑛 ⋅ 𝑓(𝑣𝑛)
+𝑓(−𝑣) = −𝑓(𝑣)
+Dimostrazione: (I) applichiamo la linearità rispetto la somma e poi la linearità rispetto il prodotto su
+ciascun addento: 𝑓(ℎ𝑣 + 𝑘𝑤) = 𝑓(ℎ𝑣) + 𝑓(𝑘𝑤) = ℎ ⋅ 𝑓(𝑣) + 𝑘 ⋅ 𝑓(𝑤).
+(II) la dimostrazione che
+l’elemento neutro viene mandato nell’elemento neutro è la seguente (si sfrutta la proprietà
+dell’elemento neutro): 𝑓(0) = 𝑓(0 + 0) = 𝑓(0) + 𝑓(0) ⇒ 𝑓(0) = 𝑓(0) − 𝑓(0) = 0. (III) si dimostra
+per induzione su 𝑛: abbiamo già dimostrato l’asserto vero per 𝑛 = 1 nel punto (I), supponiamolo vero
+per 𝑛 − 1 e scriviamo 𝑓 (ℎ1𝑣1 + ℎ2𝑣2 +⋯
+⏟          + ℎ𝑛𝑣𝑛) = 𝑓(ℎ1𝑣1 +⋯+ ℎ𝑛−1𝑣𝑛−1) + ℎ𝑛 ⋅ 𝑓(𝑣𝑛) = ℎ1 ⋅
+𝑓(𝑣1) +⋯+ ℎ𝑛−1 ⋅ 𝑓(𝑣𝑛−1) + ℎ𝑛 ⋅ 𝑓(𝑣𝑛). (IV) 𝑓(−𝑣) = 𝑓(−1𝑣) = −1𝑓(𝑣) = −𝑓(𝑣)
+• Sia 𝑓: 𝑉 → 𝑉′ un applicazione lineare
+I.
+𝑓 conserva la dipendenza: 𝑣1,… , 𝑣𝑡 ∈ 𝑉 dipendente ⇒ 𝑓(𝑣1), … , 𝑓(𝑣𝑡) dipendente in 𝑉′
+(mentre la dipendenza lineare viene conservata l’indipendenza non è detto che lo sia)
+Dim.: 𝑣1,… , 𝑣𝑡 sono dipendenti quindi esistono 𝑖 scalari non tutti nulli tale che la combinazione
+lineare corrispondente è uguale all’elemento neutro: ℎ1𝑣1 +⋯+ ℎ𝑡𝑣𝑡 = 0; applicando ora la
+funzione 𝑓 ad ambo i membri di questa uguaglianza avremo che 𝑓(ℎ1𝑣1 +⋯+ ℎ𝑡𝑣𝑡) = ℎ1 ⋅
+𝑓(𝑣1) +⋯+ ℎ𝑛 ⋅ 𝑓(𝑣𝑛) = 𝑓(0) = 0 (per la (III) e 𝑙𝑎 (II) della proposizione precedente).
+II.
+Se un vettore appartiene al sottospazio generato da un certo insieme 𝑆 allora l’immagine di quel
+vettore appartiene al sottospazio generato dall’immagine di quel sottoinsieme (conseguenza
+della I): 𝑣 ∈ 〈𝑆〉 ⇒ 𝑓(𝑣) ∈ 〈𝑓(𝑆)〉
+Dim.: Consideriamo l’insieme finito 𝑣 = ℎ1𝑠1 +⋯+ ℎ𝑛𝑠𝑛 con 𝑆 = {𝑠1,… , 𝑠𝑛}, applicando 𝑓 ad
+entrambi i membri: 𝑓(𝑣) = ℎ1 ⋅ 𝑓(𝑠1) +⋯+ ℎ𝑛 ⋅ 𝑓(𝑠𝑛) e trovo che 𝑓(𝑣) ∈ 〈𝑓(𝑠1), … , 𝑓(𝑠𝑛)〉
+III.
+IV.
+𝑊 ≤ 𝑉 ⇒ 𝑓(𝑊) ≤ 𝑉′ (l’immagine di ogni sottospazio del dominio risulta essere un sottospazio
+del codominio, se l’applicazione non è lineare allora è solo sottoinsieme del codominio).
+Dim.: Sappiamo per certo che 𝑊 ≠ ∅ poiché essendo sottospazio contiene almeno l’elemento
+neutro, ma allora anche l’immagine 𝑓(𝑊) ≠ ∅ poiché contiene l’immagine dell’elemento
+neutro. Dunque, ci resta da dimostrare che sia stabile rispetto alla somma e al prodotto. Siano
+𝑣′, 𝑤′ ∈ 𝑓(𝑊) ⇒ ∃𝑣, 𝑤 ∈ 𝑊 ∶ 𝑓(𝑣) = 𝑣′, 𝑓(𝑤) = 𝑤′; a questo punto dobbiamo dimostrare
+che 𝑣′ + 𝑤′ ∈ 𝑓(𝑊), a tal proposito dobbiamo trovare un oggetto all’interno di 𝑊 tale che la
+sua immagine sia proprio 𝑣′ + 𝑤′; ossia 𝑣 + 𝑤: 𝑓(𝑣) + 𝑓(𝑤) = 𝑓(𝑣 + 𝑤) = 𝑣′ + 𝑤′ ∈ 𝑓(𝑊).
+Allo stesso modo, per il prodotto: ℎ𝑣 = ℎ ⋅ 𝑓(𝑣) = 𝑓(ℎ𝑣) = ℎ𝑣′ ∈ 𝑓(𝑊).
+𝑊 = 〈𝑤1,… , 𝑤𝑛〉 ⇒ 𝑓(𝑊) = 〈𝑓(𝑤1),… , 𝑓(𝑤𝑛)〉 (se 𝑊 è generato da 𝑤1,… , 𝑤𝑛
+allora un
+insieme di generatori per il sottospazio immagine viene dato dalle immagini dei generatori)
+Dim.: 𝑤1,… , 𝑤𝑛 ∈ 𝑊 ⇒ 𝑓(𝑤1),… , 𝑓(𝑤𝑛) ∈ 𝑓(𝑊). Allora, se ci appartengono tutti gli oggetti del
+tipo 𝑓(𝑤𝑖) anche il sottospazio generato da tutti gli 𝑓(𝑤𝑖) è contenuto all’interno di 𝑓(𝑊), in
+simboli: 〈𝑓(𝑤𝑖), … , 𝑓(𝑤𝑛)〉 ∈ 𝑓(𝑊); abbiamo così dimostrato una delle due inclusioni. A questo
+punto dimostriamo che ogni elemento di 𝑓(𝑊) ∈ 〈𝑓(𝑤1),… , 𝑓(𝑤𝑛)〉, ovvero che ogni elemento
+𝑤′ ∈ 𝑓(𝑊) si può scrivere come combinazione lineare degli elementi 𝑓(𝑤1), … , 𝑓(𝑤𝑛). A tal
+proposito sia 𝑤′ ∈ 𝑓(𝑊) ⇒ ∃𝑤 ∈ 𝑊 ∶ 𝑤′ = 𝑓(𝑤), essendo 𝑤 ∈ 𝑊 = 〈𝑤1,… , 𝑤𝑛〉 sappiamo
+che certi scalari ℎ𝑖 ∈ ℝ ∶ 𝑤 = ℎ1𝑤1 +⋯+ ℎ𝑛𝑤𝑛; ma allora si ha 𝑤′ = 𝑓(ℎ1𝑤1 +⋯+ ℎ𝑛𝑤𝑛) =
+ℎ1 ⋅ 𝑓(𝑤1) +⋯+ ℎ𝑛 ⋅ 𝑓(𝑤𝑛) e dunque 𝑤′ si può scrivere come combinazione lineare dei 𝑓(𝑤𝑖)
+e di conseguenza, per doppia inclusione, 𝑓(𝑊) = 〈𝑓(𝑤1),… , 𝑓(𝑤𝑛)〉.
+31
+
+Concetto di Ker e sue proprietà
+Definizione: Sia 𝑓: 𝑉 → 𝑉′ un applicazione lineare, denotiamo il sottospazio immagine di 𝑓 con Im 𝑓 ed è
+l’insieme {𝑓(𝑣) | 𝑣 ∈ 𝑉} = 𝑓(𝑉) = Im 𝑓; un altro insieme utile è il cosiddetto ker (nucleo, dal tedesco
+kernel) che è l’insieme di tutti gli oggetti del dominio che vengono portati nell’elemento neutro, ovvero
+𝐤𝐞𝐫 𝒇 = {𝒗 ∈ 𝑽 ∶ 𝒇(𝒗) = 𝟎}. Inoltre, il ker è anche un sottospazio vettoriale.
+Proposizione: ker 𝑓 ≤ 𝑉
+Im 𝑓 ≤ 𝑉′
+Dimostrazione: Im 𝑓 poiché coincide con 𝑓(𝑉) è sottospazio vettoriale per la proposizione vista
+precedentemente. ker 𝑓 ≠ ∅ poiché 0 ∈ ker 𝑓 per definizione. Siano ora 𝑣, 𝑤 ∈ ker 𝑓 ⇒ 𝑣 + 𝑤 ∈ ker 𝑓 ciò
+significa che 𝑓(𝑣) = 0 = 𝑓(𝑤) ⇒ 𝑓(𝑣 + 𝑤) = 𝑓(𝑣) + 𝑓(𝑤) = 0 + 0 = 0 ⇒ 𝑓(𝑣 + 𝑤) ∈ ker 𝑓; allo stesso
+modo per 𝜆 ∈ ℝ si ha 𝑓(𝜆𝑣) = 𝜆 ⋅ 𝑓(𝑣) = 𝜆0 = 0 ⇒ 𝑓(𝜆𝑣) ∈ ker 𝑓.
+Corollario: Sia 𝑓: 𝑉 → 𝑉′ lineare, con 𝑉 spazio vettoriale finitamente generato. Se prendo una base 𝑒1,… , 𝑒𝑛
+di 𝑉 allora Im 𝑓 = 〈𝑓(𝑒1),… , 𝑓(𝑒𝑛)〉 (è generato ma non è detto che sia essa stessa base).
+Essendo un corollario della proposizione IV vista precedentemente la dimostrazione è inutile.
+Proposizione: Sia 𝑓: 𝑉 → 𝑉′ lineare allora 𝟏) 𝑓 𝑠𝑢𝑟𝑖𝑒𝑡𝑡𝑖𝑣𝑎 ⇔ Im 𝑓 = 𝑉′
+𝟐) 𝑓 𝑖𝑛𝑖𝑒𝑡𝑡𝑖𝑣𝑎 ⇔ ker 𝑓 = {0}
+Dimostrazione: la prima è ovvia e precedentemente osservata. La seconda ci dice che una funzione è iniettiva
+se il ker è il singleton dell’elemento neutro e lo si dimostra per doppia implicazione. ⇒: sappiamo che 0 ∈
+ker 𝑓 ⇒ {0} ⊆ ker 𝑓, supponiamo che 𝑣 ∈ ker 𝑓 ⇒ 𝑓(𝑣) = 0 ma anche 𝑓(0) = 0 dunque per l’iniettività
+abbiamo che 𝑣 = 0 e questo comporta anche l’inclusione di ker 𝑓 ⊆ {0}. ⇐: prendiamo due oggetti 𝑓(𝑣) e
+𝑓(𝑤) ∈ ker 𝑓, dunque sarà 𝑓(𝑣) = 𝑓(𝑤) ⇒ 𝑓(𝑣) − 𝑓(𝑤) = 0 ⇒ 𝑓(𝑣 − 𝑤) = 0 ⇒ 𝑣 − 𝑤 = 0 ⇒ 𝑣 = 𝑤.
+Proposizione (correlazione tra indipendenza e iniettività di una funzione): Sia 𝑓: 𝑉 → 𝑉′ un monomorfismo
+(omomorfismo iniettivo) succede che l’indipendenza viene conservata, dunque: 𝑣1, … , 𝑣𝑛 ∈ 𝑉 indipendenti
+⇒ 𝑓(𝑣1), … , 𝑓(𝑣𝑛) indipendenti. (In particolare: base di 𝑉 ⇒ base di 𝑓(𝑉))
+Dimostrazione: Prendiamo una combinazione lineare dei vettori immagine ed eguagliamola all’elemento
+neutro: ℎ1 ⋅ 𝑓(𝑣1) +⋯+ ℎ𝑛 ⋅ 𝑓(𝑣𝑛) = 0, affinché questi vettori siano indipendenti bisogna dimostrare che
+tutti gli scalari siano necessariamente pari a zero. Per la proprietà di linearità di 𝑓 si ha che il primo membro
+si può rileggere come 𝑓(ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛) e quindi ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛 ∈ ker 𝑓, ed appartenendo al ker deve
+essere pari all’elemento neutro e dunque per l’iniettività abbiamo ℎ1𝑣1 +⋯+ ℎ𝑛𝑣𝑛 = 0 ed essendo questi
+vettori indipendenti allora ℎ1 = ⋯ = ℎ𝑛 = 0 e quindi 𝑓(𝑣1),… , 𝑓(𝑣𝑛) sono indipendenti.
+Teorema: Se 𝑓: 𝑉𝑛 → 𝑉 allora la seguente uguaglianza è vera: dim(ker 𝑓) + dim(Im 𝑓) = 𝑛
+Dimostrazione: Se il ker 𝑓 = 𝑉𝑛 ⇒ 𝑛 + 0 = 𝑛 essendo Im 𝑓 pari al singleton dell’elemento neutro. Mentre
+per ker 𝑓 = {0} significa che 𝑓 è iniettiva ed allora presa una base del dominio 𝑒1,… , 𝑒𝑛 di 𝑉 allora (per la
+precedente proposizione) 𝑓(𝑒1),… , 𝑓(𝑒𝑛) è base di Im 𝑓 e quindi avendo trovato una base di dimensione 𝑛
+si ha che dim(ker 𝑓) + dim(Im 𝑓) = 0 + 𝑛 = 𝑛. Supponiamo ora che il {0} < ker 𝑓 < 𝑉𝑛: sia 𝑣1, … , 𝑣𝑡 base
+di ker 𝑓 e completiamola in una base di 𝑉𝑛 aggiungendo almeno un vettore: 𝑣1, … , 𝑣𝑡, 𝑣𝑡+1,… , 𝑣𝑛 base di 𝑉𝑛.
+Quello da dimostrare è che dim(Im 𝑓) = 𝑛 − 𝑡 che è il numero di vettori usati per completare la base di 𝑉𝑛,
+quindi bisogna dimostrare che 𝑓(𝑣𝑡+1),… , 𝑓(𝑣𝑛) sia una base di Im 𝑓: prendiamo il sistema di generatori
+per Im 𝑓 = 〈𝑓(𝑣1), … , 𝑓(𝑣𝑡), 𝑓(𝑣𝑡+1),… , 𝑓(𝑣𝑛)〉, ma essendo 𝑓(𝑣1), … , 𝑓(𝑣𝑡) pari all’elemento neutro
+possono essere rimossi dal sistema di generatori e dunque si ha che Im 𝑓 = 〈𝑓(𝑣𝑡+1),… , 𝑓(𝑣𝑛)〉; rimane da
+dimostrare che 𝑓(𝑣𝑡+1),… , 𝑓(𝑣𝑛) sono indipendenti: ℎ𝑡+1 ⋅ 𝑓(𝑣𝑡+1) +⋯+ ℎ𝑛 ⋅ 𝑓(𝑣𝑛) = 𝑓(ℎ𝑡+1𝑣𝑡+1 +
+⋯+ ℎ𝑛𝑣𝑛) = 0 ⇒ ℎ𝑡+1𝑣𝑡+1 +⋯+ ℎ𝑛𝑣𝑛 ∈ ker 𝑓 e quindi questo vettore può essere riscritto come
+combinazione lineare della base 𝑣1, … , 𝑣𝑡 e quindi ∃ℎ1,… , ℎ𝑡 ∈ ℝ ∶ ℎ𝑡+1𝑣𝑡+1 +⋯+ ℎ𝑛𝑣𝑛 = ℎ1𝑣1 +⋯+
+ℎ𝑡𝑣𝑡; portando a sinistra entrambi i membri avremo che : ℎ𝑡+1𝑣𝑡+1 +⋯+ ℎ𝑛𝑣𝑛 − ℎ1𝑣1 +⋯− ℎ𝑡𝑣𝑡 = 0 ed
+essendo 𝑣1, … , 𝑣𝑡, 𝑣𝑡+1,… , 𝑣𝑛 base si ha che ℎ1 = ⋯ = ℎ𝑡 = ℎ𝑡+1 = ℎ𝑛 = 0. E questo dimostra che questi
+vettori sono indipendenti ed un sistema di generatori e dunque una base di dimensione 𝑛 − 𝑡.
+32
+
+Isomorfismo coordinato
+L’isomorfismo coordinato è quel concetto per il quale uno spazio vettoriale ha una forma un po’ più semplice,
+ad esempio sia 𝑉𝑛 uno spazio vettoriale di dimensione 𝑛 e prendiamo un riferimento ℛ = (𝑒1,… , 𝑒𝑛) allora
+posso considerare la seguente applicazione 𝐶ℛ ∶ 𝑣 = ℎ1𝑒1 +⋯+ ℎ𝑛𝑒𝑛 ∈ 𝑉𝑛 ↦ (ℎ1, ℎ2, … , ℎ𝑛) ∈ ℝ𝑛, questa
+applicazione porta un vettore 𝑣 in una n-upla determinata, avendo il vettore 𝑣 l’unicità di scrittura. 𝐶ℛ è
+dunque ben definita ed è anche lineare (dimostrare la sua linearità per esercizio), inoltre si ha che ker 𝐶ℛ =
+{𝑣 ∈ 𝑉𝑛
+∶ 𝐶ℛ(𝑣) = (0, … ,0)} = {0} e quindi 𝑣 = 0𝑒1 +⋯+ 0𝑒𝑛 = 0 di conseguenza si ha che l’isomorfismo
+coordinato è iniettivo. Dimostriamo anche la sua suriettività: Im 𝐶ℛ = 〈𝐶ℛ(𝑒1),… , 𝐶ℛ(𝑒𝑛)〉 dove 𝐶ℛ(𝑒1) è il
+primo vettore del riferimento canonico di ℝ𝑛 e così via per gli altri, e dunque avremo che Im 𝐶ℛ =
+〈(1,0,… ,0),… , (0,… ,0,1)〉 = ℝ𝑛 e quindi l’applicazione è suriettiva.
+Teorema: Ogni spazio vettoriale finitamente generato (diverso da 0) di dimensione 𝑛 è isomorfo ad ℝ𝑛
+Proposizione: Sia 𝑓: 𝑉 → 𝑉′ isomorfismo lineare (applicazione lineare biettiva, quindi ha un’inversa) allora
+l’inversa 𝑓−1: 𝑉′ → 𝑉 è anch’essa un isomorfismo lineare.
+Dimostrazione: Iniziamo col dimostrare che 𝑓−1 sia lineare rispetto alla somma, siano 𝑣′, 𝑤′ ∈ 𝑉′ (dominio
+di 𝑓−1 e codominio di 𝑓) dobbiamo dimostrare che 𝑓−1(𝑣′ + 𝑤′) = 𝑓−1(𝑣′) + 𝑓−1(𝑤′), poiché 𝑣′, 𝑤′ ∈
+𝑉′ e data la suriettività di 𝑓 possiamo dire che ∃𝑣, 𝑤 ∈ 𝑉 ∶ 𝑣′ = 𝑓(𝑣) e 𝑤′ = 𝑓(𝑤); a questo punto possiamo
+scrivere 𝑓−1(𝑣′ + 𝑤′) = 𝑓−1 (𝑓(𝑣) + 𝑓(𝑤)) = 𝑓−1 (𝑓(𝑣 + 𝑤)) = 𝑣 + 𝑤 = 𝑓−1(𝑣′) + 𝑓−1(𝑤′); ora in
+modo analogo dimostriamo la linearità rispetto al prodotto: sia 𝜆 ∈ ℝ si ha 𝑓−1(𝜆𝑣′) = 𝑓−1 (𝜆 ⋅ 𝑓(𝑣)) =
+𝑓−1 (𝑓(𝜆𝑣)) = 𝜆𝑣 = 𝜆 ⋅ 𝑓−1(𝑣′). L’altra implicazione si dimostra praticamente con la proposizione stessa.
+Corollario: Sia 𝑓: 𝑉 → 𝑉′ un isomorfismo lineare allora:
+I.
+𝑣1,… , 𝑣𝑛 sono indipendente se e solamente se le loro corrispettive immagini sono indipendenti.
+In simboli: 𝑣1,… , 𝑣𝑛 indipendenti ⇔ 𝑓(𝑣1), … , 𝑓(𝑣𝑛) indipendenti.
+L’implicazione da sinistra a destra è vera per la correlazione tra indipendenza e iniettività di una
+funzione, da destra a sinistra invece (essendo 𝑓 un isomorfismo) posso per la proposizione
+precedente dire che le immagini di 𝑓(𝑣1),… , 𝑓(𝑣𝑛) sono anch’esse indipendenti.
+II.
+III.
+𝑣1,… , 𝑣𝑛 dipendenti ⇔ 𝑓(𝑣1), … , 𝑓(𝑣𝑛) dipendenti.
+In generale la dipendenza lineare viene conservata, in più se è isomorfismo allora vale anche il
+contrario, la dimostrazione è semplicemente la negazione della precedente.
+Sia 𝑊 ≤ 𝑉 allora 𝑤1,… , 𝑤𝑛 base di 𝑊 ⇔ 𝑓(𝑣1), … , 𝑓(𝑣𝑛) base di 𝑓(𝑊).
+L’implicazione da sinistra a destra è dimostrata in una proposizione precedente, per l’altra
+implicazione utilizziamo di nuovo il corollario, per cui sapendo che 𝑓 è un isomorfismo basta
+applicare 𝑓−1 per dimostrare l’implicazione, essendo 𝑓−1 anch’esso un isomorfismo lineare.
+Esempio: Sia 𝑊 ≤ ℝ2[𝑥] dove 𝑊 = 〈𝑥2 + 2𝑥, 𝑥 − 1, 2𝑥2 + 3𝑥, 𝑥2 + 3𝑥 − 2〉, l’idea è quella di utilizzare
+la coordinazione associata allo spazio dei polinomi ℝ2[𝑥] che è ℝ3, prendendo come riferimento 𝑥2 + 𝑥 + 1
+e di conseguenza posso scrivere 𝑓(𝑊) = 〈(1,2,0), (0,1, −1), (2,3,0), (1,3, −2)〉; utilizzando la III del
+precedente corollario sappiamo che 𝑓(𝑊) è anch’esso un isomorfismo e che è generato dalle terne descritte
+precedentemente, a questo punto, per trovare una base del sottospazio 𝑊 basta trovare una base di 𝑓(𝑊)
+e invertirla.
+Teorema: Un applicazione lineare 𝑓: 𝑉𝑛 → 𝑉𝑚
+′ risulta essere “nota” quando sono noti i corrispondenti dei
+vettori di una base (significa che conosco come agiscono tutti i vettori del dominio ogni volta che conosce
+come agisce sui vettori di una base)
+Dimostrazione: Supponiamo che 𝑒1,… , 𝑒𝑛 sia una base del dominio 𝑉𝑛 e supponiamo che siano noti le basi
+𝑓(𝑒1), … , 𝑓(𝑒𝑛), allora conosco anche l’applicazione lineare valutata in un vettore 𝑣 ∈ 𝑉𝑛 poiché posso
+33
+
+scrivere 𝑣 come combinazione della base 𝑒1,… , 𝑒𝑛 e dunque 𝑓(𝑣) = 𝑓(ℎ1𝑒1 +⋯+ ℎ𝑛𝑒𝑛) = ℎ1 ⋅ 𝑓(𝑒1) +
+⋯+ ℎ𝑛 ⋅ 𝑓(𝑒𝑛); e di conseguenza è noto.
+Forma canonica delle applicazioni lineari e matrice di passaggio
+Prendiamo un applicazione lineare 𝑓: 𝑉𝑛 → 𝑉𝑚
+′ ed un riferimento del dominio e uno del codominio,
+rispettivamente ℛ = (𝑒1, … , 𝑒𝑛) di 𝑉𝑛 e ℛ′ = (𝑒1
+′ ,… , 𝑒𝑚
+′ ) di 𝑉𝑚. Per ogni vettore del dominio scriviamo la su
+immagine come combinazione lineare dei 𝑒1
+′ ,… , 𝑒𝑚
+′
+′ +⋯+ 𝑎𝑚𝑛𝑒𝑚
+𝑎1𝑛𝑒1
+, quindi: 𝑓(𝑒1) = 𝑎11𝑒1
+′ +⋯+ 𝑎𝑚1𝑒𝑚
+′
+,… , 𝑓(𝑒𝑛) =
+′ . A questo punto possiamo creare una matrice con i coefficienti nel seguente modo:
+𝐴 = ( ⋮ ⋱ ⋮ ) ∈ ℝ𝑚,𝑛 ; questa matrice è molto utile per poter descrivere la funzione 𝑓 e prende il
+𝑎11 ⋯ 𝑎1𝑛
+𝑎𝑚1 ⋯ 𝑎𝑚𝑛
+nome di matrice associata ad 𝒇 nei riferimenti 𝓡 ed 𝓡′; usualmente descritta con il simbolo 𝑀ℛℛ′(𝑓). Il
+procedimento così descritto per la definizione è anche il metodo in cui va calcolata la matrice associata. In
+particolare, se la funzione 𝑓 è un endomorfismo (dominio uguale al codominio) e ℛ = ℛ′ allora sarà 𝑀ℛ(𝑓).
+Proprietà della matrice associata: Sia 𝑣 ∈ 𝑉𝑛, se definiamo con 𝑋 la colonna delle componenti di 𝑣 nel
+riferimento del dominio ℛ e con 𝑋′ i vettori colonna delle componenti di 𝑓(𝑣) in ℛ′ allora 𝑋 e 𝑋′ sono legati
+dalla seguente relazione: 𝑋′ = 𝐴𝑋 (Quindi se mi viene fornita la matrice associata e conosco le componenti
+del vettore nel riferimento del dominio allora posso ottenere le componenti nel riferimento di arrivo a
+prescindere da come è definita la funzione 𝑓).
+Dimostrazione: 𝑋′ = (𝑥1
+′ ,… , 𝑥𝑚
+′ ) ∈ ℝ𝑚 e 𝑋 = (𝑥1,… , 𝑥𝑛) ∈ ℝ𝑛 (sono entrambi colonne, ma per praticità le
+scrivo in riga per considerarli come oggetti in ℝ𝑚 e ℝ𝑛) poiché lo spazio del codominio e del dominio sono
+rispettivamente 𝑚 ed 𝑛. Sia 𝑣 ∈ 𝑉𝑛 per ipotesi (𝑋 componenti di 𝑣 in ℛ) posso scriverla come combinazione
+lineare: 𝑣 = 𝑥1𝑒1 +⋯+ 𝑥𝑛𝑒𝑛. A questo punto applico 𝑓 ad entrambi i membri dell’uguaglianza, risulterà
+dunque 𝑓(𝑣) = 𝑥1 ⋅ 𝑓(𝑒1) +⋯+ 𝑥𝑛 ⋅ 𝑓(𝑒𝑛), ma essendo 𝑓(𝑒1) = 𝑎11𝑒1
+′ +⋯+ 𝑎𝑚1𝑒𝑚
+′
+,… , 𝑓(𝑒𝑛) =
+′ +⋯+ 𝑎𝑚𝑛𝑒𝑚
+𝑎1𝑛𝑒1
+′
+otteniamo 𝑓(𝑣) = 𝑥1(𝑎11𝑒1
+′ +⋯+ 𝑎𝑚1𝑒𝑚
+′ ) +⋯+ 𝑥𝑛(𝑎1𝑛𝑒1
+′ +⋯+ 𝑎𝑚𝑛𝑒𝑚
+′ ) =
+(𝑥1𝑎11 +⋯+ 𝑥𝑛𝑎1𝑛)𝑒1
+′ +⋯+ (𝑥1𝑎𝑚1 +⋯+ 𝑥𝑛𝑎𝑚𝑛)𝑒𝑚
+′
+anche 𝑓(𝑣) = 𝑥1
+′ 𝑒1
+′ +⋯+ 𝑒𝑚
+′
+e poiché ho l’unicità di scrittura e posso scrivere
+′ risulterà che 𝑥1
+𝑥𝑚
+′ = 𝑥1𝑎11 +⋯+ 𝑥𝑛𝑎1𝑛,… , 𝑥𝑚
+′ = 𝑥1𝑎𝑚1 +⋯+ 𝑥𝑛𝑎𝑚𝑛;
+abbiamo così scoperto che 𝐴𝑋 = ( ⋮ ⋱ ⋮ )(
+𝑎11 ⋯ 𝑎1𝑛
+𝑎𝑚1 ⋯ 𝑎𝑚𝑛
+\f \ f
+J\ J
+𝑥1
+⋮
+𝑥𝑛
+) = (
+𝑥1𝑎11 +⋯+ 𝑥𝑛𝑎1𝑛
+⋮
+\𝑥1𝑎𝑚1 +⋯+ 𝑥𝑛𝑎𝑚𝑛
+) = ( ⋮ ) = 𝑋′.
+′
+𝑥1
+′
+𝑥𝑚
+Osservazione: la proprietà della matrice associata è in realtà una proprietà caratterizzante la matrice, nel
+senso che se ho una matrice 𝐴 di 𝑛 righe ed 𝑚 colonne e questa matrice è tale da avere la seguente proprietà:
+𝑋′ = 𝐴𝑋 dove 𝑋 = 𝐶ℛ(𝑣) (colonna delle componenti di 𝑣 nel riferimento ℛ) e 𝑋′ = 𝐶ℛ′ (𝑓(𝑣)) per ogni 𝑣
+allora la matrice 𝐴 = 𝑀ℛℛ′(𝑓).
+Proposizione: La matrice (quadrata) di passaggio da ℛ ad ℛ′ è invertibile (la sua inversa risulta essere proprio
+la matrice di passaggio da ℛ′ ad ℛ).
+Dimostrazione: ℛ → ℛ′ ricordando che la matrice di passaggio si costruisce per colonne prendendo le
+componenti del vecchio riferimento (in questo caso ℛ) nel nuovo riferimento. Quindi se ℛ = (𝑒1,… , 𝑒𝑛) la
+matrice 𝐴 la costruisco con 𝐶ℛ′(𝑓(𝑒1) ) per la prima colonna, … e 𝐶ℛ′(𝑓(𝑒𝑛)) per la n-sima colonna. La
+matrice 𝐴 è invertibile perché essendo i vettori 𝑒1,… , 𝑒𝑛
+indipendenti ed essendo la coordinazione un
+isomorfismo anche le loro immagini saranno indipendenti; quindi, i vettori rappresentati le colonne di 𝐴 sono
+indipendenti, di conseguenza tutte le colonne di 𝐴 sono indipendenti ed essendo il rango di 𝐴 massimo (per
+il teorema degli orlati) segue che det(𝐴) ≠ 0, quindi 𝐴 è invertibile.
+Corollario: Se 𝑃 è la matrice di passaggio da ℛ → ℛ′, allora 𝑃−1 è di passaggio da ℛ′ → ℛ.
+Dimostrazione: 𝑃 è di passaggio, allora prendo le componenti 𝑋 = 𝐶ℛ(𝑣) e 𝑋′ = 𝐶ℛ′(𝑓(𝑣)) con 𝑣 ∈ 𝑉𝑛, e
+quindi 𝑋′ = 𝑃𝑋, moltiplicando entrambi i membri per 𝑃−1 si ottiene 𝑃−1𝑋′ = 𝑋. Scriviamo in maniera
+34
+
+generica la matrice 𝑃−1 = ( ⋮ ⋱ ⋮ ) e andiamo a dimostrare che 𝑃−1 sia effettivamente la matrice
+𝑎11 ⋯ 𝑎1𝑛
+𝑎𝑛1 ⋯ 𝑎𝑛𝑛
+di passaggio da ℛ′ → ℛ. Siano ℛ = (𝑒1,… , 𝑒𝑛) e ℛ′ = (𝑒1
+′ ,… , 𝑒𝑛
+′ ), allora la matrice di passaggio da ℛ′ → ℛ
+(chiamiamola 𝐵) sarà 𝐵 = ( ⋮ ⋱ ⋮ ) essendo
+𝑥11 ⋯ 𝑥1𝑛
+𝑥𝑛1 ⋯ 𝑥𝑛𝑛
+′ = 𝑥11𝑒1 +⋯+ 𝑥𝑛1𝑒𝑛
+𝑒1
+⋮
+′ = 𝑥1𝑛𝑒1 +⋯+ 𝑥𝑛𝑛𝑒𝑛
+𝑒𝑛
+le componenti del vettore 𝑒1
+′ che nel riferimento ℛ sono 𝑥11𝑒1 +⋯+ 𝑥𝑛1𝑒𝑛, d’altro canto le componenti di
+′
+𝑒1
+nel riferimento ℛ′ sono ( ) allora la avrò: 𝑃 (
+1
+0
+⋮
+0
+( ⋮ ⋱ ⋮ )( ) = (
+𝑎11 ⋯ 𝑎1𝑛
+𝑎𝑛1 ⋯ 𝑎𝑛𝑛
+1
+0
+⋮
+0
+𝑥11
+𝑥21
+⋮
+𝑥𝑛1
+) = ( ) ⇒ (
+1
+0
+⋮
+0
+⏟          
+𝑋′=𝑃𝑋
+𝑥11
+𝑥21
+⋮
+𝑥𝑛1
+) = 𝑃−1 ( ) ⇒ (
+1
+0
+⋮
+0
+⏟            
+𝑃−1𝑋′=𝑋
+𝑎11
+𝑎21
+⋮
+𝑎𝑛1
+) di conseguenza la prima colonna di 𝑃−1 è uguale alla prima colonna di 𝐵,
+iterando questo procedimento per i vettori 𝑒2
+′ ,… , 𝑒𝑛
+′ risulterà che ogni colonna di 𝑃−1 sarà uguale alla
+rispettiva colonne di 𝐵 dunque, come volevasi dimostrare, la matrice di passaggio da ℛ′ → ℛ è proprio 𝑃−1.
+6. Matrici simili e diagonalizzazione (spazi vettoriali)
+Matrici simili
+La definizione di matrici simili riguarda matrici quadrate, dunque: siano 𝐴, 𝐴′ ∈ ℝ𝑛 diremo che 𝐴 è simile ad
+𝐴′, in simboli 𝐴 ∼ 𝐴′, se e soltanto se esiste una matrice quadrata 𝑃 con determinante diverso da zero (quindi
+invertibile) tale che la 𝑃−1𝐴𝑃 = 𝐴′. Definizione in simboli: 𝐴 ∼ 𝐴′ ⇔ ∃𝑃 ∶ |𝑃| ≠ 0 e 𝑃−1𝐴𝑃 = 𝐴′ (il
+prodotto 𝑃−1𝐴𝑃 è chiamato in ambito algebrico anche coniugato di 𝐴 mediante 𝑃).
+La similitudine è una relazione d’equivalenza, cioè riflessiva, simmetrica e transitiva:
+• Riflessiva: 𝐴 ∼ 𝐴 infatti 𝐼𝑛𝐴𝐼𝑛 = 𝐴 essendo |𝐼𝑛| = 1 e 𝐼𝑛
+−1 = 𝐼𝑛
+𝑃−1𝐴𝑃
+=
+⇓
+• Simmetrica: se 𝐴 ∼ 𝐴′ allora 𝐴′ ∼ 𝐴: infatti
+𝑃(𝑃−1𝐴𝑃)𝑃−1 =
+⇓
+𝐴′
+𝑃𝐴′𝑃−1
+𝐴
+= (𝑃−1)−1𝐴′𝑃−1
+• Transitiva: se 𝐴 ∼ 𝐵 𝑒 𝐵 ∼ 𝐶 ⇒ 𝐴 ∼ 𝐶: infatti per 𝐴 ∼ 𝐵 esiste un 𝑃 invertibile tale che 𝑃−1𝐴𝑃 = 𝐵, per
+𝐵 ∼ 𝐶 esiste invece un 𝑃1 invertibile tale che 𝑃1
+−1𝐵𝑃1 = 𝐶, ma questo vuol dire che per sostituzione si
+ha 𝐶 = 𝑃1
+−1𝐵𝑃1 = 𝑃1
+−1(𝑃−1𝐴𝑃)𝑃1 = (𝑃1
+−1𝑃−1)𝐴(𝑃𝑃1) = (𝑃𝑃1)−1𝐴(𝑃𝑃1) e quindi 𝐴 ∼ 𝐶 essendo 𝑃𝑃1
+una matrice invertibile con determinante non nullo per il teorema di Cauchy-Binet.
+Teorema: Sia 𝑓: 𝑉𝑛 → 𝑉𝑛 un endomorfismo e siano ℛ e ℛ′ riferimenti di 𝑉𝑛 allora 𝐴 = 𝑀ℛ(𝑓) ∼ 𝑀ℛ′(𝑓) = 𝐴′
+(mette in relazione le matrici associate tra due riferimenti di un endomorfismo, 𝐴 ∼ 𝐴′).
+Dimostrazione: Sia 𝑃 la matrice di passaggio dal riferimento ℛ al riferimento ℛ′ allora per 𝑣 ∈ 𝑉𝑛 ho 𝑋 =
+𝐶ℛ(𝑣) e 𝑋′ = 𝐶ℛ′(𝑣), mentre per l’immagine di 𝑣 ho 𝑌 = 𝐶ℛ (𝑓(𝑣)) e 𝑌′ = 𝐶ℛ′ (𝑓(𝑣)). Ora, poiché 𝑃 è la
+matrice di passaggio da ℛ a ℛ′ ho le seguenti relazioni: 𝑋′ = 𝑃𝑋 e 𝑌′ = 𝑃𝑌; mentre per la proprietà di
+matrice associata ad una funzione ho 𝑌 = 𝐴𝑋 e 𝑌′ = 𝐴′𝑋′ a questo punto posso eseguire i seguenti passaggi:
+𝑌′ = 𝑃𝑌 = 𝐴′𝑋′ = 𝐴′𝑃𝑋 ⇒ 𝑌 = 𝑃−1𝐴′𝑃⏟    
+𝑍
+𝑋 (moltiplicando entrambi i membri a sinistra per 𝑃−1); il prodotto
+𝑍 è una matrice tale che ogni volta che moltiplico a destra per le componenti di un certo vettore nel
+35
+𝑥11
+𝑥21
+⋮
+𝑥𝑛1
+) =
+; a questo punto, prendiamo
+| a ™~
+ao ™~
+nN
+NL S
+
+riferimento ℛ ottengo le componenti in 𝑅′, quindi 𝑍 soddisfa la proprietà di matrice associata. Ma questa
+proprietà definisce univocamente la matrice associata in un riferimento, e allora 𝑃−1𝐴′𝑃 = 𝐴 ⇒ 𝐴′ ∼ 𝐴.
+Diagonalizzazione di un endomorfismo
+Sia 𝐴 = (
+𝑎11 ⋯ 𝑎1𝑛
+𝑎𝑛1 ⋯ 𝑎𝑛𝑛
+⋮ ⋱ ⋮ ) ∈ ℝ𝑛 ne vado a fare il determinante: det(𝐴 − 𝑡𝐼𝑛) dove 𝑡 è un’incognita. Il
+determinante di questa matrice è detto polinomio caratteristico della matrice 𝐴, ne consegue che con
+equazione caratteristica intendiamo det(𝐴 − 𝑡𝐼𝑛) = 0. 𝐴 − 𝑡𝐼𝑛 è sostanzialmente una matrice del seguente
+tipo 𝐴 − 𝑡𝐼𝑛 = (
+𝑎11 − 𝑡 ⋯ 𝑎1𝑛
+⋮
+⋱
+⋮
+𝑎𝑛1
+⋯ 𝑎𝑛𝑛 − 𝑡
+).
+Lemma: Matrici simili hanno lo stesso polinomio caratteristico.
+Dimostrazione: Se 𝐴 ∼ 𝐴′ allora esiste un 𝑃 invertibile tale che 𝐴′ = 𝑃−1𝐴𝑃, tentiamo a questo punto di
+confutare il polinomio caratteristico di 𝐴′, quindi det(𝐴′ − 𝑡𝐼𝑛) = det(𝑃−1𝐴𝑃 − 𝑡𝐼𝑛). Osserviamo che la
+matrice identica 𝐼𝑛 = 𝑃−1𝑃, ne consegue det(𝐴′ − 𝑡𝐼𝑛) = det(𝑃−1𝐴𝑃 − 𝑡𝑃−1𝑃) = det[𝑃−1(𝐴𝑃 − 𝑡𝑃)], è
+possibile mettere in evidenza 𝑃−1 a sinistra grazie alla distributività del prodotto righe per colonne sulla
+somma di matrici, e per lo stesso motivo metto in evidenza a destra 𝑃: det(𝐴′ − 𝑡𝐼𝑛) = det[𝑃−1(𝐴 − 𝑡𝐼𝑛)𝑃],
+applicando Cauchy-Binet det[𝑃−1(𝐴 − 𝑡𝐼𝑛)𝑃] = det(𝑃−1) det(𝐴 − 𝑡𝐼𝑛) det 𝑃, essendo numeri reali posso
+spostarli a piacere, dunque det(𝑃−1) det(𝑃) det(𝐴 − 𝑡𝐼𝑛) = det(𝐴 − 𝑡𝐼𝑛) essendo det(𝑃−1) l’inverso di
+det(𝑃) e quindi det(𝑃−1𝑃) = det(𝐼𝑛) = 1. Abbiamo così trovato che det(𝐴′ − 𝑡𝐼𝑛) = det(𝐴 − 𝑡𝐼𝑛).
+Diamo le seguenti definizioni:
+• Sia 𝑓: 𝑉𝑛 → 𝑉𝑛 un endomorfismo, fissato un riferimento ℛ ne prendiamo la matrice associata 𝐴 = 𝑀ℛ(𝑓)
+e definisco il polinomio caratteristico di 𝒇 come il polinomio caratteristico di 𝐴 (quindi della matrice
+associata al suo riferimento). Il polinomio caratteristico è ben definito, dunque non dipende dal
+riferimento scelto perché le matrici associate sono simili per un teorema visto nel capitolo precedente.
+• Un endomorfismo 𝑓: 𝑉𝑛 → 𝑉𝑛 è detto diagonalizzabile se esiste almeno un riferimento ℛ in cui la matrice
+associata 𝑀ℛ(𝑓) è diagonale (matrice quadrata dove solo la diagonale può avere valori diversi da zero).
+• Una matrice 𝐴 ∈ ℝ𝑛 è detta diagonalizzabile se è simile ad una diagonale.
+Proposizione (correlazione delle precedenti definizioni): Sia 𝑓: 𝑉𝑛 → 𝑉𝑛 un endomorfismo diagonalizzabile
+allora ogni matrice associata ad 𝑓 (non è detto che sia diagonale) è diagonalizzabile.
+Dimostrazione: Poiché l’endomorfismo è diagonalizzabile ∃ℛ di 𝑉𝑛
+∶ 𝑀ℛ(𝑓) è diagonale. A questo punto
+∀ℛ′ di 𝑉𝑛 succede che 𝑀ℛ′(𝑓) ∼ 𝑀ℛ(𝑓) ⇒ 𝑀ℛ′(𝑓) è diagonalizzabile per definizione, essendo simile ad una
+matrice diagonale.
+Proposizione: Sia 𝑓: 𝑉𝑛 → 𝑉𝑛 un endomorfismo e sia ℛ un riferimento di 𝑉𝑛 con 𝑀ℛ(𝑓) diagonalizzabile allora
+𝑓 è effettivamente diagonalizzabile.
+Dimostrazione: Per semplicità 𝐴 = 𝑀ℛ(𝑓); so che questa matrice, essendo diagonalizzabile, è simile ad una
+matrice diagonale e quindi esiste una matrice 𝑃 invertibile tale che 𝑃−1𝐴𝑃 = 𝐷 con 𝐷 una certa matrice
+diagonale. Sia ℛ = (𝑒1,… , 𝑒𝑛) cominciamo con definire le componenti del riferimento ℛ di 𝑒1,… , 𝑒𝑛 ovvero
+𝑋1 = 𝐶ℛ(𝑒1) = (1,0,… ,0),… , 𝑋𝑛 = 𝐶ℛ(𝑒𝑛) = (0,… ,0,1); definiamo con 𝐹𝑝: 𝑋 ∈ ℝ𝑛 ↦ 𝑃𝑋 ∈ ℝ𝑛
+un
+applicazione lineare che porta l’oggetto 𝑋 (vettore colonna) in un altro vettore colonna 𝑃𝑋, questa tipologia
+di applicazione è un isomorfismo lineare poiché 𝐹𝑝 è invertibile ed ha inversa 𝐹𝑃−1: 𝑋 → 𝑃−1𝑋. Inoltre,
+sapendo che 𝑋1, … , 𝑋𝑛 sono linearmente indipendenti anche le immagini 𝑃𝑋1, … , 𝑃𝑋𝑛 sono linearmente
+indipendenti, questi n vettori sono n-uple, essendo oggetti di ℝ𝑛, a questo punto vado a fare la
+controimmagine nell’isomorfismo coordinato a riferimento ℛ di questi n vettori, vado praticamente a
+prendere 𝐶ℛ
+−1(𝑃𝑋1) = 𝑒1
+′ ,… , 𝐶ℛ
+−1(𝑃𝑋𝑛) = 𝑒𝑛
+′ che costituiscono ancora a loro volta vettori indipendenti e
+poiché sono in numero pari alla dimensione dello spazio vettoriale questi vettori formano una base, quindi
+36
+
+posso ordinarli secondo i loro pedici e quindi avrò effettivamente il riferimento ℛ′ = (𝑒1
+′ ,… , 𝑒𝑛
+′ ). Prendiamo
+ora la matrice di passaggio 𝐵 da ℛ′ ad ℛ, quello che succede (secondo quanto visto nella dimostrazione del
+teorema delle matrici simili) è che la matrice 𝐵−1𝐴𝐵 = 𝐴′, di conseguenza se dimostriamo che 𝐵 = 𝑃
+avremmo dimostrato che 𝐴′ = 𝑀ℛ′(𝑓) ∼ 𝑀ℛ(𝑓) = 𝐴 e quindi la proposizione. La matrice di passaggio si
+costruisce per colonne quindi osserviamo la prima colonna di 𝐵, ovvero 𝐶ℛ(𝑒1
+′) = 𝑃𝑋1 = 𝑃 (
+( \
+\)
+1
+0
+⋮
+0
+),
+proseguendo per le restanti colonne troveremo che tutte le colonne di 𝐵 coincidono a tutte le colonne di 𝑃,
+e cioè che 𝐵 = 𝑃 e quindi 𝐴′ = 𝐷.
+Corollario: Se 𝑓: 𝑉𝑛 → 𝑉𝑛 è un endomorfismo diagonalizzabile nel riferimento ℛ allora anche la matrice
+associata lo è (quindi la diagonalizzabilità di un endomorfismo può essere visto con la diagonalizzabilità di
+𝑀ℛ(𝑓), questo corollario mette praticamente insieme le due proposizioni precedenti).
+Esempio: Sia 𝐴 = (
+1 0 0
+0 2 0
+0 0 3
+) una matrice diagonale e sia 𝐹𝐴: 𝑋 ∈ ℝ3 ↦ 𝐴𝑋 ∈ ℝ3 endomorfismo, esso è
+diagonalizzabile poiché nel riferimento naturale la matrice associata ad 𝐹𝐴 è proprio 𝐴. Un altro esempio è
+dato dall’endomorfismo identico (id𝑉) che è banalmente diagonalizzabile poiché in un qualunque riferimento
+la matrice associata 𝑀ℛ(id𝑉) = 𝐼𝑛 che è una matrice per sua natura diagonale. Anche l’endomorfismo nullo
+è diagonalizzabile poiché in qualunque riferimento la matrice associata è la matrice nulla (che è diagonale).
+Definizione pratica: Sia 𝑓: 𝑉𝑛 → 𝑉𝑛 un endomorfismo allora un certo elemento 𝑣 ∈ 𝑉𝑛 si dice autovettore di
+autovalore 𝝀 (numero reale) se e solo se 𝑣 ≠ 0 e 𝑓(𝑣) = 𝜆𝑣.
+Proposizione (Il concetto di autovettore e autovalore è ben definito): Se 𝑣 è un autovettore di autovalori 𝜆1
+e 𝜆2 allora 𝜆1 = 𝜆2 (un autovettore può avere un unico e solo autovalore).
+Dimostrazione: 𝑓(𝑣) = 𝜆1𝑣 essendo autovettore di autovalore 𝜆1, ma anche autovalore 𝜆2 quindi 𝑓(𝑣) =
+𝜆1𝑣 = 𝜆2𝑣 ⇒ (𝜆1 − 𝜆2)𝑣 = 0 ⇒ 𝜆1 − 𝜆2 = 0 ⇒ 𝜆1 = 𝜆2 poiché 𝑣 ≠ 0 per definizione.
+Teorema: un endomorfismo lineare 𝑓: 𝑉𝑛 → 𝑉𝑛 è diagonalizzabile ⇔ esiste una base formata da autovettori
+(rapporto preliminare tra diagonalizzabilità ed esistenza degli autovettori).
+Dimostrazione: cominciamo col dimostrare che se 𝑓 è diagonalizzabile allora esiste una base di autovettori.
+𝑓 è diagonalizzabile significa che esiste un riferimento in cui la matrice è diagonale, supponiamo che ℛ =
+(𝑒1,… , 𝑒𝑛) sia il riferimento per cui 𝑀ℛ(𝑓) = (
+𝑎1 0 …
+0
+⋮
+0
+𝑎2
+⋱
+0
+⋮
+0
+… 0 𝑎𝑛
+), scriviamo le immagini del riferimento
+come combinazione lineare delle colonne, ovvero 𝑓(𝑒1) = 𝑎1𝑒1 + 0𝑒2 +⋯+ 0𝑒𝑛 = 𝑎1𝑒1,… , 𝑓(𝑒𝑛) = 𝑎𝑛𝑒𝑛
+questo significa che 𝑒1 è un autovettore poiché 𝑒1 è non nullo e la sua immagine è proporzionale a se stesso,
+allo stesso modo 𝑒2,… , 𝑒𝑛 sono autovettori e dunque il riferimento ℛ è formata da autovettori e quindi esiste
+effettivamente una base formata da autovettori e la base in questione è proprio quella data dal riferimento
+in cui la funzione ha una matrice associata diagonale. Resta da dimostrare l’altra implicazione: sia ℛ =
+(𝑒1,… , 𝑒𝑛) con 𝑒1,… , 𝑒𝑛 autovettori, questo vuol dire che
+∃𝜆1 ∈ ℝ ∶ 𝑓(𝑒1) = 𝜆1𝑒1
+⋮
+∃𝜆𝑛 ∈ ℝ ∶ 𝑓(𝑒𝑛) = 𝜆𝑛𝑒𝑛
+sono gli autovettori a non dover essere nulli, non gli autovalori), di conseguenza la matrice associata ad 𝑓 nel
+riferimento ℛ è 𝑀ℛ(𝑓) = (
+𝜆1 0 …
+0
+⋮
+0
+𝜆2
+⋱
+0
+⋮
+0
+… 0 𝜆𝑛
+).
+37
+(si tenga presente che
+
+Proposizione: prendiamo un endomorfismo 𝑓: 𝑉𝑛 → 𝑉𝑛 e fissiamone un riferimento ℛ = (𝑒1,… , 𝑒𝑛) con
+𝑀ℛ(𝑓) = 𝐴 = (𝑎𝑖𝑗) allora esiste un autovettore che ammette ℎ come autovalore se e solamente se
+det(𝐴 − ℎ𝐼𝑛) = 0 (quindi per poter trovare gli autovalori bisogna risolvere l’equazione caratteristica ).
+𝑣 è autovettore di 𝑓 ⇔ 𝑋 = 𝐶ℛ(𝑣) è una soluzione non banale dell’equazione matriciale (𝐴 − ℎ𝐼𝑛)𝑋 = 0.
+Dimostrazione: ℎ è un autovalore significa che esiste un 𝑣 ≠ 0 tale che 𝑓(𝑣) = ℎ𝑣, in termini di coordinate
+il tutto si traduce nel seguente modo: esiste un 𝑍 = 𝐶ℛ(𝑣) ≠ 0 tale che 𝐴𝑍 = ℎ𝑍, dove 𝑍 sono le componenti
+di 𝑣. Ma allora 𝐴𝑍 = ℎ𝑍 ⇒ 𝐴𝑍 − ℎ𝐼𝑛𝑍 = 0 ⇒ (𝐴 − ℎ𝐼𝑛)𝑍 = 0, abbiamo così trovato che ℎ è una autovalore
+se e solamente se esiste un 𝑣 le cui componenti sono diverse da zero e soddisfano l’equazione (𝐴 − ℎ𝐼𝑛).
+Si osservi l’equazione (𝐴 − ℎ𝐼𝑛)𝑋 = 0, dove 𝑋 è una colonna di incognite che ha 2 soluzioni (matrice nulla o
+𝑍) ma questo significa che il sistema di equazione omogeneo ha ∞ soluzioni per i sistemi di equazioni (che
+ha una, nessuna o infinite soluzioni). A questo punto si può assumere che il rango di 𝐴 − ℎ𝐼𝑛 non è massimo
+(avendo infinite soluzioni) e quindi il det(𝐴 − ℎ𝐼𝑛) = 0. Abbiamo così dimostrato entrambe le proposizioni
+poiché sostanzialmente le implicazioni scritte sopra sono in realtà equivalenze.
+Definizione: sia ℎ autovalore dell’endomorfismo 𝑓: 𝑉𝑛 → 𝑉𝑛 definisco come autospazio relativo ad 𝒉 e lo
+denoto 𝑉(ℎ) = {𝑣 ∈ 𝑉𝑛|𝑓(𝑣) = ℎ(𝑣)} (non necessariamente 𝑣 deve essere non nullo).
+Proposizioni:
+1) 𝑉(ℎ) ≤ 𝑉𝑛 e dim𝑉(ℎ) ≥ 1
+Dim.: se ℎ è un autovalore vuol dire che esiste un vettore non nullo 𝑣 ∈ 𝑉(ℎ), di conseguenza 𝑉(ℎ) ≠ ∅
+e la dimensione è maggiore o uguale ad uno poiché c’è almeno un vettore non nullo, resta da dimostrare
+che 𝑉(ℎ) sia sottospazio vettoriale e che quindi sia stabile rispetto al somma e il prodotto: siano 𝑣, 𝑤 ∈
+𝑉(ℎ) allora 𝑓(𝑣) = ℎ𝑣 e 𝑓(𝑤) = ℎ𝑤 (il fatto che siano autovettori o meno non è rilevante) ne consegue
+𝑓(𝑣 + 𝑤) = 𝑓(𝑣) + 𝑓(𝑤) = ℎ𝑣 + ℎ𝑤 = ℎ(𝑣 + 𝑤). Ragionamento analogo per il prodotto, sia 𝜆 ∈ ℝ si
+ha 𝑓(𝜆𝑣) = 𝜆 ⋅ 𝑓(𝑣) = 𝜆 ⋅ (ℎ𝑣) = ℎ ⋅ (𝜆𝑣).
+2) L’autospazio è isomorfo: 𝑉(ℎ) ≃ {𝑋|(𝐴 − ℎ𝐼𝑛)𝑋 = 0} = 𝑆
+Dim.: Basta considerare la coordinazione associata e ridurre il domino all’autospazio, così posso
+prenderne le componenti che per la proposizione precedente devono appartenere all’insieme delle
+soluzioni 𝑆, in simboli 𝑣 ∈ 𝑉(ℎ) ↦ 𝐶ℛ(𝑣) ∈ 𝑆. Viceversa, se prendo un elemento di 𝑆: se è nullo allora
+appartiene a 𝑉(ℎ), altrimenti è un autovettore e allora sempre per la proposizione precedente posso
+trovare un vettore appartenente all’autospazio che abbia quelle immagini.
+3) L’intersezione di due autospazi con autovalori diversi è triviale (cioè fa il singleton dell’elemento neutro):
+𝑉(ℎ) ∩ 𝑉(𝑘) = {0} se ℎ ≠ 𝑘 (in particolare vuol dire che i due sottospazi sono in somma diretta)
+Dim.: Prendiamo un qualunque vettore 𝑣 ∈ 𝑉(ℎ) ∩ 𝑉(𝑘) e supponiamo che sia diverso dal vettore nullo,
+quindi è sia autovettore di autovalore ℎ che autovettore di autovalore 𝑘, ma poiché un autovettore può
+avere un unico e solo autovalore si arriverebbe all’assurdo che ℎ = 𝑘, di conseguenza 𝑣 = 0
+4) Autospazi relativi ad autovalori distinti 𝑉(ℎ1),… , 𝑉(ℎ𝑡) con ℎ𝑖 ≠ ℎ𝑗 sono in somma diretta
+Dim. per induzione: 𝑡 = 2 è vera per la proposizione precedente, supposta vera per 𝑡 − 1 dimostriamo
+che l’intersezione di un sottospazio con il sottospazio generato da tutti gli altri sia triviale: 𝑣 ∈ 𝑉(ℎ1) ∩
+〈𝑉(ℎ2), … , 𝑉(ℎ𝑡)〉 ma 〈𝑉(ℎ2),… , 𝑉(ℎ𝑡)〉 significa che 𝑉(ℎ2)⨁…⨁𝑉(ℎ𝑡), allora per 𝑣 so che 𝑓(𝑣) = ℎ1𝑣
+poiché appartiene a 𝑉(ℎ1), ma so anche che appartiene al sottospazio generato dai 𝑡 − 1 rimanenti e
+quindi posso scriverlo come 𝑣 = 𝑣2 +⋯+ 𝑣𝑡 e quindi 𝑓(𝑣) = 𝑓(𝑣2) +⋯+ 𝑓(𝑣𝑡) ma essendo 𝑓(𝑣2)
+oggetto di 𝑉(ℎ2) posso scriverlo 𝑓(𝑣2) = ℎ2𝑣2… allora 𝑓(𝑣) = ℎ2𝑣2 +⋯+ ℎ𝑡𝑣𝑡 ma è anche vero che
+posso scrivere 𝑓(𝑣) = ℎ1𝑣2 +⋯+ ℎ1𝑣𝑡 di conseguenza ℎ1 = ℎ2,… , ℎ1 = ℎ𝑡 (essendoci l’unicità di
+scrittura per la somma diretta) ma questo contraddice l’ipotesi che gli autovalori siano tutti distinti.
+5) Autovettori di autovalori distinti sono indipendenti
+Dim.: Siano 𝜆1,… , 𝜆𝑡 autovalori degli autovettori 𝑣1, … , 𝑣𝑡, rispettivamente; supponiamo per assurdo che
+gli autovettori non siano indipendenti, cioè ad esempio 𝑣1 ∈ 〈𝑣2,… , 𝑣𝑡〉 ma questo significa che 𝑉(𝜆1) ∩
+38
+
+〈𝑉(𝜆2),… , 𝑉(𝜆𝑡)〉 ≠ {0}, e ciò contraddice l’ipotesi che i vettori siano in somma diretta per la proprietà
+precedente.
+Corollario: Se l’equazione caratteristica di un endomorfismo 𝑓: 𝑉𝑛 → 𝑉𝑛 ha 𝑛 radici (numero massimo) reali e
+distinte allora 𝑓 è diagonalizzabile (l’altra implicazione non sussiste).
+Dimostrazione: Se ha 𝑛 radici reali e distinte significa che ciascuna di queste radici per il polinomio
+caratteristico è un autovalore, e dunque esistono 𝑛 autovalori 𝜆1,… , 𝜆𝑛. Di questi autovalori vado a prendere
+uno degli autovettori corrispondenti che lo caratterizzano, supponiamo siano 𝑣1,… , 𝑣𝑛. Questi vettori,
+essendo autovettori di autovalori distinti, sono linearmente indipendenti, di conseguenza sono una base di
+𝑉𝑛, ma per un teorema precedente se esiste una base formata da autovettori allora 𝑓 è diagonalizzabile.
+Alcune definizioni:
+• Molteplicità algebrica: sia 𝑝(𝑥) = 𝑎𝑛𝑥𝑛 + 𝑎𝑛−1𝑥𝑛−1 +⋯+ 𝑎1𝑥 + 𝑎0 = 0 un polinomio esso ha sempre
+nel campo dei numeri complessi ℂ al più 𝑛 soluzioni. Allora posso fattorizzare questo polinomi nel
+seguente modo: (𝑥 − 𝛼1)𝑛𝛼1 ⋅ … ⋅ (𝑥 − 𝛼𝑡)𝑛𝛼𝑡 dove 𝑛𝛼𝑖 è la molteplicità algebrica della radice 𝛼𝑡. Inoltre,
+gli 𝛼𝑖 sono tutte e sole le soluzioni del polinomio in questione. 𝑡 ≤ 𝑛 succede che la molteplicità algebrica
+delle soluzioni 𝑛𝛼1 +⋯+ 𝑛𝛼𝑡 = 𝑛.
+• Molteplicità geometrica: Sia 𝑉(ℎ) un autospazio relativo ad ℎ; dim𝑉(ℎ) è detta molteplicità geometrica
+di ℎ, in simboli 𝑚𝑔(ℎ)
+• La molteplicità algebrica di un autovalore ℎ è 𝑚𝑎(ℎ) ed è pari alla 𝑚𝑎(ℎ) in det(𝐴 − 𝑡𝐼𝑛) = 0
+Proposizione: 𝑚𝑔(ℎ) ≤ 𝑚𝑎(ℎ)
+Dimostrazione: Prendiamo una base per 𝑉(ℎ) = 𝑒1,… , 𝑒𝑡 con 𝑡 = 𝑚𝑔(ℎ) per definizione, allora completiamo
+ad una base di 𝑉𝑛: 𝑒1,… , 𝑒𝑡, 𝑒𝑡+1,… , 𝑒𝑛 e ne prendo il riferimento corrispondente ℛ = (𝑒1,… , 𝑒𝑡, 𝑒𝑡+1,… , 𝑒𝑛)
+e vado a calcolare la matrice associata al riferimento:
+fa st “|14-45, (a)Sut 5
+sche)
+bem,LO)
+Corollario: Se 𝑚𝑎(ℎ) = 1 ⇒ 𝑚𝑔(ℎ) = 1
+Dimostrazione: Per definizione 𝑚𝑔(ℎ) ≥ 1, mentre per il teorema precedente 𝑚𝑔(ℎ) ≤ 𝑚𝑎(ℎ) dunque
+risulterà 1 ≤ 𝑚𝑔(ℎ) ≤ 𝑚𝑎(ℎ) = 1
+Teorema: Un endomorfismo 𝑓: 𝑉𝑛 → 𝑉𝑛 è diagonalizzabile ⇔ il polinomio caratteristico di 𝑓 ha tutte le radici
+in ℝ (sono tutte radici reali) e per ogni radice ℎ si ha che 𝑚𝑎(ℎ) = 𝑚𝑔(ℎ).
+Dimostrazione: ⇒: Essendo 𝑓 diagonalizzabile ∃ℛ = (𝑒1, … , 𝑒𝑛) di autovettori, non è detto che questi vettori
+siano autovettori di autovalori distinti, a tal proposito considero i vettori ordinati nel seguente modo:
+〈𝑒1,… , 𝑒𝑖1〉 ≤ 𝑉(𝜆1),… , 〈𝑒𝑖𝑚−1+1,… , 𝑒𝑖𝑛〉 ≤ 𝑉(𝜆𝑚) (praticamente metto vicini quelli con lo stesso
+autovalore) così facendo so che 𝑉(𝜆1)⨁…⨁𝑉(𝜆𝑚) = 𝑉 poiché questi sottospazi contengono delle basi di 𝑉
+e ciò vuol dire che 〈𝑒1,… , 𝑒𝑖1〉 = 𝑉(𝜆1),… , 〈𝑒𝑖𝑚−1+1,… , 𝑒𝑖𝑛〉 = 𝑉(𝜆𝑚) altrimenti si arriverebbe all’assurdo
+che V appartenga ad un suo sottospazio proprio. Grazie all’uguaglianza possiamo calcolarci la molteplicità
+geometrica degli autovalori: 𝑚𝑔(𝜆1) = 𝑖1,… , 𝑚𝑔(𝜆𝑚) = 𝑛 − 𝑖𝑚−1. A questo punto, computata la
+molteplicità algebrica, andiamo a computare il polinomio caratteristico, riprendiamo il riferimento di
+autovettore e prendiamo la matrice associata al riferimento (vedi immagine in seguito).
+39
+
+Esplicitando ogni volta il polinomio caratteristico avremo il seguente
+determinante: det = (𝜆1 − 𝑥)𝑖1 ⋅ … ⋅ (𝜆𝑚 − 𝑥)𝑛−𝑖𝑚−1 , questo non solo ci
+dice che il polinomio caratteristico visto che si decompone in polinomi di primo
+grado ha tutte radici reali ma anche che 𝑚𝑎(𝜆1) = 𝑖1,… , 𝑚𝑎(𝜆𝑚) = 𝑛 − 𝑖𝑚−1.
+⇐: scriviamoci il polinomio caratteristico 𝑝(𝑥) = (𝑥 − 𝜆1)𝑛1 ⋅ … ⋅ (𝑥 − 𝜆𝑡)𝑛𝑡,
+poiché ha tutte le radici in ℝ il polinomio si può decomporre nel prodotto di
+polinomi di primo grado (a meno del segno); inoltre il prodotto di polinomi ha
+come grado la somma dei gradi e quindi 𝑛1 +⋯+ 𝑛𝑡 = 𝑛, sapendo poi che per ogni radice dell’equazione
+caratteristica (per ipotesi) deve succedere che la molteplicità geometrica è uguale a quella algebrica, dunque:
+𝑛1 = 𝑚𝑔(𝜆1),… , 𝑛𝑡 = 𝑚𝑔(𝜆𝑡). Andiamo ad analizzare la somma diretta degli autospazi relativi all’autovalore
+𝜆𝑖: 𝑉(𝜆1)⨁…⨁𝑉(𝜆𝑡) che ha dimensione 𝑛 (corollario della relazione di Grassmann) e allora essendo
+𝑉(𝜆1)⨁…⨁𝑉(𝜆𝑡) ≤ 𝑉 si ha proprio 𝑉(𝜆1)⨁…⨁𝑉(𝜆𝑡) = 𝑉. Bisogna ora dimostrare che il mio
+endomorfismo sia diagonalizzabile, dunque mostriamo che esista una base di 𝑉 fatta di autovettori; per una
+proprietà della somma diretta (relazione di Grassmann per la somma diretta) prendiamo una base per ogni
+autospazio e andiamo a farne l’unione, questa sarà una base per 𝑉 fatta di autovettori: 𝐵1 ∪ …∪ 𝐵𝑡 e a
+questo punto per il criterio di diagonalizzabilità abbiamo terminato.
+Diagonalizzazione di una matrice
+Sia 𝐴 ∈ ℝ𝑛 noi sappiamo che 𝐴 è diagonalizzabile ⇔ 𝐹𝐴 è diagonalizzabile, i concetti di autovalore e
+autovettore si trasportano per quanto riguarda la diagonalizzabilità per la matrice, definisco dunque
+autovettore per 𝑨: 𝑌 ∈ ℝ𝑛 ≠ 0 ∶ 𝐴𝑌 = ℎ𝑌 con 𝑌 colonna o riga e ℎ autovalore corrispondente. Invece con
+autospazio si intende 𝑉(ℎ) = {𝑋 ∈ ℝ𝑛|𝐴𝑋 = ℎ𝑋}.
+Supponiamo che 𝐴 sia diagonalizzabile, se 𝐹𝐴 è diagonalizzabile (è lo è per la proprietà di diagonalizzabilità)
+allora esiste un riferimento di autovettori per 𝐹𝐴: ℝ𝑛 → ℝ𝑛. Prendiamo un riferimento di autovettori ℛ =
+(𝑒1,… , 𝑒𝑛), abbiamo quindi la matrice associata 𝑀ℛ(𝐹𝐴) diagonale, d’altro canto, come già osservato, nel
+riferimento naturale 𝐹𝐴 ha come matrice associata al riferimento naturale proprio 𝐴 = 𝑀ℛnat(𝐹𝐴). Di
+conseguenza sappiamo che matrici associate a due riferimenti dello stesso endomorfismo sono simili, quindi
+𝑀ℛ(𝐹𝐴) = 𝐷 ∼ 𝐴 = 𝑀ℛnat(𝐹𝐴), e questo vuol dire che esiste una matrice 𝑃 invertibile tale che 𝑃−1𝐴𝑃 = 𝐷
+dove 𝑃 è la matrice di passaggio da ℛ → ℛnat (abbiamo già visto in precedenza la possibilità di poter scegliere
+𝑃 come matrice di passaggio). La matrice 𝑃 sappiamo che è fatta nel seguente modo (costruita per colonne):
+Cy? 0 U9 o)++aa 0,0..,4)
+©Qs
+28 (4G-10) +.+ Car(8-. ,0,A)
+Le colonne sono i componenti del vecchio nel nuovo, quindi quello che succede è che, di fatto, 𝐷 è la matrice
+deli autovalori presi nell’ordine.
+Praticamente se noi troviamo le componenti degli autovettori nel riferimento naturale le possiamo mettere
+nella matrice 𝑃 e questa matrice realizza la diagonalizzazione.
+Spazi Vettoriali: Prodotti diretti esterni
+Vediamo di seguito un procedimento per la costruzione di ulteriori spazi vettoriali ed è il concetto di prodotto
+esterno. Il prodotto che fino ad ora avevamo visto è il prodotto diretto interno (dove abbiamo già lo spazio
+vettoriale e scrivevamo un prodotto diretto da qualcosa interno allo spazio vettoriale).
+40
+
+Il prodotto diretto esterno, invece, prende due spazi vettoriali e ne crea uno nuovo che viene poi ad essere
+canonicamente somma diretta interna dei due “sottospazi”. Siano 𝑉, 𝑊 spazi vettoriali arbitrari ne prendo il
+prodotto cartesiano 𝑉 × 𝑊 = {(𝑣, 𝑤)|𝑣 ∈ 𝑉, 𝑤 ∈ 𝑊} che sarà il nostro insieme sostegno, devo andarci a
+definire una somma interna ed un prodotto esterno e li definisco nel seguente modo:
+• +∶ (𝑉 × 𝑊) × (𝑉 × 𝑊) → 𝑉 × 𝑊
+((𝑣, 𝑤), (𝑣′, 𝑤′)) ↦ (𝑣 + 𝑣′, 𝑤 + 𝑤′)
+• ⋅ ∶ ℝ × (𝑉 × 𝑊) → 𝑉 × 𝑊
+(𝜆, (𝑣, 𝑤)) ↦ (𝜆𝑣, 𝜆𝑤)
+È banale vedere che la terna (𝑉 × 𝑊, +, ⋅ ) è spazio vettoriale (ovvero ne soddisfa gli assiomi). Esplicitiamo
+a questo punte alcune cose:
+• Elemento neutro sarà la coppia (0, 0) con primo elemento appartenente a 𝑉 e secondo a 𝑊
+• L’opposto di (𝑣, 𝑤) sarà la coppia (−𝑣,−𝑤)
+Questo metodo di costruire spazi vettoriali crea uno spazio vettoriale più grande perché all’interno 𝑉 × 𝑊
+contiene dei sottospazi vettoriali che sono da un lato isomorfi a 𝑉 e dall’altro isomorfi a 𝑊. Sono inoltre
+sottospazi canonici: 𝐻 = {(0, 𝑤)|𝑤 ∈ 𝑊} e 𝐾 = {(𝑣, 0)|𝑣 ∈ 𝑉}, questi due sottospazi (è semplice
+dimostrare che siano sottospazi) hanno come intersezione la coppia (0, 0), quindi 𝐻 ∩ 𝐾 = {(0, 0)}, quello
+che andremo a vedere è che ogni elemento del prodotto diretto 𝑉 × 𝑊 può essere scritto come somma di
+un elemento di 𝐻 e un elemento di 𝐾, praticamente 𝑉 × 𝑊 ∋ 𝑢 = (𝑣, 𝑤) = (𝑣, 0) + (0, 𝑤) e questo vuol
+dire che 𝑉 × 𝑊 è in realtà somma diretta dei sottospazi 𝐻 e 𝐾. È facile convincersi che 𝐾 è isomorfo a 𝑉 e
+che 𝐻 è isomorfo a 𝑊, infatti 𝐾 ≃ 𝑉 perché 𝑣 ∈ 𝑉 → (𝑣, 0) e analogamente 𝐻 ≃ 𝑊 perché 𝑤 ∈ 𝑊 → (0, 𝑤)
+quindi possiamo dire che il prodotto diretto ha dimensione la somma delle dimensioni di 𝐻 e di 𝐾, poiché
+𝑉 × 𝑊 = 𝐻⨁𝐾, ma essendo dim𝐾 = dim𝑉 e dim𝐻 = dim𝑊 la dimensione del prodotto interno è la
+somma delle due dimensioni: dim(𝑉 × 𝑊) = dim𝑉 + dim𝑊.
+7. Geometria
+Spazio vettoriale dei vettori geometrici liberi dello spazio (e del piano)
+Gli spazi vettoriali dei vettori geometrici liberi nello spazio (o piano) sono classi di equipollenza in cui figurano
+tutti i vettori equipollenti ad un dato vettore geometrico. Prendiamo due vettori geometrici liberi non nulli
+(ovvero diversi dal vettore triviale): 𝑎 = 𝐴𝐵 e 𝑏 = 𝐶𝐷 dove 𝐴𝐵 e 𝐶𝐷 sono segmenti generici (posso prendere
+tutti i segmenti a loro equipollenti). Andiamo adesso a dare le seguenti proprietà:
+• 𝑎 ∥ 𝑏 ⇔ 𝐴𝐵 e 𝐶𝐷 (i segmenti corrispondenti che li rappresentano) sono paralleli
+Verifichiamo che questa definizione sia ben posta (il che vuol dire che cambiando i rappresentanti i due
+oggetti sono ancora paralleli tra loro): se prendo un vettore 𝐴′𝐵′ equipollente ad 𝐴𝐵 e un vettore 𝐶′𝐷′
+equipollente a 𝐶𝐷, a causa della relazione di equipollenza trovo subito, sotto il punto di vista pratico, che
+anche 𝐴′𝐵′ ∥ 𝐶′𝐷′.
+In termini di spazi vettoriali fissiamo un punto 𝑂, allora possiamo prenderci dei rappresentati come segue:
+𝑂𝐴′ ∥ 𝐴𝐵 e 𝑂𝐵′ ∥ 𝐶𝐷, ora, poiché la definizione precedente è ben posta si ha che 𝑎 ∥ 𝑏 ⇔ 𝑂𝐴′ e 𝑂𝐵′ sono
+paralleli, ciò significa che i due segmenti oltre ad essere paralleli ed hanno un punto in comune giacciono
+sulla stessa retta. Di conseguenza si può estendere la definizione
+precedente in:
+41
+
+• 𝑎 ∥ 𝑏 ⇔ 𝑂𝐴′ e 𝑂𝐵′ sono paralleli ⇔ 𝑂𝐴′ e 𝑂𝐵′ giacciono sulla stessa retta ⇔ 𝑂𝐴′ e 𝑂𝐵′ sono
+proporzionali ⇔ 𝑎 e 𝑏 sono proporzionali ⇔ 𝑎 e 𝑏 sono dipendenti (linearmente).
+Il vettore nullo è parallelo ad ogni vettore (per definizione), e questo implica, essendo un sistema contenente
+il vettore nullo quasi per definizione dipendente, che:
+• 𝑎 ∥ 𝑏 ⇔ 𝑎 e 𝑏 costituiscono un sistema linearmente dipendente
+Siano 𝑎, 𝑏, 𝑐 ∈ 𝒱 (dove 𝒱 è spazio, ma vale anche per il piano) e fissiamo un punto 𝑂, 𝑎 = 𝑂𝐴, 𝑏 = 𝑂𝐵, 𝑐 =
+𝑂𝐶, allora:
+• 𝑎, 𝑏, 𝑐 dipendenti ⇔ 𝑎 = ℎ𝑏 + 𝑘𝑐 con ℎ, 𝑘 ∈ ℝ ⇔ 𝑂𝐴 = ℎ𝑂𝐵 + 𝑘𝑂𝐶 ⇔ 𝑂𝐴, 𝑂𝐵, 𝑂𝐶 sono contenuti in
+uno stesso piano
+Dalla penultima condizione possiamo dire due cose: o che i punti 𝑂, 𝐵, 𝐶 sono allineati e quindi giacciono
+sulla stessa retta, e per questa retta passante per i tre punti esiste una retta per cui passa 𝐴, altrimenti,
+se 𝑂, 𝐵, 𝐶 non sono allineati significa che esiste un unico piano passante per 𝑂, 𝐵, 𝐶 ed il punto 𝐴 sta nel
+piano identificato da 𝑂, 𝐵, 𝐶. Il piano che contiene 𝑂, 𝐵, 𝐶, 𝐴 vale anche per il primo caso poiché per una
+retta passano infiniti piani.
+Definizione: Siano 𝑎, 𝑏 ∈ 𝒱 vettori geometrici liberi non nulli e fissiamo un punto 𝑂 allora 𝑎 = 𝑂𝑃 e 𝑏 = 𝑂𝑄
+allora l’angolo 𝑎^𝑏 è la misura in radianti dell’angolo convesso (≤ 180°) formato da 𝑂𝑃 e 𝑂𝑄 (si verifica
+intuitivamente che la definizione è ben posta).
+Definizione (prodotto scalare standard tra due vettori geometrici liberi) 𝒱 × 𝒱 → ℝ:
+• 𝑣 ⋅ 𝑤 = 0 se 𝑣 = 0 o 𝑤 = 0
+• 𝑣 ⋅ 𝑤 = |𝑣| ⋅ |𝑤| ⋅ cos(𝑣^𝑤) = |𝑤| ⋅ |𝑂𝐻|
+Questo prodotto gode delle seguenti proprietà:
+1. Simmetria (commutatività per prodotti esterni) 𝑣 ⋅ 𝑤 = 𝑤 ⋅ 𝑣 dipende dal fatto che 𝑣^𝑤 = 𝑤^𝑣
+(poiché per definizione bisogna fare la misura in radianti dell’angolo convesso)
+2. Bilinearità (ℎ𝑢 + 𝑘𝑣)𝑤 = ℎ(𝑢 ⋅ 𝑤) + 𝑘(𝑣 ⋅ 𝑤) (dimostrazione geometrica, servono altre nozioni)
+3. Definito positivo ∀𝑣 ∈ 𝒱 𝑣 ⋅ 𝑣 ≥ 0 essendo 𝑣 ⋅ 𝑣 = |𝑣| ⋅ |𝑣| ⋅ cos(𝑣^𝑣) = |𝑣|
+2
+𝑣 ⋅ 𝑣 = 0 ⟺ 𝑣 = 0 essendo 𝑣 ⋅ 𝑣 = | 𝑣| = 0 ⇔ 𝑣 = 0
+2
+Questo prodotto scalare standard ci permette di dire che 𝑣 ⋅ 𝑣 = |𝑣| ⇒ |𝑣| = √𝑣 ⋅ 𝑣
+2
+Definizione: chiamerò versore un vettore di lunghezza unitaria, ovvero un vettore il cui modulo è pari ad uno.
+Mentre con versore di una retta orientata indicherò quel versore parallelo e concorde alla retta.
+Vettori ortogonali: siano 𝑎 = 𝐴𝐵 e 𝑏 = 𝐶𝐷 due vettori non nulli poniamo per definizione:
+•
+𝑎 ⊥ 𝑏 ⇔ 𝐶𝐷 ⊥ 𝐴𝐵 è questa è una definizione ben posta
+• Fissato un punto 𝑂 avremo 𝑎 ⊥ 𝑏 ⇔ 𝑂𝐴 ⊥ 𝑂𝐵 ⇔ 𝜃 = 𝑎^𝑏 =
+𝜋
+2 ⇔ cos 𝜃 = 0 ⇔ 𝑎 ⋅ 𝑏 = 0
+Sempre per definizione si pone che il vettore nullo è ortogonale ad ogni vettore; quindi, non è necessario
+prendere 𝑎 e 𝑏 non nulli per dire che 𝑎 ⋅ 𝑏 = 0 ⇔ 𝑎 ⊥ 𝑏 ∀𝑎, 𝑏 ∈ 𝒱
+Cominciamo ora con il ricordare che lo spazio vettoriale dei vettori geometrici liberi del piano 𝒱𝜋 ha
+dimensione 2 mentre lo spazio vettoriale dei vettori geometrici liberi dello spazio ha dim𝒱 = 3. E
+generalizziamo questa osservazione dando la seguente definizione: Si dice riferimento ortonormale del
+piano un riferimento in cui i vettori sono ortogonali quindi ℛ𝜋 = (𝑣, 𝑤) con 𝑣 ⋅ 𝑤 = 0. Allo stesso modo il
+riferimento ortonormale dello spazio è ℛ = (𝑣, 𝑤, 𝑢) con 𝑣 ⋅ 𝑤 = 0, 𝑤 ⋅ 𝑢 = 0, 𝑢 ⋅ 𝑣 = 0. Sia per quanto
+42
+
+riguarda il piano che lo spazio, l’altra condizione per essere un riferimento ortogonale è che i vettori devono
+essere versori. Per semplicità di notazione consideriamo un riferimento ortonormale del piano.
+Proposizione: Se 𝑎, 𝑏 sono vettori geometrici del piano (𝑎, 𝑏 ∈ 𝒱𝜋) e 𝑎 = 𝑎1𝑣 + 𝑎2𝑤, 𝑏 = 𝑏1𝑣 + 𝑏2𝑤 (ovvero
+scritti come combinazione lineare del riferimento ℛ𝜋) allora 𝑎 ⋅ 𝑏 = 𝑎1𝑏1 + 𝑎2𝑏2 = (𝑎1, 𝑎2) ⋅ (𝑏1, 𝑏2).
+Dimostrazione: applichiamo al prodotto scalare standard la sua proprietà di essere bilineare e simmetrico:
+𝑎 ⋅ 𝑏 = (𝑎1𝑣 + 𝑎2𝑤) ⋅ (𝑏1𝑣 + 𝑏2𝑤) = 𝑎1𝑏1(𝑣 ⋅ 𝑣) + 𝑎1𝑏2(𝑣 ⋅ 𝑤) + 𝑎2𝑏1(𝑤 ⋅ 𝑣) + 𝑎2𝑏2(𝑤 ⋅ 𝑤) essendo 𝑣
+e 𝑤 versori ortogonali si ha che (𝑣 ⋅ 𝑣) = 1, (𝑤 ⋅ 𝑤) = 1, (𝑣 ⋅ 𝑤) = 0 e (𝑤 ⋅ 𝑣) = 0, da cui la tesi.
+Corollario: Se esprimo 𝑣 come 𝐶ℛ(𝑣) = (𝑎, 𝑏) avrò |𝑣| = √𝑣 ⋅ 𝑣 = √𝑎2 + 𝑏2, considerazioni del tutto
+analoghe (anche per la proposizione precedente) si attuano nello spazio: |𝑣| = √𝑎2 + 𝑏2 + 𝑐2 esprimendo
+𝑣 come 𝐶ℛ(𝑣) = (𝑎, 𝑏, 𝑐).
+Definizione: definisco riferimento cartesiano ortogonale monometrico una coppia che ha come primo
+oggetto un punto detto origine e secondo oggetto una coppia (se si parla di spazio sarà una terna), in
+particolare un riferimento ortonormale del piano: ℛ = (𝑂, (𝑒𝑥, 𝑒𝑦)).
+Essendo 𝑒𝑥 un versore e quindi un vettore geometrico libero ne posso prendere un segmento che rappresenti
+il vettore, ad esempio 𝑂𝑈 = 𝑒𝑥, allo stesso modo 𝑂𝑈′ = 𝑒𝑦, i punti 𝑈, 𝑈′ sono detti punti unitari. Mentre le
+rette passanti per 𝑂𝑈 e 𝑂𝑈′ sono detti assi coordinati (praticamente l’asse 𝑥 e l’asse 𝑦). Di seguito diamo la
+rappresentazione delle rette orientate concordemente ai versori e calcolo di un punto 𝑃 tramite proiezioni:
+Con ovviamente i punti particolari con coordinate:
+𝑂(0,0)
+𝑈(1,0)
+𝑈′(0,1)
+Proposizione: dati due punti 𝐴(𝑥1, 𝑦1) e 𝐵(𝑥2, 𝑦2), le componenti del vettore 𝐴𝐵 (la classe di equipollenza
+dei vettori equipollenti del vettore geometrico di punto iniziale 𝐴 e finale 𝐵) sono 𝑥2 − 𝑥1 e 𝑦2 − 𝑦1.
+Dimostrazione: iniziamo con l’osservare che per la regola del parallelogrammo 𝑂𝐴 + 𝐴𝐵 = 𝑂𝐵 (vedi sotto),
+ed essendo questi vettori geometrici liberi posso estrapolare 𝐴𝐵 = 𝑂𝐵 − 𝑂𝐴
+e da questa relazione applichiamo l’isomorfismo coordinato che ci dice che le
+componenti di 𝐴𝐵 saranno uguali alle componenti di 𝑂𝐵 meno le componenti
+di 𝑂𝐴, dunque chiamiamo le componenti incognite di 𝐴𝐵 come (𝑥, 𝑦), mentre le
+componenti di 𝑂𝐴 ed 𝑂𝐵 sono per definizione (𝑥1, 𝑦1) e (𝑥2, 𝑦2) rispettivamente. Allora ciò vuol dire che la
+coppia (𝑥, 𝑦) = (𝑥1, 𝑦1) − (𝑥2, 𝑦2) = (𝑥2 − 𝑥1, 𝑦2 − 𝑦1), come volevasi dimostrare.
+Spesso denoteremo 𝐴𝐵(𝑥2 − 𝑥1, 𝑦2 − 𝑦1) direttamente con le componenti come facciamo con i punti, ma
+questa definizione (per la precedente proposizione) non è ambigua infatti 𝑂𝑃(𝑎, 𝑏) ≡ 𝑃(𝑎, 𝑏).
+Prendiamo due vettori geometrici liberi 𝑣(𝑣𝑥, 𝑣𝑦) e 𝑤(𝑤𝑥, 𝑤𝑦) diversi dal vettore nullo, allora:
+𝑣 ⋅ 𝑤
+cos 𝑣^𝑤 =
+=
+|𝑣| ⋅ |𝑤|
+√𝑣𝑥
+2 + 𝑣𝑦
+2 ⋅ √𝑤𝑥
+2 + 𝑤𝑦
+2
+𝑣𝑥𝑤𝑥 + 𝑣𝑦𝑤𝑦
+cos 𝑣^𝑒𝑥 =
+𝑣𝑥
+√𝑣𝑥
+2 + 𝑣𝑦
+2
+cos 𝑣^𝑒𝑦 =
+𝑣𝑦
+√𝑣𝑥
+2 + 𝑣𝑦
+2
+43
+
+Cambiamenti di riferimento
+Se dati due riferimenti cartesiani ortogonali monometrici ℛ = (𝑂, (𝑒𝑥, 𝑒𝑦)), ℛ′ = (𝑂′, (𝑒𝑥
+′ , 𝑒𝑦
+′ )) voglio
+passare dalle coordinate di un punto 𝑃 in ℛ alle coordinate in ℛ′ si usa il seguente metodo.
+Diciamo che il punto 𝑃 abbia coordinate (𝑥, 𝑦) in ℛ e coordinate (𝑥′, 𝑦′) in ℛ′ e noi vogliamo trovare delle
+formule che ci permettono di passare da (𝑥, 𝑦) a (𝑥′, 𝑦′). Per poter fare questa cosa ci viene in aiuto la
+matrice di passaggio da un riferimento ad un altro, in particolare dal riferimento (𝑒𝑥, 𝑒𝑦) al riferimento
+(𝑒𝑥
+′ , 𝑒𝑦
+′ ), ovvero la matrice 𝐵 = (
+𝑏11 𝑏12
+𝑏21 𝑏22
+) e quindi (proprietà della matrice di passaggio) se moltiplichiamo
+a destra la colonna delle componenti di un vettore nel vecchio riferimento otteniamo la colonna delle
+componenti nel nuovo riferimento.
+Riprendiamo le coordinate nel punto 𝑃 che, come ben sappiamo, per definizione sono le componenti del
+vettore geometrico libero 𝑂𝑃 e 𝑂′𝑃, rispettivamente per (𝑥, 𝑦) e (𝑥′, 𝑦′), e andiamo a definire anche le
+coordinate delle origini dei riferimenti. Per il punto 𝑂 è (0,0) mentre per 𝑂′, essendo traslato rispetto
+all’origine, chiamiamole (𝑐1, 𝑐2), una volta conosciute le coordinate di 𝑂 e 𝑃, per un lemma visto in
+precedenza, si conoscono anche le coordinate di 𝑂𝑃 ovvero (𝑥, 𝑦), mentre 𝑂′𝑃(𝑥′ − 𝑐1, 𝑦′ − 𝑐2).
+A questo punto utilizziamo la matrice di passaggio moltiplicandola a sinistra della colonna delle componenti
+del vettore 𝑂𝑃 nel riferimento che sottende ℛ, risulteranno le componenti dello stesso vettore nel
+riferimento che sottende 𝑅′ quindi 𝐵 (
+𝑥
+𝑦) = (
+𝑥′ − 𝑐1
+𝑦′ − 𝑐2
+) ⇒ {
+𝑥′ − 𝑐1 = 𝑏11𝑥 + 𝑏12𝑦
+𝑦′ − 𝑐2 = 𝑏21𝑥 + 𝑏22𝑦
+, a questo sistema
+esplicitando le coordinate dei punti 𝑥′ e 𝑦′ in termini di coordinate di 𝑃 nel riferimento ℛ otterremo il
+seguente sistema: {
+𝑥′ = 𝑏11𝑥 + 𝑏12𝑦 + 𝑐1
+𝑦′ = 𝑏21𝑥 + 𝑏22𝑦 + 𝑐2
+che sono le formule di passaggio da 𝓡 a 𝓡′.
+Prodotto vettoriale
+Definiamo il prodotte vettoriale nello spazio (non è possibile definirlo con il piano): prendo un riferimento
+cartesiano ortogonale monometrico ℛ = (𝑂, ℛ𝒱 = (𝑒𝑥, 𝑒𝑦, 𝑒𝑧)) e due vettori: 𝑣(𝑣𝑥, 𝑣𝑦, 𝑣𝑧) = 𝑣𝑥𝑒𝑥 +
+𝑣𝑦𝑒𝑦 + 𝑣𝑧𝑒𝑧 e 𝑤(𝑤𝑥, 𝑤𝑦, 𝑤𝑧) = 𝑤𝑥𝑒𝑥 + 𝑤𝑦𝑒𝑦 + 𝑤𝑧𝑒𝑧. Allora il prodotto vettoriale 𝑣 × 𝑤 è per definizione
+𝑒𝑥
+𝑣 × 𝑤 = |𝑣𝑥
+𝑒𝑦
+𝑣𝑦
+𝑒𝑧
+𝑤𝑥 𝑤𝑦 𝑤𝑧
+𝑣𝑧 | = (𝑣𝑦𝑤𝑧 − 𝑤𝑦𝑣𝑧)𝑒𝑥 − (𝑣𝑥𝑤𝑧 − 𝑣𝑧𝑤𝑥)𝑒𝑦 + (𝑣𝑥𝑤𝑦 − 𝑤𝑥𝑣𝑦)𝑒𝑧
+sviluppato per la prima riga).
+Esempio: 𝑣(1,0,1), 𝑤(2,2,0)
+𝑣 × 𝑤 = |
+𝑒𝑥
+𝑒𝑦
+𝑒𝑧
+1 0 1
+2 2 0
+| = (|0 1
+2 0
+| , − |1 1
+2 0
+| , |1 0
+2 2
+(il determinante
+|) = (−2,2,2)
+Proprietà: Siano 𝑣(𝑣𝑥, 𝑣𝑦, 𝑣𝑧) e 𝑤(𝑤𝑥, 𝑤𝑦, 𝑤𝑧) ∈ 𝒱 e ℛ = (𝑂, ℛ𝒱 = (𝑒𝑥, 𝑒𝑦, 𝑒𝑧))
+1. (𝑣 × 𝑤) ⋅ 𝑣 = 0 (il prodotto vettoriale è sempre ortogonale al prodotto dei due vettori fra di loro)
+Dim.: (𝑣 × 𝑤) ⋅ 𝑣 = ((𝑣𝑦𝑤𝑧 − 𝑤𝑦𝑣𝑧)𝑒𝑥 − (𝑣𝑥𝑤𝑧 − 𝑣𝑧𝑤𝑥)𝑒𝑦 + (𝑣𝑥𝑤𝑦 − 𝑤𝑥𝑣𝑦)𝑒𝑧) ⋅ 𝑣 = 𝑣𝑦𝑤𝑧𝑣𝑥
+̇ −
+̈ − 𝑣𝑥𝑤𝑧𝑣𝑦
+𝑤𝑦𝑣𝑧𝑣𝑥
+̇ + 𝑣𝑧𝑤𝑥𝑣𝑦
+⃛ + 𝑣𝑥𝑤𝑦𝑣𝑧
+̈ − 𝑤𝑥𝑣𝑦𝑣𝑧
+⃛ = 0
+2. (𝑣 × 𝑤) ⋅ 𝑤 = 0
+Dunque: (𝑣 × 𝑤) ⊥ 𝑣 e (𝑣 × 𝑤) ⊥ 𝑤
+3. 𝑣 × 𝑤 = 0 ⇔ 𝑣 e 𝑤 sono dipendenti ⇔ 𝑣 ∥ 𝑤
+Dim.: le componenti del prodotto vettoriale sono i minori di ordine 2 della matrice (
+𝑒𝑥
+𝑣𝑥
+𝑒𝑦
+𝑣𝑦
+𝑒𝑧
+𝑤𝑥 𝑤𝑦 𝑤𝑧
+𝑣𝑧 )
+e quindi per dimostrare la nostra ipotesi bisogna andare a dimostrare che tutti i minori di ordine 2
+44
+
+della matrice rettangolare [𝑤𝑥 𝑤𝑦 𝑤𝑧
+𝑣𝑥
+𝑣𝑦
+𝑣𝑧
+sottomatrice [𝑤𝑥 𝑤𝑦 𝑤𝑧
+𝑣𝑥
+𝑣𝑦
+𝑣𝑧
+] è 1; e di conseguenza |𝑣𝑥
+] siano uguali a 0 e lo sono, quindi il rango di questa
+𝑒𝑥
+𝑒𝑦
+𝑣𝑦
+𝑒𝑧
+𝑤𝑥 𝑤𝑦 𝑤𝑧
+𝑣𝑧 | = 0 e dunque per il teorema
+degli orlati (essendo la sottomatrice di rango 1) le righe (𝑣𝑥, 𝑣𝑦, 𝑣𝑧) e (𝑤𝑥, 𝑤𝑦, 𝑤𝑧) sono
+proporzionali (dipendenti), ovvero (per la coordinazione associata) 𝑣 e 𝑤 sono dipendenti.
+4. 𝑣 × 𝑤 = −(𝑤 × 𝑣) (non è simmetrico)
+Dim.: Pensando al determinante |
+𝑒𝑥
+𝑣𝑥
+𝑒𝑦
+𝑣𝑦
+𝑒𝑧
+𝑤𝑥 𝑤𝑦 𝑤𝑧
+𝑣𝑧 | se si scambiano la seconda e la terza riga per la
+proprietà del determinante le due matrici avranno il segno scambiato.
+5. 𝑒𝑥 × 𝑒𝑦 = 𝑒𝑧
+𝑒𝑦 × 𝑒𝑧 = 𝑒𝑥
+𝑒𝑧 × 𝑒𝑥 = 𝑒𝑦
+Dim.: Basta farsi i conti: (1,0,0) × (0,1,0) = (0,0,1) (nota che (0,1,0) × (1,0,0) = (0,0, −1)
+Rappresentazioni
+Definizione: un insieme di punti del piano 𝑋 è rappresentabile se e soltanto se esiste un sistema di equazioni
+𝑆𝑇 in due incognite (ed eventuali parametri 𝑇) tale che 𝑃 ∈ 𝑋 ⇔ ∃𝑇 (valore per quei parametri) tale che le
+coordinate di 𝑃 nel riferimento fissato appartengono a 𝑆𝑇 (l’insieme di soluzioni di 𝑆𝑇).
+Esempio ipotetico di parametri: se avessimo 3𝑥 + 4𝑦 + 𝑘 = 0 come nostro sistema e (2,3) ne è soluzione
+allora deve esistere un 𝑘 per cui (2,3) è soluzione di 3𝑥 + 4𝑦 + 𝑘 = 0. Concetto analogo ovviamente nel
+caso dello spazio, che avrò semplicemente tre componenti e quindi 3 incognite.
+Rappresentazione di un piano nello spazio
+Rappresentazione parametrica: Sia 𝜋 un piano dello spazio. Allora 𝜋 è rappresentato da un sistema
+parametrico a coefficienti reali del tipo {
+𝑥 = 𝑥𝑜 + 𝑙𝑠 + 𝑙′𝑡
+𝑦 = 𝑦0 + 𝑚𝑠 + 𝑚′𝑡
+𝑡 = 𝑡0 + 𝑛𝑠 + 𝑛′𝑡
+dove (𝑙, 𝑚, 𝑛) ed (𝑙′, 𝑚′, 𝑛′) sono terne di
+numeri reali indipendenti ed 𝑠, 𝑡 parametri reali. 𝑥, 𝑦, 𝑧 sono soluzioni di questo sistema se esistono dei valori
+per 𝑠, 𝑡 tale che 𝑥, 𝑦, 𝑧 soddisfino il sistema
+Dimostrazione: Vogliamo trovare le costanti (𝑙, 𝑚, 𝑛) e (𝑙′, 𝑚′, 𝑛′) tali che un punto 𝑃 appartenga al piano se
+e solamente se le sue coordinate soddisfino quel sistema di equazioni. Fissiamo un punto del piano
+𝐴(𝑥0, 𝑦0, 𝑧0) ∈ 𝜋, dopodiché, sapendo che il piano è determinato da un punto e da due vettori che giacciono
+sul piano e ci danno la direzione del piano (oppure semplicemente da tre punti), siano 𝑣(𝑙, 𝑚, 𝑛) e
+𝑣′(𝑙′, 𝑚′, 𝑛′) due vettori liberi indipendenti e paralleli a 𝜋 allora: 𝑃 ∈ 𝜋 ⇔ 𝐴𝑃, 𝑣, 𝑣′ applicati in 𝐴 sono
+complanari ⇔ 𝐴𝑃, 𝑣, 𝑣′ dipendenti ⇔ 𝐴𝑃 ∈ 〈𝑣, 𝑣′〉. Abbiamo così visto che questo sistema è formato da tre
+vettori dipendenti e quello che dipende dai rimanenti è proprio 𝐴𝑃 essendo 𝑣, 𝑣′ indipendenti. In termini di
+componenti questo significa che (applicando la coordinazione associata) 𝐶ℛ(𝑃) = 𝐶ℛ(𝑥 − 𝑥0, 𝑦 − 𝑦0, 𝑧 −
+𝑧0) ∈ 〈(𝑙, 𝑚, 𝑛), (𝑙′, 𝑚′, 𝑛′)〉 = 〈𝑣, 𝑣′〉 che è equivalente a scrivere: ∃𝑡, 𝑠 ∈ ℝ ∶ {
+𝑥 − 𝑥0 = 𝑙𝑠 + 𝑙′𝑡
+𝑦 − 𝑦0 = 𝑚𝑠 + 𝑚′𝑡
+𝑡 − 𝑡0 = 𝑛𝑠 + 𝑛′𝑡
+RF NN,
+‘
+~
+yw
+“A(9,46)
+a?
+Ogni sistema del tipo {
+𝑥 = 𝑥0 + 𝑙𝑠 + 𝑙′𝑡
+𝑦 = 𝑦0 + 𝑚𝑠 + 𝑚′𝑡
+𝑡 = 𝑡0 + 𝑛𝑠 + 𝑛′𝑡
+rappresenta un piano.
+Di quanto mi muovo su una direzione è determinato dal parametro 𝑠
+mentre di quanto mi muovo sull’altra è determinato dal parametro 𝑡
+45
+.
+
+Proposizione (rappresentazione in forma ordinaria o cartesiana): Il piano 𝜋 è rappresentato da un’equazione
+del tipo 𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 + 𝑑 = 0 con (𝑎, 𝑏, 𝑐) ≠ (0,0,0), inoltre il vettore 𝑤(𝑎, 𝑏, 𝑐) ⊥ 𝜋.
+Dimostrazione: Segue lo stesso percorso della dimostrazione precedente solamente che arrivati al punto
+della coordinazione associata non sviluppiamo in termini di combinazione lineare ma utilizziamo il fatto che
+questi tre vettori sono dipendenti: 𝑃 ∈ 𝜋 ⇔ 𝑣, 𝑣′ e 𝐴𝑃 dipendenti ⇔ |
+𝑥 − 𝑥0 𝑦 − 𝑦0 𝑧 − 𝑧0
+𝑙
+𝑚
+𝑙′
+𝑚′
+𝑛
+𝑛′
+| = 0,
+sviluppandolo per la prima riga: (𝑚𝑛′ − 𝑛′𝑚) (𝑥 − 𝑥0) + (𝑙′𝑛 − 𝑙𝑛′) (𝑦 − 𝑦0) + (𝑙𝑚′ − 𝑙′𝑚) (𝑧 − 𝑧0) = 0
+⏟        
+𝑎
+⏟      
+𝑏
+⏟        
+𝑐
+chiamando poi tutti i termini senza incognita 𝑑 = −𝑎𝑥0 − 𝑏𝑦0 − 𝑐𝑧0 risulterà 𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 + 𝑑 = 0; ora ci
+rimane da osservare che (𝑎, 𝑏, 𝑐) ≠ (0,0,0) e che 𝑤(𝑎, 𝑏, 𝑐) ⊥ 𝜋; ma essendo 𝑎, 𝑏, 𝑐 i minori della
+sottomatrice rettangolare presi a segno alterno essi rappresentano le componenti del prodotto vettoriale tra
+𝑣 e 𝑣′, e poiché questi ultimi non sono paralleli (essendo indipendenti) il prodotto non può essere nullo (per
+una proprietà già vista) deve succedere che (𝑎, 𝑏, 𝑐) = (𝑙, 𝑚, 𝑛) × (𝑙′, 𝑚′, 𝑛′) ≠ 0, dopodiché il prodotto
+vettoriale è perpendicolare a entrambi i vettori del prodotto, ma allora se è perpendicolare ai due vettori del
+piano 𝑣 e 𝑣′, evidentemente è perpendicolare anche al piano stesso.
+Proposizione (il viceversa della precedente): Ogni equazione 𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 + 𝑑 = 0 con (𝑎, 𝑏, 𝑐) ≠ (0,0,0)
+rappresenta un piano 𝜋 ortogonale a (𝑎, 𝑏, 𝑐).
+Dimostrazione: vado a prendere due vettori ortogonali ad (𝑎, 𝑏, 𝑐) che siano indipendenti, per trovarli devo
+risolvere il sistema 𝑣 ⋅ (𝑎, 𝑏, 𝑐) = 0, ovvero devo risolvere il sistema 𝑎𝑣𝑥 + 𝑏𝑣𝑦 + 𝑐𝑣𝑧 = 0; essendo per
+ipotesi (𝑎, 𝑏, 𝑐) ≠ (0,0,0) abbiamo la certezza che uno tra 𝑎, 𝑏, 𝑐 deve essere diverso da zero, diciamo che
+sia 𝑎 ≠ 0 allora 𝑣𝑥 = −
+1
+𝑎 (𝑏𝑣𝑦 + 𝑐𝑣𝑧) e quindi 𝑆 = {(−
+1
+𝑎 (𝑏𝑣𝑦 + 𝑐𝑣𝑧), 𝑣𝑦, 𝑣𝑧) |𝑣𝑦, 𝑣𝑧 ∈ ℝ} con dim𝑆 = 2 e
+quindi sicuramente posso trovare due vettori ortogonali ad (𝑎, 𝑏, 𝑐) che siano indipendenti. Prendo un piano
+𝜋′ passante per questi due vettori e perpendicolare ad (𝑎, 𝑏, 𝑐), mi fisso una soluzione dell’equazione 𝑎𝑥 +
+𝑏𝑦 + 𝑐𝑧 + 𝑑 = 0 e il punto corrispondente a questa soluzione lo chiamo 𝐴(𝑥0, 𝑦0, 𝑧0) ∈ 𝜋 allora succede che
+il piano 𝜋′ per la rappresentazione ordinaria è rappresentato dall’equazione 𝑎′𝑥 + 𝑏′𝑥 + 𝑐′𝑧 + 𝑑′ = 0 e
+(𝑎′, 𝑏′, 𝑐′) ed è perpendicolare a 𝜋′, ma essendo 𝜋′ perpendicolare a sua volta alla terna (𝑎, 𝑏, 𝑐) (essendo
+parallelo ai due vettori fissati in precedenza), ed essendo le due terne entrambe perpendicolari allo stesso
+piano risulta (𝑎, 𝑏, 𝑐) ∥ (𝑎′, 𝑏′, 𝑐′) e questo vuol dire che posso scrivere 𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 + 𝑑 = 0 come 𝑘𝑎𝑥 +
+𝑘𝑏𝑦 + 𝑘𝑐𝑧 + 𝑑′ = 0 con 𝑘 ≠ 0; il piano 𝜋′ risulta quindi avere l’equazione così descritta, inoltre essendo
+𝑘 ≠ 0 posso scrivere 𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 +
+𝑑′
+𝑘 = 0; a questo punto per la scelta fatta di 𝐴 le sue coordinate
+soddisfano l’equazione 𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 + 𝑑 = 0 oltre all’equazione 𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 +
+𝑑′
+𝑘 = 0, ma poiché
+entrambi passano per 𝐴(𝑥0, 𝑦0, 𝑧0) posso eguagliare le equazioni e quindi 𝑑 =
+𝑑′
+𝑘 ⇒ 𝑑′ = 𝑑𝑘 e questo vuol
+dire che l’equazione 𝜋′: 𝑎′𝑥 + 𝑏′𝑥 + 𝑐′𝑧 + 𝑑′ = 0 è equivalente (dividendo per 𝑘) a 𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 + 𝑑 = 0
+e quindi 𝜋′ è il piano 𝜋 stesso
+Osservazione: Abbiamo dimostrato che due equazioni del tipo 𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 + 𝑑 = 0 che rappresentano lo
+stesso identico piano devono essere proporzionali (𝑘 ≠ 0) e viceversa.
+Esempi:
+1) Come si rappresenta tutto lo spazio?
+Semplicemente con una tautologia (un’equazione sempre vera) come 0 = 0
+2) Come si rappresenta l’insieme vuoto?
+Con una contraddizione: 0 ≠ 0 (l’equazione parametrica non è mai soddisfatta)
+3) Sia 𝜋 per 𝐴(4,3, −2) e parallelo ai vettori 𝑣(1,−1,0) e 𝑣′(2,1,3). Come si scrive l’equazione parametrica
+e la rappresentazione cartesiana?
+𝜋 ∶ {
+𝑥 = 4 + 𝑠 + 2𝑡
+𝑦 = 3 − 𝑠 + 𝑡
+𝑧 = −2 + 3𝑡
+|
+𝑥 − 4 𝑦 − 3 𝑧 + 2
+1
+−1
+2
+1
+0
+3
+| = 𝑥 + 𝑦 − 𝑧 − 9 = 0
+46
+
+Rappresentazione della retta nel piano
+Rappresentazione parametrica: Una retta 𝑟 può essere rappresentata mediante un sistema di equazioni in
+un parametro del tipo {
+𝑥 = 𝑥0 + 𝑙𝑡
+𝑦 = 𝑦0 + 𝑚𝑡 con la coppia (𝑙, 𝑚) ≠ (0,0) e 𝑡 parametro (si nota subito che si ha una
+dimostrazione simile a quella fatta con il piano nello spazio).
+Dimostrazione (simile a quella fatta con il piano): Prendiamo un punto 𝐴(𝑥0, 𝑦0) ∈ 𝑟 e un vettore direzione
+𝑣(𝑙, 𝑚) ∥ 𝑟 con (𝑙, 𝑚) ≠ (0,0), vediamo che un punto 𝑃 ∈ 𝑟 ⇔ 𝐴𝑃 ∥ 𝑣, e questo mi assicura anche che 𝑃
+appartenga alla retta, altrimenti non potrebbe essere parallelo a 𝑣, inoltre 𝐴𝑃 ∥ 𝑣 ⇔ 𝐴𝑃 e 𝑣 sono dipendenti
+⇔ (𝑥 − 𝑥0, 𝑦 − 𝑦0), (𝑙, 𝑚) dipendenti (per la coordinazione associata) ⇔ ∃𝑡 ∈ ℝ ∶
+{
+𝑥 − 𝑥0 = 𝑡𝑙
+𝑦 − 𝑦0 = 𝑡𝑚;
+quest’ultima condizione significa anche che il primo vettore è proporzionale al secondo.
+Rappresentazione ordinaria: la retta è rappresentata da un’equazione del tipo 𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0 con (𝑎, 𝑏) ≠
+(0,0), inoltre il vettore 𝑣(−𝑏, 𝑎) ∥ 𝑟.
+Dimostrazione: Prendiamo un punto 𝐴(𝑥0, 𝑦0) ∈ 𝑟 e un vettore direzione 𝑣(𝑙, 𝑚) ∥ 𝑟 con (𝑙, 𝑚) ≠ (0,0)
+allora 𝑃 ∈ 𝑟 ⇔ 𝐴𝑃 ∥ 𝑣 ⇔ 𝐴𝑃 e 𝑣 sono dipendenti ⇔ (𝑥 − 𝑥0, 𝑦 − 𝑦0) con (𝑙, 𝑚) dipendenti; si mettano
+queste due coppie sulla matrice e se ne faccia il determinante: |
+𝑥 − 𝑥0 𝑦 − 𝑦0
+𝑙
+𝑚
+| = 0; poiché sono
+dipendenti il determinante è zero e questo vuol dire anche che (sviluppando il determinante attraverso la
+prima riga) 𝑚(𝑥 − 𝑥0) − 𝑙(𝑦 − 𝑦0) = 0 ⇔ 𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0 con (𝑚, −𝑙) = (𝑎, 𝑏) e 𝑐 = −𝑚𝑥0 + 𝑙𝑦0; si noti
+anche che la coppia (𝑎, 𝑏) ≠ 0 per il semplice motivo che per ipotesi (𝑙, 𝑚) ≠ (0,0) ed inoltre (−𝑏, 𝑎) ∥ 𝑣 e
+quindi parallelo ad 𝑟.
+Viceversa (della rappresentazione parametrica): Ogni sistema {
+𝑥 = 𝑥0 + 𝑠𝑙
+𝑦 = 𝑦0 + 𝑠𝑚 con (𝑙, 𝑚) ≠ (0,0) rappresenta
+la retta che passa per (𝑥0, 𝑦0) ed è parallela al vettore 𝑣(𝑙, 𝑚)
+Dimostrazione: non è una vera dimostrazione, è più una cosa intuitiva. Il fatto che le
+coordinate di un punto debbano soddisfare quel sistema parametrico significa che
+(essendo 𝑠 parametro) se faccio 𝑠 = 0 si ha che 𝑥 = 𝑥0 e 𝑦 = 𝑦0; di conseguenza
+l’insieme di soluzioni del sistema ammette per certo la soluzione (𝑥0, 𝑦0); in realtà
+per ogni valore di 𝑠 il sistema ammette sempre e solo una soluzione, essendo
+(𝑥0, 𝑦0) fissati a monte. Quindi variare 𝑠 significa variare il modulo del vettore
+𝑣(𝑙, 𝑚) e quindi ci si sposta sempre muovendosi sulla stessa retta (vedi figura a destra).
+Gu)
+Viceversa (della rappresentazione ordinaria): Ogni equazione 𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0 con (𝑎, 𝑏) ≠ (0,0)
+rappresenta una retta 𝑟 che sia parallela al vettore 𝑣(−𝑏, 𝑎).
+Dimostrazione: poiché (𝑎, 𝑏) ≠ (0,0) l’equazione ammette 𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0 almeno una soluzione (se 𝑎 ≠
+0 esplicito 𝑥, se è 𝑏 ≠ 0 allora esplicito 𝑦) allora mi prendo una soluzione 𝐴(𝑥0, 𝑦0) e vado a costruirmi la
+retta 𝑎′𝑥 + 𝑏′𝑦 + 𝑐′ = 0 passante per il punto 𝐴 e parallela al vettore 𝑣(−𝑏, 𝑎). Ne consegue che la coppia
+(−𝑏′, 𝑎′) deve essere proporzionale a (−𝑏, 𝑎) e quindi (−𝑏′, 𝑎′) ∥ (−𝑏, 𝑎) ed allora, essendo entrambe le
+coppie diverse da (0,0), posso scrivere 𝑎′ = 𝑘𝑎, 𝑏′ = 𝑘𝑏, dopodiché (esattamente come fatto con il piano),
+imponendo la condizione che l’equazione 𝑎′𝑥 + 𝑏′𝑦 + 𝑐′ = 0 deve passare per il punto (𝑥0, 𝑦0) si ha anche
+𝑐′ = 𝑘𝑐. Quindi abbiamo trovato che 𝑎′𝑥 + 𝑏′𝑦 + 𝑐′ = 0 ⇔ 𝑘𝑎𝑥 + 𝑘𝑏𝑦 + 𝑘𝑐 = 0; semplificando la
+costante 𝑘 (che non può essere nulla per via delle tre uguaglianze descritte precedentemente) vuol dire che
+è la stessa equazione di partenza e mi rappresenta proprio la retta 𝑟: 𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0.
+Osservazione: Due equazioni ordinarie rappresentano la stessa retta se e solo se sono proporzionali (𝑘 ≠ 0).
+Definizione: se ho una retta 𝑟 ed un vettore non nullo 𝑣(𝑙, 𝑚) ∥ 𝑟 allora le componenti di questo vettore 𝑣 le
+chiamo numeri direttori (o parametri) della retta 𝑟. E questi parametri di vettori (per il parallelismo) sono
+ben definiti a meno di un fattore di proporzionalità non nullo.
+47
+
+Altre tipologie di espressione
+Espressione di una retta passante per due punti
+Siano 𝐴(𝑥1, 𝑦1), 𝐵(𝑥2, 𝑦2) ∈ 𝜋, una retta 𝑟 passante per 𝐴 e 𝐵 (si può parafrasare anche con 𝐴𝐵 ∥ 𝑟 ) è
+semplicemente una retta passante per 𝐴 e parallela a 𝑣(𝑥2 − 𝑥1, 𝑦2 − 𝑦1). Quindi 𝑟 ∶ {
+𝑥 = 𝑥1 + (𝑥2 − 𝑥1)𝑡
+𝑦 = 𝑦1 + (𝑦2 − 𝑦1)𝑡
+con stesso parametro 𝑡. Inoltre, il precedente sistema si può riscrivere come {
+𝑥 − 𝑥1 = (𝑥2 − 𝑥1)𝑡
+𝑦 − 𝑦1 = (𝑦2 − 𝑦1)𝑡
+e se li
+guardo come vettori avrò che (𝑥 − 𝑥1, 𝑦 − 𝑦1) è proporzionale a (𝑥2 − 𝑥1, 𝑦2 − 𝑦1), altro modo per vedere
+che sono proporzionali è il determinante: |
+𝑥 − 𝑥1
+𝑦 − 𝑦1
+𝑥2 − 𝑥1 𝑦2 − 𝑦1
+| = 0 ⇔ (𝑥 − 𝑥1)(𝑦2 − 𝑦1) − (𝑦 − 𝑦1)(𝑥2 −
+𝑥1) = 0 ⇔ (𝑥 − 𝑥1)(𝑦2 − 𝑦1) = (𝑦 − 𝑦1)(𝑥2 − 𝑥1); che si avvicina molto alla formula dei rapporti uguali,
+infatti se succede che 𝑦2 − 𝑦1 ≠ 0 ≠ 𝑥2 − 𝑥1 (quindi se 𝐴, 𝐵 non sono paralleli ne all’asse 𝑥 ne all’asse 𝑦)
+dividendo per (𝑥2 − 𝑥1) e (𝑦2 − 𝑦1) avrò la formula dei rapporti uguali:
+𝑥−𝑥1
+=
+.
+𝑥2−𝑥1
+𝑦2−𝑦1
+Altra formulazione classica per una retta è la forma esplicita: parto dalla forma ordinaria 𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0
+della retta 𝑟 (si noti che una retta passa per (0,0) se e soltanto se 𝑐 = 0). Può succedere che se 𝑏 ≠ 0 posso
+esplicitare 𝑦 ⇒ 𝑦 = −
+𝑎
+𝑏 𝑥 −
+𝑐
+𝑏, chiamando −
+𝑎
+𝑏 = 𝑚 e −
+𝑦−𝑦1
+𝑐
+𝑏 = 𝑝, si ha la forma esplicita (che non è detto che
+esista, infatti dipende da 𝑏) 𝑦 = 𝑚𝑥 + 𝑝 dove 𝑚 è detto coefficiente angolare di 𝑟.
+Coseni direttori
+Prendiamo una retta orientata 𝑟 (ne fissiamo un verso) e prendiamo un vettore 𝑣 ∥ 𝑟 e definisco i coseni
+direttori di questa retta come i coseni dell’angolo che forma con il vettore delle ascisse e quello che forma
+con il vettore unitario dell’asse delle ordinate, rispettivamente: cos(𝑒𝑥^𝑣) e cos(𝑒𝑦^𝑣). E come già visto in
+precedenza per 𝑟: 𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0 sarà: : cos(𝑒𝑥^𝑣) = ± 𝑏
+⁄
+√𝑎2 + 𝑏2 e cos(𝑒𝑦^𝑣) = ±𝑎
+⁄√𝑎2 + 𝑏2; non
+è detto che il vettore (−𝑏, 𝑎) punti nella stessa direzione della retta, ma è comunque parallelo ad essa, per
+cui il ± è a seconda che (−𝑏, 𝑎) sia concorde (+) o discorde (−) con l’orientazione fissata della retta 𝑟.
+Quindi, i coseni direttori sono semplicemente i coseni degli angoli che formano un vettore parallelo alla retta
+con gli assi coordinati.
+Rette parallele
+Due rette 𝑟 e 𝑟′ sono parallele se e solamente se o hanno intersezione vuota 𝑟 ∩ 𝑟′ ≠ ∅ (propriamente),
+oppure se coincidono 𝑟 = 𝑟′ (impropriamente).
+Al fine di determinare qualche criterio di parallelismo prendiamo dei numeri di vettori per 𝑟 e 𝑟′. Ovvero
+siano 𝑣(𝑙, 𝑚) ∥ 𝑟 e 𝑣′(𝑙′, 𝑚′) ∥ 𝑟′, dire che 𝑟 ∥ 𝑟′ equivale a dire che quei vettori sono paralleli e dunque che
+(𝑙, 𝑚), (𝑙′, 𝑚′) sono proporzionali. Volendo esprimere le rette con la rappresentazione cartesiana, quindi si
+ha 𝑟: 𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0 e 𝑟′: 𝑎′𝑥 + 𝑏′𝑦 + 𝑐′ = 0 con (−𝑏, 𝑎) ∥ 𝑟 e (−𝑏′, 𝑎′) ∥ 𝑟′ e di conseguenza 𝑟 ∥ 𝑟′ ⇔
+(−𝑏, 𝑎) è proporzionale a (−𝑏′, 𝑎′) ⇔ (𝑎, 𝑏) proporzionale a (𝑎′, 𝑏′); a questo punto possono succedere
+due cose: tutta la terna (𝑎, 𝑏, 𝑐) è proporzionale a (𝑎′, 𝑏′, 𝑐′) e quindi le due equazioni sono proporzionali di
+una costante non nulla e definiscono quindi la stessa retta (parallele impropriamente); altrimenti, (𝑎, 𝑏, 𝑐)
+non è proporzionale a (𝑎′, 𝑏′, 𝑐′) e quindi sono parallele propriamente (non possono avere punti in comune).
+Vediamo perché non possono avere punti in comune, prendiamo il sistema {
+𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0
+𝑎′𝑥 + 𝑏′𝑦 + 𝑐′ = 0
+, sappiamo
+che (𝑎, 𝑏) è proporzionale a (𝑎′, 𝑏′), se risulta (𝑎, 𝑏, 𝑐) non proporzionale a (𝑎′, 𝑏′, 𝑐′) allora il rango della
+matrice incompleta di quel sistema è 1, ma essendo le terne non proporzionali la matrice completa ha rango
+2 e quindi per Rouché-Capelli avremo un sistema non compatibile e cioè che le due equazioni non hanno
+punti in comune. Viceversa, se anche (𝑎, 𝑏, 𝑐) è proporzionale a (𝑎′, 𝑏′, 𝑐′) allora il sistema avrà un numero
+infinito di soluzione e quindi sarà un sistema compatibile.
+48
+
+Distanza tra insiemi
+Vediamola per il piano (in maniera analoga si procede per lo spazio), siano 𝐴(𝑥1, 𝑦1) e 𝐵(𝑥2, 𝑦2) ∈ 𝜋 la
+distanza dal punta 𝐴 al punto 𝐵 si definisce 𝑑(𝐴, 𝐵) = √(𝑥2 − 𝑥1)2 + (𝑦2 − 𝑦1)2 = |𝐴𝐵|
+La distanza tra due sottoinsiemi 𝑆, 𝑇 ⊆ 𝜋 la definisco come l’estremo inferiore (non dico minimo poiché non
+ho la certezza che stia all’interno degli insiemi) delle distanze tra i punti di 𝑆 e di 𝑇, più precisamente
+dist(𝑆, 𝑇) = inf{𝑑(𝑃, 𝑄), 𝑃 ∈ 𝑆, 𝑄 ∈ 𝑇} ≥ 0.
+Esempi: 1)
+A
+LA
+ye
+7 1°)|m eN
+(4,0)/ aeN :
+olt (X,Y) =0
+2) 𝑋 ∩ 𝑌 ≠ ∅ ⇒ dist(𝑋, 𝑌) = 0 poiché ∃𝑃 ∈ 𝑋 ∩ 𝑌 per cui 𝑑(𝑃, 𝑃) = 0.
+Punto medio di un segmento
+Prendiamo un segmento del piano, che è ovviamente delimitato dai suoi estremi: 𝐴(𝑥1, 𝑦1) ≠ 𝐵(𝑥2, 𝑦2),
+allora il punto medio 𝑀(𝑥𝑀, 𝑦𝑀) è un punto che si trova alla stessa distanza dal punta 𝐴 e dal punto 𝐵, quindi
+risulterà che i vettori geometrici 𝐴𝑀 e 𝑀𝐵 sono uguali, allora passando alla coordinazione associata le
+componenti di 𝐴𝑀 e 𝑀𝐵 devono essere le stesse, quindi (𝑥𝑀 − 𝑥1, 𝑦𝑀 − 𝑦1) = (𝑥2 − 𝑥𝑀, 𝑦2 − 𝑦𝑀) da cui il
+sistema {
+𝑥𝑀 − 𝑥1 = 𝑥2 − 𝑥𝑀
+𝑦𝑀 − 𝑦1 = 𝑦2 − 𝑦𝑀
+⇒ {
+𝑥𝑀 =
+𝑦𝑀 =
+𝑥2+𝑥1
+2
+𝑦2+𝑦1
+2
+Asse del segmento
+Dato sempre il segmento precedente, l’asse di un segmento è il luogo geometrico dei
+punti (l’insieme dei punti) che ha la stessa distanza dal punto 𝐴 e dal punto 𝐵 (si trova
+quindi sulla retta perpendicolare al segmento 𝐴𝐵 che passa per il punto medio).
+Si può verificare con le distanze, infatti, 𝑃 ∈ 𝑟 ⇔ 𝑑(𝐴, 𝑃) = 𝑑(𝐵, 𝑃), e ciò vuol dire
+(𝑥 − 𝑥1)2 + (𝑦 − 𝑦1)2 = (𝑥 − 𝑥2)2 + (𝑦 − 𝑦2)2 ⇔ 2𝑥(𝑥2 − 𝑥1) + 2𝑦(𝑦2 − 𝑦1) + 𝑥1
+2 + 𝑦1
+2 − 𝑥2
+2 − 𝑦2
+2 = 0
+che, se la si nota bene, è l’equazione di una retta del tipo 𝑎𝑥 + 𝑏𝑦 + 𝑐 = 0 e poiché 𝐴 ≠ 𝐵 o 𝑥2 − 𝑥1 ≠ 0
+oppure 𝑦2 − 𝑦1 ≠ 0 perché o 𝑥1 ≠ 𝑥2 oppure 𝑦1 ≠ 𝑦2, questa è un equazione ordinaria della retta.
+Un vettore parallelo a questa retta sarà dunque (−𝑏, 𝑎) = (𝑦1 − 𝑦2, 𝑥2 − 𝑥1) e quello che si può verificare e
+che il vettore geometrico 𝐴𝐵 ha le componenti (𝑥2 − 𝑥1, 𝑦2 − 𝑦1) ovvero (𝑎, 𝑏) e quindi il prodotto scalare
+tra (−𝑏, 𝑎) e (𝑎, 𝑏) è pari a zero, di conseguenza se −𝑎𝑏 + 𝑎𝑏 = 0 ⇒ 𝑟 ⊥ 𝐴𝐵.
+Quest’asse, come già detto in precedenza, deve passare per il punto medio del segmento, infatti se si prova
+a sostituire le espressioni del punto medio alle incognite dell’equazione 2𝑥(𝑥2 − 𝑥1) + 2𝑦(𝑦2 − 𝑦1) + 𝑥1
+2 +
+2 − 𝑥2
+𝑦1
+2 − 𝑦2
+2 = 0 (quindi 𝑥𝑀 con 𝑥 e 𝑦𝑀 con 𝑦) si troverà che il punto medio è soluzione dell’equazione.
+Rappresentazione ordinaria di una retta nello spazio
+Una retta nello spazio si potrebbe rappresentare utilizzando una rappresentazione parametrica dello stesso
+𝑥 = 𝑥0 + 𝑙𝑡
+tipo di quella usata con il piano, quindi {
+𝑦 = 𝑦0 + 𝑚𝑡
+𝑧 = 𝑧0 + 𝑛𝑡
+, ma quello che non funziona come analogo è la
+rappresentazione ordinaria poiché quello che ottengo è una matrice rettangolare e quindi non mi è possibile
+49
+
+fare il determinante, ma quello che posso fare è definire una retta nello spazio come intersezione dei due
+piani, e sarà proprio questa che chiamerò rappresentazione ordinaria della retta nello spazio.
+Vado a prendere due piani che non siano paralleli (altrimenti avrei una intersezione o vuota oppure i due
+piani sono coincidenti) {
+𝑎𝑥 + 𝑏𝑦 + 𝑐𝑧 + 𝑑 = 0
+𝑎′𝑥 + 𝑏′𝑦 + 𝑐′𝑧 + 𝑑′ = 0
+e la loro intersezione sarà una retta, il fatto che non siano
+paralleli implica, oltre che la terna (𝑎, 𝑏, 𝑐) rappresenta le componenti di un vettore perpendicolare al piano,
+che le due terne non sono proporzionali, e questo significa che la matrice incompleta (3x2), dato che coincide
+con la dimensione del sottospazio generato ad esempio dalle righe (non proporzionali), ha rango 2. Quindi
+avendo rango massimo, per la teoria dei sistemi, il sistema omogeneo associato ammette ∞1 soluzioni.
+Dopodiché, considerato che questo è un sistema particolare perché dovrebbe esserci 𝑑, tutte le soluzioni di
+questa equazione si scrivono come una somma di una soluzione particolare, ad esempio (𝑥0, 𝑦0, 𝑧0), cioè un
+punto comune alle due equazioni e somma di un elemento generico che sia soluzione del sistema omogeneo
+associato, quindi con 𝑑 = 𝑑′ = 0, la si può scrivere quindi come sistema generato dalla terna (𝑙, 𝑚, 𝑛). Più
+precisamente, tutte le soluzioni saranno descritte da (𝑥0, 𝑦0, 𝑧0) + 〈(𝑙, 𝑚, 𝑛)〉 con, ovviamente, (𝑙, 𝑚, 𝑛) ≠
+(0,0,0), e sostanzialmente sto descrivendo una retta, perché prendo (𝑥0, 𝑦0, 𝑧0) e ci sommo una cosa
+proporzionale ad (𝑙, 𝑚, 𝑛) di una certa costante di proporzionalità:
+Dall’intersezione di due piani non paralleli viene fuori una retta.
+ZA.Oma)
+Oot)
+50

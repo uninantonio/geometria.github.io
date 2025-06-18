@@ -1,0 +1,181 @@
+# Geometria – Spiegazione Semplificata degli Appunti (da S. Cerrone)
+
+## 0. Operazioni su di un Insieme
+
+### Operazione interna a un insieme
+Un'operazione si dice interna a un insieme S se, prendendo due elementi di S, il risultato è ancora in S. Ad esempio, la somma tra due vettori di ℝ² è ancora un vettore di ℝ².
+
+### Operazione esterna a un insieme
+Un'operazione si dice esterna se coinvolge due insiemi diversi: uno su cui si agisce (S) e uno di operatori (A). Ad esempio, la moltiplicazione tra un vettore di ℝ² e un numero reale: ℝ² × ℝ → ℝ².
+
+### Prodotto scalare standard
+Il prodotto scalare tra due vettori di ℝⁿ restituisce un numero reale. Non è né interna né esterna. Si calcola così:
+(a₁, ..., aₙ) · (b₁, ..., bₙ) = a₁b₁ + ... + aₙbₙ
+Proprietà:
+- Simmetria: a · b = b · a
+- Bilinearità: (h·a + k·b) · c = h(a·c) + k(b·c)
+  
+  Dimostrazione della bilinearità (con commenti passo passo):
+  1. Siano a = (a₁, a₂), b = (b₁, b₂), c = (c₁, c₂), h e k scalari.
+  2. Calcoliamo (h·a + k·b):
+     - h·a = (h a₁, h a₂) (moltiplichiamo ogni componente di a per h)
+     - k·b = (k b₁, k b₂) (moltiplichiamo ogni componente di b per k)
+     - h·a + k·b = (h a₁ + k b₁, h a₂ + k b₂) (sommiamo le componenti corrispondenti)
+  3. Facciamo il prodotto scalare con c:
+     - (h a₁ + k b₁) c₁ + (h a₂ + k b₂) c₂ (prodotto scalare: moltiplichiamo ogni componente per quella corrispondente e sommiamo)
+  4. Sviluppiamo:
+     - h a₁ c₁ + k b₁ c₁ + h a₂ c₂ + k b₂ c₂ (distribuiamo i prodotti)
+  5. Raggruppiamo:
+     - h(a₁ c₁ + a₂ c₂) + k(b₁ c₁ + b₂ c₂) (raccogliamo h e k)
+  6. Riconosciamo che a·c = a₁ c₁ + a₂ c₂ e b·c = b₁ c₁ + b₂ c₂, quindi:
+     - h(a·c) + k(b·c)
+  7. Abbiamo dimostrato che (h·a + k·b) · c = h(a·c) + k(b·c)
+  
+  Ogni passaggio serve a mostrare come si applicano le proprietà delle operazioni tra vettori e scalari, e come si arriva alla forma finale.
+- Positività: a · a ≥ 0 e a · a = 0 solo se a = (0, ..., 0)
+
+## 1. Operazioni su Matrici (su ℝ)
+
+### Somma di matrici e prodotto per uno scalare
+Una matrice è una tabella di numeri. La somma tra due matrici si fa sommando gli elementi corrispondenti. Il prodotto per uno scalare si fa moltiplicando ogni elemento della matrice per quel numero.
+
+### Prodotto righe per colonne
+Il prodotto tra due matrici è possibile solo se il numero di colonne della prima è uguale al numero di righe della seconda. Il risultato è una nuova matrice. Proprietà principali:
+- Distributività: A(B + C) = AB + AC e (A + B)C = AC + BC
+  
+  Dimostrazione della distributività a destra (con commenti passo passo):
+  1. Siano A ∈ ℝₘ,ₙ e B, C ∈ ℝₙ,ₚ.
+  2. Consideriamo la somma B + C: sommiamo elemento per elemento.
+  3. Moltiplichiamo A per (B + C): ogni elemento della riga di A viene moltiplicato per la colonna corrispondente di (B + C).
+  4. Per la proprietà distributiva dei numeri reali, questa operazione equivale a fare A·B + A·C, cioè moltiplicare A per B e A per C separatamente e poi sommare i risultati.
+  5. Quindi A(B + C) = AB + AC.
+- Non commutatività: in generale AB ≠ BA
+- Esiste una matrice identità Iₙ che lascia invariata la matrice: IₙA = AIₙ = A
+- Proprietà con scalari: A(hB) = h(AB) = (hA)B
+  
+  Dimostrazione (con commenti):
+  1. Moltiplichiamo la matrice B per lo scalare h: ogni elemento di B diventa h·bᵢⱼ.
+  2. Moltiplichiamo A per questa nuova matrice: il risultato è lo stesso che moltiplicare prima A per B e poi il risultato per h.
+  3. Oppure, possiamo moltiplicare prima A per h (cioè ogni elemento di A per h) e poi moltiplicare per B: il risultato è sempre lo stesso.
+- Associatività: A(BC) = (AB)C
+  
+  Dimostrazione (con commenti):
+  1. Siano A ∈ ℝₘ,ₙ, B ∈ ℝₙ,ₚ, C ∈ ℝₚ,ⱼ.
+  2. Calcoliamo prima BC: otteniamo una matrice.
+  3. Moltiplichiamo A per questa matrice: otteniamo il risultato finale.
+  4. Oppure, calcoliamo prima AB, poi moltiplichiamo il risultato per C.
+  5. In entrambi i casi, il risultato è lo stesso perché la somma degli indici intermedi è la stessa.
+
+### Matrice trasposta
+La trasposta di una matrice si ottiene scambiando righe e colonne. Proprietà:
+- (AB)ᵗ = BᵗAᵗ
+  
+  Dimostrazione (con commenti):
+  1. Siano C = AB, D = (AB)ᵗ = Cᵗ, E = BᵗAᵗ.
+  2. L'elemento dᵢⱼ di D è uguale all'elemento cⱼᵢ di C (cioè scambiamo riga e colonna).
+  3. L'elemento cⱼᵢ di C si ottiene facendo il prodotto riga per colonna tra la j-esima riga di A e la i-esima colonna di B.
+  4. Se calcoliamo BᵗAᵗ, otteniamo lo stesso valore perché la trasposizione scambia l'ordine delle moltiplicazioni.
+  5. Quindi (AB)ᵗ = BᵗAᵗ.
+- (Aᵗ)ᵗ = A
+- (hA + kB)ᵗ = hAᵗ + kBᵗ
+
+### Matrice a gradini
+Una matrice è a gradini se, andando verso il basso, il numero di zeri prima del primo elemento diverso da zero aumenta. Il primo elemento non nullo di ogni riga si chiama pivot. Se non ci sono righe nulle, il numero di righe è minore o uguale al numero di colonne.
+
+### Operazioni elementari di riga
+Sono tre:
+1. Scambiare due righe
+2. Moltiplicare una riga per un numero diverso da zero
+3. Sostituire una riga con la somma di essa e un multiplo di un'altra riga
+
+Queste operazioni permettono di trasformare una matrice in una matrice a gradini. Per ogni matrice esiste una matrice a gradini ad essa equivalente.
+
+  Dimostrazione (per induzione, con commenti):
+  1. Se la matrice ha una sola riga, è già a gradini.
+  2. Se ha più righe, si cerca la prima riga non nulla e la si porta in alto (scambio di righe).
+  3. Si annullano gli elementi sotto il primo elemento non nullo (pivot) usando le altre operazioni (moltiplicazione e somma di righe).
+  4. Si ripete il processo sulle righe restanti, riducendo il problema a una matrice più piccola.
+  5. Alla fine, si ottiene una matrice a gradini equivalente a quella di partenza.
+
+## 2. Sistemi Lineari
+
+### Equazioni lineari
+Un'equazione lineare è un'espressione del tipo a₁x₁ + ... + aₙxₙ = b, dove a₁, ..., aₙ e b sono numeri reali. Se b = 0, l'equazione si dice omogenea.
+
+### Sistema lineare
+Un sistema lineare è un insieme di più equazioni lineari con più incognite. Una soluzione è un insieme di valori che soddisfa tutte le equazioni.
+- Un sistema è compatibile se ha almeno una soluzione, incompatibile se non ne ha.
+- Se ha una sola soluzione è determinato, se ne ha infinite è indeterminato.
+
+### Matrice dei coefficienti e matrice completa
+La matrice dei coefficienti contiene solo i numeri davanti alle incognite. Se aggiungiamo la colonna dei termini noti otteniamo la matrice completa.
+
+### Sistemi equivalenti
+Due sistemi sono equivalenti se hanno le stesse soluzioni. Le operazioni elementari sulle righe (scambio, moltiplicazione per un numero, somma di righe) non cambiano le soluzioni del sistema.
+
+  Dimostrazione (con commenti passo passo):
+  1. Scambiare due righe non cambia le soluzioni perché l'ordine delle equazioni non conta: ogni equazione rappresenta una condizione indipendente.
+  2. Moltiplicare una riga per un numero diverso da zero non cambia le soluzioni perché si può dividere entrambi i membri per quel numero, ottenendo la stessa equazione.
+  3. Sostituire una riga con la somma di essa e un multiplo di un'altra riga equivale a sommare due equazioni: le soluzioni che soddisfano entrambe le equazioni originali soddisfano anche la loro somma.
+  4. Quindi, tutte queste operazioni non cambiano l'insieme delle soluzioni.
+
+### Risoluzione dei sistemi
+Ogni sistema può essere trasformato in uno a gradini (cioè con zeri sotto i pivot) usando le operazioni elementari. Questo rende più facile trovare le soluzioni.
+
+  Dimostrazione (con commenti):
+  1. Si applicano le operazioni elementari per portare la matrice in forma a gradini.
+  2. In questa forma, si parte dall'ultima equazione (che avrà meno incognite) e si risale, trovando una incognita alla volta (sostituzione all'indietro).
+  3. Questo metodo funziona perché ogni passaggio riduce il numero di incognite da determinare.
+
+### Tipi di soluzioni
+- Se il sistema ha più equazioni che incognite, può essere incompatibile (nessuna soluzione) o determinato (una sola soluzione).
+- Se ha più incognite che equazioni, può avere infinite soluzioni.
+- Se una riga della matrice completa è tutta zero tranne il termine noto, il sistema è incompatibile.
+
+### Sistema omogeneo
+Un sistema omogeneo ha tutti i termini noti uguali a zero. Ha sempre almeno la soluzione banale (tutte le incognite nulle) e, se ne ha una diversa, allora ne ha infinite.
+
+## 3. Spazi Vettoriali
+
+### Definizione di spazio vettoriale
+Uno spazio vettoriale è un insieme di oggetti (detti vettori) su cui si possono fare due operazioni:
+- Sommare due vettori (addizione)
+- Moltiplicare un vettore per un numero reale (scalare)
+
+Queste operazioni devono rispettare alcune regole:
+1. L’addizione è commutativa e associativa, esiste un vettore nullo (0) e ogni vettore ha un opposto.
+2. La moltiplicazione per uno scalare è compatibile con la moltiplicazione tra numeri reali.
+3. 1·v = v per ogni vettore v.
+4. La moltiplicazione per uno scalare è distributiva rispetto alla somma di scalari e alla somma di vettori.
+
+  Dimostrazione delle proprietà (con commenti passo passo):
+  - L’elemento neutro (vettore nullo) è unico:
+    1. Supponiamo che esistano due vettori nulli v₀ e w₀.
+    2. Per la definizione di neutro, v₀ + w₀ = w₀.
+    3. Ma anche v₀ + w₀ = v₀.
+    4. Quindi v₀ = w₀: l’elemento neutro è unico.
+  - Ogni vettore ha un solo opposto:
+    1. Supponiamo che v abbia due opposti v' e v''.
+    2. Per definizione, v + v' = 0 e v + v'' = 0.
+    3. Allora v' = v' + 0 = v' + (v + v'') = (v' + v) + v'' = 0 + v'' = v''.
+    4. Quindi l’opposto è unico.
+
+### Notazioni
+- Gli oggetti dell’insieme si chiamano vettori.
+- I numeri reali si chiamano scalari.
+- Il vettore nullo è il vettore con tutti zeri.
+- L’opposto di un vettore v è il vettore -v, tale che v + (-v) = 0.
+
+### Esempi di spazi vettoriali
+1. ℝⁿ: le n-uple di numeri reali (vettori di n componenti).
+2. Matrici: insiemi di matrici di dimensione fissata.
+3. Polinomi: insiemi di polinomi a una variabile con coefficienti reali.
+
+  Dimostrazione che ℝⁿ è uno spazio vettoriale (con commenti):
+  1. La somma di due n-uple è ancora una n-upla: sommiamo ogni componente.
+  2. Il prodotto di una n-upla per un numero reale è ancora una n-upla: moltiplichiamo ogni componente.
+  3. Tutte le proprietà sopra elencate sono verificate perché valgono per i numeri reali.
+
+---
+
+_Nota: Questo è uno scheletro di esempio. Procederò ora a leggere e riscrivere i contenuti reali del file, capitolo per capitolo, paragrafo per paragrafo, come richiesto._
