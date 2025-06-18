@@ -90,6 +90,19 @@
       margin-top: 2em;
       text-align: center;
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+    th, td {
+      border: 1px solid #b3c6e7;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #f3f7ff;
+    }
   </style>
 </head>
 <body>
@@ -139,7 +152,7 @@
     <div class="step">5. Raggruppiamo:<br>
       <span class="math">h(a₁ c₁ + a₂ c₂) + k(b₁ c₁ + b₂ c₂)</span> (raccogliamo h e k)</div>
     <div class="step">6. Riconosciamo che <span class="math">a·c = a₁ c₁ + a₂ c₂</span> e <span class="math">b·c = b₁ c₁ + b₂ c₂</span>, quindi:<br>
-      <span class="math">h(a·c) + k(b·c)</span></div>
+      <span class="math>h(a·c) + k(b·c)</span></div>
     <div class="step">7. Abbiamo dimostrato che <span class="math">(h·a + k·b) · c = h(a·c) + k(b·c)</span></div>
     <div class="step note">Ogni passaggio serve a mostrare come si applicano le proprietà delle operazioni tra vettori e scalari, e come si arriva alla forma finale.</div>
   </div>
@@ -147,12 +160,39 @@
   <h2>1. Operazioni su Matrici (su ℝ)</h2>
   <h3>Somma di matrici e prodotto per uno scalare</h3>
   <div class="def">
-    Una matrice è una tabella di numeri. La <b>somma</b> tra due matrici si fa sommando gli elementi corrispondenti. Il <b>prodotto per uno scalare</b> si fa moltiplicando ogni elemento della matrice per quel numero.
+    Una <b>matrice</b> è una tabella di numeri disposti su righe e colonne. Una matrice <span class="math">A</span> con <span class="math">n</span> righe e <span class="math">m</span> colonne si scrive così:
+    <table>
+      <tr><td>a₁,₁</td><td>...</td><td>a₁,ₘ</td></tr>
+      <tr><td>...</td><td>...</td><td>...</td></tr>
+      <tr><td>aₙ,₁</td><td>...</td><td>aₙ,ₘ</td></tr>
+    </table>
+    Oppure in modo compatto: <span class="math">A = (aᵢⱼ)</span> con <span class="math">i = 1,...,n</span> e <span class="math">j = 1,...,m</span>.
+    <br>L’insieme di tutte le matrici reali con <span class="math">n</span> righe e <span class="math">m</span> colonne si indica con <span class="math">Mₙ,ₘ(ℝ)</span> o <span class="math">ℝₙ,ₘ</span>.
+    <br><br>
+    <b>Somma di matrici:</b> si sommano elemento per elemento (solo se hanno la stessa dimensione):
+    <table>
+      <tr><td>a₁,₁ + b₁,₁</td><td>...</td><td>a₁,ₘ + b₁,ₘ</td></tr>
+      <tr><td>...</td><td>...</td><td>...</td></tr>
+      <tr><td>aₙ,₁ + bₙ,₁</td><td>...</td><td>aₙ,ₘ + bₙ,ₘ</td></tr>
+    </table>
+    In notazione compatta: <span class="math">C = (aᵢⱼ + bᵢⱼ)</span> con <span class="math">i = 1,...,n</span> e <span class="math">j = 1,...,m</span>.
+    <br><br>
+    <b>Prodotto per uno scalare:</b> ogni elemento della matrice viene moltiplicato per il numero scelto: <span class="math">h·A = (h·aᵢⱼ)</span>.
   </div>
 
   <h3>Prodotto righe per colonne</h3>
   <div class="def">
-    Il prodotto tra due matrici è possibile solo se il numero di colonne della prima è uguale al numero di righe della seconda. Il risultato è una nuova matrice.
+    Il <b>prodotto righe per colonne</b> tra due matrici è possibile solo se il <b>numero di colonne della prima matrice</b> è uguale al <b>numero di righe della seconda</b>.<br>
+    Se <span class="math">A</span> è una matrice <span class="math">n × m</span> e <span class="math">B</span> è una matrice <span class="math">m × l</span>, il prodotto <span class="math">AB</span> è una matrice <span class="math">n × l</span> (cioè ha il numero di righe della prima e il numero di colonne della seconda).
+    <br><br>
+    Per calcolare l’elemento nella posizione <span class="math">(i, j)</span> del prodotto, si prende la riga <span class="math">i</span> di <span class="math">A</span> e la colonna <span class="math">j</span> di <span class="math">B</span>, si moltiplicano i termini corrispondenti e si sommano:
+    <pre class="math">
+(AB)<sub>ij</sub> = a<sub>i,1</sub>·b<sub>1,j</sub> + a<sub>i,2</sub>·b<sub>2,j</sub> + ... + a<sub>i,m</sub>·b<sub>m,j</sub>
+    </pre>
+    In altre parole, ogni elemento del risultato si ottiene facendo il prodotto scalare tra una riga della prima matrice e una colonna della seconda.
+    <br>Il risultato avrà tante righe quante la prima matrice e tante colonne quante la seconda matrice.
+    <br><br>
+    <b>Proprietà del prodotto tra matrici:</b>
     <ul>
       <li><b>Distributività:</b> <span class="math">A(B + C) = AB + AC</span> e <span class="math">(A + B)C = AC + BC</span></li>
       <li><b>Non commutatività:</b> in generale <span class="math">AB ≠ BA</span></li>
@@ -160,6 +200,18 @@
       <li><b>Proprietà con scalari:</b> <span class="math">A(hB) = h(AB) = (hA)B</span></li>
       <li><b>Associatività:</b> <span class="math">A(BC) = (AB)C</span></li>
     </ul>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione dettagliata (passo passo):</b>
+    <div class="step">1. Siano <span class="math">A</span> di dimensione <span class="math">n × m</span> e <span class="math">B</span> di dimensione <span class="math">m × l</span>.</div>
+    <div class="step">2. Per poter moltiplicare <span class="math">A</span> e <span class="math">B</span>, il numero di colonne di <span class="math">A</span> (<span class="math">m</span>) deve essere uguale al numero di righe di <span class="math">B</span> (<span class="math">m</span>).</div>
+    <div class="step">3. Il risultato <span class="math">C = AB</span> sarà una matrice di dimensione <span class="math">n × l</span>.</div>
+    <div class="step">4. L'elemento <span class="math">c<sub>ij</sub></span> si calcola così:<br>
+      <span class="math">c<sub>ij</sub> = a<sub>i,1</sub>·b<sub>1,j</sub> + a<sub>i,2</sub>·b<sub>2,j</sub> + ... + a<sub>i,m</sub>·b<sub>m,j</sub></span>
+    </div>
+    <div class="step">5. Si ripete questo calcolo per ogni coppia di riga (di <span class="math">A</span>) e colonna (di <span class="math">B</span>).</div>
+    <div class="step">6. Alla fine, si ottiene una matrice in cui ogni elemento è il risultato di un prodotto riga per colonna.</div>
+    <div class="step note">Questo metodo permette di combinare le informazioni di due matrici in una nuova matrice, utile in moltissime applicazioni della matematica e della fisica.</div>
   </div>
   <div class="proof">
     <b>Dimostrazione della distributività a destra (passo passo):</b>
@@ -185,21 +237,38 @@
   </div>
 
   <h3>Matrice trasposta</h3>
+  <div class="example">
+    <b>Esempio:</b><br>
+    Se <span class="math">A</span> è la matrice
+    <table>
+      <tr><td>1</td><td>2</td><td>3</td></tr>
+      <tr><td>4</td><td>5</td><td>6</td></tr>
+    </table>
+    allora la sua trasposta è
+    <table>
+      <tr><td>1</td><td>4</td></tr>
+      <tr><td>2</td><td>5</td></tr>
+      <tr><td>3</td><td>6</td></tr>
+    </table>
+    In pratica, la prima riga diventa la prima colonna, la seconda riga diventa la seconda colonna, e così via.
+  </div>
   <div class="def">
     La trasposta di una matrice si ottiene scambiando righe e colonne.
     <ul>
-      <li><b>(AB)ᵗ = BᵗAᵗ</b></li>
-      <li><b>(Aᵗ)ᵗ = A</b></li>
-      <li><b>(hA + kB)ᵗ = hAᵗ + kBᵗ</b></li>
+      <li><b>(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup></b></li>
+      <li><b>(A<sup>T</sup>)<sup>T</sup> = A</b></li>
+      <li><b>(hA + kB)<sup>T</sup> = hA<sup>T</sup> + kB<sup>T</sup></b></li>
+      <li><b>(A + B)<sup>T</sup> = A<sup>T</sup> + B<sup>T</sup></b></li>
+      <li><b>(A<sup>T</sup> + B<sup>T</sup>)<sup>T</sup> = A + B</b></li>
     </ul>
-  </div>
+</div>
   <div class="proof">
-    <b>Dimostrazione di (AB)ᵗ = BᵗAᵗ (passo passo):</b>
-    <div class="step">1. Siano <span class="math">C = AB</span>, <span class="math">D = (AB)ᵗ = Cᵗ</span>, <span class="math">E = BᵗAᵗ</span>.</div>
-    <div class="step">2. L'elemento <span class="math">dᵢⱼ</span> di <span class="math">D</span> è uguale all'elemento <span class="math">cⱼᵢ</span> di <span class="math">C</span> (cioè scambiamo riga e colonna).</div>
-    <div class="step">3. L'elemento <span class="math">cⱼᵢ</span> di <span class="math">C</span> si ottiene facendo il prodotto riga per colonna tra la j-esima riga di <span class="math">A</span> e la i-esima colonna di <span class="math">B</span>.</div>
-    <div class="step">4. Se calcoliamo <span class="math">BᵗAᵗ</span>, otteniamo lo stesso valore perché la trasposizione scambia l'ordine delle moltiplicazioni.</div>
-    <div class="step">5. Quindi <span class="math">(AB)ᵗ = BᵗAᵗ</span>.</div>
+    <b>Dimostrazione di (AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup> (passo passo):</b>
+    <div class="step">1. Siano <span class="math">C = AB</span>, <span class="math">D = (AB)<sup>T</sup> = C<sup>T</sup></span>, <span class="math">E = B<sup>T</sup>A<sup>T</sup></span>.</div>
+    <div class="step">2. L'elemento <span class="math">d<sub>ij</sub></span> di <span class="math">D</span> è uguale all'elemento <span class="math">c<sub>ji</sub></span> di <span class="math">C</span> (cioè scambiamo riga e colonna).</div>
+    <div class="step">3. L'elemento <span class="math">c<sub>ji</sub></span> di <span class="math">C</span> si ottiene facendo il prodotto riga per colonna tra la j-esima riga di <span class="math">A</span> e la i-esima colonna di <span class="math">B</span>.</div>
+    <div class="step">4. Se calcoliamo <span class="math">B<sup>T</sup>A<sup>T</sup></span>, otteniamo lo stesso valore perché la trasposizione scambia l'ordine delle moltiplicazioni.</div>
+    <div class="step">5. Quindi <span class="math">(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup></span>.</div>
   </div>
 
   <h3>Matrice a gradini</h3>
@@ -269,19 +338,42 @@
     <div class="step">3. Questo metodo funziona perché ogni passaggio riduce il numero di incognite da determinare.</div>
   </div>
 
-  <h3>Tipi di soluzioni</h3>
+  <h3>Soluzioni di un sistema lineare</h3>
   <div class="def">
+    A seconda del numero di equazioni (<span class="math">m</span>) e di incognite (<span class="math">n</span>), si distinguono diversi casi:
     <ul>
-      <li>Se il sistema ha più equazioni che incognite, può essere incompatibile (nessuna soluzione) o determinato (una sola soluzione).</li>
-      <li>Se ha più incognite che equazioni, può avere infinite soluzioni.</li>
-      <li>Se una riga della matrice completa è tutta zero tranne il termine noto, il sistema è incompatibile.</li>
+      <li><b>Caso 1: m = n = 1</b><br>
+        <span class="math">a₁₁x₁ = b₁</span><br>
+        <ul>
+          <li>Se <span class="math">a₁₁ = b₁ = 0</span>: equazione identica, infinite soluzioni.</li>
+          <li>Se <span class="math">a₁₁ ≠ 0</span>: unica soluzione <span class="math">x₁ = b₁ / a₁₁</span>.</li>
+          <li>Se <span class="math">a₁₁ = 0</span> e <span class="math">b₁ ≠ 0</span>: nessuna soluzione.</li>
+        </ul>
+      </li>
+      <li><b>Caso 2: m = 1, n &gt; 1</b><br>
+        <span class="math">a₁₁x₁ + ... + a₁ₙxₙ = b₁</span><br>
+        <ul>
+          <li>Se tutti i coefficienti e il termine noto sono zero: equazione identica, infinite soluzioni.</li>
+          <li>Se tutti i coefficienti sono zero ma il termine noto è diverso da zero: nessuna soluzione.</li>
+          <li>Se almeno un coefficiente è diverso da zero: si può scegliere liberamente <span class="math">n-1</span> incognite e calcolare la rimanente. Quindi ci sono infinite soluzioni (parametriche).</li>
+        </ul>
+      </li>
+      <li><b>Caso 3: m, n &gt; 1</b><br>
+        Si riduce il sistema a gradini e si eliminano eventuali equazioni identiche (<span class="math">0 = 0</span>). Si ottengono i seguenti casi:
+        <ul>
+          <li>Se compare una riga del tipo <span class="math">0 = c</span> con <span class="math">c ≠ 0</span>: il sistema è incompatibile (nessuna soluzione).</li>
+          <li>Se il numero di pivot (equazioni indipendenti) è uguale al numero di incognite (<span class="math">m = n</span>): il sistema è determinato (unica soluzione).</li>
+          <li>Se il numero di pivot è minore del numero di incognite (<span class="math">m &lt; n</span>): il sistema è indeterminato (infinite soluzioni parametriche, alcune incognite sono libere).</li>
+        </ul>
+      </li>
     </ul>
+    <b>Esempi:</b>
+    <ul>
+      <li><b>Determinato:</b> sistema con una sola soluzione.</li>
+      <li><b>Indeterminato:</b> sistema con infinite soluzioni, alcune incognite sono parametri liberi.</li>
+      <li><b>Incompatibile:</b> sistema senza soluzioni (ad esempio, una riga <span class="math">0 = 2</span>).</li>
+    </ul>
+    <b>Nota:</b> Un sistema omogeneo ha sempre almeno la soluzione banale (tutte le incognite nulle). Se ne ha una diversa, allora ne ha infinite.
   </div>
-
-  <h3>Sistema omogeneo</h3>
-  <div class="def">
-    Un sistema omogeneo ha tutti i termini noti uguali a zero. Ha sempre almeno la soluzione banale (tutte le incognite nulle) e, se ne ha una diversa, allora ne ha infinite.
-  </div>
-</div>
 </body>
 </html>
