@@ -116,6 +116,7 @@
       <li><a href="#cap1">1. Operazioni su Matrici (su ℝ)</a></li>
       <li><a href="#cap2">2. Sistemi Lineari</a></li>
       <li><a href="#cap3">3. Spazi Vettoriali</a></li>
+      <li><a href="#cap4">4. Matrici e Sistemi lineari</a></li>
       <!-- Puoi aggiungere qui altri capitoli se li inserirai in futuro -->
     </ul>
   </div>
@@ -229,7 +230,7 @@
     <div class="step">1. Siano <span class="math">A ∈ ℝₘ,ₙ</span> e <span class="math">B, C ∈ ℝₙ,ₚ</span>.</div>
     <div class="step">2. Consideriamo la somma <span class="math">B + C</span>: sommiamo elemento per elemento.</div>
     <div class="step">3. Moltiplichiamo <span class="math">A</span> per <span class="math">(B + C)</span>: ogni elemento della riga di <span class="math">A</span> viene moltiplicato per la colonna corrispondente di <span class="math">(B + C)</span>.</div>
-    <div class="step">4. Per la proprietà distributiva dei numeri reali, questa operazione equivale a fare <span class="math">A·B + A·C</span>, cioè moltiplicare <span class="math">A</span> per <span class="math">B</span> e <span class="math">A</span> per <span class="math">C</span> separatamente e poi sommare i risultati.</div>
+    <div class="step">4. Per la proprietà distributiva dei numeri reali, questa operazione equivale a moltiplicare <span class="math">A</span> per <span class="math">B</span> e <span class="math">A</span> per <span class="math">C</span> separatamente e poi sommare i risultati.</div>
     <div class="step">5. Quindi <span class="math">A(B + C) = AB + AC</span>.</div>
   </div>
   <div class="proof">
@@ -574,57 +575,36 @@
       <li>Se v, w dipendono da v₁, ..., vₙ allora v + w dipende da v₁, ..., vₙ</li>
       <li><b>v dipende da v₁, ..., vₙ ⇔ v ∈ ⟨v₁, ..., vₙ⟩</b></li>
     </ul>
-  </div>
-
-  <h3>Relazione tra dipendenza e indipendenza lineare</h3>
-  <div class="def">
-    Sia v₁, ..., vₙ ∈ V (con n ≥ 2). Allora:
-    <ol>
-      <li><b>v₁, ..., vₙ sono linearmente dipendenti ⇔ ∃i : vᵢ dipende dai rimanenti</b></li>
-      <li><b>v₁, ..., vₙ sono indipendenti ⇔ nessun vᵢ dipende dai rimanenti</b></li>
-    </ol>
-  </div>
-  <div class="proof">
-    <b>Dimostrazione della relazione (1):</b>
-    <div class="step">⇒: Per ipotesi esistono h₁, ..., hₙ ∈ ℝ non tutti nulli tali che h₁v₁ + ... + hₙvₙ = 0. Supponiamo h₁ ≠ 0, allora v₁ = (-h₁⁻¹h₂)v₂ + ... + (-h₁⁻¹hₙ)vₙ.</div>
-    <div class="step">⇐: Supponiamo che v₁ dipenda dai rimanenti, quindi v₁ = h₂v₂ + ... + hₙvₙ. Allora 1·v₁ - h₂v₂ - ... - hₙvₙ = 0, quindi sono linearmente dipendenti.</div>
-  </div>
-
-  <h3>Proposizioni sui sistemi indipendenti</h3>
-  <div class="def">
-    <ol>
-      <li><b>Siano v₁, ..., vₙ vettori linearmente indipendenti. Allora ogni vettore v che dipende da v₁, ..., vₙ vi dipende in maniera univoca.</b></li>
-      <li><b>Siano H, K ≤ V non triviali, H ∩ K = {0}. Allora i vettori h ∈ H e k ∈ K (entrambi ≠ 0) sono indipendenti.</b></li>
-      <li><b>Siano H₁, ..., Hₙ sottospazi in somma diretta, 0 ≠ vᵢ ∈ Hᵢ. Il sistema v₁, ..., vₙ è indipendente.</b></li>
-      <li><b>Supponiamo di avere v₁, ..., vₜ indipendenti e v ∈ V che non dipende dai vᵢ. Allora v₁, ..., vₜ, v sono indipendenti.</b></li>
-    </ol>
-  </div>
-
-  <h3>Proposizioni sulla somma diretta</h3>
-  <div class="def">
-    <ol>
-      <li><b>Siano H₁ e H₂ sottospazi di V in somma diretta. Sia v ∈ H₁ ⊕ H₂. Allora ∃! v₁ ∈ H₁, v₂ ∈ H₂ : v = v₁ + v₂</b></li>
-      <li><b>H₁, ..., Hₙ sono in somma diretta ⇔ ∀v ∈ H₁ + ... + Hₙ, ∃! hᵢ ∈ Hᵢ : v = h₁ + ... + hₙ</b></li>
-    </ol>
-  </div>
-
-  <h3>Vettori finitamente generabili</h3>
-  <div class="def">
-    Uno spazio vettoriale V è detto <b>finitamente generabile</b> se esistono v₁, ..., vₙ : V = ⟨v₁, ..., vₙ⟩, dove ⟨v₁, ..., vₙ⟩ è detto <b>sistema di generatori</b>.
-    <br><br>
-    <b>Definizioni associate:</b>
-    <ul>
-      <li>Un sistema di generatori indipendente è detto <b>base</b></li>
-      <li>Un <b>riferimento</b> è una base ordinata: e₁, ..., eₙ base ⇒ (e₁, ..., eₙ) riferimento</li>
-    </ul>
-  </div>
-  <div class="example">
-    <b>Esempi:</b>
-    <ul>
-      <li>ℝⁿ[x] è finitamente generabile (generato da 1, x, x², ..., xⁿ)</li>
-      <li>ℝ[x] non è finitamente generabile</li>
-      <li>ℝ² ha base {(1,0), (0,1)}</li>
-    </ul>
+    
+    <div class="proof">
+      <b>Dimostrazione della proprietà transitiva:</b>
+      <div class="step">Per ipotesi ∃hᵢ ∈ ℝ : v = h₁v₁ +⋯+ hₙvₙ e, sempre per definizione, ∃kᵢⱼ ∈ ℝ : vᵢ = kᵢ₁w₁ +⋯+ kᵢₘwₘ</div>
+      <div class="step">Sostituendo la seconda nella prima: v = h₁(k₁₁w₁ +⋯+ k₁ₘwₘ) +⋯+ hₙ(kₙ₁w₁ +⋯+ kₙₘwₘ)</div>
+      <div class="step">Riorganizzando: v = (h₁k₁₁ +⋯+ hₙkₙ₁)w₁ +⋯+ (h₁k₁ₘ +⋯+ hₙkₙₘ)wₘ</div>
+      <div class="step">Quindi v dipende da w₁, ..., wₘ.</div>
+    </div>
+    
+    <div class="proof">
+      <b>Dimostrazione che v + w dipende da v₁, ..., vₙ:</b>
+      <div class="step">Se v e w dipendono da v₁, ..., vₙ, allora esistono coefficienti tali che:</div>
+      <div class="step">v = h₁v₁ +⋯+ hₙvₙ</div>
+      <div class="step">w = k₁v₁ +⋯+ kₙvₙ</div>
+      <div class="step">Sommando: v + w = (h₁ + k₁)v₁ +⋯+ (hₙ + kₙ)vₙ</div>
+      <div class="step">Quindi v + w dipende da v₁, ..., vₙ.</div>
+    </div>
+    
+    <div class="proof">
+      <b>Dimostrazione dell'equivalenza v dipende da v₁, ..., vₙ ⇔ v ∈ ⟨v₁, ..., vₙ⟩:</b>
+      <div class="step">Per dimostrare questa equivalenza bisogna verificare che ⟨v₁,...,vₙ⟩ = {h₁v₁ +⋯+ hₙvₙ | hᵢ ∈ ℝ}.</div>
+      <div class="step">Chiamiamo H = {h₁v₁ +⋯+ hₙvₙ | hᵢ ∈ ℝ} l'insieme delle combinazioni lineari.</div>
+      <div class="step">Dimostriamo che H sia effettivamente un sottospazio:</div>
+      <div class="step">• H contiene l'elemento neutro (0 = 0·v₁ +⋯+ 0·vₙ)</div>
+      <div class="step">• H è stabile per la somma (dimostrato nella proprietà precedente)</div>
+      <div class="step">• H è stabile per il prodotto per scalare: se v = h₁v₁ +⋯+ hₙvₙ, allora αv = (αh₁)v₁ +⋯+ (αhₙ)vₙ</div>
+      <div class="step">Inoltre, H contiene i vettori v₁,...,vₙ (infatti vᵢ = 0·v₁ +⋯+ 1·vᵢ +⋯+ 0·vₙ).</div>
+      <div class="step">Prendiamo ora un sottospazio W che contiene v₁,...,vₙ: se W contiene questi vettori, deve contenere anche tutte le loro combinazioni lineari, quindi H ⊆ W.</div>
+      <div class="step">Abbiamo così dimostrato che H è il più piccolo sottospazio che contiene v₁,...,vₙ, ovvero H = ⟨v₁,...,vₙ⟩.</div>
+    </div>
   </div>
 
   <h3>Teorema di esistenza delle basi</h3>
@@ -647,18 +627,59 @@
     <br><br>
     dim(V) è la cardinalità di una base. Se V = {0} ⇒ dim(V) = 0. Se V non è finitamente generabile ⇒ dim(V) = ∞.
   </div>
-
   <h3>Proposizioni della dimensione</h3>
   <div class="def">
     Per V ≠ {0} finitamente generabile, dim V = n:
     <ol>
-      <li><b>v₁, ..., vₘ indipendenti ⇒ m ≤ n</b></li>
-      <li><b>v₁, ..., vₙ indipendenti ⇒ v₁, ..., vₙ formano una base</b></li>
-      <li><b>v₁, ..., vₙ sistema di generatori ⇒ v₁, ..., vₙ formano una base</b></li>
+      <li><b>v₁, ..., vₘ indipendenti ⇒ m ≤ n</b> (il numero di oggetti non può superare la dimensione di V)</li>
+      <li><b>v₁, ..., vₙ indipendenti ⇒ v₁, ..., vₙ formano una base</b> (quindi anche un sistema di generatori)</li>
+      <li><b>v₁, ..., vₙ sistema di generatori ⇒ v₁, ..., vₙ formano una base</b> (quindi è anche indipendente)</li>
       <li><b>v₁, ..., vₘ indipendenti ⇒ ∃wₘ₊₁, ..., wₙ : v₁, ..., vₘ, wₘ₊₁, ..., wₙ formano una base</b> (ogni sistema indipendente si può completare in una base)</li>
     </ol>
   </div>
+  <div class="proof">
+    <b>Dimostrazione della proposizione (1):</b>
+    <div class="step">Sia e₁, ..., eₙ una base di Vₙ. Essendo v₁, ..., vₘ un sistema di vettori linearmente indipendente, abbiamo v₁, ..., vₘ ∈ ⟨e₁, ..., eₙ⟩ = Vₙ.</div>
+    <div class="step">Per il lemma di Steinitz ⇒ m ≤ n.</div>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione della proposizione (2):</b>
+    <div class="step">Basta dimostrare che v₁, ..., vₙ sia anche un sistema di generatori.</div>    <div class="step">Supponiamo per assurdo che v₁, ..., vₙ non siano un sistema di generatori, quindi ⟨v₁, ..., vₙ⟩ &lt; V.</div>
+    <div class="step">Ma allora ∃v ∈ V \ ⟨v₁, ..., vₙ⟩ e quindi v non dipende da v₁, ..., vₙ.</div>
+    <div class="step">Quindi v, v₁, ..., vₙ è un sistema indipendente di cardinalità n + 1, che è assurdo poiché contraddice la proposizione precedente.</div>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione della proposizione (3):</b>
+    <div class="step">Si dimostra per assurdo: se non fossero indipendenti potremmo estrarre una base di cardinalità minore di n (in modo analogo alla dimostrazione precedente).</div>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione della proposizione (4):</b>
+    <div class="step">Se m = n allora è base per la seconda proposizione.</div>
+    <div class="step">Se m &lt; n ⇒ ⟨v₁, ..., vₘ⟩ &lt; V, ma allora ∃wₘ₊₁ ∈ V \ ⟨v₁, ..., vₘ⟩ ⇒ v₁, ..., vₘ, wₘ₊₁ è indipendente.</div>
+    <div class="step">Se è base ho concluso, altrimenti continuo sino a trovare la base v₁, ..., vₘ, wₘ₊₁, ..., wₙ.</div>
+    <div class="step">Finirò poiché per la prima proposizione ho un numero finito di vettori linearmente indipendenti, ovvero n.</div>
+  </div>
 
+  <h3>Proposizione di caratterizzazione delle basi</h3>
+  <div class="def">
+    Sia V spazio vettoriale. I seguenti enunciati sono tra loro equivalenti per v₁, ..., vₙ:
+    <ol>
+      <li>Base</li>
+      <li>Massimale rispetto all'indipendenza (se preso un sistema più grande allora perde l'indipendenza)</li>
+      <li>Minimale rispetto all'essere un sistema di generatori (se preso un sistema più piccolo allora perde la proprietà di generazione)</li>
+      <li>Sistema indipendente di cardinalità massima (tutti gli altri sistemi indipendenti hanno cardinalità ≤ n)</li>
+      <li>Sistema di generatori di cardinalità minima (tutti gli altri sistemi di generatori hanno cardinalità ≥ n)</li>
+    </ol>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione (schema delle equivalenze):</b>
+    <div class="step">1 ⇒ 2: supponiamo ci sia un sistema di vettori contenente v₁, ..., vₙ, che essendo base implica v₁, ..., vₙ, w₁, ..., wₘ dipendente.</div>
+    <div class="step">2 ⇒ 1: v₁, ..., vₙ massimale indipendente, usando il completamento ad una base perderei il concetto di massimale se esistesse una base con cardinalità &gt; n.</div>
+    <div class="step">1 ⇒ 3: essendo v₁, ..., vₙ base, se non sarà minimale rispetto alla generazione ci sarà un sottosistema proprio che è ancora un sistema di generatori, da cui possiamo estrarre una base e trarne dimensioni diverse.</div>
+    <div class="step">3 ⇒ 1: v₁, ..., vₙ minimale rispetto alla generazione allora estraiamo una base che deve coincidere con v₁, ..., vₙ.</div>
+    <div class="step">1 ⇒ 5: essendo v₁, ..., vₙ base, se per assurdo esistesse un sistema di generatori w₁, ..., wₘ con m &lt; n, allora è possibile estrarre da w₁, ..., wₘ una base che avrà cardinalità &lt; n (assurdo).</div>
+    <div class="step">Per doppia implicazione: 1 ⇔ 2 ⇔ 3 ⇔ 4 ⇔ 5</div>
+  </div>
   <h3>Proposizione sui sottospazi</h3>
   <div class="def">
     Sia W ≤ Vₙ. Allora:
@@ -672,24 +693,83 @@
       <li>W ≤ Z e dim W = dim Z ⇒ W = Z</li>
     </ul>
   </div>
+  <div class="proof">
+    <b>Dimostrazione della proposizione (1):</b>
+    <div class="step">Se per assurdo W non fosse finitamente generabile, allora se w₁ ∈ W, W ≠ ⟨w₁⟩ e quindi esisterebbe un w₂ ∈ W \ ⟨w₁⟩ ⇒ w₁, w₂ indipendenti.</div>
+    <div class="step">Segue sempre che W ≠ ⟨w₁, w₂⟩, di conseguenza possiamo iterare questo processo fino all'assurdo di trovare n + 1 vettori indipendenti.</div>
+    <div class="step">Presa una base di W(≠ {0}) w₁, ..., wₜ allora w₁, ..., wₜ sono indipendenti anche in V, quindi t ≤ n.</div>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione della proposizione (2):</b>
+    <div class="step">La ⇐ è ovvia poiché se Vₙ = W allora dim W = dim V = n.</div>
+    <div class="step">L'implicazione ⇒ si dimostra prendendo una base di W, sia w₁, ..., wₙ che essendo base è anche un sistema indipendente di cardinalità n in V e quindi base per V.</div>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione dei corollari:</b>
+    <div class="step">Le dimostrazioni sono analoghe a quelle precedenti. Basti considerare Z come V.</div>
+  </div>
 
-  <h3>Proposizione sulla somma diretta</h3>
+  <h3>Dimensione delle somme dirette</h3>
   <div class="def">
-    Siano H₁, ..., Hₙ ≤ V sottospazi in somma diretta. Allora:
+    Se H₁, ..., Hₙ ≤ V sono sottospazi in somma diretta, allora:
     <span class="math">dim(H₁ ⊕ ... ⊕ Hₙ) = dim H₁ + ... + dim Hₙ</span>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione:</b>
+    <div class="step">Siano e₁₁, ..., e₁ₘ₁ base di H₁, e₂₁, ..., e₂ₘ₂ base di H₂, ..., eₙ₁, ..., eₙₘₙ base di Hₙ</div>
+    <div class="step">(il primo pedice identifica lo spazio vettoriale, il secondo il numero dell'elemento).</div>
+    <div class="step"><b>Dimostrazione che l'unione delle basi è una base di H₁ ⊕ ... ⊕ Hₙ:</b></div>
+    
+    <div class="step"><b>1) Sistema di generatori:</b> È scontato perché comunque si prenda un vettore del sottospazio somma,</div>
+    <div class="step">esso si può ottenere mediante il sistema e₁₁, ..., e₁ₘ₁, ..., eₙ₁, ..., eₙₘₙ.</div>
+    
+    <div class="step"><b>2) Sistema linearmente indipendente:</b> Dobbiamo dimostrare che</div>
+    <div class="step">h₁₁e₁₁ + ... + h₁ₘ₁e₁ₘ₁ + ... + hₙ₁eₙ₁ + ... + hₙₘₙeₙₘₙ = 0 ⇒ tutti i coefficienti = 0</div>
+    
+    <div class="step">Isolando i vettori: h₁₁e₁₁ + ... + h₁ₘ₁e₁ₘ₁ + (h₂₁e₂₁ + ... + hₙₘₙeₙₘₙ) = 0</div>
+    <div class="step">Posso scrivere: h₁₁e₁₁ + ... + h₁ₘ₁e₁ₘ₁ = -(h₂₁e₂₁ + ... + hₙₘₙeₙₘₙ)</div>
+    
+    <div class="step">Il membro sinistro appartiene a H₁, quello destro a H₂ + ... + Hₙ</div>
+    <div class="step">Quindi l'oggetto appartiene a H₁ ∩ (H₂ + ... + Hₙ) = {0} (per definizione di somma diretta)</div>
+    <div class="step">Ciò significa che h₁₁e₁₁ + ... + h₁ₘ₁e₁ₘ₁ = 0</div>
+    <div class="step">Poiché e₁₁, ..., e₁ₘ₁ è base di H₁, abbiamo h₁₁ = ... = h₁ₘ₁ = 0</div>
+    
+    <div class="step">Isolando ora gli altri insiemi e seguendo lo stesso ragionamento:</div>
+    <div class="step">h₁₁ = ... = h₁ₘ₁ = ... = hₙₘₙ = 0</div>
+    
+    <div class="step"><b>Conclusione:</b> dim(H₁ ⊕ ... ⊕ Hₙ) = m₁ + ... + mₙ = dim H₁ + ... + dim Hₙ</div>
   </div>
 
   <h3>Relazione di Grassmann</h3>
   <div class="def">
     Se H, K ≤ Vₙ sono sottospazi, allora:
     <span class="math">dim H + dim K = dim(H ∩ K) + dim(H + K)</span>
-  </div>
-  <div class="proof">
-    <b>Dimostrazione:</b>
-    <div class="step">1. Si prende una base e₁, ..., eₜ di H ∩ K</div>
-    <div class="step">2. La si completa a base e₁, ..., eₜ, h₁, ..., hᵣ₋ₜ di H e a base e₁, ..., eₜ, k₁, ..., kₛ₋ₜ di K</div>
-    <div class="step">3. Si dimostra che e₁, ..., eₜ, h₁, ..., hᵣ₋ₜ, k₁, ..., kₛ₋ₜ è una base di H + K</div>
-    <div class="step">4. Si conta: dim(H + K) = r + s - t = dim H + dim K - dim(H ∩ K)</div>
+  </div>  <div class="proof">
+    <b>Dimostrazione della Relazione di Grassmann (dettagliata):</b>
+    <div class="step"><b>Caso 1:</b> Se H ∩ K = {0} ⇒ H ⊕ K ed è dimostrata banalmente dalla proposizione precedente sulle somme dirette.</div>
+    <div class="step"><b>Caso 2:</b> Supponiamo H ∩ K ≠ {0} ⇒ dim(H ∩ K) = t &gt; 0.</div>
+    <div class="step">Prendiamo una base e₁, ..., eₜ di H ∩ K e andiamo a completarla:</div>
+    <div class="step">• come base di H: e₁, ..., eₜ, h_{t+1}, ..., h_r con dim H = r</div>
+    <div class="step">• come base di K: e₁, ..., eₜ, k_{t+1}, ..., k_s con dim K = s</div>
+    <div class="step">Consideriamo l'insieme e₁, ..., eₜ, h_{t+1}, ..., h_r, k_{t+1}, ..., k_s che ha r + s - t elementi.</div>
+    <div class="step"><b>Dobbiamo dimostrare che questo è una base di H + K:</b></div>
+    
+    <div class="step"><b>1) Sistema di generatori:</b> Per definizione ∃v ∈ H + K ⇒ ∃h ∈ H, k ∈ K : v = h + k</div>
+    <div class="step">dove h è combinazione lineare di e₁, ..., eₜ, h_{t+1}, ..., h_r e k è combinazione lineare di e₁, ..., eₜ, k_{t+1}, ..., k_s</div>
+    <div class="step">Quindi v sarà combinazione lineare di e₁, ..., eₜ, h_{t+1}, ..., h_r, k_{t+1}, ..., k_s.</div>
+    
+    <div class="step"><b>2) Sistema linearmente indipendente:</b> Prendiamo una combinazione lineare generica:</div>
+    <div class="step">a₁e₁ +⋯+ aₜeₜ + a_{t+1}h_{t+1} +⋯+ a_rh_r + b_{t+1}k_{t+1} +⋯+ b_sk_s = 0</div>
+    <div class="step">Scriviamo: x = a₁e₁ +⋯+ aₜeₜ + a_{t+1}h_{t+1} +⋯+ a_rh_r = -b_{t+1}k_{t+1} -⋯- b_sk_s</div>
+    <div class="step">Il membro sinistro appartiene a H, quello destro a K, quindi x ∈ H ∩ K = ⟨e₁, ..., eₜ⟩</div>
+    <div class="step">Quindi: x = c₁e₁ +⋯+ cₜeₜ per alcuni c₁, ..., cₜ ∈ ℝ</div>
+    <div class="step">Ma anche: -b_{t+1}k_{t+1} -⋯- b_sk_s = c₁e₁ +⋯+ cₜeₜ</div>
+    <div class="step">Ovvero: c₁e₁ +⋯+ cₜeₜ + b_{t+1}k_{t+1} +⋯+ b_sk_s = 0</div>
+    <div class="step">Poiché e₁, ..., eₜ, k_{t+1}, ..., k_s è base di K, tutti i coefficienti sono nulli: c₁ = ⋯ = cₜ = b_{t+1} = ⋯ = b_s = 0</div>
+    <div class="step">Quindi x = a₁e₁ +⋯+ aₜeₜ + a_{t+1}h_{t+1} +⋯+ a_rh_r = 0</div>
+    <div class="step">Poiché e₁, ..., eₜ, h_{t+1}, ..., h_r è base di H, tutti i coefficienti sono nulli: a₁ = ⋯ = aₜ = a_{t+1} = ⋯ = a_r = 0</div>
+    
+    <div class="step"><b>Conclusione:</b> dim(H + K) = r + s - t = dim H + dim K - dim(H ∩ K)</div>
   </div>
 
   <h3>Componenti di un vettore rispetto a un riferimento</h3>
@@ -722,9 +802,228 @@
       <li>Le righe non nulle formano una base</li>
     </ul>
   </div>
-  <div class="example">
-    <b>Esempio:</b> H = ⟨(1,0,1,2), (-1,2,3,0), (3,-2,-1,4), (-2,4,6,0)⟩
+  <div class="example">    <b>Esempio:</b> H = ⟨(1,0,1,2), (-1,2,3,0), (3,-2,-1,4), (-2,4,6,0)⟩
     <br>Si nota la proporzionalità tra il secondo e quarto vettore, si eliminano i dipendenti, si ottiene dim H = 2.
+  </div>
+
+  <h2 id="cap4">4. Matrici e Sistemi lineari</h2>
+
+  <h3>Determinante di una matrice quadrata</h3>
+  <div class="def">
+    <p>Il determinante esiste solo per matrici quadrate e si definisce per ricorsione sull'ordine della matrice:</p>
+    <ul>
+      <li><b>Per n = 1:</b> Se A = (a), allora det A = a</li>
+      <li><b>Per n &gt; 1:</b> Si utilizzano i concetti di matrice complementare e complemento algebrico</li>
+    </ul>
+  </div>
+
+  <h3>Matrice complementare e complemento algebrico</h3>
+  <div class="def">
+    <p><b>Matrice complementare:</b> Per ogni elemento a<sub>ij</sub> di A, la matrice complementare A(i,j) si ottiene cancellando la riga i e la colonna j dalla matrice A.</p>
+    <p><b>Complemento algebrico:</b> A<sub>ij</sub> = (-1)<sup>i+j</sup> det A(i,j)</p>
+  </div>
+
+  <h3>Definizione ricorsiva del determinante</h3>
+  <div class="def">
+    <p>Per una matrice A di ordine n:</p>
+    <span class="math">det A = a₁₁A₁₁ + a₁₂A₁₂ + ... + a₁ₙA₁ₙ</span> (sviluppo lungo la prima riga)
+    <br><br>
+    <p>Il determinante può essere calcolato sviluppando lungo qualsiasi riga o colonna.</p>
+  </div>
+
+  <div class="example">
+    <b>Esempio matrice 2×2:</b>
+    <br>det <span class="math">
+    ⎛a b⎞
+    ⎝c d⎠ 
+    </span> = ad - bc
+    <br><br>
+    <b>Esempio numerico:</b> A = <span class="math">
+    ⎛1 2⎞
+    ⎝3 4⎠
+    </span> ⇒ det A = 1·4 - 2·3 = 4 - 6 = -2
+  </div>
+
+  <h3>Regola di Sarrus (matrici 3×3)</h3>
+  <div class="def">
+    <p>Per una matrice 3×3, si può usare la regola di Sarrus:</p>
+    <ol>
+      <li>Si duplicano le prime due colonne a destra della matrice</li>
+      <li>Si calcolano i prodotti delle diagonali principali (da sinistra in alto a destra in basso)</li>
+      <li>Si calcolano i prodotti delle diagonali secondarie (da destra in alto a sinistra in basso)</li>
+      <li>det A = (somma prodotti diagonali principali) - (somma prodotti diagonali secondarie)</li>
+    </ol>
+  </div>
+
+  <h3>Proprietà del determinante</h3>
+  <div class="def">
+    <ol>
+      <li><b>det A = det A<sup>T</sup></b> (il determinante è invariante per trasposizione)</li>
+      <li><b>Se una riga dipende dalle rimanenti allora det A = 0</b>
+        <br><span class="note">Corollario: se det A ≠ 0 allora le righe sono linearmente indipendenti</span></li>
+      <li><b>Teorema di Cauchy-Binet:</b> Per A, B ∈ ℝⁿˣⁿ: det(AB) = det(A) · det(B)</li>
+      <li><b>Se moltiplico una riga (o colonna) per uno scalare h, il determinante diventa h · det A</b></li>
+      <li><b>Se scambiamo due righe o due colonne, il determinante cambia segno</b></li>
+      <li><b>Se aggiungo ad una riga un multiplo di un'altra riga, il determinante non cambia</b></li>
+      <li><b>Sia D una matrice a gradini equivalente ad A, allora |A| ≠ 0 ⇔ |D| ≠ 0</b></li>
+    </ol>
+  </div>
+
+  <div class="note">
+    <b>Osservazione:</b> Se una matrice ha una riga o colonna tutta nulla, allora il suo determinante è zero.
+  </div>
+
+  <h3>Matrici invertibili</h3>
+  <div class="def">
+    <p><b>Definizione:</b> A ∈ ℝⁿˣⁿ è detta <b>invertibile</b> se e solo se ∃B ∈ ℝⁿˣⁿ : AB = Iₙ = BA</p>
+    <p>In tal caso, B si chiama <b>matrice inversa</b> di A e si denota A⁻¹.</p>
+  </div>
+
+  <div class="def">
+    <b>Proposizione:</b> Una matrice A è invertibile se e solo se det A ≠ 0.
+    <br><br>
+    <b>Formula per l'inversa:</b> A⁻¹ = <span class="math">1/det A</span> · (matrice trasposta dei complementi algebrici)
+  </div>
+
+  <div class="proof">
+    <b>Dimostrazione (Corollario di Cauchy-Binet):</b>
+    <div class="step">Siano A, B ∈ ℝⁿˣⁿ. Se AB = Iₙ, allora sia A che B sono invertibili e B = A⁻¹.</div>
+    <div class="step">Applicando Cauchy-Binet: det(A) det(B) = det(AB) = det(Iₙ) = 1</div>
+    <div class="step">Ne segue det A ≠ 0 e det B ≠ 0, quindi A e B sono invertibili.</div>
+    <div class="step">Da AB = Iₙ ⇒ (AB)B⁻¹ = IₙB⁻¹ ⇒ A = B⁻¹</div>
+    <div class="step">Ovviamente anche B = A⁻¹, essendo l'inversa dell'inversa la matrice stessa.</div>
+  </div>
+
+  <h3>Rango di una matrice</h3>
+  <div class="def">
+    <p>Sia A ∈ ℝⁿˣᵐ (matrice generale, non necessariamente quadrata):</p>
+    <ul>
+      <li><b>Rango di riga:</b> dimensione del sottospazio generato dalle righe di A</li>
+      <li><b>Rango di colonna:</b> dimensione del sottospazio generato dalle colonne di A</li>
+    </ul>
+    <p><b>Teorema fondamentale:</b> Rango di riga = Rango di colonna = rango di A</p>
+  </div>
+
+  <h3>Minori di una matrice</h3>
+  <div class="def">
+    <p>Sia 0 &lt; h ≤ min{n, m}, con A ∈ ℝⁿˣᵐ.</p>
+    <p><b>Minore di ordine h:</b> È la sottomatrice quadrata di ordine h ottenuta scegliendo h righe e h colonne di A.</p>
+    <p>Si denota A(i₁, ..., iₕ; j₁, ..., jₕ) e il suo determinante con |A|(i₁, ..., iₕ; j₁, ..., jₕ).</p>
+    <br>
+    <p><b>Minore di ordine massimo:</b> Un minore il cui ordine coincide con min{n, m}.</p>
+    <ul>
+      <li>Una matrice non quadrata ha sempre più di un minore di ordine massimo</li>
+      <li>Una matrice quadrata ha un solo minore di ordine massimo: se stessa</li>
+    </ul>
+  </div>
+  <div class="def">
+    <p><b>Minore orlato:</b> Se A(i₁, ..., iₕ; j₁, ..., jₕ) non è di ordine massimo, possiamo aggiungere una riga i e una colonna j per ottenere un minore orlato A(i, i₁, ..., iₕ; j, j₁, ..., jₕ).</p>
+    <br>
+    <p><b>Minore fondamentale:</b> Un minore si dice fondamentale se:</p>
+    <ul>
+      <li>Il suo determinante è diverso da 0</li>
+      <li>Il determinante di ogni suo orlato è uguale a 0</li>
+    </ul>
+    <br>
+    <p><b>Proprietà:</b></p>
+    <ul>
+      <li>Non sempre esistono minori fondamentali (es. matrice nulla)</li>
+      <li>Se la matrice non è nulla, esiste sempre almeno un minore fondamentale</li>
+      <li>Il minore fondamentale non è necessariamente unico</li>
+      <li>Se un minore di ordine massimo ha determinante ≠ 0, allora è fondamentale</li>
+    </ul>
+  </div>
+
+  <h3>Teorema degli orlati</h3>
+  <div class="def">
+    <b>Teorema:</b> Sia A ∈ ℝⁿˣᵐ e A(i₁, ..., iₕ; j₁, ..., jₕ) un minore fondamentale. Allora le righe i₁, ..., iₕ formano una base del sottospazio generato da tutte le righe di A.
+  </div>
+
+  <div class="note">
+    <b>Osservazioni:</b>
+    <ul>
+      <li>Il teorema degli orlati ci dice che le righe (o colonne) di un minore fondamentale formano una base</li>
+      <li>Tutti i minori fondamentali hanno lo stesso ordine</li>
+    </ul>
+  </div>
+
+  <h3>Corollari del teorema degli orlati</h3>
+  <div class="def">
+    <ol>
+      <li><b>r(A) = rango della matrice:</b> Il rango di riga è sempre uguale al rango di colonna</li>
+      <li><b>Tutti i minori fondamentali hanno lo stesso ordine</b></li>
+      <li><b>Per matrici quadrate:</b> |A| ≠ 0 ⇔ righe (o colonne) sono linearmente indipendenti</li>
+      <li><b>Equivalentemente:</b> det A = 0 ⇔ righe (o colonne) sono linearmente dipendenti</li>
+    </ol>
+  </div>
+
+  <h3>Criteri di compatibilità per sistemi lineari</h3>
+  <div class="def">
+    Sia S un sistema lineare di n equazioni e m incognite: AX = C
+    <br><br>
+    <b>Primo criterio di compatibilità:</b> S è compatibile se e solo se la colonna dei termini noti C è combinazione lineare delle colonne della matrice incompleta A.
+  </div>
+
+  <h3>Teorema di Rouché-Capelli</h3>
+  <div class="def">
+    <b>Teorema:</b> Un sistema lineare S è compatibile ⇔ la matrice completa e la matrice incompleta hanno lo stesso rango.
+    <br><br>
+    <span class="math">S compatibile ⇔ r(A) = r(A')</span>
+    <br>dove A' è la matrice completa (A | C).
+  </div>
+
+  <div class="proof">
+    <b>Dimostrazione del Teorema di Rouché-Capelli:</b>
+    
+    <div class="step"><b>⇐) r(A) = r(A') = h:</b> Dimostriamo che il sistema sia compatibile.</div>
+    <div class="step">Prendiamo h colonne indipendenti di A, che sono indipendenti anche come colonne di A'.</div>
+    <div class="step">Queste h colonne di A sono una base anche per la matrice completa.</div>
+    <div class="step">Di conseguenza, la colonna dei termini noti C si scrive come combinazione lineare delle colonne di A.</div>
+    <div class="step">Per il primo criterio di compatibilità, il sistema è compatibile.</div>
+    
+    <div class="step"><b>⇒) S compatibile:</b> Dimostriamo che r(A) = r(A').</div>
+    <div class="step">Prendiamo h colonne indipendenti di A e consideriamo V = ⟨a₁, ..., aₙ⟩ = ⟨aᵢ₁, ..., aᵢₕ⟩.</div>
+    <div class="step">Poiché S è compatibile, C ∈ V.</div>
+    <div class="step">Il sottospazio generato da tutte le colonne della matrice completa è uguale al sottospazio generato dalle colonne della matrice incompleta.</div>
+    <div class="step">Quindi h = r(A) = r(A').</div>
+  </div>
+
+  <div class="example">
+    <b>Esempio di applicazione del Teorema di Rouché-Capelli:</b>
+    <br>Sistema: 
+    <span class="math">
+    ⎧ 2x + y + z = 4
+    ⎨ x - 2y + 2z = 1  
+    ⎩ 3x + y + z = 5
+    </span>
+    
+    <br>Matrice incompleta: A = <span class="math">
+    ⎛2  1  1⎞
+    ⎜1 -2  2⎟
+    ⎝3  1  1⎠
+    </span>
+    
+    <br>Calcoliamo un minore fondamentale: <span class="math">det⎛2  1⎞ = -4-1 = -5 ≠ 0⎝1 -2⎠</span>
+    
+    <br>Orlando: <span class="math">det A = -4+6+1-(-6+1+4) = 4 ≠ 0</span>
+    
+    <br>Quindi r(A) = 3. Anche r(A') = 3, quindi il sistema è compatibile.
+  </div>
+
+  <h3>Sistemi con parametri</h3>
+  <div class="example">
+    <b>Esempio con parametro h:</b>
+    <br>Sistema: 
+    <span class="math">
+    ⎧ 2x + y + hz = 4
+    ⎨ x - 2y + 2z = 1  
+    ⎩ 3x + y + z = 5
+    </span>
+    
+    <br>|A| = 7h - 3, quindi |A| = 0 ⇔ h = 3/7
+    
+    <br><b>Per h = 3/7:</b> r(A) = 2, ma r(A') = 3 ⇒ sistema incompatibile
+    <br><b>Per h ≠ 3/7:</b> r(A) = r(A') = 3 ⇒ sistema compatibile
   </div>
 </div>
 </body>
