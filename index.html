@@ -386,153 +386,345 @@
     </ul>
     <b>Nota:</b> Un sistema omogeneo ha sempre almeno la soluzione banale (tutte le incognite nulle). Se ne ha una diversa, allora ne ha infinite.
   </div>
-
   <h2 id="cap3">3. Spazi Vettoriali</h2>
 
   <h3>Definizione di Spazio Vettoriale</h3>
   <div class="def">
-    Uno <b>spazio vettoriale</b> (o spazio lineare) è un insieme <span class="math">V</span> dove sono definite due operazioni:<br>
-    <ul>
-      <li><b>Addizione tra vettori:</b> <span class="math">+ : V × V → V</span></li>
-      <li><b>Moltiplicazione per uno scalare:</b> <span class="math">· : ℝ × V → V</span></li>
-    </ul>
-    Queste operazioni devono soddisfare alcune proprietà (assiomi):<br>
+    Sia <span class="math">V</span> un insieme non vuoto, <span class="math">+ : V × V → V</span> un'operazione interna e <span class="math">· : ℝ × V → V</span> un'operazione esterna. La terna <span class="math">(V, +, ·)</span> è detta <b>spazio vettoriale</b> sul campo <span class="math">ℝ</span> se:
     <ol>
-      <li><b>Associatività dell'addizione:</b> <span class="math">(a + b) + c = a + (b + c)</span></li>
-      <li><b>Commutatività dell'addizione:</b> <span class="math">a + b = b + a</span></li>
-      <li><b>Esistenza dell'elemento neutro:</b> esiste <span class="math">0 ∈ V</span> tale che <span class="math">a + 0 = a</span></li>
-      <li><b>Esistenza dell'opposto:</b> per ogni <span class="math">a ∈ V</span> esiste <span class="math">-a ∈ V</span> tale che <span class="math">a + (-a) = 0</span></li>
-      <li><b>Compatibilità tra prodotto di scalari e vettori:</b> <span class="math">(hk) · v = h · (k v)</span></li>
-      <li><b>Elemento neutro per il prodotto:</b> <span class="math">1 · v = v</span></li>
-      <li><b>Distributività rispetto alla somma di scalari:</b> <span class="math">(h + k)v = hv + kv</span></li>
-      <li><b>Distributività rispetto alla somma di vettori:</b> <span class="math">h(v + w) = hv + hw</span></li>
+      <li><b>(V, +) è un gruppo abeliano</b>, cioè gode di:
+        <ul>
+          <li><b>Proprietà associativa:</b> <span class="math">(a + b) + c = a + (b + c)</span></li>
+          <li><b>Proprietà commutativa:</b> <span class="math">a + b = b + a</span></li>
+          <li><b>Elemento neutro:</b> ∃ε ∈ V tale che ∀a ∈ V, ε + a = a = a + ε</li>
+          <li><b>Opposto:</b> ∀a ∈ V, ∃! b tale che a + b = ε</li>
+        </ul>
+      </li>
+      <li>∀h, k ∈ ℝ, ∀v ∈ V risulta <span class="math">(hk) · v = h · (kv)</span></li>
+      <li>∀v ∈ V risulta <span class="math">1 · v = v</span></li>
+      <li><b>Distributività di · rispetto a + in ℝ:</b> ∀h, k ∈ ℝ, ∀v ∈ V risulta <span class="math">(h + k)v = hv + kv</span></li>
+      <li><b>Distributività di · rispetto a + in V:</b> ∀h ∈ ℝ, ∀v, w ∈ V risulta <span class="math">h(v + w) = hv + hw</span></li>
     </ol>
-    Gli elementi di <span class="math">V</span> si chiamano <b>vettori</b>, quelli di <span class="math">ℝ</span> <b>scalari</b>.
+    Gli elementi di <span class="math">V</span> si chiamano <b>vettori</b>, quelli di <span class="math">ℝ</span> <b>scalari</b>, <span class="math">+</span> è detta <b>addizione tra vettori</b>, <span class="math">·</span> è detta <b>moltiplicazione di uno scalare per un vettore</b>.
+  </div>
+
+  <h3>Proprietà fondamentali degli Spazi Vettoriali</h3>
+  <div class="def">
+    Sia <span class="math">(V, +, ·)</span> uno spazio vettoriale sul campo <span class="math">ℝ</span>. Allora:
+    <ol>
+      <li><b>Unicità dell'elemento neutro:</b> ∃! elemento neutro rispetto a + (lo indichiamo con 0)</li>
+      <li><b>Unicità dell'opposto:</b> ∀v ∈ V, ∃! opposto per v (che indichiamo con -v)</li>
+    </ol>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione dell'unicità dell'elemento neutro:</b>
+    <div class="step">Siano v₀ e w₀ elementi neutri. Allora v₀ = v₀ + w₀ = w₀</div>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione dell'unicità dell'opposto:</b>
+    <div class="step">Siano v' e v'' opposti di v. Abbiamo: v' = v' + 0 = v' + (v + v'') = (v' + v) + v'' = 0 + v'' = v''</div>
+  </div>
+
+  <h3>Notazioni e ulteriori proprietà</h3>
+  <div class="def">
+    <ul>
+      <li>La scrittura <span class="math">v - w</span> è un'abbreviazione di <span class="math">v + (-w)</span></li>
+      <li><b>Vettore nullo:</b> 0</li>
+      <li>L'opposto del vettore nullo <span class="math">-0</span> non è altro che 0</li>
+    </ul>
+    <b>Proprietà importanti:</b>
+    <ol>
+      <li><span class="math">v + w = z ⇒ v = z - w</span></li>
+      <li><span class="math">v + w = w ⇒ v = 0</span></li>
+      <li><span class="math">0 · v = 0 = h · 0</span></li>
+      <li><span class="math">h · v = 0 ⇔ h = 0 oppure v = 0</span></li>
+      <li><span class="math">h(-v) = -(hv) = (-h)v</span></li>
+      <li><span class="math">(-1)v = -v</span></li>
+      <li><b>Proprietà associativa generalizzata</b> per n elementi</li>
+      <li><b>Proprietà commutativa generalizzata</b> per n elementi</li>
+      <li><b>Proprietà distributiva generalizzata:</b> <span class="math">(h₁ + h₂ + ... + hₙ)v = h₁v + h₂v + ... + hₙv</span></li>
+    </ol>
   </div>
 
   <h3>Esempi di Spazi Vettoriali</h3>
   <div class="def">
-    <ul>
-      <li><b>Spazio numerico <span class="math">ℝⁿ</span>:</b> vettori con <span class="math">n</span> componenti reali.</li>
-      <li><b>Spazio delle matrici <span class="math">ℝₘ,ₙ</span>:</b> tutte le matrici reali di dimensione <span class="math">m × n</span>.</li>
-      <li><b>Spazio dei polinomi di grado ≤ n:</b> <span class="math">ℝₙ[x]</span>, cioè tutti i polinomi con grado al massimo <span class="math">n</span>.</li>
-      <li><b>Spazio dei vettori geometrici applicati in un punto:</b> ad esempio, tutti i segmenti orientati con origine in <span class="math">O</span>.</li>
-      <li><b>Spazio dei vettori geometrici liberi:</b> classi di segmenti equipollenti (stessa direzione, modulo e verso).</li>
-    </ul>
-  </div>
-
-  <h3>Proprietà degli Spazi Vettoriali</h3>
-  <div class="def">
-    <ul>
-      <li><b>0 · v = 0</b> e <b>h · 0 = 0</b> per ogni vettore <span class="math">v</span> e ogni scalare <span class="math">h</span>.</li>
-      <li><b>h · v = 0</b> se e solo se <span class="math">h = 0</span> oppure <span class="math">v = 0</span>.</li>
-      <li><b>h(−v) = −hv = (−h)v</b> per ogni <span class="math">h</span> e <span class="math">v</span>.</li>
-      <li><b>(−1)v = −v</b> e l'opposto dell'opposto è il vettore di partenza.</li>
-      <li><b>Le proprietà associative e commutative valgono anche per somme di più vettori.</b></li>
-      <li><b>Le proprietà distributive valgono anche per somme di più scalari o vettori.</b></li>
-    </ul>
+    <ol>
+      <li><b>Spazio vettoriale numerico di ordine n:</b> <span class="math">(ℝⁿ, +, ·)</span>
+        <ul>
+          <li><span class="math">· : ℝ × ℝⁿ → ℝⁿ</span>, <span class="math">(h, v = (v₁, ..., vₙ)) ↦ (hv₁, ..., hvₙ)</span></li>
+          <li><span class="math">+ : ℝⁿ × ℝⁿ → ℝⁿ</span>, <span class="math">((vᵢ), (wᵢ)) ↦ (vᵢ + wᵢ)</span></li>
+        </ul>
+      </li>
+      <li><b>Spazio vettoriale di una matrice di ordine m, n:</b> <span class="math">(ℝₘ,ₙ, +, ·)</span>
+        <ul>
+          <li><span class="math">· : ℝ × ℝₘ,ₙ → ℝₘ,ₙ</span>, <span class="math">(h, (aᵢⱼ)) ↦ (haᵢⱼ)</span></li>
+          <li><span class="math">+ : ℝₘ,ₙ × ℝₘ,ₙ → ℝₘ,ₙ</span>, <span class="math">((aᵢⱼ), (bᵢⱼ)) ↦ (aᵢⱼ + bᵢⱼ)</span></li>
+        </ul>
+      </li>
+      <li><b>Spazio vettoriale dei polinomi:</b> <span class="math">(ℝ[x], +, ·)</span> dove:
+        <ul>
+          <li><span class="math">ℝ[x] = {a₀ + a₁x + a₂x² + ... + aₙxⁿ | aᵢ ∈ ℝ, n ∈ ℕ}</span></li>
+          <li><b>Principio di identità dei polinomi:</b> <span class="math">a₀ + a₁x + ... + aₙxⁿ = b₀ + b₁x + ... + bₘxᵐ ⇔ n = m e a₀ = b₀, ..., aₙ = bₙ</span></li>
+        </ul>
+      </li>
+      <li><b>Spazio dei polinomi di grado ≤ n:</b> <span class="math">(ℝₙ[x], +, ·)</span></li>
+      <li><b>Spazio vettoriale dei vettori geometrici applicati in un punto:</b> <span class="math">(S₀, +, ·)</span></li>
+      <li><b>Spazio vettoriale dei vettori geometrici liberi:</b> <span class="math">(V, +, ·)</span></li>
+    </ol>
   </div>
 
   <h3>Combinazione Lineare e Proporzionalità</h3>
   <div class="def">
-    Una <b>combinazione lineare</b> di vettori <span class="math">v₁, ..., vₙ</span> è un vettore ottenuto come <span class="math">h₁v₁ + ... + hₙvₙ</span> con <span class="math">hᵢ</span> scalari.<br>
-    Due vettori sono <b>proporzionali</b> se uno è multiplo dell'altro (<span class="math">v = h w</span> con <span class="math">h ≠ 0</span>).
+    <b>Combinazione lineare:</b> Presi h₁, ..., hₙ ∈ ℝ, v₁, ..., vₙ, v ∈ V, se è possibile scrivere <span class="math">v = h₁v₁ + ... + hₙvₙ</span> allora v è detto <b>combinazione lineare</b> dei vettori vᵢ mediante gli scalari hᵢ.
+    <br><br>
+    <b>Proporzionalità:</b> Siano v, w ∈ V. Si dicono <b>proporzionali</b> se ∃h ≠ 0 ∈ ℝ tale che v = hw.
+    <br>La proporzionalità è una relazione d'equivalenza essendo:
+    <ul>
+      <li><b>Riflessiva:</b> v = 1 · v</li>
+      <li><b>Simmetrica:</b> v = hw con h ≠ 0 ⇒ w = h⁻¹v</li>
+      <li><b>Transitiva:</b> se h, k ≠ 0, v = hw e w = ku allora v = (hk)u</li>
+    </ul>
   </div>
 
   <h3>Sottospazi Vettoriali</h3>
   <div class="def">
-    Un <b>sottospazio vettoriale</b> <span class="math">H</span> di uno spazio vettoriale <span class="math">V</span> è un sottoinsieme non vuoto chiuso rispetto a somma e prodotto per scalare.<br>
+    Sia <span class="math">(V, +, ·)</span> spazio vettoriale e sia H ⊆ V diverso dal vuoto. H è detto <b>stabile (o chiuso)</b> rispetto all'addizione se ∀v, w ∈ H ⇒ v + w ∈ H. H è detto <b>stabile (o chiuso)</b> rispetto alla moltiplicazione per uno scalare se ∀h ∈ ℝ, ∀v ∈ H ⇒ hv ∈ H.
+    <br><br>
+    Se H è chiuso rispetto a somma e prodotto allora è detto <b>sottospazio vettoriale</b>. Si indica con H ≤ V.
+  </div>
+  <div class="example">
+    <b>Esempi di sottospazi vettoriali:</b>
     <ul>
-      <li>Se <span class="math">v, w ∈ H</span> allora <span class="math">v + w ∈ H</span></li>
-      <li>Se <span class="math">h ∈ ℝ</span> e <span class="math">v ∈ H</span> allora <span class="math">h v ∈ H</span></li>
+      <li>Ogni spazio vettoriale V ha sempre i <b>sottospazi banali:</b> {0} e V</li>
+      <li>In ℝ²: H = {(x, y) | x = y} è un sottospazio</li>
+      <li>In ℝ⁴: H = {(a b; 0 a) | a, b ∈ ℝ} è un sottospazio</li>
     </ul>
-    Se <span class="math">H</span> è sottospazio, gode di tutte le proprietà di uno spazio vettoriale.
+    <b>Controesempi:</b>
+    <ul>
+      <li>H = {3x + 1, 0} ≰ ℝ[x] perché (3x + 1) + (3x + 1) = 6x + 2 ∉ H</li>
+      <li>H = {(x, y, 0, 0) ∈ ℝ⁴ | x = y²} ≰ ℝ⁴ perché (1,1,0,0) + (1,1,0,0) = (2,2,0,0) ∉ H</li>
+    </ul>
+  </div>
+
+  <h3>Teorema sui sottospazi</h3>
+  <div class="def">
+    Se H ≤ V allora <span class="math">(H, +|ₕ, ·|ₕ)</span> è spazio vettoriale.
+  </div>
+  <div class="proof">
+    <b>Dimostrazione:</b>
+    <div class="step">Tutte le proprietà che non sono esistenziali sono automaticamente soddisfatte per la stabilità dell'operazione. Ha lo stesso elemento neutro di V e contiene anche gli opposti (v ∈ H ≠ ∅ ⇒ (-1)v = -v ∈ H).</div>
+  </div>
+
+  <h3>Proprietà e definizioni sui sottospazi (sottospazio generato)</h3>
+  <div class="def">
+    <ol>
+      <li><b>W ≤ V è stabile rispetto alla somma di n oggetti:</b> Siano w₁, ..., wₙ ∈ W, si ha w₁ + ... + wₙ ∈ W. Qualunque combinazione lineare: h₁w₁ + ... + hₙwₙ ∈ W</li>
+      <li><b>L'intersezione di sottospazi è un sottospazio:</b> Sia L una famiglia di sottospazi di V, l'intersezione ⋂ᴸ∈ℒ L è un sottospazio</li>
+    </ol>
+  </div>
+  <div class="def">
+    <b>Sottospazio generato:</b> Siano H, K ≤ V. Il più piccolo sottospazio che contiene sia H che K è:
+    <span class="math">⟨H, K⟩ = ⟨H ∪ K⟩ = H + K = {h + k | h ∈ H, k ∈ K}</span>
+    <br><br>
+    <b>Generalizzazione:</b> ⟨H₁, ..., Hₙ⟩ = H₁ + ... + Hₙ = {h₁ + ... + hₙ | hᵢ ∈ Hᵢ}
+    <br><br>
+    <b>Osservazione importante:</b> Se ho v₁, ..., vₙ ∈ V, il sottospazio generato ⟨v₁, ..., vₙ⟩ = {h₁v₁ + ... + hₙvₙ | hᵢ ∈ ℝ} è l'insieme di tutte le possibili combinazioni lineari dei vettori v₁, ..., vₙ.
+  </div>
+
+  <h3>Somma diretta di sottospazi vettoriali</h3>
+  <div class="def">
+    La somma di due sottospazi H₁, H₂ ≤ V si dice <b>somma diretta</b> se la loro intersezione è la più piccola possibile, ovvero H₁ ∩ H₂ = {0}. Si denota con <span class="math">H₁ ⊕ H₂</span>.
+    <br><br>
+    H₁ e H₂ sono detti <b>supplementari</b> se V = H₁ + H₂, mentre sono <b>complementari</b> se V = H₁ ⊕ H₂.
+    <br><br>
+    <b>Somma diretta di più sottospazi:</b> H₁, ..., Hₙ sono in somma diretta se Hᵢ ∩ ⟨Hⱼ | j ≠ i⟩ = {0} per ogni i.
   </div>
   <div class="example">
     <b>Esempi:</b>
     <ul>
-      <li><span class="math">{0}</span> e <span class="math">V</span> sono sempre sottospazi.</li>
-      <li>In <span class="math">ℝ²</span>, <span class="math">H = {(x, y) | x = y}</span> è un sottospazio.</li>
-      <li>In <span class="math">ℝ⁴</span>, <span class="math">H = {(x, y, 0, 0) | x = y²}</span> non è un sottospazio.</li>
+      <li>In ℝ²: H₁ = {(x, 0) | x ∈ ℝ}, H₂ = {(0, x) | x ∈ ℝ} ⇒ ℝ² = H₁ ⊕ H₂</li>
+      <li>H₁ = {(x, 0) | x ∈ ℝ}, H₂ = {(0, x) | x ∈ ℝ}, H₃ = {(x, x) | x ∈ ℝ} non sono in somma diretta</li>
     </ul>
-  </div>
-
-  <h3>Sottospazio Generato e Somma di Sottospazi</h3>
-  <div class="def">
-    Il <b>sottospazio generato</b> da un insieme di vettori è l'insieme di tutte le loro combinazioni lineari.<br>
-    La <b>somma</b> di due sottospazi <span class="math">H, K</span> è <span class="math">H + K = {h + k | h ∈ H, k ∈ K}</span>.<br>
-    La <b>somma diretta</b> si ha quando <span class="math">H ∩ K = {0}</span> e si scrive <span class="math">V = H ⊕ K</span>.
-  </div>
-  <div class="example">
-    <b>Esempio:</b> In <span class="math">ℝ²</span>, le rette <span class="math">x</span>-asse e <span class="math">y</span>-asse sono in somma diretta.
   </div>
 
   <h3>Dipendenza e Indipendenza Lineare</h3>
   <div class="def">
-    Un insieme di vettori è <b>linearmente dipendente</b> se esistono scalari non tutti nulli tali che la loro combinazione lineare è il vettore nullo.<br>
-    Se l'unica combinazione lineare che dà il vettore nullo ha tutti gli scalari nulli, i vettori sono <b>linearmente indipendenti</b>.
+    Siano v₁, v₂, ..., vₙ ∈ V. Essi sono detti <b>linearmente dipendenti (o legati)</b> se e solo se esistono n scalari non tutti nulli tali che h₁v₁ + ... + hₙvₙ = 0.
+    <br><br>
+    Se tali scalari non esistono allora i vettori sono detti <b>linearmente indipendenti (o liberi)</b>, il che implica che l'unica soluzione è h₁ = h₂ = ... = hₙ = 0.
   </div>
   <div class="example">
     <b>Esempi:</b>
     <ul>
-      <li><span class="math">(1,0)</span> e <span class="math">(0,1)</span> in <span class="math">ℝ²</span> sono indipendenti.</li>
-      <li><span class="math">(1,0)</span> e <span class="math">(2,0)</span> sono dipendenti (proporzionali).</li>
+      <li>(1,0), (0,1) ∈ ℝ² sono linearmente indipendenti</li>
+      <li>(0,0), (1,0) sono linearmente dipendenti (l'elemento neutro implica la dipendenza)</li>
+      <li>(1,0), (2,0) sono linearmente dipendenti (due elementi proporzionali)</li>
     </ul>
-  </div>
-  <div class="proof">
-    <b>Dimostrazione (passo passo):</b>
-    <div class="step">1. Si scrive la combinazione lineare: <span class="math">h₁v₁ + ... + hₙvₙ = 0</span>.</div>
-    <div class="step">2. Se esiste una soluzione con almeno uno <span class="math">hᵢ ≠ 0</span>, i vettori sono dipendenti.</div>
-    <div class="step">3. Se l'unica soluzione è <span class="math">h₁ = ... = hₙ = 0</span>, sono indipendenti.</div>
   </div>
 
-  <h3>Base e Dimensione</h3>
+  <h3>Dipendenza di un vettore da altri</h3>
   <div class="def">
-    Una <b>base</b> di uno spazio vettoriale è un insieme di vettori linearmente indipendenti che generano tutto lo spazio.<br>
-    La <b>dimensione</b> è il numero di vettori di una base.
+    Un vettore v <b>dipende</b> da v₁, v₂, ..., vₙ se v è combinazione lineare dei vᵢ, ovvero se ∃h₁, ..., hₙ ∈ ℝ : v = h₁v₁ + ... + hₙvₙ.
+    <br><br>
+    <b>Proprietà:</b>
+    <ul>
+      <li>0 dipende sempre da qualunque sistema v₁, ..., vₙ</li>
+      <li>vᵢ dipende sempre da v₁, ..., vₙ</li>
+      <li><b>Proprietà transitiva:</b> Se v dipende da v₁, ..., vₙ e ciascun vᵢ dipende da w₁, ..., wₘ, allora v dipende da w₁, ..., wₘ</li>
+      <li>Se v, w dipendono da v₁, ..., vₙ allora v + w dipende da v₁, ..., vₙ</li>
+      <li><b>v dipende da v₁, ..., vₙ ⇔ v ∈ ⟨v₁, ..., vₙ⟩</b></li>
+    </ul>
+  </div>
+
+  <h3>Relazione tra dipendenza e indipendenza lineare</h3>
+  <div class="def">
+    Sia v₁, ..., vₙ ∈ V (con n ≥ 2). Allora:
+    <ol>
+      <li><b>v₁, ..., vₙ sono linearmente dipendenti ⇔ ∃i : vᵢ dipende dai rimanenti</b></li>
+      <li><b>v₁, ..., vₙ sono indipendenti ⇔ nessun vᵢ dipende dai rimanenti</b></li>
+    </ol>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione della relazione (1):</b>
+    <div class="step">⇒: Per ipotesi esistono h₁, ..., hₙ ∈ ℝ non tutti nulli tali che h₁v₁ + ... + hₙvₙ = 0. Supponiamo h₁ ≠ 0, allora v₁ = (-h₁⁻¹h₂)v₂ + ... + (-h₁⁻¹hₙ)vₙ.</div>
+    <div class="step">⇐: Supponiamo che v₁ dipenda dai rimanenti, quindi v₁ = h₂v₂ + ... + hₙvₙ. Allora 1·v₁ - h₂v₂ - ... - hₙvₙ = 0, quindi sono linearmente dipendenti.</div>
+  </div>
+
+  <h3>Proposizioni sui sistemi indipendenti</h3>
+  <div class="def">
+    <ol>
+      <li><b>Siano v₁, ..., vₙ vettori linearmente indipendenti. Allora ogni vettore v che dipende da v₁, ..., vₙ vi dipende in maniera univoca.</b></li>
+      <li><b>Siano H, K ≤ V non triviali, H ∩ K = {0}. Allora i vettori h ∈ H e k ∈ K (entrambi ≠ 0) sono indipendenti.</b></li>
+      <li><b>Siano H₁, ..., Hₙ sottospazi in somma diretta, 0 ≠ vᵢ ∈ Hᵢ. Il sistema v₁, ..., vₙ è indipendente.</b></li>
+      <li><b>Supponiamo di avere v₁, ..., vₜ indipendenti e v ∈ V che non dipende dai vᵢ. Allora v₁, ..., vₜ, v sono indipendenti.</b></li>
+    </ol>
+  </div>
+
+  <h3>Proposizioni sulla somma diretta</h3>
+  <div class="def">
+    <ol>
+      <li><b>Siano H₁ e H₂ sottospazi di V in somma diretta. Sia v ∈ H₁ ⊕ H₂. Allora ∃! v₁ ∈ H₁, v₂ ∈ H₂ : v = v₁ + v₂</b></li>
+      <li><b>H₁, ..., Hₙ sono in somma diretta ⇔ ∀v ∈ H₁ + ... + Hₙ, ∃! hᵢ ∈ Hᵢ : v = h₁ + ... + hₙ</b></li>
+    </ol>
+  </div>
+
+  <h3>Vettori finitamente generabili</h3>
+  <div class="def">
+    Uno spazio vettoriale V è detto <b>finitamente generabile</b> se esistono v₁, ..., vₙ : V = ⟨v₁, ..., vₙ⟩, dove ⟨v₁, ..., vₙ⟩ è detto <b>sistema di generatori</b>.
+    <br><br>
+    <b>Definizioni associate:</b>
+    <ul>
+      <li>Un sistema di generatori indipendente è detto <b>base</b></li>
+      <li>Un <b>riferimento</b> è una base ordinata: e₁, ..., eₙ base ⇒ (e₁, ..., eₙ) riferimento</li>
+    </ul>
   </div>
   <div class="example">
     <b>Esempi:</b>
     <ul>
-      <li>In <span class="math">ℝ²</span>, <span class="math">{(1,0), (0,1)}</span> è una base.</li>
-      <li>In <span class="math">ℝ³</span>, <span class="math">{(1,0,0), (0,1,0), (0,0,1)}</span> è una base.</li>
+      <li>ℝⁿ[x] è finitamente generabile (generato da 1, x, x², ..., xⁿ)</li>
+      <li>ℝ[x] non è finitamente generabile</li>
+      <li>ℝ² ha base {(1,0), (0,1)}</li>
     </ul>
   </div>
+
+  <h3>Teorema di esistenza delle basi</h3>
+  <div class="def">
+    Sia V uno spazio vettoriale non nullo. Se è finitamente generabile allora V ammette basi.
+  </div>
   <div class="proof">
-    <b>Teorema di esistenza delle basi (passo passo):</b>
-    <div class="step">1. Si parte da un sistema di generatori.</div>
-    <div class="step">2. Se è indipendente, è già una base.</div>
-    <div class="step">3. Se è dipendente, si elimina un vettore dipendente e si ripete.</div>
-    <div class="step">4. Alla fine si ottiene una base.</div>
+    <b>Dimostrazione:</b>
+    <div class="step">Sia v₁, ..., vₙ un sistema di generatori. Se è indipendente, è già una base. Se è dipendente, esiste vᵢ che dipende dai rimanenti: lo si rimuove. Il nuovo sistema genera ancora V. Si itera fino ad ottenere un sistema indipendente.</div>
+  </div>
+  <div class="def">
+    <b>Osservazione importante:</b> Da ogni sistema di generatori si può estrarre una base.
+  </div>
+
+  <h3>Dimensione di uno spazio vettoriale</h3>
+  <div class="def">
+    <b>Lemma di Steinitz:</b> Se ho m vettori linearmente indipendenti contenuti in un sottospazio generato da n vettori, allora m ≤ n.
+    <br><br>
+    <b>Corollario:</b> Sia V ≠ {0} spazio vettoriale. Tutte le basi hanno lo stesso ordine detto <b>dimensione</b> di V.
+    <br><br>
+    dim(V) è la cardinalità di una base. Se V = {0} ⇒ dim(V) = 0. Se V non è finitamente generabile ⇒ dim(V) = ∞.
+  </div>
+
+  <h3>Proposizioni della dimensione</h3>
+  <div class="def">
+    Per V ≠ {0} finitamente generabile, dim V = n:
+    <ol>
+      <li><b>v₁, ..., vₘ indipendenti ⇒ m ≤ n</b></li>
+      <li><b>v₁, ..., vₙ indipendenti ⇒ v₁, ..., vₙ formano una base</b></li>
+      <li><b>v₁, ..., vₙ sistema di generatori ⇒ v₁, ..., vₙ formano una base</b></li>
+      <li><b>v₁, ..., vₘ indipendenti ⇒ ∃wₘ₊₁, ..., wₙ : v₁, ..., vₘ, wₘ₊₁, ..., wₙ formano una base</b> (ogni sistema indipendente si può completare in una base)</li>
+    </ol>
+  </div>
+
+  <h3>Proposizione sui sottospazi</h3>
+  <div class="def">
+    Sia W ≤ Vₙ. Allora:
+    <ol>
+      <li><b>W è finitamente generabile e dim W ≤ n</b></li>
+      <li><b>dim W = n ⇔ W = Vₙ</b></li>
+    </ol>
+    <b>Corollari:</b>
+    <ul>
+      <li>W ≤ Z ⇒ dim W ≤ dim Z</li>
+      <li>W ≤ Z e dim W = dim Z ⇒ W = Z</li>
+    </ul>
+  </div>
+
+  <h3>Proposizione sulla somma diretta</h3>
+  <div class="def">
+    Siano H₁, ..., Hₙ ≤ V sottospazi in somma diretta. Allora:
+    <span class="math">dim(H₁ ⊕ ... ⊕ Hₙ) = dim H₁ + ... + dim Hₙ</span>
   </div>
 
   <h3>Relazione di Grassmann</h3>
   <div class="def">
-    Se <span class="math">H</span> e <span class="math">K</span> sono sottospazi di <span class="math">V</span>, allora:<br>
+    Se H, K ≤ Vₙ sono sottospazi, allora:
     <span class="math">dim H + dim K = dim(H ∩ K) + dim(H + K)</span>
   </div>
   <div class="proof">
-    <b>Dimostrazione (passo passo):</b>
-    <div class="step">1. Si prende una base di <span class="math">H ∩ K</span> e la si completa a basi di <span class="math">H</span> e <span class="math">K</span>.</div>
-    <div class="step">2. Si mostra che l'unione delle basi così ottenute è una base di <span class="math">H + K</span>.</div>
-    <div class="step">3. Si conta il numero di vettori: <span class="math">dim(H + K) = dim H + dim K - dim(H ∩ K)</span>.</div>
+    <b>Dimostrazione:</b>
+    <div class="step">1. Si prende una base e₁, ..., eₜ di H ∩ K</div>
+    <div class="step">2. La si completa a base e₁, ..., eₜ, h₁, ..., hᵣ₋ₜ di H e a base e₁, ..., eₜ, k₁, ..., kₛ₋ₜ di K</div>
+    <div class="step">3. Si dimostra che e₁, ..., eₜ, h₁, ..., hᵣ₋ₜ, k₁, ..., kₛ₋ₜ è una base di H + K</div>
+    <div class="step">4. Si conta: dim(H + K) = r + s - t = dim H + dim K - dim(H ∩ K)</div>
   </div>
 
-  <h3>Forma canonica e base canonica</h3>
+  <h3>Componenti di un vettore rispetto a un riferimento</h3>
   <div class="def">
-    La <b>base canonica</b> di <span class="math">ℝⁿ</span> è l'insieme dei vettori con uno 1 e tutti gli altri zeri.<br>
-    Ogni vettore si può scrivere come combinazione lineare della base canonica.
-  </div>
-  <div class="example">
-    <b>Esempio:</b> In <span class="math">ℝ³</span> la base canonica è <span class="math">(1,0,0)</span>, <span class="math">(0,1,0)</span>, <span class="math">(0,0,1)</span>.
+    Sia Vₙ uno spazio vettoriale di dimensione n e R = (e₁, ..., eₙ) un riferimento (base ordinata). Allora:
+    ∀v ∈ Vₙ ∃! h₁, ..., hₙ ∈ ℝ : v = h₁e₁ + ... + hₙeₙ
+    <br><br>
+    La n-upla (h₁, ..., hₙ) si chiama <b>n-upla dei componenti nel riferimento R</b>.
   </div>
 
-  <h3>Metodo per estrarre una base</h3>
+  <h3>Base canonica</h3>
   <div class="def">
-    Per trovare una base da un insieme di vettori, si eliminano quelli proporzionali o dipendenti, oppure si riduce la matrice dei vettori a gradini e si scelgono le righe non nulle.
+    La <b>base canonica</b> di ℝⁿ è: e₁ = (1,0,...,0), e₂ = (0,1,...,0), ..., eₙ = (0,0,...,1)
+    <br><br>
+    <b>Altri esempi di basi canoniche:</b>
+    <ul>
+      <li><b>Base canonica di ℝₙ[x]:</b> 1, x, x², ..., xⁿ</li>
+      <li><b>Base canonica di ℝₘ,ₙ:</b> matrici con un 1 in una posizione e 0 altrove</li>
+    </ul>
+  </div>
+
+  <h3>Metodi per estrarre una base da un sottospazio generato</h3>
+  <div class="def">
+    <b>Metodo 1:</b> Eliminazione dei vettori proporzionali o dipendenti
+    <br><b>Metodo 2:</b> Riduzione a gradini
+    <ul>
+      <li>Si posizionano i vettori in una matrice</li>
+      <li>Si trasforma in matrice a gradini equivalente</li>
+      <li>Il numero di pivot = dimensione del sottospazio</li>
+      <li>Le righe non nulle formano una base</li>
+    </ul>
   </div>
   <div class="example">
-    <b>Esempio:</b> Dato <span class="math">⟨(1,0,1,2), (−1,2,3,0), (3,−2,−1,4), (−2,4,6,0)⟩</span>, si eliminano i vettori dipendenti e si ottiene una base con due vettori.
+    <b>Esempio:</b> H = ⟨(1,0,1,2), (-1,2,3,0), (3,-2,-1,4), (-2,4,6,0)⟩
+    <br>Si nota la proporzionalità tra il secondo e quarto vettore, si eliminano i dipendenti, si ottiene dim H = 2.
   </div>
 </div>
 </body>
