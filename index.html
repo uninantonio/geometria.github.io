@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Geometria – Spiegazione Semplificata</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8f9fa;
+      color: #222;
+      margin: 0;
+      padding: 0 0 40px 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0001;
+      padding: 40px 32px 32px 32px;
+    }
+    h1 {
+      color: #2a4d8f;
+      text-align: center;
+      font-size: 2.3em;
+      margin-bottom: 0.5em;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px #b3c6e7;
+    }
+    h2 {
+      color: #1b2e4b;
+      border-bottom: 2px solid #b3c6e7;
+      padding-bottom: 0.2em;
+      margin-top: 2em;
+      margin-bottom: 1em;
+      font-size: 1.5em;
+    }
+    h3 {
+      color: #2a4d8f;
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+      font-size: 1.15em;
+      text-decoration: underline;
+    }
+    .def, .proof, .example {
+      margin: 1em 0 1em 1.5em;
+      padding: 0.7em 1em;
+      border-left: 4px solid #2a4d8f;
+      background: #f3f7ff;
+      border-radius: 0 8px 8px 0;
+    }
+    .proof {
+      border-left-color: #e67e22;
+      background: #fff8f0;
+    }
+    .example {
+      border-left-color: #27ae60;
+      background: #f4fff7;
+    }
+    b, strong {
+      color: #1b2e4b;
+    }
+    ul, ol {
+      margin-left: 2.2em;
+      margin-bottom: 1em;
+    }
+    li {
+      margin-bottom: 0.3em;
+    }
+    .step {
+      margin-left: 1.5em;
+      color: #444;
+      font-size: 1em;
+    }
+    .keyword {
+      color: #e67e22;
+      font-weight: bold;
+    }
+    .math {
+      font-family: 'Consolas', 'Fira Mono', monospace;
+      color: #2a4d8f;
+      background: #eaf0fa;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    .note {
+      color: #888;
+      font-style: italic;
+      margin-top: 2em;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1em 0;
+    }
+    th, td {
+      border: 1px solid #b3c6e7;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background: #f3f7ff;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Geometria – Spiegazione Semplificata degli Appunti (da S. Cerrone)</h1>
+
+  <h2>0. Operazioni su di un Insieme</h2>
+
+  <h3>Operazione interna a un insieme</h3>
+  <div class="def">
+    Un'operazione si dice <b>interna</b> a un insieme <span class="math">S</span> se, prendendo due elementi di <span class="math">S</span>, il risultato è ancora in <span class="math">S</span>.<br>
+    <span class="keyword">Esempio:</span> la somma tra due vettori di <span class="math">ℝ²</span> è ancora un vettore di <span class="math">ℝ²</span>.
+  </div>
+
+  <h3>Operazione esterna a un insieme</h3>
+  <div class="def">
+    Un'operazione si dice <b>esterna</b> se coinvolge due insiemi diversi: uno su cui si agisce (<span class="math">S</span>) e uno di operatori (<span class="math">A</span>).<br>
+    <span class="keyword">Esempio:</span> la moltiplicazione tra un vettore di <span class="math">ℝ²</span> e un numero reale: <span class="math">ℝ² × ℝ → ℝ²</span>.
+  </div>
+
+  <h3>Prodotto scalare standard</h3>
+  <div class="def">
+    Il prodotto scalare tra due vettori di <span class="math">ℝⁿ</span> restituisce un numero reale. Non è né interna né esterna. Si calcola così:<br>
+    <span class="math">(a₁, ..., aₙ) · (b₁, ..., bₙ) = a₁b₁ + ... + aₙbₙ</span>
+    <ul>
+      <li><b>Simmetria:</b> <span class="math">a · b = b · a</span></li>
+      <li><b>Bilinearità:</b> <span class="math">(h·a + k·b) · c = h(a·c) + k(b·c)</span></li>
+      <li><b>Positività:</b> <span class="math">a · a ≥ 0</span> e <span class="math">a · a = 0</span> solo se <span class="math">a = (0, ..., 0)</span></li>
+    </ul>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione della bilinearità (passo passo):</b>
+    <div class="step">1. Siano <span class="math">a = (a₁, a₂)</span>, <span class="math">b = (b₁, b₂)</span>, <span class="math">c = (c₁, c₂)</span>, <span class="math">h</span> e <span class="math">k</span> scalari.</div>
+    <div class="step">2. Calcoliamo <span class="math">h·a + k·b</span>:
+      <ul>
+        <li><span class="math">h·a = (h a₁, h a₂)</span> (moltiplichiamo ogni componente di a per h)</li>
+        <li><span class="math">k·b = (k b₁, k b₂)</span> (moltiplichiamo ogni componente di b per k)</li>
+        <li><span class="math">h·a + k·b = (h a₁ + k b₁, h a₂ + k b₂)</span> (sommiamo le componenti corrispondenti)</li>
+      </ul>
+    </div>
+    <div class="step">3. Facciamo il prodotto scalare con c:<br>
+      <span class="math">(h a₁ + k b₁) c₁ + (h a₂ + k b₂) c₂</span> (prodotto scalare: moltiplichiamo ogni componente per quella corrispondente e sommiamo)
+    </div>
+    <div class="step">4. Sviluppiamo:<br>
+      <span class="math">h a₁ c₁ + k b₁ c₁ + h a₂ c₂ + k b₂ c₂</span> (distribuiamo i prodotti)
+    </div>
+    <div class="step">5. Raggruppiamo:<br>
+      <span class="math">h(a₁ c₁ + a₂ c₂) + k(b₁ c₁ + b₂ c₂)</span> (raccogliamo h e k)</div>
+    <div class="step">6. Riconosciamo che <span class="math">a·c = a₁ c₁ + a₂ c₂</span> e <span class="math">b·c = b₁ c₁ + b₂ c₂</span>, quindi:<br>
+      <span class="math>h(a·c) + k(b·c)</span></div>
+    <div class="step">7. Abbiamo dimostrato che <span class="math">(h·a + k·b) · c = h(a·c) + k(b·c)</span></div>
+    <div class="step note">Ogni passaggio serve a mostrare come si applicano le proprietà delle operazioni tra vettori e scalari, e come si arriva alla forma finale.</div>
+  </div>
+
+  <h2>1. Operazioni su Matrici (su ℝ)</h2>
+  <h3>Somma di matrici e prodotto per uno scalare</h3>
+  <div class="def">
+    Una <b>matrice</b> è una tabella di numeri disposti su righe e colonne. Una matrice <span class="math">A</span> con <span class="math">n</span> righe e <span class="math">m</span> colonne si scrive così:
+    <table>
+      <tr><td>a₁,₁</td><td>...</td><td>a₁,ₘ</td></tr>
+      <tr><td>...</td><td>...</td><td>...</td></tr>
+      <tr><td>aₙ,₁</td><td>...</td><td>aₙ,ₘ</td></tr>
+    </table>
+    Oppure in modo compatto: <span class="math">A = (aᵢⱼ)</span> con <span class="math">i = 1,...,n</span> e <span class="math">j = 1,...,m</span>.
+    <br>L’insieme di tutte le matrici reali con <span class="math">n</span> righe e <span class="math">m</span> colonne si indica con <span class="math">Mₙ,ₘ(ℝ)</span> o <span class="math">ℝₙ,ₘ</span>.
+    <br><br>
+    <b>Somma di matrici:</b> si sommano elemento per elemento (solo se hanno la stessa dimensione):
+    <table>
+      <tr><td>a₁,₁ + b₁,₁</td><td>...</td><td>a₁,ₘ + b₁,ₘ</td></tr>
+      <tr><td>...</td><td>...</td><td>...</td></tr>
+      <tr><td>aₙ,₁ + bₙ,₁</td><td>...</td><td>aₙ,ₘ + bₙ,ₘ</td></tr>
+    </table>
+    In notazione compatta: <span class="math">C = (aᵢⱼ + bᵢⱼ)</span> con <span class="math">i = 1,...,n</span> e <span class="math">j = 1,...,m</span>.
+    <br><br>
+    <b>Prodotto per uno scalare:</b> ogni elemento della matrice viene moltiplicato per il numero scelto: <span class="math">h·A = (h·aᵢⱼ)</span>.
+  </div>
+
+  <h3>Prodotto righe per colonne</h3>
+  <div class="def">
+    Il <b>prodotto righe per colonne</b> tra due matrici è possibile solo se il <b>numero di colonne della prima matrice</b> è uguale al <b>numero di righe della seconda</b>.<br>
+    Se <span class="math">A</span> è una matrice <span class="math">n × m</span> e <span class="math">B</span> è una matrice <span class="math">m × l</span>, il prodotto <span class="math">AB</span> è una matrice <span class="math">n × l</span> (cioè ha il numero di righe della prima e il numero di colonne della seconda).
+    <br><br>
+    Per calcolare l’elemento nella posizione <span class="math">(i, j)</span> del prodotto, si prende la riga <span class="math">i</span> di <span class="math">A</span> e la colonna <span class="math">j</span> di <span class="math">B</span>, si moltiplicano i termini corrispondenti e si sommano:
+    <pre class="math">
+(AB)<sub>ij</sub> = a<sub>i,1</sub>·b<sub>1,j</sub> + a<sub>i,2</sub>·b<sub>2,j</sub> + ... + a<sub>i,m</sub>·b<sub>m,j</sub>
+    </pre>
+    In altre parole, ogni elemento del risultato si ottiene facendo il prodotto scalare tra una riga della prima matrice e una colonna della seconda.
+    <br>Il risultato avrà tante righe quante la prima matrice e tante colonne quante la seconda matrice.
+    <br><br>
+    <b>Proprietà del prodotto tra matrici:</b>
+    <ul>
+      <li><b>Distributività:</b> <span class="math">A(B + C) = AB + AC</span> e <span class="math">(A + B)C = AC + BC</span></li>
+      <li><b>Non commutatività:</b> in generale <span class="math">AB ≠ BA</span></li>
+      <li><b>Matrice identità:</b> <span class="math">IₙA = AIₙ = A</span></li>
+      <li><b>Proprietà con scalari:</b> <span class="math">A(hB) = h(AB) = (hA)B</span></li>
+      <li><b>Associatività:</b> <span class="math">A(BC) = (AB)C</span></li>
+    </ul>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione dettagliata (passo passo):</b>
+    <div class="step">1. Siano <span class="math">A</span> di dimensione <span class="math">n × m</span> e <span class="math">B</span> di dimensione <span class="math">m × l</span>.</div>
+    <div class="step">2. Per poter moltiplicare <span class="math">A</span> e <span class="math">B</span>, il numero di colonne di <span class="math">A</span> (<span class="math">m</span>) deve essere uguale al numero di righe di <span class="math">B</span> (<span class="math">m</span>).</div>
+    <div class="step">3. Il risultato <span class="math">C = AB</span> sarà una matrice di dimensione <span class="math">n × l</span>.</div>
+    <div class="step">4. L'elemento <span class="math">c<sub>ij</sub></span> si calcola così:<br>
+      <span class="math">c<sub>ij</sub> = a<sub>i,1</sub>·b<sub>1,j</sub> + a<sub>i,2</sub>·b<sub>2,j</sub> + ... + a<sub>i,m</sub>·b<sub>m,j</sub></span>
+    </div>
+    <div class="step">5. Si ripete questo calcolo per ogni coppia di riga (di <span class="math">A</span>) e colonna (di <span class="math">B</span>).</div>
+    <div class="step">6. Alla fine, si ottiene una matrice in cui ogni elemento è il risultato di un prodotto riga per colonna.</div>
+    <div class="step note">Questo metodo permette di combinare le informazioni di due matrici in una nuova matrice, utile in moltissime applicazioni della matematica e della fisica.</div>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione della distributività a destra (passo passo):</b>
+    <div class="step">1. Siano <span class="math">A ∈ ℝₘ,ₙ</span> e <span class="math">B, C ∈ ℝₙ,ₚ</span>.</div>
+    <div class="step">2. Consideriamo la somma <span class="math">B + C</span>: sommiamo elemento per elemento.</div>
+    <div class="step">3. Moltiplichiamo <span class="math">A</span> per <span class="math">(B + C)</span>: ogni elemento della riga di <span class="math">A</span> viene moltiplicato per la colonna corrispondente di <span class="math">(B + C)</span>.</div>
+    <div class="step">4. Per la proprietà distributiva dei numeri reali, questa operazione equivale a fare <span class="math">A·B + A·C</span>, cioè moltiplicare <span class="math">A</span> per <span class="math">B</span> e <span class="math">A</span> per <span class="math">C</span> separatamente e poi sommare i risultati.</div>
+    <div class="step">5. Quindi <span class="math">A(B + C) = AB + AC</span>.</div>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione della proprietà con scalari (passo passo):</b>
+    <div class="step">1. Moltiplichiamo la matrice <span class="math">B</span> per lo scalare <span class="math">h</span>: ogni elemento di <span class="math">B</span> diventa <span class="math">h·bᵢⱼ</span>.</div>
+    <div class="step">2. Moltiplichiamo <span class="math">A</span> per questa nuova matrice: il risultato è lo stesso che moltiplicare prima <span class="math">A</span> per <span class="math">B</span> e poi il risultato per <span class="math">h</span>.</div>
+    <div class="step">3. Oppure, possiamo moltiplicare prima <span class="math">A</span> per <span class="math">h</span> (cioè ogni elemento di <span class="math">A</span> per <span class="math">h</span>) e poi moltiplicare per <span class="math">B</span>: il risultato è sempre lo stesso.</div>
+  </div>
+  <div class="proof">
+    <b>Dimostrazione dell'associatività (passo passo):</b>
+    <div class="step">1. Siano <span class="math">A ∈ ℝₘ,ₙ</span>, <span class="math">B ∈ ℝₙ,ₚ</span>, <span class="math">C ∈ ℝₚ,ⱼ</span>.</div>
+    <div class="step">2. Calcoliamo prima <span class="math">BC</span>: otteniamo una matrice.</div>
+    <div class="step">3. Moltiplichiamo <span class="math">A</span> per questa matrice: otteniamo il risultato finale.</div>
+    <div class="step">4. Oppure, calcoliamo prima <span class="math">AB</span>, poi moltiplichiamo il risultato per <span class="math">C</span>.</div>
+    <div class="step">5. In entrambi i casi, il risultato è lo stesso perché la somma degli indici intermedi è la stessa.</div>
+  </div>
+
+  <h3>Matrice trasposta</h3>
+  <div class="example">
+    <b>Esempio:</b><br>
+    Se <span class="math">A</span> è la matrice
+    <table>
+      <tr><td>1</td><td>2</td><td>3</td></tr>
+      <tr><td>4</td><td>5</td><td>6</td></tr>
+    </table>
+    allora la sua trasposta è
+    <table>
+      <tr><td>1</td><td>4</td></tr>
+      <tr><td>2</td><td>5</td></tr>
+      <tr><td>3</td><td>6</td></tr>
+    </table>
+    In pratica, la prima riga diventa la prima colonna, la seconda riga diventa la seconda colonna, e così via.
+  </div>
+  <div class="def">
+    La trasposta di una matrice si ottiene scambiando righe e colonne.
+    <ul>
+      <li><b>(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup></b></li>
+      <li><b>(A<sup>T</sup>)<sup>T</sup> = A</b></li>
+      <li><b>(hA + kB)<sup>T</sup> = hA<sup>T</sup> + kB<sup>T</sup></b></li>
+      <li><b>(A + B)<sup>T</sup> = A<sup>T</sup> + B<sup>T</sup></b></li>
+      <li><b>(A<sup>T</sup> + B<sup>T</sup>)<sup>T</sup> = A + B</b></li>
+    </ul>
+</div>
+  <div class="proof">
+    <b>Dimostrazione di (AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup> (passo passo):</b>
+    <div class="step">1. Siano <span class="math">C = AB</span>, <span class="math">D = (AB)<sup>T</sup> = C<sup>T</sup></span>, <span class="math">E = B<sup>T</sup>A<sup>T</sup></span>.</div>
+    <div class="step">2. L'elemento <span class="math">d<sub>ij</sub></span> di <span class="math">D</span> è uguale all'elemento <span class="math">c<sub>ji</sub></span> di <span class="math">C</span> (cioè scambiamo riga e colonna).</div>
+    <div class="step">3. L'elemento <span class="math">c<sub>ji</sub></span> di <span class="math">C</span> si ottiene facendo il prodotto riga per colonna tra la j-esima riga di <span class="math">A</span> e la i-esima colonna di <span class="math">B</span>.</div>
+    <div class="step">4. Se calcoliamo <span class="math">B<sup>T</sup>A<sup>T</sup></span>, otteniamo lo stesso valore perché la trasposizione scambia l'ordine delle moltiplicazioni.</div>
+    <div class="step">5. Quindi <span class="math">(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup></span>.</div>
+  </div>
+
+  <h3>Matrice a gradini</h3>
+  <div class="def">
+    Una matrice è a gradini se, andando verso il basso, il numero di zeri prima del primo elemento diverso da zero aumenta. Il primo elemento non nullo di ogni riga si chiama <b>pivot</b>.
+  </div>
+
+  <h3>Operazioni elementari di riga</h3>
+  <div class="def">
+    Sono tre:
+    <ol>
+      <li>Scambiare due righe</li>
+      <li>Moltiplicare una riga per un numero diverso da zero</li>
+      <li>Sostituire una riga con la somma di essa e un multiplo di un'altra riga</li>
+    </ol>
+    Queste operazioni permettono di trasformare una matrice in una matrice a gradini. Per ogni matrice esiste una matrice a gradini ad essa equivalente.
+  </div>
+  <div class="proof">
+    <b>Dimostrazione (per induzione, passo passo):</b>
+    <div class="step">1. Se la matrice ha una sola riga, è già a gradini.</div>
+    <div class="step">2. Se ha più righe, si cerca la prima riga non nulla e la si porta in alto (scambio di righe).</div>
+    <div class="step">3. Si annullano gli elementi sotto il primo elemento non nullo (pivot) usando le altre operazioni (moltiplicazione e somma di righe).</div>
+    <div class="step">4. Si ripete il processo sulle righe restanti, riducendo il problema a una matrice più piccola.</div>
+    <div class="step">5. Alla fine, si ottiene una matrice a gradini equivalente a quella di partenza.</div>
+  </div>
+
+  <h2>2. Sistemi Lineari</h2>
+  <h3>Equazioni lineari</h3>
+  <div class="def">
+    Un'equazione lineare è un'espressione del tipo <span class="math">a₁x₁ + ... + aₙxₙ = b</span>, dove <span class="math">a₁, ..., aₙ</span> e <span class="math">b</span> sono numeri reali. Se <span class="math">b = 0</span>, l'equazione si dice <b>omogenea</b>.
+  </div>
+
+  <h3>Sistema lineare</h3>
+  <div class="def">
+    Un sistema lineare è un insieme di più equazioni lineari con più incognite. Una soluzione è un insieme di valori che soddisfa tutte le equazioni.<br>
+    <ul>
+      <li>Un sistema è <b>compatibile</b> se ha almeno una soluzione, <b>incompatibile</b> se non ne ha.</li>
+      <li>Se ha una sola soluzione è <b>determinato</b>, se ne ha infinite è <b>indeterminato</b>.</li>
+    </ul>
+  </div>
+
+  <h3>Matrice dei coefficienti e matrice completa</h3>
+  <div class="def">
+    La <b>matrice dei coefficienti</b> contiene solo i numeri davanti alle incognite. Se aggiungiamo la colonna dei termini noti otteniamo la <b>matrice completa</b>.
+  </div>
+
+  <h3>Sistemi equivalenti</h3>
+  <div class="def">
+    Due sistemi sono equivalenti se hanno le stesse soluzioni. Le operazioni elementari sulle righe (scambio, moltiplicazione per un numero, somma di righe) non cambiano le soluzioni del sistema.
+  </div>
+  <div class="proof">
+    <b>Dimostrazione (passo passo):</b>
+    <div class="step">1. Scambiare due righe non cambia le soluzioni perché l'ordine delle equazioni non conta: ogni equazione rappresenta una condizione indipendente.</div>
+    <div class="step">2. Moltiplicare una riga per un numero diverso da zero non cambia le soluzioni perché si può dividere entrambi i membri per quel numero, ottenendo la stessa equazione.</div>
+    <div class="step">3. Sostituire una riga con la somma di essa e un multiplo di un'altra riga equivale a sommare due equazioni: le soluzioni che soddisfano entrambe le equazioni originali soddisfano anche la loro somma.</div>
+    <div class="step">4. Quindi, tutte queste operazioni non cambiano l'insieme delle soluzioni.</div>
+  </div>
+
+  <h3>Risoluzione dei sistemi</h3>
+  <div class="def">
+    Ogni sistema può essere trasformato in uno a gradini (cioè con zeri sotto i pivot) usando le operazioni elementari. Questo rende più facile trovare le soluzioni.
+  </div>
+  <div class="proof">
+    <b>Dimostrazione (passo passo):</b>
+    <div class="step">1. Si applicano le operazioni elementari per portare la matrice in forma a gradini.</div>
+    <div class="step">2. In questa forma, si parte dall'ultima equazione (che avrà meno incognite) e si risale, trovando una incognita alla volta (sostituzione all'indietro).</div>
+    <div class="step">3. Questo metodo funziona perché ogni passaggio riduce il numero di incognite da determinare.</div>
+  </div>
+
+  <h3>Soluzioni di un sistema lineare</h3>
+  <div class="def">
+    A seconda del numero di equazioni (<span class="math">m</span>) e di incognite (<span class="math">n</span>), si distinguono diversi casi:
+    <ul>
+      <li><b>Caso 1: m = n = 1</b><br>
+        <span class="math">a₁₁x₁ = b₁</span><br>
+        <ul>
+          <li>Se <span class="math">a₁₁ = b₁ = 0</span>: equazione identica, infinite soluzioni.</li>
+          <li>Se <span class="math">a₁₁ ≠ 0</span>: unica soluzione <span class="math">x₁ = b₁ / a₁₁</span>.</li>
+          <li>Se <span class="math">a₁₁ = 0</span> e <span class="math">b₁ ≠ 0</span>: nessuna soluzione.</li>
+        </ul>
+      </li>
+      <li><b>Caso 2: m = 1, n &gt; 1</b><br>
+        <span class="math">a₁₁x₁ + ... + a₁ₙxₙ = b₁</span><br>
+        <ul>
+          <li>Se tutti i coefficienti e il termine noto sono zero: equazione identica, infinite soluzioni.</li>
+          <li>Se tutti i coefficienti sono zero ma il termine noto è diverso da zero: nessuna soluzione.</li>
+          <li>Se almeno un coefficiente è diverso da zero: si può scegliere liberamente <span class="math">n-1</span> incognite e calcolare la rimanente. Quindi ci sono infinite soluzioni (parametriche).</li>
+        </ul>
+      </li>
+      <li><b>Caso 3: m, n &gt; 1</b><br>
+        Si riduce il sistema a gradini e si eliminano eventuali equazioni identiche (<span class="math">0 = 0</span>). Si ottengono i seguenti casi:
+        <ul>
+          <li>Se compare una riga del tipo <span class="math">0 = c</span> con <span class="math">c ≠ 0</span>: il sistema è incompatibile (nessuna soluzione).</li>
+          <li>Se il numero di pivot (equazioni indipendenti) è uguale al numero di incognite (<span class="math">m = n</span>): il sistema è determinato (unica soluzione).</li>
+          <li>Se il numero di pivot è minore del numero di incognite (<span class="math">m &lt; n</span>): il sistema è indeterminato (infinite soluzioni parametriche, alcune incognite sono libere).</li>
+        </ul>
+      </li>
+    </ul>
+    <b>Esempi:</b>
+    <ul>
+      <li><b>Determinato:</b> sistema con una sola soluzione.</li>
+      <li><b>Indeterminato:</b> sistema con infinite soluzioni, alcune incognite sono parametri liberi.</li>
+      <li><b>Incompatibile:</b> sistema senza soluzioni (ad esempio, una riga <span class="math">0 = 2</span>).</li>
+    </ul>
+    <b>Nota:</b> Un sistema omogeneo ha sempre almeno la soluzione banale (tutte le incognite nulle). Se ne ha una diversa, allora ne ha infinite.
+  </div>
+</body>
+</html>
