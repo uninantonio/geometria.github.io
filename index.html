@@ -99,9 +99,16 @@
       border: 1px solid #b3c6e7;
       padding: 8px;
       text-align: center;
-    }
-    th {
+    }    th {
       background: #f3f7ff;
+    }
+    .sub {
+      font-size: 0.8em;
+      vertical-align: sub;
+    }
+    .sup {
+      font-size: 0.8em;
+      vertical-align: super;
     }
   </style>
 </head>
@@ -197,9 +204,8 @@
     Il <b>prodotto righe per colonne</b> tra due matrici è possibile solo se il <b>numero di colonne della prima matrice</b> è uguale al <b>numero di righe della seconda</b>.<br>
     Se <span class="math">A</span> è una matrice <span class="math">n × m</span> e <span class="math">B</span> è una matrice <span class="math">m × l</span>, il prodotto <span class="math">AB</span> è una matrice <span class="math">n × l</span> (cioè ha il numero di righe della prima e il numero di colonne della seconda).
     <br><br>
-    Per calcolare l’elemento nella posizione <span class="math">(i, j)</span> del prodotto, si prende la riga <span class="math">i</span> di <span class="math">A</span> e la colonna <span class="math">j</span> di <span class="math">B</span>, si moltiplicano i termini corrispondenti e si sommano:
-    <pre class="math">
-(AB)<sub>ij</sub> = a<sub>i,1</sub>·b<sub>1,j</sub> + a<sub>i,2</sub>·b<sub>2,j</sub> + ... + a<sub>i,m</sub>·b<sub>m,j</sub>
+    Per calcolare l’elemento nella posizione <span class="math">(i, j)</span> del prodotto, si prende la riga <span class="math">i</span> di <span class="math">A</span> e la colonna <span class="math">j</span> di <span class="math">B</span>, si moltiplicano i termini corrispondenti e si sommano:    <pre class="math">
+(AB)<span class="sub">ij</span> = a<span class="sub">i,1</span>·b<span class="sub">1,j</span> + a<span class="sub">i,2</span>·b<span class="sub">2,j</span> + ... + a<span class="sub">i,m</span>·b<span class="sub">m,j</span>
     </pre>
     In altre parole, ogni elemento del risultato si ottiene facendo il prodotto scalare tra una riga della prima matrice e una colonna della seconda.
     <br>Il risultato avrà tante righe quante la prima matrice e tante colonne quante la seconda matrice.
@@ -217,9 +223,8 @@
     <b>Dimostrazione dettagliata (passo passo):</b>
     <div class="step">1. Siano <span class="math">A</span> di dimensione <span class="math">n × m</span> e <span class="math">B</span> di dimensione <span class="math">m × l</span>.</div>
     <div class="step">2. Per poter moltiplicare <span class="math">A</span> e <span class="math">B</span>, il numero di colonne di <span class="math">A</span> (<span class="math">m</span>) deve essere uguale al numero di righe di <span class="math">B</span> (<span class="math">m</span>).</div>
-    <div class="step">3. Il risultato <span class="math">C = AB</span> sarà una matrice di dimensione <span class="math">n × l</span>.</div>
-    <div class="step">4. L'elemento <span class="math">c<sub>ij</sub></span> si calcola così:<br>
-      <span class="math">c<sub>ij</sub> = a<sub>i,1</sub>·b<sub>1,j</sub> + a<sub>i,2</sub>·b<sub>2,j</sub> + ... + a<sub>i,m</sub>·b<sub>m,j</sub></span>
+    <div class="step">3. Il risultato <span class="math">C = AB</span> sarà una matrice di dimensione <span class="math">n × l</span>.</div>    <div class="step">4. L'elemento <span class="math">c<span class="sub">ij</span></span> si calcola così:<br>
+      <span class="math">c<span class="sub">ij</span> = a<span class="sub">i,1</span>·b<span class="sub">1,j</span> + a<span class="sub">i,2</span>·b<span class="sub">2,j</span> + ... + a<span class="sub">i,m</span>·b<span class="sub">m,j</span></span>
     </div>
     <div class="step">5. Si ripete questo calcolo per ogni coppia di riga (di <span class="math">A</span>) e colonna (di <span class="math">B</span>).</div>
     <div class="step">6. Alla fine, si ottiene una matrice in cui ogni elemento è il risultato di un prodotto riga per colonna.</div>
@@ -266,21 +271,18 @@
   </div>
   <div class="def">
     La trasposta di una matrice si ottiene scambiando righe e colonne.
-    <ul>
-      <li><b>(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup></b></li>
-      <li><b>(A<sup>T</sup>)<sup>T</sup> = A</b></li>
-      <li><b>(hA + kB)<sup>T</sup> = hA<sup>T</sup> + kB<sup>T</sup></b></li>
-      <li><b>(A + B)<sup>T</sup> = A<sup>T</sup> + B<sup>T</sup></b></li>
-      <li><b>(A<sup>T</sup> + B<sup>T</sup>)<sup>T</sup> = A + B</b></li>
+    <ul>      <li><b>(AB)<span class="sup">T</span> = B<span class="sup">T</span>A<span class="sup">T</span></b></li>
+      <li><b>(A<span class="sup">T</span>)<span class="sup">T</span> = A</b></li>
+      <li><b>(hA + kB)<span class="sup">T</span> = hA<span class="sup">T</span> + kB<span class="sup">T</span></b></li>
+      <li><b>(A + B)<span class="sup">T</span> = A<span class="sup">T</span> + B<span class="sup">T</span></b></li>
+      <li><b>(A<span class="sup">T</span> + B<span class="sup">T</span>)<span class="sup">T</span> = A + B</b></li>
     </ul>
 </div>
-  <div class="proof">
-    <b>Dimostrazione di (AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup> (passo passo):</b>
-    <div class="step">1. Siano <span class="math">C = AB</span>, <span class="math">D = (AB)<sup>T</sup> = C<sup>T</sup></span>, <span class="math">E = B<sup>T</sup>A<sup>T</sup></span>.</div>
-    <div class="step">2. L'elemento <span class="math">d<sub>ij</sub></span> di <span class="math">D</span> è uguale all'elemento <span class="math">c<sub>ji</sub></span> di <span class="math">C<sup>T</sup></span> (cioè scambiamo riga e colonna).</div>
-    <div class="step">3. L'elemento <span class="math">c<sub>ji</sub></span> di <span class="math">C<sup>T</sup></span> si ottiene facendo il prodotto riga per colonna tra la j-esima riga di <span class="math">A</span> e la i-esima colonna di <span class="math">B</span>.</div>
-    <div class="step">4. Se calcoliamo <span class="math">B<sup>T</sup>A<sup>T</sup></span>, otteniamo lo stesso valore perché la trasposizione scambia l'ordine delle moltiplicazioni.</div>
-    <div class="step">5. Quindi <span class="math">(AB)<sup>T</sup> = B<sup>T</sup>A<sup>T</sup></span>.</div>
+  <div class="proof">    <b>Dimostrazione di (AB)<span class="sup">T</span> = B<span class="sup">T</span>A<span class="sup">T</span> (passo passo):</b>
+    <div class="step">1. Siano <span class="math">C = AB</span>, <span class="math">D = (AB)<span class="sup">T</span> = C<span class="sup">T</span></span>, <span class="math">E = B<span class="sup">T</span>A<span class="sup">T</span></span>.</div>
+    <div class="step">2. L'elemento <span class="math">d<span class="sub">ij</span></span> di <span class="math">D</span> è uguale all'elemento <span class="math">c<span class="sub">ji</span></span> di <span class="math">C<span class="sup">T</span></span> (cioè scambiamo riga e colonna).</div>
+    <div class="step">3. L'elemento <span class="math">c<span class="sub">ji</span></span> di <span class="math">C<span class="sup">T</span></span> si ottiene facendo il prodotto riga per colonna tra la j-esima riga di <span class="math">A</span> e la i-esima colonna di <span class="math">B</span>.</div>    <div class="step">4. Se calcoliamo <span class="math">B<span class="sup">T</span>A<span class="sup">T</span></span>, otteniamo lo stesso valore perché la trasposizione scambia l'ordine delle moltiplicazioni.</div>
+    <div class="step">5. Quindi <span class="math">(AB)<span class="sup">T</span> = B<span class="sup">T</span>A<span class="sup">T</span></span>.</div>
   </div>
 
   <h3>Matrice a gradini</h3>
@@ -748,26 +750,21 @@
     <b>Dimostrazione della Relazione di Grassmann (dettagliata):</b>
     <div class="step"><b>Caso 1:</b> Se H ∩ K = {0} ⇒ H ⊕ K ed è dimostrata banalmente dalla proposizione precedente sulle somme dirette.</div>
     <div class="step"><b>Caso 2:</b> Supponiamo H ∩ K ≠ {0} ⇒ dim(H ∩ K) = t &gt; 0.</div>
-    <div class="step">Prendiamo una base e₁, ..., eₜ di H ∩ K e andiamo a completarla:</div>
-    <div class="step">• come base di H: e₁, ..., eₜ, h_{t+1}, ..., h_r con dim H = r</div>
-    <div class="step">• come base di K: e₁, ..., eₜ, k_{t+1}, ..., k_s con dim K = s</div>
-    <div class="step">Consideriamo l'insieme e₁, ..., eₜ, h_{t+1}, ..., h_r, k_{t+1}, ..., k_s che ha r + s - t elementi.</div>
+    <div class="step">Prendiamo una base e₁, ..., eₜ di H ∩ K e andiamo a completarla:</div>    <div class="step">• come base di H: e₁, ..., eₜ, h<span class="sub">t+1</span>, ..., h<span class="sub">r</span> con dim H = r</div>
+    <div class="step">• come base di K: e₁, ..., eₜ, k<span class="sub">t+1</span>, ..., k<span class="sub">s</span> con dim K = s</div>
+    <div class="step">Consideriamo l'insieme e₁, ..., eₜ, h<span class="sub">t+1</span>, ..., h<span class="sub">r</span>, k<span class="sub">t+1</span>, ..., k<span class="sub">s</span> che ha r + s - t elementi.</div>
     <div class="step"><b>Dobbiamo dimostrare che questo è una base di H + K:</b></div>
     
-    <div class="step"><b>1) Sistema di generatori:</b> Per definizione ∃v ∈ H + K ⇒ ∃h ∈ H, k ∈ K : v = h + k</div>
-    <div class="step">dove h è combinazione lineare di e₁, ..., eₜ, h_{t+1}, ..., h_r e k è combinazione lineare di e₁, ..., eₜ, k_{t+1}, ..., k_s</div>
-    <div class="step">Quindi v sarà combinazione lineare di e₁, ..., eₜ, h_{t+1}, ..., h_r, k_{t+1}, ..., k_s.</div>
+    <div class="step"><b>1) Sistema di generatori:</b> Per definizione ∃v ∈ H + K ⇒ ∃h ∈ H, k ∈ K : v = h + k</div>    <div class="step">dove h è combinazione lineare di e₁, ..., eₜ, h<span class="sub">t+1</span>, ..., h<span class="sub">r</span> e k è combinazione lineare di e₁, ..., eₜ, k<span class="sub">t+1</span>, ..., k<span class="sub">s</span></div>
+    <div class="step">Quindi v sarà combinazione lineare di e₁, ..., eₜ, h<span class="sub">t+1</span>, ..., h<span class="sub">r</span>, k<span class="sub">t+1</span>, ..., k<span class="sub">s</span>.</div>
     
-    <div class="step"><b>2) Sistema linearmente indipendente:</b> Prendiamo una combinazione lineare generica:</div>
-    <div class="step">a₁e₁ +⋯+ aₜeₜ + a_{t+1}h_{t+1} +⋯+ a_rh_r + b_{t+1}k_{t+1} +⋯+ b_sk_s = 0</div>
-    <div class="step">Scriviamo: x = a₁e₁ +⋯+ aₜeₜ + a_{t+1}h_{t+1} +⋯+ a_rh_r = -b_{t+1}k_{t+1} -⋯- b_sk_s</div>
+    <div class="step"><b>2) Sistema linearmente indipendente:</b> Prendiamo una combinazione lineare generica:</div>    <div class="step">a₁e₁ +⋯+ aₜeₜ + a<span class="sub">t+1</span>h<span class="sub">t+1</span> +⋯+ a<span class="sub">r</span>h<span class="sub">r</span> + b<span class="sub">t+1</span>k<span class="sub">t+1</span> +⋯+ b<span class="sub">s</span>k<span class="sub">s</span> = 0</div>
+    <div class="step">Scriviamo: x = a₁e₁ +⋯+ aₜeₜ + a<span class="sub">t+1</span>h<span class="sub">t+1</span> +⋯+ a<span class="sub">r</span>h<span class="sub">r</span> = -b<span class="sub">t+1</span>k<span class="sub">t+1</span> -⋯- b<span class="sub">s</span>k<span class="sub">s</span></div>
     <div class="step">Il membro sinistro appartiene a H, quello destro a K, quindi x ∈ H ∩ K = ⟨e₁, ..., eₜ⟩</div>
-    <div class="step">Quindi: x = c₁e₁ +⋯+ cₜeₜ per alcuni c₁, ..., cₜ ∈ ℝ</div>
-    <div class="step">Ma anche: -b_{t+1}k_{t+1} -⋯- b_sk_s = c₁e₁ +⋯+ cₜeₜ</div>
-    <div class="step">Ovvero: c₁e₁ +⋯+ cₜeₜ + b_{t+1}k_{t+1} +⋯+ b_sk_s = 0</div>
-    <div class="step">Poiché e₁, ..., eₜ, k_{t+1}, ..., k_s è base di K, tutti i coefficienti sono nulli: c₁ = ⋯ = cₜ = b_{t+1} = ⋯ = b_s = 0</div>
-    <div class="step">Quindi x = a₁e₁ +⋯+ aₜeₜ + a_{t+1}h_{t+1} +⋯+ a_rh_r = 0</div>
-    <div class="step">Poiché e₁, ..., eₜ, h_{t+1}, ..., h_r è base di H, tutti i coefficienti sono nulli: a₁ = ⋯ = aₜ = a_{t+1} = ⋯ = a_r = 0</div>
+    <div class="step">Quindi: x = c₁e₁ +⋯+ cₜeₜ per alcuni c₁, ..., cₜ ∈ ℝ</div>    <div class="step">Ma anche: -b<span class="sub">t+1</span>k<span class="sub">t+1</span> -⋯- b<span class="sub">s</span>k<span class="sub">s</span> = c₁e₁ +⋯+ cₜeₜ</div>
+    <div class="step">Ovvero: c₁e₁ +⋯+ cₜeₜ + b<span class="sub">t+1</span>k<span class="sub">t+1</span> +⋯+ b<span class="sub">s</span>k<span class="sub">s</span> = 0</div>
+    <div class="step">Poiché e₁, ..., eₜ, k<span class="sub">t+1</span>, ..., k<span class="sub">s</span> è base di K, tutti i coefficienti sono nulli: c₁ = ⋯ = cₜ = b<span class="sub">t+1</span> = ⋯ = b<span class="sub">s</span> = 0</div>    <div class="step">Quindi x = a₁e₁ +⋯+ aₜeₜ + a<span class="sub">t+1</span>h<span class="sub">t+1</span> +⋯+ a<span class="sub">r</span>h<span class="sub">r</span> = 0</div>
+    <div class="step">Poiché e₁, ..., eₜ, h<span class="sub">t+1</span>, ..., h<span class="sub">r</span> è base di H, tutti i coefficienti sono nulli: a₁ = ⋯ = aₜ = a<span class="sub">t+1</span> = ⋯ = a<span class="sub">r</span> = 0</div>
     
     <div class="step"><b>Conclusione:</b> dim(H + K) = r + s - t = dim H + dim K - dim(H ∩ K)</div>
   </div>
@@ -818,9 +815,8 @@
   </div>
 
   <h3>Matrice complementare e complemento algebrico</h3>
-  <div class="def">
-    <p><b>Matrice complementare:</b> Per ogni elemento a<sub>ij</sub> di A, la matrice complementare A(i,j) si ottiene cancellando la riga i e la colonna j dalla matrice A.</p>
-    <p><b>Complemento algebrico:</b> A<sub>ij</sub> = (-1)<sup>i+j</sup> det A(i,j)</p>
+  <div class="def">    <p><b>Matrice complementare:</b> Per ogni elemento a<span class="sub">ij</span> di A, la matrice complementare A(i,j) si ottiene cancellando la riga i e la colonna j dalla matrice A.</p>
+    <p><b>Complemento algebrico:</b> A<span class="sub">ij</span> = (-1)<span class="sup">i+j</span> det A(i,j)</p>
   </div>
 
   <h3>Definizione ricorsiva del determinante</h3>
@@ -858,7 +854,7 @@
   <h3>Proprietà del determinante</h3>
   <div class="def">
     <ol>
-      <li><b>det A = det A<sup>T</sup></b> (il determinante è invariante per trasposizione)</li>
+      <li><b>det A = det A<span class="sup">T</span></b> (il determinante è invariante per trasposizione)</li>
       <li><b>Se una riga dipende dalle rimanenti allora det A = 0</b>
         <br><span class="note">Corollario: se det A ≠ 0 allora le righe sono linearmente indipendenti</span></li>
       <li><b>Teorema di Cauchy-Binet:</b> Per A, B ∈ ℝⁿˣⁿ: det(AB) = det(A) · det(B)</li>
